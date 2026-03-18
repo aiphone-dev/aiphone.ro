@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Învață cum să planifici o vacanță completă în doar 10 minute folosind inteligența artificială de pe telefonul tău Android sau iOS.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Cum să planifici o vacanță completă în 10 minute cu AI — AIphone.ro">
+  <meta property="og:description" content="Tutoriale pas cu pas: planifică destinații, itinerariu, buget și lista de împachetat cu ajutorul AI pe telefon.">
+  <meta property="og:type" content="article">
+  <title>Cum să planifici o vacanță completă în 10 minute cu AI — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Article Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cum să planifici o vacanță completă în 10 minute cu AI",
+    "description": "Ghid complet pas cu pas pentru a planifica o vacanță folosind inteligența artificială de pe telefonul tău.",
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "datePublished": "2026-03-15",
+    "dateModified": "2026-03-19",
+    "mainEntityOfPage": {
+      "@type": "WebPage"
+    },
+    "articleSection": "Tutoriale",
+    "keywords": ["AI", "vacanță", "planificare", "Gemini", "Siri", "Android", "iOS"]
+  }
+  </script>
+
+  <style>
+    /* Article Layout */
+    .article-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: #ff00e5;
+    }
+    .breadcrumb .sep {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+    .article-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 60%, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .meta-badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(0,212,255,0.12);
+      color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.2);
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #00d4ff;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      margin-bottom: 0.4rem;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter) ". ";
+      color: #ff00e5;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .toc a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: #00d4ff;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,212,255,0.15);
+    }
+    .article-content h2 .step-num {
+      color: #00d4ff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #fff;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .article-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .article-content em {
+      color: #00d4ff;
+      font-style: normal;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      background: rgba(0,212,255,0.08);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    /* Tip / Info boxes */
+    .tip-box {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .tip-box.tip-magenta {
+      background: rgba(255,0,229,0.06);
+      border-left-color: #ff00e5;
+    }
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Example prompt block */
+    .prompt-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      position: relative;
+    }
+    .prompt-block::before {
+      content: 'Exemplu prompt';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: #0a0a0f;
+      padding: 0 0.5rem;
+      font-size: 0.7rem;
+      color: #ff00e5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    /* Share Buttons */
+    .share-section {
+      margin: 3rem 0 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .share-section h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+    }
+
+    /* Next Tutorial */
+    .next-tutorial {
+      display: block;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,0,229,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .next-tutorial:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.12);
+    }
+    .next-tutorial span.label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff00e5;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+    .next-tutorial span.title {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrapper {
+        padding: 1.25rem 1rem 3rem;
+      }
+      .article-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasă</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-wrapper">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Acasă</a>
+        <span class="sep">/</span>
+        <a href="../tutoriale.html">Tutoriale</a>
+        <span class="sep">/</span>
+        <span>Planifică o vacanță cu AI</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <h1>Cum să planifici o vacanță completă în 10 minute cu AI</h1>
+        <div class="article-meta">
+          <span>&#128337; 10 min citire</span>
+          <span><span class="meta-badge">Începător</span></span>
+          <span>&#128241; Android &amp; iOS</span>
+          <span>&#128197; 15 martie 2026</span>
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Cuprins">
+        <h2>Cuprins</h2>
+        <ol>
+          <li><a href="#pas1">Deschide asistentul AI (Gemini / Siri)</a></li>
+          <li><a href="#pas2">Cere-i să sugereze destinații bazat pe preferințe</a></li>
+          <li><a href="#pas3">Planifică itinerariul zilnic</a></li>
+          <li><a href="#pas4">Estimează bugetul</a></li>
+          <li><a href="#pas5">Creează lista de împachetat</a></li>
+        </ol>
+      </nav>
+
+      <!-- Article Content -->
+      <div class="article-content">
+        <p>
+          Planificarea unei vacanțe poate fi copleșitoare: destinații, hoteluri, itinerariu, buget, bagaje. Dar cu inteligența artificială de pe telefonul tău, poți transforma ore de cercetare în doar <strong>10 minute de conversație</strong> cu un asistent AI. În acest tutorial îți arătăm exact cum.
+        </p>
+
+        <div class="tip-box">
+          <strong>Ce ai nevoie</strong>
+          Un telefon Android cu Google Gemini sau un telefon iOS cu Siri. Asigură-te că ai o conexiune la internet activă.
+        </div>
+
+        <!-- Step 1 -->
+        <h2 id="pas1"><span class="step-num">Pasul 1.</span> Deschide asistentul AI</h2>
+        <p>
+          Primul lucru pe care trebuie să-l faci este să deschizi asistentul AI de pe telefonul tău. Procesul diferă ușor în funcție de sistemul de operare:
+        </p>
+        <h3>Pe Android (Google Gemini)</h3>
+        <ul>
+          <li>Ține apăsat butonul de pornire sau spune <em>"Hey Google"</em></li>
+          <li>Dacă nu ai Gemini activat, descarcă aplicația <strong>Google Gemini</strong> din Play Store</li>
+          <li>Deschide aplicația și asigură-te că ești conectat cu contul tău Google</li>
+        </ul>
+        <h3>Pe iOS (Siri)</h3>
+        <ul>
+          <li>Spune <em>"Hey Siri"</em> sau ține apăsat butonul lateral</li>
+          <li>Pe modelele compatibile cu Apple Intelligence, Siri poate gestiona cereri complexe de planificare</li>
+          <li>Alternativ, poți folosi aplicația ChatGPT sau Google Gemini din App Store</li>
+        </ul>
+
+        <div class="tip-box tip-magenta">
+          <strong>Sfat pro</strong>
+          Google Gemini funcționează excelent pentru planificarea vacanțelor deoarece poate accesa informații actualizate despre destinații, prețuri și condiții meteo.
+        </div>
+
+        <!-- Step 2 -->
+        <h2 id="pas2"><span class="step-num">Pasul 2.</span> Cere sugestii de destinații bazate pe preferințe</h2>
+        <p>
+          Acum vine partea distractivă. Spune-i asistentului AI ce tip de vacanță cauți, iar el îți va sugera destinații personalizate. Cu cât îi dai mai multe detalii, cu atât sugestiile vor fi mai bune.
+        </p>
+        <p>Iată ce informații poți include:</p>
+        <ul>
+          <li><strong>Tipul vacanței:</strong> relaxare la plajă, aventură, city-break, natură, cultură</li>
+          <li><strong>Bugetul estimativ:</strong> economic, mediu sau premium</li>
+          <li><strong>Durata:</strong> weekend, o săptămână, două săptămâni</li>
+          <li><strong>Perioada:</strong> luna sau sezonul în care vrei să călătorești</li>
+          <li><strong>Preferințe speciale:</strong> mâncare, sporturi, copii, animale de companie</li>
+        </ul>
+
+        <div class="prompt-block">
+          "Sugerează-mi 5 destinații pentru o vacanță de 7 zile în iulie, pentru un cuplu, cu buget mediu (1500-2500 EUR total), care să includă plajă și vizite culturale. Preferăm Europa de Sud."
+        </div>
+
+        <p>
+          AI-ul îți va oferi o listă de destinații cu argumente pro și contra pentru fiecare. Poți continua conversația cerându-i mai multe detalii despre oricare destinație care te interesează.
+        </p>
+
+        <!-- Step 3 -->
+        <h2 id="pas3"><span class="step-num">Pasul 3.</span> Planifică itinerariul zilnic</h2>
+        <p>
+          După ce ai ales destinația, cere-i asistentului AI să creeze un itinerariu complet, zi de zi. Acesta este unul dintre cele mai utile lucruri pe care AI-ul le poate face, deoarece poate organiza logic atracțiile în funcție de locație și program.
+        </p>
+
+        <div class="prompt-block">
+          "Creează un itinerariu detaliat pentru 7 zile în Lisabona, Portugalia. Include atracții turistice, restaurante locale cu prețuri medii, transport între locații și ore recomandate pentru fiecare activitate. Adu în vedere că ne place arta, mâncarea locală și plimbările pe jos."
+        </div>
+
+        <p>AI-ul va genera un plan structurat care de obicei include:</p>
+        <ul>
+          <li><strong>Programul pe ore</strong> — dimineața, prânzul, după-amiaza, seara</li>
+          <li><strong>Atracții recomandate</strong> cu scurtă descriere și timp estimat de vizitare</li>
+          <li><strong>Restaurante</strong> cu tip de bucătărie și nivel de prețuri</li>
+          <li><strong>Sfaturi de transport</strong> — metrou, tramvai, pe jos, taxi</li>
+          <li><strong>Alternative pentru zile ploioase</strong> dacă ceri acest lucru</li>
+        </ul>
+
+        <div class="tip-box">
+          <strong>Sfat important</strong>
+          Întotdeauna verifică informațiile primite de la AI (ore de funcționare, prețuri de bilete) pe site-urile oficiale ale atracțiilor. AI-ul poate oferi date care nu mai sunt actuale.
+        </div>
+
+        <!-- Step 4 -->
+        <h2 id="pas4"><span class="step-num">Pasul 4.</span> Estimează bugetul</h2>
+        <p>
+          Unul dintre cele mai stresante aspecte ale planificării unei vacanțe este bugetul. AI-ul te poate ajuta să creezi o estimare detaliată, împărțită pe categorii.
+        </p>
+
+        <div class="prompt-block">
+          "Estimează bugetul complet pentru vacanța de 7 zile în Lisabona pentru 2 persoane. Include: zborul din București, cazare (hotel 3-4 stele), mâncare (3 mese/zi), transport local, bilete la atracții și un fond de urgență de 10%. Afișează totalul în EUR și RON."
+        </div>
+
+        <p>AI-ul va crea un tabel sau o listă detaliată cu:</p>
+        <ul>
+          <li><strong>Transport:</strong> zbor, transfer aeroport, transport local zilnic</li>
+          <li><strong>Cazare:</strong> cost pe noapte x număr de nopți</li>
+          <li><strong>Mâncare:</strong> mic dejun, prânz, cină, gustări</li>
+          <li><strong>Activități:</strong> bilete de intrare, tururi ghidate, excursii</li>
+          <li><strong>Diverse:</strong> suveniruri, asigurare de călătorie, roaming</li>
+          <li><strong>Fond de urgență:</strong> 10% din total</li>
+        </ul>
+        <p>
+          Poți cere AI-ului să ajusteze bugetul dacă suma totală depășește ce ai planificat. Spune-i, de exemplu: <em>"Reduce bugetul la 2000 EUR. Ce compromisuri recomandați?"</em> — și va sugera alternative mai economice.
+        </p>
+
+        <!-- Step 5 -->
+        <h2 id="pas5"><span class="step-num">Pasul 5.</span> Creează lista de împachetat</h2>
+        <p>
+          Ultimul pas este să te asiguri că nu uiți nimic acasă. AI-ul poate genera o listă de împachetat personalizată bazată pe destinație, durată, vreme și activitățile planificate.
+        </p>
+
+        <div class="prompt-block">
+          "Creează o listă de împachetat pentru vacanța de 7 zile în Lisabona în iulie. Suntem un cuplu. Include haine, produse de igienă, electronice, documente și orice altceva relevant. Organizează lista pe categorii."
+        </div>
+
+        <p>Lista generată de AI va fi organizată inteligent pe categorii:</p>
+        <ul>
+          <li><strong>Documente:</strong> pașaport/buletin, bilete de avion, rezervare hotel, asigurare</li>
+          <li><strong>Haine:</strong> adaptate la vremea din destinație și activitățile planificate</li>
+          <li><strong>Igienă:</strong> produse esențiale, protecție solară, medicamente</li>
+          <li><strong>Electronice:</strong> încărcătoare, adaptor priză, baterie externă</li>
+          <li><strong>Diverse:</strong> ghid turistic, sticlă de apă reutilizabilă, rucsac de zi</li>
+        </ul>
+
+        <div class="tip-box tip-magenta">
+          <strong>Bonus</strong>
+          Poți cere AI-ului să transforme lista de împachetat într-o listă cu checkbox-uri pe care o poți copia în aplicația de notițe de pe telefon (Google Keep, Notițe iOS). Astfel bifezi fiecare element pe măsură ce îl pui în bagaj.
+        </div>
+
+        <h2>Concluzie</h2>
+        <p>
+          Cu acești 5 pași simpli, ai reușit să planifici o vacanță completă în mai puțin de 10 minute. Asistentul AI de pe telefonul tău devine astfel cel mai bun agent de turism personal — disponibil 24/7, gratuit și personalizat pe preferințele tale.
+        </p>
+        <p>
+          Reține că AI-ul este un instrument excelent de planificare, dar întotdeauna verifică informațiile critice (zboruri, rezervări, vize) pe sursele oficiale. Folosește-l ca punct de plecare și ajustează planul după nevoile tale reale.
+        </p>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-section">
+        <h3>Distribuie acest tutorial</h3>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="share-btn" href="https://wa.me/?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copiat!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiază link
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Tutorial -->
+      <a href="editeaza-poze-cu-ai.html" class="next-tutorial">
+        <span class="label">Tutorial următor &rarr;</span>
+        <span class="title">Editează fotografii ca un profesionist cu AI</span>
+      </a>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tutoriale AI pas cu pas pentru Android și iOS. Învață să folosești Inteligența Artificială pe telefonul tău.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Tutoriale AI — AIphone.ro">
+  <meta property="og:description" content="Tutoriale pas cu pas pentru a folosi AI pe Android și iOS. De la planificarea vacanțelor la editarea fotografiilor.">
+  <meta property="og:type" content="website">
+  <title>Tutoriale AI — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <style>
+    /* ===== Tutorials Page Styles ===== */
+
+    /* Hero (smaller than homepage) */
+    .tutorials-hero {
+      min-height: auto;
+      padding: 10rem 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .tutorials-hero .hero-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .tutorials-hero .hero-glow--blue {
+      top: 0;
+      left: 20%;
+      background: var(--neon-blue);
+    }
+
+    .tutorials-hero .hero-glow--magenta {
+      bottom: 0;
+      right: 20%;
+      background: var(--neon-magenta);
+    }
+
+    .tutorials-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .tutorials-hero-content .hero-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .tutorials-hero-content .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-secondary);
+      max-width: 550px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Filter Buttons */
+    .filter-section {
+      padding: 0 2rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .filter-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-subtle);
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: var(--font-main);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--neon-blue);
+      color: var(--neon-blue);
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .filter-btn.active {
+      background: var(--gradient-main);
+      color: #0a0a0f;
+      border-color: transparent;
+      font-weight: 600;
+      box-shadow: 0 0 20px var(--neon-blue-glow);
+    }
+
+    /* Tutorial Grid */
+    .tutorials-grid-section {
+      padding: 0 2rem 6rem;
+    }
+
+    .tutorials-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Tutorial Card */
+    .tut-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tut-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      padding: 1px;
+      background: var(--gradient-main);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+
+    .tut-card:hover::before {
+      opacity: 1;
+    }
+
+    .tut-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .tut-card-header {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(255, 0, 229, 0.06));
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .tut-card-emoji {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .tut-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .tut-card-badge--incepator {
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      color: var(--neon-blue);
+    }
+
+    .tut-card-badge--intermediar {
+      background: rgba(255, 0, 229, 0.12);
+      border: 1px solid rgba(255, 0, 229, 0.25);
+      color: var(--neon-magenta);
+    }
+
+    .tut-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .tut-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .tut-card-description {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .tut-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .tut-card-meta .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .tut-card-meta .meta-icon {
+      font-size: 0.85rem;
+    }
+
+    .tut-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 50px;
+      background: var(--gradient-main);
+      color: #0a0a0f;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: var(--font-main);
+      text-decoration: none;
+      transition: all var(--transition);
+      align-self: flex-start;
+      box-shadow: 0 0 20px var(--neon-blue-glow);
+    }
+
+    .tut-card-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--neon-blue-glow), 0 0 60px rgba(0, 212, 255, 0.15);
+      color: #0a0a0f;
+    }
+
+    .tut-card-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--transition);
+    }
+
+    .tut-card-link:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Hidden cards (filtered out) */
+    .tut-card.hidden {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .tutorials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tutorials-hero {
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      .filter-section {
+        padding: 0 1.5rem 2rem;
+      }
+
+      .tutorials-grid-section {
+        padding: 0 1.5rem 4rem;
+      }
+
+      .tutorials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .filter-buttons {
+        gap: 0.4rem;
+      }
+
+      .filter-btn {
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="tutoriale.html" style="color: var(--neon-blue);">Tutoriale</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="despre.html">Despre</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Search Toggle -->
+      <button class="nav-btn" id="searchToggle" aria-label="Caută">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+
+      <!-- Theme Toggle -->
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <!-- Mobile Nav Toggle -->
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Caută tutoriale, funcții AI..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-hint">Încearcă: <span class="search-tag">Gemini</span> <span class="search-tag">Galaxy AI</span> <span class="search-tag">Apple Intelligence</span> <span class="search-tag">Siri</span> <span class="search-tag">vacanță</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="tutorials-hero">
+      <div class="hero-glow hero-glow--blue" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--magenta" aria-hidden="true"></div>
+
+      <div class="tutorials-hero-content">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          Ghiduri pas cu pas
+        </div>
+
+        <h1 class="hero-title">
+          Tutoriale <span class="gradient-text">AI</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Învață să folosești puterea Inteligenței Artificiale de pe telefonul tău. Tutoriale practice, pas cu pas, pentru Android și iOS.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== FILTERS ========== -->
+    <div class="filter-section reveal">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="toate">Toate</button>
+        <button class="filter-btn" data-filter="incepator">Începător</button>
+        <button class="filter-btn" data-filter="intermediar">Intermediar</button>
+        <button class="filter-btn" data-filter="android">Android</button>
+        <button class="filter-btn" data-filter="ios">iOS</button>
+      </div>
+    </div>
+
+    <!-- ========== TUTORIALS GRID ========== -->
+    <section class="tutorials-grid-section">
+      <div class="tutorials-grid reveal">
+
+        <!-- Card 1 -->
+        <article class="tut-card" data-level="incepator" data-platform="android ios">
+          <div class="tut-card-header">
+            <span class="tut-card-emoji">🏖️</span>
+            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
+            <h3 class="tut-card-title">Cum să planifici o vacanță completă în 10 minute cu AI</h3>
+          </div>
+          <div class="tut-card-body">
+            <p class="tut-card-description">Folosește asistentul AI de pe telefon pentru a planifica o vacanță de la A la Z: destinație, cazare, traseu zilnic și buget estimat.</p>
+            <div class="tut-card-meta">
+              <span class="meta-item"><span class="meta-icon">⏱️</span> 10 min</span>
+              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
+              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+            </div>
+            <a href="tutoriale/planifica-vacanta-cu-ai.html" class="tut-card-link">
+              Citește
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="tut-card" data-level="incepator" data-platform="android ios">
+          <div class="tut-card-header">
+            <span class="tut-card-emoji">📸</span>
+            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
+            <h3 class="tut-card-title">Editează fotografii ca un profesionist cu AI</h3>
+          </div>
+          <div class="tut-card-body">
+            <p class="tut-card-description">Descoperă cum poți îmbunătăți, retușa și transforma fotografiile tale folosind funcțiile AI integrate în telefon.</p>
+            <div class="tut-card-meta">
+              <span class="meta-item"><span class="meta-icon">⏱️</span> 8 min</span>
+              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
+              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+            </div>
+            <a href="tutoriale/editeaza-fotografii-cu-ai.html" class="tut-card-link">
+              Citește
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="tut-card" data-level="incepator" data-platform="android ios">
+          <div class="tut-card-header">
+            <span class="tut-card-emoji">✉️</span>
+            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
+            <h3 class="tut-card-title">Scrie emailuri perfecte în 30 de secunde cu AI</h3>
+          </div>
+          <div class="tut-card-body">
+            <p class="tut-card-description">Învață să compui emailuri profesionale, prietenoase sau formale cu ajutorul AI, în doar câteva secunde.</p>
+            <div class="tut-card-meta">
+              <span class="meta-item"><span class="meta-icon">⏱️</span> 5 min</span>
+              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
+              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+            </div>
+            <a href="tutoriale/scrie-emailuri-cu-ai.html" class="tut-card-link">
+              Citește
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="tut-card" data-level="intermediar" data-platform="android ios">
+          <div class="tut-card-header">
+            <span class="tut-card-emoji">🌍</span>
+            <div><span class="tut-card-badge tut-card-badge--intermediar">Intermediar</span></div>
+            <h3 class="tut-card-title">Traduceri instantanee în conversații cu AI</h3>
+          </div>
+          <div class="tut-card-body">
+            <p class="tut-card-description">Comunică fluent în orice limbă folosind funcțiile de traducere AI în timp real, direct din conversațiile tale.</p>
+            <div class="tut-card-meta">
+              <span class="meta-item"><span class="meta-icon">⏱️</span> 7 min</span>
+              <span class="meta-item"><span class="meta-icon">📊</span> Intermediar</span>
+              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+            </div>
+            <a href="tutoriale/traduceri-instantanee-cu-ai.html" class="tut-card-link">
+              Citește
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="tut-card" data-level="incepator" data-platform="android ios">
+          <div class="tut-card-header">
+            <span class="tut-card-emoji">📄</span>
+            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
+            <h3 class="tut-card-title">Rezumă documente lungi cu un singur tap</h3>
+          </div>
+          <div class="tut-card-body">
+            <p class="tut-card-description">Economisește timp transformând documente, articole sau PDF-uri lungi în rezumate concise cu ajutorul AI.</p>
+            <div class="tut-card-meta">
+              <span class="meta-item"><span class="meta-icon">⏱️</span> 6 min</span>
+              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
+              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+            </div>
+            <a href="tutoriale/rezuma-documente-cu-ai.html" class="tut-card-link">
+              Citește
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="tut-card" data-level="intermediar" data-platform="android ios">
+          <div class="tut-card-header">
+            <span class="tut-card-emoji">🎨</span>
+            <div><span class="tut-card-badge tut-card-badge--intermediar">Intermediar</span></div>
+            <h3 class="tut-card-title">Creează imagini unice cu AI de pe telefon</h3>
+          </div>
+          <div class="tut-card-body">
+            <p class="tut-card-description">Generează imagini originale, ilustrații și artă digitală folosind aplicații AI disponibile pe smartphone-ul tău.</p>
+            <div class="tut-card-meta">
+              <span class="meta-item"><span class="meta-icon">⏱️</span> 12 min</span>
+              <span class="meta-item"><span class="meta-icon">📊</span> Intermediar</span>
+              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+            </div>
+            <a href="tutoriale/creeaza-imagini-cu-ai.html" class="tut-card-link">
+              Citește
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>🍪 Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <!-- Cookie Settings Panel -->
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+
+  <!-- Filter Logic -->
+  <script>
+    (function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.tut-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+
+          cards.forEach(card => {
+            if (filter === 'toate') {
+              card.classList.remove('hidden');
+              return;
+            }
+
+            const level = card.dataset.level;
+            const platform = card.dataset.platform;
+
+            if (filter === 'incepator' || filter === 'intermediar') {
+              card.classList.toggle('hidden', level !== filter);
+            } else if (filter === 'android' || filter === 'ios') {
+              card.classList.toggle('hidden', !platform.includes(filter));
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

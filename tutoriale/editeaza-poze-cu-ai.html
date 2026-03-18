@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Învață cum să editezi fotografii ca un profesionist folosind funcțiile AI de pe telefonul tău Android sau iOS. Ștergere obiecte, îmbunătățire automată, schimbare fundal și multe altele.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Editează fotografii ca un profesionist cu AI — AIphone.ro">
+  <meta property="og:description" content="Tutorial pas cu pas: editează poze cu AI direct de pe telefon. Ștergere obiecte, îmbunătățire calitate, efecte creative.">
+  <meta property="og:type" content="article">
+  <title>Editează fotografii ca un profesionist cu AI — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Article Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Editează fotografii ca un profesionist cu AI",
+    "description": "Ghid complet pas cu pas pentru editarea fotografiilor cu inteligență artificială direct de pe telefonul tău.",
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "datePublished": "2026-03-19",
+    "dateModified": "2026-03-19",
+    "mainEntityOfPage": {
+      "@type": "WebPage"
+    },
+    "articleSection": "Tutoriale",
+    "keywords": ["AI", "editare foto", "Magic Eraser", "Clean Up", "Android", "iOS", "editare poze"]
+  }
+  </script>
+
+  <style>
+    /* Article Layout */
+    .article-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: #ff00e5;
+    }
+    .breadcrumb .sep {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+    .article-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 60%, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .meta-badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(0,212,255,0.12);
+      color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.2);
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #00d4ff;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      margin-bottom: 0.4rem;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter) ". ";
+      color: #ff00e5;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .toc a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: #00d4ff;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,212,255,0.15);
+    }
+    .article-content h2 .step-num {
+      color: #00d4ff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #fff;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .article-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .article-content em {
+      color: #00d4ff;
+      font-style: normal;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      background: rgba(0,212,255,0.08);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    /* Tip / Info boxes */
+    .tip-box {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .tip-box.tip-magenta {
+      background: rgba(255,0,229,0.06);
+      border-left-color: #ff00e5;
+    }
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Example prompt block */
+    .prompt-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      position: relative;
+    }
+    .prompt-block::before {
+      content: 'Exemplu prompt';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: #0a0a0f;
+      padding: 0 0.5rem;
+      font-size: 0.7rem;
+      color: #ff00e5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    /* Share Buttons */
+    .share-section {
+      margin: 3rem 0 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .share-section h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+    }
+
+    /* Next Tutorial */
+    .next-tutorial {
+      display: block;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,0,229,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .next-tutorial:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.12);
+    }
+    .next-tutorial span.label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff00e5;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+    .next-tutorial span.title {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrapper {
+        padding: 1.25rem 1rem 3rem;
+      }
+      .article-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasă</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-wrapper">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Acasă</a>
+        <span class="sep">/</span>
+        <a href="../tutoriale.html">Tutoriale</a>
+        <span class="sep">/</span>
+        <span>Editează fotografii cu AI</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <h1>&#128248; Editează fotografii ca un profesionist cu AI</h1>
+        <div class="article-meta">
+          <span>&#128337; 8 min citire</span>
+          <span><span class="meta-badge">Începător</span></span>
+          <span>&#128241; Android &amp; iOS</span>
+          <span>&#128197; 19 martie 2026</span>
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Cuprins">
+        <h2>Cuprins</h2>
+        <ol>
+          <li><a href="#pas1">Deschide galeria foto și selectează o fotografie</a></li>
+          <li><a href="#pas2">Folosește funcția de ștergere obiecte cu AI</a></li>
+          <li><a href="#pas3">Îmbunătățește calitatea imaginii automat cu AI</a></li>
+          <li><a href="#pas4">Schimbă fundalul sau adaugă efecte creative</a></li>
+          <li><a href="#pas5">Salvează și partajează rezultatul final</a></li>
+        </ol>
+      </nav>
+
+      <!-- Article Content -->
+      <div class="article-content">
+        <p>
+          Ai făcut o fotografie aproape perfectă, dar un obiect deranjant apare în fundal? Sau poate lumina nu a fost ideală, iar culorile arată șterse? Cu funcțiile de inteligență artificială integrate în telefoanele moderne, poți transforma orice fotografie într-una profesională — <strong>fără nicio experiență în editare</strong> și în mai puțin de 8 minute.
+        </p>
+
+        <div class="tip-box">
+          <strong>Ce ai nevoie</strong>
+          Un telefon Android cu Google Foto sau un telefon iOS cu aplicația Foto. Majoritatea funcțiilor AI sunt disponibile gratuit pe dispozitivele recente. Pentru funcții avansate, poți folosi și aplicații precum Snapseed, Samsung Gallery Editor sau alte editoare cu AI.
+        </div>
+
+        <!-- Step 1 -->
+        <h2 id="pas1"><span class="step-num">Pasul 1.</span> Deschide galeria foto și selectează o fotografie</h2>
+        <p>
+          Primul pas este să deschizi aplicația de galerie foto de pe telefonul tău și să alegi fotografia pe care vrei să o editezi. Este important să selectezi o imagine cu rezoluție bună, deoarece funcțiile AI funcționează mai bine pe fotografii de calitate ridicată.
+        </p>
+        <h3>Pe Android</h3>
+        <ul>
+          <li>Deschide aplicația <strong>Google Foto</strong> sau galeria implicită a telefonului tău</li>
+          <li>Navighează prin albume sau folosește bara de căutare — poți scrie <em>"plajă"</em>, <em>"mâncare"</em> sau chiar <em>"poze cu pisici"</em>, iar AI-ul va găsi automat fotografiile relevante</li>
+          <li>Apasă pe fotografia dorită pentru a o deschide în mod vizualizare completă</li>
+        </ul>
+        <h3>Pe iOS</h3>
+        <ul>
+          <li>Deschide aplicația <strong>Foto</strong> de pe ecranul principal</li>
+          <li>Folosește funcția de căutare inteligentă — AI-ul recunoaște automat persoane, locații, obiecte și chiar texte din fotografii</li>
+          <li>Selectează fotografia pe care vrei să o editezi și apasă pe <em>"Editare"</em> sau iconița de editare</li>
+        </ul>
+        <p>
+          Odată ce ai deschis fotografia în modul de editare, vei vedea o serie de instrumente în partea de jos a ecranului. Funcțiile alimentate de AI sunt de obicei marcate cu o pictogramă specială sau sunt grupate într-o secțiune separată numită <strong>Instrumente</strong> sau <strong>Tools</strong>.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Sfat pro</strong>
+          Înainte de a începe editarea, creează o copie a fotografiei originale. Majoritatea aplicațiilor salvează modificările non-destructiv, dar este întotdeauna bine să ai o copie de siguranță.
+        </div>
+
+        <!-- Step 2 -->
+        <h2 id="pas2"><span class="step-num">Pasul 2.</span> Folosește funcția de ștergere obiecte cu AI (Magic Eraser / Clean Up)</h2>
+        <p>
+          Aceasta este una dintre cele mai impresionante funcții AI disponibile pe telefoanele moderne. Cu un simplu gest, poți elimina persoane, obiecte sau elemente nedorite din fotografii, iar AI-ul va reconstrui automat fundalul în mod natural, ca și cum obiectul nu ar fi existat niciodată.
+        </p>
+        <p>
+          Pe Android, funcția se numește <strong>Magic Eraser</strong> (disponibilă în Google Foto). Pe iOS, funcția echivalentă se numește <strong>Clean Up</strong> și este disponibilă pe dispozitivele compatibile. Ambele funcționează pe același principiu: selectezi obiectul nedorit, iar inteligența artificială îl elimină și completează zona cu texturi și culori care se potrivesc cu restul imaginii.
+        </p>
+        <p>Pentru a folosi această funcție:</p>
+        <ul>
+          <li>Deschide fotografia în modul de editare și accesează secțiunea <strong>Instrumente</strong></li>
+          <li>Selectează <em>"Magic Eraser"</em>, <em>"Clean Up"</em> sau <em>"Ștergere obiecte"</em></li>
+          <li>Încercuiește sau colorează peste obiectul pe care vrei să-l elimini — AI-ul va detecta automat conturul</li>
+          <li>Așteaptă câteva secunde și verifică rezultatul. Dacă nu ești mulțumit, apasă <strong>Anulare</strong> și încearcă din nou cu o selecție mai precisă</li>
+        </ul>
+
+        <div class="tip-box">
+          <strong>Sfat important</strong>
+          Funcția de ștergere AI dă cele mai bune rezultate pe fundaluri uniforme sau cu texturi repetitive (cer, iarbă, nisip, apă). Pe fundaluri complexe cu multe detalii, poate fi necesară o retuș manuală suplimentară.
+        </div>
+
+        <!-- Step 3 -->
+        <h2 id="pas3"><span class="step-num">Pasul 3.</span> Îmbunătățește calitatea imaginii automat cu AI</h2>
+        <p>
+          După ce ai curățat fotografia de elemente nedorite, este timpul să-i îmbunătățești calitatea generală. Funcțiile de îmbunătățire automată bazate pe AI analizează fotografia și ajustează automat luminozitatea, contrastul, saturația culorilor și claritatea — totul cu un singur buton.
+        </p>
+        <p>
+          Cele mai utile funcții de îmbunătățire AI pe care le vei găsi pe telefon includ:
+        </p>
+        <ul>
+          <li><strong>Auto-enhance / Îmbunătățire automată:</strong> ajustează global toate parametrii imaginii pentru cel mai bun rezultat posibil</li>
+          <li><strong>HDR:</strong> recuperează detalii din zonele foarte luminoase sau foarte întunecate ale fotografiei</li>
+          <li><strong>Reducerea zgomotului (Noise Reduction):</strong> elimină grainul vizibil din fotografiile făcute pe timp de noapte sau în condiții de lumină slabă</li>
+          <li><strong>Clarificare (Sharpen):</strong> mărește claritatea detaliilor fine, util pentru portrete și fotografii de aproape</li>
+          <li><strong>Corecție culoare:</strong> ajustează automat balansul de alb și temperatura culorilor pentru un aspect natural</li>
+        </ul>
+        <p>
+          Pe Google Foto, apasă butonul <em>"Îmbunătățire"</em> sau <em>"Enhance"</em> din bara de editare. Pe iOS, funcția <em>"Ajustare automată"</em> se activează prin apăsarea pictogramei cu bagheta magică. AI-ul va analiza imaginea în câteva secunde și va aplica toate corecțiile necesare simultan.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Bonus</strong>
+          Unele telefoane recente oferă funcția de <strong>Photo Unblur</strong> (pe Android) sau echivalentul pe iOS, care poate salva fotografii mișcate sau neclare. AI-ul reconstruiește detaliile lipsă și oferă o imagine mult mai clară decât originalul.
+        </div>
+
+        <!-- Step 4 -->
+        <h2 id="pas4"><span class="step-num">Pasul 4.</span> Schimbă fundalul sau adaugă efecte creative</h2>
+        <p>
+          Inteligența artificială nu se limitează doar la corecții tehnice — poate fi folosită și pentru transformări creative spectaculoase. Una dintre cele mai populare funcții este <strong>schimbarea fundalului</strong>: AI-ul detectează automat subiectul principal (persoană, animal, obiect), îl decupează cu precizie și îți permite să înlocuiești fundalul cu orice altceva.
+        </p>
+        <p>
+          Pentru a schimba fundalul unei fotografii:
+        </p>
+        <ul>
+          <li>Accesează funcția <em>"Portret"</em>, <em>"Cutout"</em> sau <em>"Fundal"</em> din editorul foto</li>
+          <li>AI-ul va detecta automat subiectul și va separa fundalul</li>
+          <li>Alege un fundal nou: poți selecta o culoare solidă, un gradient, o altă fotografie din galerie sau un fundal generat de AI</li>
+          <li>Ajustează marginile decupajului dacă este necesar — cele mai bune editoare AI oferă o tranziție naturală între subiect și fundal</li>
+        </ul>
+        <p>
+          Pe lângă schimbarea fundalului, poți experimenta cu <strong>efecte de stil artistic</strong> (style transfer). Această funcție transformă fotografia ta într-o operă de artă în stilul unui pictor celebru, o ilustrație anime, un desen în creion sau alte stiluri vizuale. Funcția este disponibilă în aplicații precum Google Foto, Samsung Gallery și multe editoare terțe cu AI integrat.
+        </p>
+
+        <div class="prompt-block">
+          Încearcă diferite combinații: fotografii portret cu fundal de natură, fotografii de produs pe fundal alb, sau selfie-uri cu efecte artistice. AI-ul face toată munca grea — tu doar alegi stilul care îți place.
+        </div>
+
+        <!-- Step 5 -->
+        <h2 id="pas5"><span class="step-num">Pasul 5.</span> Salvează și partajează rezultatul final</h2>
+        <p>
+          După ce ai terminat editarea, este important să salvezi fotografia în calitate maximă și să o partajezi corect. Modul în care salvezi și distribui imaginea poate face diferența între o fotografie care arată impecabil și una care pierde din calitate.
+        </p>
+        <p>
+          Când salvezi fotografia editată, ține cont de următoarele aspecte:
+        </p>
+        <ul>
+          <li><strong>Salvează o copie:</strong> apasă <em>"Salvează ca o copie"</em> sau <em>"Save copy"</em> pentru a păstra și originalul neatins</li>
+          <li><strong>Alege formatul corect:</strong> pentru fotografii cu multe detalii, folosește formatul PNG (fără pierdere de calitate); pentru partajare rapidă, JPEG este suficient</li>
+          <li><strong>Verifică rezoluția:</strong> asigură-te că fotografia salvată păstrează rezoluția originală, nu o versiune comprimată</li>
+          <li><strong>Folosește stocarea cloud:</strong> activează sincronizarea automată cu Google Foto sau iCloud pentru a nu pierde niciodată editările</li>
+        </ul>
+        <p>
+          Pentru partajarea pe rețelele sociale, fiecare platformă are cerințe diferite. Postările pe feed arată cel mai bine cu raportul 4:5 (portret) sau 1:1 (pătrat). Pentru povești (Stories) și Reels, folosește formatul 9:16 (vertical, ecran complet). Majoritatea aplicațiilor de editare AI îți permit să redimensionezi fotografia direct înainte de partajare, astfel încât să se potrivească perfect pe orice platformă.
+        </p>
+
+        <div class="tip-box">
+          <strong>Sfat important</strong>
+          Când partajezi pe WhatsApp sau Messenger, aceste aplicații comprimă automat fotografiile. Pentru a trimite o imagine la calitate maximă, folosește opțiunea <em>"Trimite ca document"</em> în loc de <em>"Trimite ca fotografie"</em>. Astfel, destinatarul primește fișierul original, fără compresie.
+        </div>
+
+        <h2>Concluzie</h2>
+        <p>
+          Cu acești 5 pași, ai învățat să transformi orice fotografie într-una de calitate profesională, folosind doar telefonul tău și puterea inteligenței artificiale. De la eliminarea obiectelor nedorite și îmbunătățirea calității, până la schimbarea fundalului și adăugarea de efecte creative — toate aceste operațiuni care necesitau anterior ore de lucru în programe profesionale se realizează acum în câteva secunde.
+        </p>
+        <p>
+          Experimentează cu diferite fotografii și funcții AI pentru a descoperi ce funcționează cel mai bine pentru stilul tău. Cu cât folosești mai mult aceste instrumente, cu atât vei deveni mai priceput în a obține rezultate spectaculoase cu minimum de efort.
+        </p>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-section">
+        <h3>Distribuie acest tutorial</h3>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="share-btn" href="https://wa.me/?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copiat!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiază link
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Tutorial -->
+      <a href="scrie-emailuri-cu-ai.html" class="next-tutorial">
+        <span class="label">Tutorial următor &rarr;</span>
+        <span class="title">Scrie emailuri profesionale cu AI</span>
+      </a>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
