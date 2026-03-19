@@ -1,7 +1,7 @@
 /* ============================================
    AI Phone - Hub Educational
    Tema: Premium Cyber Tech - Dark Mode + Light Mode
-   Advanced effects: glassmorphism, glitch, neon, 3D, scanlines
+   Effects: glassmorphism, neon, 3D
    ============================================ */
 
 /* --- Reset & Base --- */
@@ -125,15 +125,6 @@
 
 [data-theme="light"] .section-title {
   text-shadow: none;
-}
-
-[data-theme="light"] .scanline-overlay {
-  display: none;
-}
-
-[data-theme="light"] .glitch::before,
-[data-theme="light"] .glitch::after {
-  display: none;
 }
 
 html {
@@ -260,92 +251,6 @@ img {
 }
 
 /* ============================================
-   SCANLINE OVERLAY (CRT Effect)
-   ============================================ */
-.scanline-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.015) 2px,
-    rgba(0, 0, 0, 0.015) 4px
-  );
-  animation: scanlineMove 8s linear infinite;
-}
-
-@keyframes scanlineMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(4px); }
-}
-
-/* ============================================
-   GLITCH EFFECT
-   Cyberpunk text glitch with clip-path
-   ============================================ */
-.glitch {
-  position: relative;
-  display: inline-block;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.glitch::before {
-  color: var(--neon-cyan);
-  text-shadow: -2px 0 var(--neon-cyan);
-  animation: glitchTop 3s infinite linear alternate-reverse;
-  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-}
-
-.glitch::after {
-  color: var(--neon-magenta);
-  text-shadow: 2px 0 var(--neon-magenta);
-  animation: glitchBottom 2.5s infinite linear alternate-reverse;
-  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
-}
-
-@keyframes glitchTop {
-  0% { transform: translate(0); }
-  2% { transform: translate(2px, -1px); }
-  4% { transform: translate(-2px, 1px); }
-  6% { transform: translate(0); }
-  100% { transform: translate(0); }
-}
-
-@keyframes glitchBottom {
-  0% { transform: translate(0); }
-  3% { transform: translate(-2px, 1px); }
-  6% { transform: translate(2px, -1px); }
-  9% { transform: translate(0); }
-  100% { transform: translate(0); }
-}
-
-/* ============================================
-   FLOATING ANIMATION
-   Gentle up-down float
-   ============================================ */
-.float {
-  animation: floatUpDown 4s ease-in-out infinite;
-}
-
-@keyframes floatUpDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-/* ============================================
    ANIMATED GRADIENT BORDER KEYFRAMES
    Rotating conic-gradient border for cards
    ============================================ */
@@ -385,16 +290,13 @@ img {
 @keyframes neonPulse {
   0%, 100% {
     box-shadow:
-      0 0 20px var(--neon-blue-glow),
-      0 0 40px rgba(0, 212, 255, 0.1),
-      inset 0 0 20px rgba(0, 212, 255, 0.05);
+      0 0 12px var(--neon-blue-glow),
+      0 0 24px rgba(0, 212, 255, 0.06);
   }
   50% {
     box-shadow:
-      0 0 30px var(--neon-blue-glow),
-      0 0 60px rgba(0, 212, 255, 0.2),
-      0 0 90px rgba(0, 212, 255, 0.08),
-      inset 0 0 30px rgba(0, 212, 255, 0.08);
+      0 0 18px var(--neon-blue-glow),
+      0 0 36px rgba(0, 212, 255, 0.1);
   }
 }
 
@@ -592,7 +494,7 @@ main {
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 30px rgba(0, 212, 255, 0.08), 0 0 60px rgba(255, 0, 229, 0.04);
+  text-shadow: none;
 }
 
 .section-title .highlight {
@@ -689,7 +591,7 @@ main {
   line-height: 1.05;
   letter-spacing: -0.05em;
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 40px rgba(0, 212, 255, 0.1), 0 0 80px rgba(255, 0, 229, 0.05);
+  text-shadow: none;
 }
 
 .hero-title .line {
@@ -759,7 +661,7 @@ main {
 .btn-primary {
   background: var(--gradient-main);
   color: #0a0a0f;
-  animation: neonPulse 3s ease-in-out infinite;
+  animation: neonPulse 8s ease-in-out infinite;
 }
 
 .btn-primary:hover {
@@ -823,35 +725,6 @@ main {
   height: 4px;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.1);
-}
-
-/* Screen flicker/glow effect */
-.phone-mockup::after {
-  content: '';
-  position: absolute;
-  inset: 16px 8px 8px;
-  border-radius: 16px;
-  opacity: 0;
-  animation: screenFlicker 6s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.phone-mockup--android::after {
-  background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.08), transparent 70%);
-}
-
-.phone-mockup--ios::after {
-  background: radial-gradient(ellipse at center, rgba(255, 0, 229, 0.08), transparent 70%);
-}
-
-@keyframes screenFlicker {
-  0%, 100% { opacity: 0; }
-  10% { opacity: 1; }
-  11% { opacity: 0.3; }
-  12% { opacity: 1; }
-  50% { opacity: 0.6; }
-  90% { opacity: 1; }
 }
 
 .phone-mockup:hover {
@@ -944,26 +817,6 @@ main {
   height: 5px;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.08);
-}
-
-/* Platform phone screen glow */
-.platform-phone::after {
-  content: '';
-  position: absolute;
-  inset: 24px 12px 12px;
-  border-radius: 22px;
-  opacity: 0;
-  animation: screenFlicker 8s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.platform-phone--android::after {
-  background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.06), transparent 70%);
-}
-
-.platform-phone--ios::after {
-  background: radial-gradient(ellipse at center, rgba(255, 0, 229, 0.06), transparent 70%);
 }
 
 .platform-phone:hover {
@@ -1270,7 +1123,7 @@ main {
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.06);
+  text-shadow: none;
 }
 
 .tutorial-card-body {
@@ -1570,7 +1423,7 @@ main {
   font-weight: 800;
   margin-bottom: 0.75rem;
   letter-spacing: -0.03em;
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.06);
+  text-shadow: none;
 }
 
 .newsletter-text {
