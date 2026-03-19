@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce este Google Gemini si cum il folosesti pe Android? Ghid complet cu activare, functii, trucuri si comparatie cu Google Assistant.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Ce este Google Gemini si cum il folosesti pe Android? — AIphone.ro">
+  <meta property="og:description" content="Ghid complet Google Gemini pe Android: activare, functii, integrari, Gemini Advanced si sfaturi practice.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../img/og-image.png">
+  <title>Ce este Google Gemini si cum il folosesti pe Android? — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ce este Google Gemini si cum il folosesti pe Android?",
+    "description": "Ghid complet Google Gemini pe Android: activare, functii, integrari, Gemini Advanced si sfaturi practice.",
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aiphone.ro/img/og-image.png"
+      }
+    },
+    "datePublished": "2026-03-15",
+    "dateModified": "2026-03-15",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aiphone.ro/blog/google-gemini-android.html"
+    }
+  }
+  </script>
+
+  <style>
+    /* Article Page Styles */
+    .breadcrumb {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--neon-blue);
+    }
+
+    .breadcrumb span {
+      margin: 0 0.4rem;
+    }
+
+    .article-hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .article-hero-emoji {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .article-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .article-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .article-category {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      padding: 0.2rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--neon-blue);
+    }
+
+    .article-hero-tagline {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Article Content */
+    .article-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    .article-section {
+      margin-bottom: 3rem;
+    }
+
+    .article-section h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .article-section h2 .highlight {
+      background: var(--gradient-shift);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease-in-out infinite;
+    }
+
+    .article-section p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .article-section ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-section ul li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding-left: 0.25rem;
+    }
+
+    .article-section ul li strong {
+      color: var(--text-primary);
+    }
+
+    /* Next Article Link */
+    .next-review {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      text-align: right;
+    }
+
+    .next-review a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--neon-blue);
+      transition: all var(--transition);
+    }
+
+    .next-review a:hover {
+      color: var(--neon-magenta);
+      text-shadow: 0 0 10px var(--neon-magenta-glow);
+    }
+
+    /* Share Section */
+    .review-share {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .breadcrumb {
+        padding: 5.5rem 1.5rem 0.5rem;
+      }
+
+      .article-hero {
+        padding: 1.5rem 1.5rem 1rem;
+      }
+
+      .article-content,
+      .next-review,
+      .review-share {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principala">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasa</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../imei/index.html">IMEI Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="searchToggle" aria-label="Cauta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-btn" id="themeToggle" aria-label="Schimba tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Cauta tutoriale, functii AI..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-hint">Incearca: <span class="search-tag">Gemini</span> <span class="search-tag">Galaxy AI</span> <span class="search-tag">Apple Intelligence</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Acasa</a> <span>/</span>
+      <a href="../blog.html">Blog</a> <span>/</span>
+      Ce este Google Gemini si cum il folosesti pe Android?
+    </div>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+      <span class="article-hero-emoji">&#x2728;</span>
+      <h1>Ce este Google <span class="gradient-text">Gemini</span> si cum il folosesti pe Android?</h1>
+      <div class="article-meta">
+        <span>&#128197; 15 Martie 2026</span>
+        <span class="article-category">Android</span>
+        <span>&#128336; 10 min citire</span>
+      </div>
+      <p class="article-hero-tagline">Tot ce trebuie sa stii despre noul asistent AI de la Google: cum il activezi, ce poate face si cum sa profiti la maximum de el pe telefonul tau Android.</p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Article Content -->
+    <div class="article-content">
+
+      <section class="article-section reveal">
+        <h2>Ce este Google <span class="highlight">Gemini</span>?</h2>
+        <p>Google Gemini reprezinta urmatoarea generatie de inteligenta artificiala dezvoltata de Google, fiind construit pe baza celui mai avansat model de limbaj al companiei. Lansat initial sub numele de Bard in 2023, proiectul a fost complet transformat si redenumit in Gemini la inceputul anului 2024, marcand o schimbare fundamentala in modul in care Google abordeaza inteligenta artificiala pe dispozitivele mobile. Spre deosebire de Google Assistant, care functiona pe baza unui sistem de comenzi predefinite si integrari limitate, Gemini foloseste un model de limbaj de tip Large Language Model (LLM) care poate intelege contexte complexe, genera text creativ si analiza informatii din surse multiple simultan.</p>
+        <p>Modelul AI din spatele Gemini a fost antrenat pe un volum urias de date, ceea ce ii permite sa inteleaga si sa genereze text in zeci de limbi, inclusiv romana. Arhitectura sa multimodala inseamna ca poate procesa nu doar text, ci si imagini, cod de programare si chiar documente complexe. Google a investit masiv in dezvoltarea acestui model, iar rezultatele se vad in calitatea raspunsurilor, care sunt semnificativ mai naturale si mai detaliate decat cele oferite de generatia anterioara de asistenti virtuali.</p>
+        <p>Evolutia de la Google Assistant la Gemini nu este doar o schimbare de nume, ci o regandire completa a modului in care interactionam cu telefonul. Daca Assistant era proiectat sa execute comenzi simple precum setarea alarmelor sau trimiterea mesajelor, Gemini poate sustine conversatii complexe, poate analiza fotografii din galeria ta, poate scrie texte elaborate si poate oferi sfaturi personalizate pe baza contextului conversatiei. Este, in esenta, trecerea de la un asistent cu functii limitate la un partener de conversatie inteligent, capabil sa te ajute in sarcini mult mai diverse si mai complexe.</p>
+      </section>
+
+      <section class="article-section reveal">
+        <h2>Cum activezi <span class="highlight">Gemini</span> pe Android</h2>
+        <p>Activarea Google Gemini pe un telefon Android este un proces simplu, dar care necesita cativa pasi specifici. In primul rand, trebuie sa te asiguri ca telefonul tau ruleaza Android 12 sau o versiune mai recenta si ca ai un cont Google activ. Deschide Google Play Store si cauta aplicatia "Google Gemini". Descarca si instaleaza aplicatia, iar dupa prima deschidere vei fi ghidat printr-un proces de configurare care iti va explica functiile principale si iti va cere sa accepti termenii de utilizare.</p>
+        <p>Dupa instalare, unul dintre cele mai importante lucruri pe care le poti face este sa inlocuiesti Google Assistant cu Gemini ca asistent principal. Pentru aceasta, deschide aplicatia Setari pe telefonul tau, navigheaza la sectiunea "Aplicatii" sau "Apps", apoi selecteaza "Aplicatii implicite" sau "Default apps". Aici vei gasi optiunea "Asistent digital" sau "Digital assistant app". Selecteaza Google Gemini din lista disponibila. De acum inainte, cand apesi lung pe butonul Home, cand faci un gest de swipe din coltul de jos al ecranului sau cand spui "Hey Google", se va deschide Gemini in loc de Assistant.</p>
+        <p>Merita mentionat ca, dupa ce activezi Gemini ca asistent implicit, unele functii care erau disponibile in Google Assistant s-ar putea sa nu fie inca disponibile in Gemini. De exemplu, controlul dispozitivelor smart home si unele comenzi specifice pentru alarme sau rutine pot functiona diferit. Google adauga constant aceste functionalitati in Gemini, dar daca depinzi de anumite automatizari specifice, poti oricand sa revii la Google Assistant din aceleasi setari. Vestea buna este ca poti folosi ambele aplicatii in paralel &mdash; Gemini ca aplicatie separata si Assistant ca asistent implicit &mdash; pana cand esti pregatit sa faci tranzitia completa.</p>
+      </section>
+
+      <section class="article-section reveal">
+        <h2>Ce poate face <span class="highlight">Gemini</span></h2>
+        <p>Capacitatile Google Gemini depasesc cu mult ceea ce ne-am obisnuit de la asistentii virtuali traditionali. In ceea ce priveste generarea de text, Gemini poate scrie emailuri profesionale, articole de blog, scrisori de intentie, postari pentru retele sociale, scenarii creative si chiar poezie. Poti sa ii ceri sa adopte un anumit ton &mdash; formal, prietenos, persuasiv sau academic &mdash; si va adapta textul corespunzator. De exemplu, poti spune "Scrie-mi un email catre seful meu in care cer o zi libera vineri, pe un ton politicos dar direct" si vei primi un text gata de trimis in cateva secunde.</p>
+        <p>Analiza imaginilor este una dintre cele mai impresionante functii ale Gemini. Poti face o fotografie unui meniu intr-un restaurant si sa ceri traducerea sau recomandari de mancare. Poti fotografia o problema de matematica si Gemini o va rezolva pas cu pas. Poti trimite o imagine cu o planta si vei primi informatii despre specie si sfaturi de ingrijire. De asemenea, functia de rezumare este extrem de utila: poti paste un text lung sau un articol si Gemini va extrage punctele cheie intr-un rezumat concis. Aceasta functioneaza excelent pentru studenti care trebuie sa proceseze volume mari de informatie.</p>
+        <p>Pentru programatori si pasionatii de tehnologie, Gemini ofera asistenta solida in scrierea si depanarea codului. Suporta zeci de limbaje de programare, inclusiv Python, JavaScript, Java, C++, Kotlin si Swift. Poate genera functii complete pe baza unei descrieri in limbaj natural, poate explica ce face un anumit bloc de cod si poate identifica buguri. In plus, Gemini este un planificator excelent: poti sa ii ceri sa iti organizeze o vacanta, sa creeze un plan de invatare pentru o noua abilitate sau sa iti structureze un proiect complex in taskuri gestionabile. Combina toate aceste capacitati si obtii un instrument cu adevarat versatil, care te poate ajuta in aproape orice aspect al vietii digitale.</p>
+      </section>
+
+      <section class="article-section reveal">
+        <h2>Gemini in <span class="highlight">aplicatiile Google</span></h2>
+        <p>Una dintre cele mai mari avantaje ale Google Gemini fata de competitie este integrarea sa profunda cu ecosistemul de aplicatii Google. In Gmail, Gemini poate fi folosit pentru a genera raspunsuri la emailuri, a rezuma fire lungi de conversatie si a extrage informatii cheie din mesaje. Daca primesti un email lung de la un coleg cu mai multe cerinte, poti sa il intrebi pe Gemini "Ce mi se cere in acest email?" si va primi o lista clara cu punctele de actiune. De asemenea, poti genera un raspuns complet doar oferind cateva indicii despre ce vrei sa spui.</p>
+        <p>In Google Docs, integrarea cu Gemini deschide posibilitati fascinante pentru crearea de continut. Poti cere AI-ului sa genereze un prim draft al unui document, sa reformuleze paragrafe existente, sa corecteze gramatica sau sa schimbe tonul unui text. In Google Sheets, Gemini poate ajuta la crearea formulelor, la analiza datelor si la generarea de grafice. In Google Maps, AI-ul poate oferi sugestii personalizate de traseu, recomandari de restaurante si informatii detaliate despre locatii, totul intr-un format conversational natural.</p>
+        <p>Integrarea cu YouTube este de asemenea extrem de utila. Gemini poate rezuma videoclipuri, poate raspunde la intrebari despre continutul unui video si poate oferi informatii suplimentare legate de subiectul vizionat. De exemplu, daca urmaresti un tutorial de gatit, poti intreba Gemini despre ingrediente alternative sau tehnici suplimentare de preparare. Toate aceste integrari transforma Gemini dintr-o simpla aplicatie de chat intr-un hub central care conecteaza si imbogateste intreaga experienta Google pe telefonul tau Android.</p>
+      </section>
+
+      <section class="article-section reveal">
+        <h2>Gemini vs <span class="highlight">Google Assistant</span></h2>
+        <p>Comparatia intre Gemini si Google Assistant este inevitabila, mai ales pentru utilizatorii care se intreaba daca merita sa faca tranzitia. In ceea ce priveste intelegerea limbajului natural, Gemini este semnificativ superior. Poate procesa intrebari complexe, cu mai multe straturi, si poate mentine contextul unei conversatii pe parcursul mai multor schimburi de replici. Google Assistant tinde sa piarda contextul dupa una sau doua intrebari consecutive, in timp ce Gemini poate referi informatii mentionate cu zeci de mesaje in urma.</p>
+        <p>Pe de alta parte, Google Assistant ramane superior in anumite zone functionale. Controlul dispozitivelor smart home (lumini inteligente, termostate, camere de securitate) este mai fiabil si mai rapid prin Assistant. Rutinele &mdash; adica secventele automatizate de actiuni declansate de o comanda vocala &mdash; sunt o functie matura in Assistant care inca nu este pe deplin replicata in Gemini. De asemenea, Assistant are o integrare mai profunda cu alarme, timere si navigare telefonica de baza. Daca folosesti mult casa inteligenta si rutinele zilnice, s-ar putea sa simti lipsa unor functii dupa trecerea la Gemini.</p>
+        <p>Totusi, Google lucreaza activ la aducerea tuturor functionalitatilor Assistant in Gemini, iar ritmul de dezvoltare este impresionant. In ultimele luni, Gemini a primit suport pentru controlul muzicii, setarea alarmelor, trimiterea de mesaje si initierea apelurilor. Strategia Google pe termen lung este clara: Gemini va inlocui complet Google Assistant, combinand capacitatile conversationale avansate ale AI-ului modern cu functiile practice ale unui asistent virtual traditional. Pana atunci, recomandarea noastra este sa instalezi Gemini si sa il testezi, dar sa pastrezi optiunea de a reveni la Assistant daca anumite functii iti sunt esentiale.</p>
+      </section>
+
+      <section class="article-section reveal">
+        <h2>Gemini <span class="highlight">Advanced</span></h2>
+        <p>Gemini Advanced este versiunea premium a asistentului AI de la Google, disponibila prin intermediul abonamentului Google One AI Premium, care costa aproximativ 21,99 EUR pe luna. Aceasta versiune ofera acces la cel mai puternic model AI al Google, care poate procesa informatii mai complexe, genera raspunsuri mai detaliate si analiza documente mult mai lungi decat versiunea gratuita. In plus, abonamentul include 2 TB de spatiu de stocare Google One, ceea ce il face atractiv si ca oferta combinata de stocare si AI.</p>
+        <p>Diferentele practice intre Gemini gratuit si Gemini Advanced se simt cel mai mult in sarcinile complexe. Daca trebuie sa analizezi un raport de 50 de pagini, sa scrii un eseu academic detaliat sau sa compari mai multe documente simultan, Advanced ofera rezultate vizibil superioare. Modelul are o fereastra de context mai mare, ceea ce inseamna ca poate "tine minte" si procesa mai multe informatii dintr-o conversatie. De asemenea, Advanced ofera acces prioritar la functiile noi, inclusiv generarea de imagini de calitate superioara si capacitati multimodale extinse.</p>
+        <p>Merita abonamentul? Depinde de utilizarea ta. Daca folosesti Gemini ocazional pentru intrebari rapide si generare de text simplu, versiunea gratuita este mai mult decat suficienta. Daca insa esti student, cercetator, creator de continut sau profesionist care are nevoie de un instrument AI puternic zilnic, investitia in Advanced se justifica. Includerea spatiului de stocare de 2 TB face abonamentul si mai atractiv daca deja platesti pentru Google One. Recomandarea noastra: profita de perioada de proba gratuita de o luna pentru a evalua daca functiile avansate iti aduc valoare reala inainte de a te angaja la un abonament lunar.</p>
+      </section>
+
+      <section class="article-section reveal">
+        <h2>Sfaturi si <span class="highlight">trucuri</span></h2>
+        <p>Pentru a obtine cele mai bune rezultate de la Gemini, calitatea prompturilor tale conteaza enorm. In loc sa intrebi simplu "Spune-mi despre Roma", incearca "Planifica-mi o vacanta de 4 zile in Roma in luna mai, cu buget mediu, incluzand restaurante locale si atractii mai putin cunoscute". Cu cat esti mai specific in cererea ta, cu atat raspunsul va fi mai util si mai personalizat. De asemenea, nu ezita sa ceri Gemini sa iti reformuleze sau sa isi imbunatateasca raspunsul &mdash; poti spune "Fa textul mai scurt", "Adauga mai multe detalii" sau "Schimba tonul in ceva mai formal" si AI-ul va adapta imediat output-ul.</p>
+        <p>Pentru utilizatorii romani, un sfat valoros este ca Gemini functioneaza excelent si in limba romana. Poti scrie in romana si vei primi raspunsuri naturale, cu o gramatica corecta in majoritatea cazurilor. Totusi, pentru subiecte foarte tehnice sau de nisa, s-ar putea sa obtii raspunsuri mai detaliate in engleza, deoarece modelul a fost antrenat pe mai multe date in aceasta limba. Un truc util: poti cere Gemini sa "raspunda in romana, dar sa caute informatii din surse in engleza" pentru a obtine cele mai bune rezultate pe subiecte complexe.</p>
+        <p>Alte sfaturi practice includ folosirea lui Gemini pentru a crea sabloane reutilizabile (emailuri tip, structuri de documente, planuri de proiect), utilizarea functiei de analiza a imaginilor pentru a extrage text din fotografii sau capturi de ecran si integrarea cu Google Workspace pentru productivitate maxima. Experimenteaza cu diferite tipuri de cereri: rezumate, comparatii, liste pro si contra, explicatii pas cu pas, brainstorming de idei. Cu cat folosesti mai mult Gemini si descoperi ce functioneaza cel mai bine pentru nevoile tale, cu atat vei deveni mai eficient in utilizarea acestui instrument puternic de inteligenta artificiala.</p>
+      </section>
+
+    </div>
+
+    <!-- Share -->
+    <div class="review-share">
+      <div class="share-buttons">
+        <span class="share-label">Distribuie:</span>
+        <button class="share-btn share-btn--whatsapp" data-share="whatsapp" aria-label="Distribuie pe WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </button>
+        <button class="share-btn share-btn--facebook" data-share="facebook" aria-label="Distribuie pe Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </button>
+        <button class="share-btn share-btn--x" data-share="x" aria-label="Distribuie pe X">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </button>
+        <button class="share-btn share-btn--copy" data-share="copy" aria-label="Copiaza linkul">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Next Article -->
+    <div class="next-review">
+      <a href="galaxy-ai-functii.html">Articolul urmator: 5 functii Galaxy AI &rarr;</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro &mdash; Hub educational pentru Inteligenta Artificiala pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Inapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimtamant cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>&#x1F36A; Acest site foloseste cookie-uri</strong>
+        <p>Folosim cookie-uri esentiale pentru functionarea site-ului si cookie-uri analitice pentru a intelege cum este utilizat. Poti alege ce cookie-uri accepti.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setari</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz optionale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esentiale</strong>
+          <span>Necesare pentru functionarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajuta sa imbunatatim experienta</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salveaza preferintele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
