@@ -514,13 +514,65 @@
       color: rgba(255,255,255,0.45);
       margin-bottom: 2rem;
     }
+    /* Premium Services Grid */
+    .premium-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .premium-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .premium-card:hover {
+      border-color: rgba(99,102,241,0.3);
+    }
+    .premium-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .premium-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .premium-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .premium-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(251,191,36,0.12);
+      border: 1px solid rgba(251,191,36,0.3);
+      color: #fbbf24;
+    }
+
+    @media (max-width: 640px) {
+      .premium-grid { grid-template-columns: 1fr; }
+    }
+
     .tools-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
 
-    /* Tool Card (accordion) */
+    /* Tool Card (accordion) - kept for potential future use */
     .tool-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
@@ -831,7 +883,7 @@
     <!-- ========== HERO ========== -->
     <section class="imei-hero">
       <div class="imei-hero-badge">
-        100% Gratuit &bull; Fara API &bull; Datele raman pe dispozitivul tau
+        100% Gratuit &bull; Identificare reală &bull; Powered by ImeiCheck.com
       </div>
       <h1 class="imei-hero-title">
         Instrumente <span class="gradient-text">IMEI & Telefon</span>
@@ -913,142 +965,39 @@
 
     </div>
 
-    <!-- ========== ADDITIONAL TOOLS ========== -->
+    <!-- ========== PREMIUM SERVICES (COMING SOON) ========== -->
     <section class="tools-section">
-      <h2 class="tools-section-title">Instrumente Aditionale</h2>
-      <p class="tools-section-sub">Toate uneltele de care ai nevoie, intr-un singur loc</p>
+      <h2 class="tools-section-title">Verificări Premium</h2>
+      <p class="tools-section-sub">Servicii avansate de verificare IMEI &mdash; disponibile în curând</p>
 
-      <div class="tools-grid">
-
-        <!-- Tool: Bulk Check -->
-        <div class="tool-card" id="toolBulk">
-          <div class="tool-header" onclick="toggleTool('toolBulk')">
-            <div class="tool-icon">&#128202;</div>
-            <div class="tool-title">Verificare Bulk IMEI</div>
-            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="tool-body">
-            <div class="tool-content">
-              <div class="tool-group">
-                <label class="tool-label">Introdu mai multe IMEI-uri (cate unul pe linie)</label>
-                <textarea class="tool-textarea" id="bulkInput" placeholder="353325100000001&#10;354406110000002&#10;359016110000003"></textarea>
-              </div>
-              <button class="tool-btn" onclick="bulkCheck()">Verifica Toate</button>
-              <div class="tool-result" id="bulkResult"></div>
-            </div>
-          </div>
+      <div class="premium-grid">
+        <div class="premium-card">
+          <span class="premium-icon">🔍</span>
+          <h3 class="premium-title">Find My iPhone (FMI)</h3>
+          <p class="premium-desc">Verifică dacă funcția Find My iPhone / Find My Device este activată pe dispozitiv.</p>
+          <span class="premium-badge">În curând</span>
         </div>
-
-        <!-- Tool: Dual SIM Detection -->
-        <div class="tool-card" id="toolDualSim">
-          <div class="tool-header" onclick="toggleTool('toolDualSim')">
-            <div class="tool-icon">&#128241;</div>
-            <div class="tool-title">Detectare Dual SIM</div>
-            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="tool-body">
-            <div class="tool-content">
-              <div class="tool-row">
-                <div class="tool-group">
-                  <label class="tool-label">IMEI 1</label>
-                  <input type="text" class="tool-input" id="dualImei1" placeholder="IMEI-ul primului slot" maxlength="18" inputmode="numeric">
-                </div>
-                <div class="tool-group">
-                  <label class="tool-label">IMEI 2</label>
-                  <input type="text" class="tool-input" id="dualImei2" placeholder="IMEI-ul celui de-al doilea slot" maxlength="18" inputmode="numeric">
-                </div>
-              </div>
-              <button class="tool-btn" onclick="dualSimCheck()">Verifica</button>
-              <div class="tool-result" id="dualSimResult"></div>
-            </div>
-          </div>
+        <div class="premium-card">
+          <span class="premium-icon">🚫</span>
+          <h3 class="premium-title">Blacklist Check</h3>
+          <p class="premium-desc">Verifică dacă telefonul este raportat furat sau pierdut în bazele de date internaționale.</p>
+          <span class="premium-badge">În curând</span>
         </div>
-
-        <!-- Tool: Phone Comparison -->
-        <div class="tool-card" id="toolCompare">
-          <div class="tool-header" onclick="toggleTool('toolCompare')">
-            <div class="tool-icon">&#9878;</div>
-            <div class="tool-title">Comparare Telefoane</div>
-            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="tool-body">
-            <div class="tool-content">
-              <div class="tool-row">
-                <div class="tool-group">
-                  <label class="tool-label">Telefon 1</label>
-                  <select class="tool-select" id="comparePhone1"><option value="">Alege modelul...</option></select>
-                </div>
-                <div class="tool-group">
-                  <label class="tool-label">Telefon 2</label>
-                  <select class="tool-select" id="comparePhone2"><option value="">Alege modelul...</option></select>
-                </div>
-              </div>
-              <button class="tool-btn" onclick="comparePhones()">Compara</button>
-              <div class="tool-result" id="compareResult"></div>
-            </div>
-          </div>
+        <div class="premium-card">
+          <span class="premium-icon">🔓</span>
+          <h3 class="premium-title">SimLock / Carrier</h3>
+          <p class="premium-desc">Află dacă telefonul este blocat pe un operator sau liber pentru orice rețea.</p>
+          <span class="premium-badge">În curând</span>
         </div>
-
-        <!-- Tool: PPI Calculator -->
-        <div class="tool-card" id="toolPPI">
-          <div class="tool-header" onclick="toggleTool('toolPPI')">
-            <div class="tool-icon">&#128187;</div>
-            <div class="tool-title">Calculator PPI (Densitate Pixeli)</div>
-            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="tool-body">
-            <div class="tool-content">
-              <div class="tool-row">
-                <div class="tool-group">
-                  <label class="tool-label">Diagonala ecran (inch)</label>
-                  <input type="number" class="tool-input" id="ppiDiag" placeholder="6.7" step="0.1" min="1">
-                </div>
-                <div class="tool-group">
-                  <label class="tool-label">Rezolutie latime (px)</label>
-                  <input type="number" class="tool-input" id="ppiW" placeholder="1440" min="1">
-                </div>
-              </div>
-              <div class="tool-group">
-                <label class="tool-label">Rezolutie inaltime (px)</label>
-                <input type="number" class="tool-input" id="ppiH" placeholder="3200" min="1">
-              </div>
-              <button class="tool-btn" onclick="calcPPI()">Calculeaza PPI</button>
-              <div class="tool-result" id="ppiResult"></div>
-            </div>
-          </div>
+        <div class="premium-card">
+          <span class="premium-icon">🛡️</span>
+          <h3 class="premium-title">Garanție & iCloud</h3>
+          <p class="premium-desc">Verifică statusul garanției producătorului și statusul iCloud (pentru Apple).</p>
+          <span class="premium-badge">În curând</span>
         </div>
-
-        <!-- Tool: Resale Value -->
-        <div class="tool-card" id="toolResale">
-          <div class="tool-header" onclick="toggleTool('toolResale')">
-            <div class="tool-icon">&#128176;</div>
-            <div class="tool-title">Estimare Valoare Revanzare</div>
-            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="tool-body">
-            <div class="tool-content">
-              <div class="tool-row">
-                <div class="tool-group">
-                  <label class="tool-label">Model telefon</label>
-                  <select class="tool-select" id="resaleModel"><option value="">Alege modelul...</option></select>
-                </div>
-                <div class="tool-group">
-                  <label class="tool-label">Stare</label>
-                  <select class="tool-select" id="resaleCondition">
-                    <option value="new">Nou (sigilat)</option>
-                    <option value="excellent">Foarte bun</option>
-                    <option value="good" selected>Bun</option>
-                    <option value="fair">Acceptabil</option>
-                  </select>
-                </div>
-              </div>
-              <button class="tool-btn" onclick="estimateResale()">Estimeaza Pretul</button>
-              <div class="tool-result" id="resaleResult"></div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <p style="text-align:center;margin-top:1.5rem;color:rgba(255,255,255,0.35);font-size:0.85rem;">Vrei să fii notificat când sunt disponibile? <a href="../contact.html" style="color:var(--neon-blue);">Contactează-ne</a></p>
     </section>
 
     <!-- ========== FAQ ========== -->
@@ -1081,7 +1030,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Da. Toate verificarile se fac <strong>100% local in browserul tau</strong>. Nu trimitem niciun IMEI catre vreun server. Baza de date TAC este incarcata direct in pagina, iar toate calculele se fac pe dispozitivul tau. Poti chiar sa folosesti instrumentul offline.</p>
+              <p>Da. Verificarea de bază (validare Luhn, structură IMEI) se face local în browser. Pentru identificarea modelului, IMEI-ul este trimis securizat către baza de date <strong>ImeiCheck.com</strong> prin conexiune HTTPS criptată. Nu stocăm și nu partajăm IMEI-ul tău cu nimeni altcineva.</p>
             </div>
           </details>
         </div>
@@ -1504,219 +1453,11 @@
     }
   }
 
-  // ---- Tool Accordion ----
-  function toggleTool(id) {
-    const card = document.getElementById(id);
-    const wasOpen = card.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('open'));
-    if (!wasOpen) card.classList.add('open');
-  }
-
-  // ---- Bulk Check ----
-  function bulkCheck() {
-    const lines = document.getElementById('bulkInput').value.trim().split('\n').filter(l => l.trim());
-    if (lines.length === 0) { showToast('Introdu cel putin un IMEI'); return; }
-
-    let html = '<table class="bulk-table"><thead><tr><th>IMEI</th><th>Valid</th><th>Model</th></tr></thead><tbody>';
-    lines.forEach(line => {
-      const raw = line.trim().replace(/\D/g, '');
-      if (raw.length !== 15) {
-        html += '<tr><td>' + line.trim() + '</td><td style="color:#f87171">Format invalid</td><td>-</td></tr>';
-        return;
-      }
-      const valid = luhnCheck(raw);
-      const tac = raw.substring(0, 8);
-      const device = window.TAC_DB ? window.TAC_DB[tac] : null;
-      html += '<tr><td>' + raw + '</td><td style="color:' + (valid ? '#34d399' : '#f87171') + '">' + (valid ? '&#10004; Valid' : '&#10008; Invalid') + '</td><td>' + (device ? device.brand + ' ' + device.model : 'Necunoscut') + '</td></tr>';
-    });
-    html += '</tbody></table>';
-
-    const el = document.getElementById('bulkResult');
-    el.innerHTML = html;
-    el.classList.add('active');
-  }
-
-  // ---- Dual SIM Detection ----
-  function dualSimCheck() {
-    const raw1 = document.getElementById('dualImei1').value.replace(/\D/g, '');
-    const raw2 = document.getElementById('dualImei2').value.replace(/\D/g, '');
-
-    if (raw1.length !== 15 || raw2.length !== 15) {
-      showToast('Ambele IMEI-uri trebuie sa aiba 15 cifre');
-      return;
-    }
-
-    const tac1 = raw1.substring(0, 8);
-    const tac2 = raw2.substring(0, 8);
-    const serial1 = parseInt(raw1.substring(8, 14), 10);
-    const serial2 = parseInt(raw2.substring(8, 14), 10);
-
-    const sameTAC = tac1 === tac2;
-    const sequential = sameTAC && Math.abs(serial1 - serial2) === 1;
-
-    let html = '<div style="padding:0.5rem 0;">';
-    if (sequential) {
-      html += '<p style="color:#34d399;font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;">&#10004; Probabil acelasi telefon dual SIM</p>';
-      html += '<p style="color:rgba(255,255,255,0.6);">Cele doua IMEI-uri au acelasi TAC (' + tac1 + ') si numere seriale consecutive (' + serial1 + ' si ' + serial2 + '). Acesta este un indicator puternic ca apartin aceluiasi telefon dual SIM.</p>';
-    } else if (sameTAC) {
-      html += '<p style="color:#fbbf24;font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;">&#9888; Acelasi model, dar nu secventiale</p>';
-      html += '<p style="color:rgba(255,255,255,0.6);">Cele doua IMEI-uri au acelasi TAC (' + tac1 + ') dar numerele seriale nu sunt consecutive. Pot fi din aceeasi serie de productie dar nu neaparat acelasi telefon.</p>';
-    } else {
-      html += '<p style="color:#f87171;font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;">&#10008; Modele diferite</p>';
-      html += '<p style="color:rgba(255,255,255,0.6);">Cele doua IMEI-uri au coduri TAC diferite (' + tac1 + ' vs ' + tac2 + '). Nu apartin aceluiasi model de telefon.</p>';
-    }
-    html += '</div>';
-
-    const el = document.getElementById('dualSimResult');
-    el.innerHTML = html;
-    el.classList.add('active');
-  }
-
-  // ---- Phone Comparison ----
-  function populateCompareDropdowns() {
-    if (!window.TAC_DB) return;
-    const models = [];
-    const seen = new Set();
-    for (const tac in window.TAC_DB) {
-      const d = window.TAC_DB[tac];
-      const key = d.brand + ' ' + d.model;
-      if (!seen.has(key)) {
-        seen.add(key);
-        models.push({ tac, label: key, device: d });
-      }
-    }
-    models.sort((a, b) => a.label.localeCompare(b.label));
-
-    const selects = ['comparePhone1', 'comparePhone2', 'resaleModel'];
-    selects.forEach(id => {
-      const sel = document.getElementById(id);
-      if (!sel) return;
-      const first = sel.options[0];
-      sel.innerHTML = '';
-      sel.appendChild(first);
-      models.forEach(m => {
-        const opt = document.createElement('option');
-        opt.value = m.tac;
-        opt.textContent = m.label;
-        sel.appendChild(opt);
-      });
-    });
-  }
-
-  function comparePhones() {
-    const tac1 = document.getElementById('comparePhone1').value;
-    const tac2 = document.getElementById('comparePhone2').value;
-    if (!tac1 || !tac2) { showToast('Selecteaza ambele modele'); return; }
-
-    const d1 = window.TAC_DB[tac1];
-    const d2 = window.TAC_DB[tac2];
-    if (!d1 || !d2) return;
-
-    const fields = [
-      ['Ecran', 'screen'], ['RAM', 'ram'], ['Stocare', 'storage'],
-      ['Camera', 'camera'], ['Baterie', 'battery'], ['Incarcare', 'charging'],
-      ['OS', 'os'], ['Greutate', 'weight'], ['Retea', 'network'], ['SIM', 'sim'],
-      ['Pret original (RON)', 'price']
-    ];
-
-    let html = '<table class="compare-table"><thead><tr><th>Specificatie</th><th>' + d1.brand + ' ' + d1.model + '</th><th>' + d2.brand + ' ' + d2.model + '</th></tr></thead><tbody>';
-    fields.forEach(([label, key]) => {
-      let v1 = key === 'network' ? (Array.isArray(d1[key]) ? d1[key].join(', ') : d1[key]) : (key === 'price' ? (d1[key] ? d1[key].toLocaleString('ro-RO') + ' RON' : 'N/A') : d1[key]);
-      let v2 = key === 'network' ? (Array.isArray(d2[key]) ? d2[key].join(', ') : d2[key]) : (key === 'price' ? (d2[key] ? d2[key].toLocaleString('ro-RO') + ' RON' : 'N/A') : d2[key]);
-      html += '<tr><td>' + label + '</td><td>' + v1 + '</td><td>' + v2 + '</td></tr>';
-    });
-    html += '</tbody></table>';
-
-    const el = document.getElementById('compareResult');
-    el.innerHTML = html;
-    el.classList.add('active');
-  }
-
-  // ---- PPI Calculator ----
-  function calcPPI() {
-    const diag = parseFloat(document.getElementById('ppiDiag').value);
-    const w = parseInt(document.getElementById('ppiW').value, 10);
-    const h = parseInt(document.getElementById('ppiH').value, 10);
-
-    if (!diag || !w || !h || diag <= 0) {
-      showToast('Completeaza toate campurile');
-      return;
-    }
-
-    const ppi = Math.round(Math.sqrt(w * w + h * h) / diag);
-    let quality = '';
-    if (ppi >= 500) quality = 'Excelent - ultra-sharp';
-    else if (ppi >= 400) quality = 'Foarte bun - retina quality';
-    else if (ppi >= 300) quality = 'Bun - detalii fine';
-    else if (ppi >= 200) quality = 'Mediu - acceptabil';
-    else quality = 'Scazut - pixeli vizibili';
-
-    const el = document.getElementById('ppiResult');
-    el.innerHTML = '<div class="tool-result-value">' + ppi + ' PPI</div>' +
-      '<p style="margin-top:0.5rem;color:rgba(255,255,255,0.5);">Calitate: <strong style="color:#fff;">' + quality + '</strong></p>' +
-      '<p style="margin-top:0.25rem;color:rgba(255,255,255,0.35);font-size:0.85rem;">Formula: sqrt(' + w + '&sup2; + ' + h + '&sup2;) / ' + diag + ' = ' + ppi + '</p>';
-    el.classList.add('active');
-  }
-
-  // ---- Resale Value Estimation ----
-  function estimateResale() {
-    const tac = document.getElementById('resaleModel').value;
-    const condition = document.getElementById('resaleCondition').value;
-    if (!tac) { showToast('Selecteaza un model'); return; }
-
-    const device = window.TAC_DB[tac];
-    if (!device) return;
-
-    if (!device.price) {
-      const el = document.getElementById('resaleResult');
-      el.innerHTML = '<p style="color:#fbbf24;font-weight:600;">Pretul original nu este disponibil pentru acest model.</p>';
-      el.classList.add('active');
-      return;
-    }
-
-    const currentYear = new Date().getFullYear();
-    const age = currentYear - device.year;
-
-    // Depreciation: ~25% first year, ~15% subsequent years
-    let depreciationFactor = 1;
-    if (age >= 1) depreciationFactor -= 0.25;
-    if (age >= 2) depreciationFactor -= 0.15;
-    if (age >= 3) depreciationFactor -= 0.12;
-    if (age >= 4) depreciationFactor -= 0.10;
-    if (age >= 5) depreciationFactor -= 0.08;
-    if (depreciationFactor < 0.15) depreciationFactor = 0.15;
-
-    // Condition multiplier
-    const condMult = { new: 1.0, excellent: 0.9, good: 0.75, fair: 0.55 };
-    const mult = condMult[condition] || 0.75;
-
-    const basePrice = device.price * depreciationFactor * mult;
-    const lowRON = Math.round(basePrice * 0.85 / 10) * 10;
-    const highRON = Math.round(basePrice * 1.15 / 10) * 10;
-    const eurRate = 4.97;
-    const lowEUR = Math.round(lowRON / eurRate);
-    const highEUR = Math.round(highRON / eurRate);
-
-    const condLabels = { new: 'Nou (sigilat)', excellent: 'Foarte bun', good: 'Bun', fair: 'Acceptabil' };
-
-    const el = document.getElementById('resaleResult');
-    el.innerHTML =
-      '<p style="color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">' + device.brand + ' ' + device.model + ' (' + device.year + ') &mdash; Stare: ' + condLabels[condition] + '</p>' +
-      '<div class="price-range">' +
-      '<div class="price-card"><div class="price-card-label">Pret minim</div><div class="price-card-value">' + lowRON.toLocaleString('ro-RO') + ' RON</div><div class="price-card-sub">~' + lowEUR + ' EUR</div></div>' +
-      '<div class="price-card"><div class="price-card-label">Pret maxim</div><div class="price-card-value">' + highRON.toLocaleString('ro-RO') + ' RON</div><div class="price-card-sub">~' + highEUR + ' EUR</div></div>' +
-      '</div>' +
-      '<p style="margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.3);">* Estimare orientativa bazata pe pretul original (' + device.price.toLocaleString('ro-RO') + ' RON), vechime (' + age + ' ani) si starea dispozitivului. Preturile reale pot varia.</p>';
-    el.classList.add('active');
-  }
-
   // ---- Utility ----
   function copyText(text, msg) {
     navigator.clipboard.writeText(text).then(() => {
       showToast(msg || 'Copiat!');
     }).catch(() => {
-      // Fallback
       const ta = document.createElement('textarea');
       ta.value = text;
       ta.style.position = 'fixed';
@@ -1735,26 +1476,6 @@
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2500);
   }
-
-  // ---- Init ----
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.TAC_DB) populateCompareDropdowns();
-
-    // Format tool inputs that need numeric-only
-    document.querySelectorAll('#dualImei1, #dualImei2').forEach(input => {
-      input.addEventListener('input', function() {
-        let raw = this.value.replace(/\D/g, '');
-        const max = 15;
-        if (raw.length > max) raw = raw.substring(0, max);
-        let formatted = '';
-        for (let i = 0; i < raw.length; i++) {
-          if (i > 0 && i % 4 === 0) formatted += ' ';
-          formatted += raw[i];
-        }
-        this.value = formatted;
-      });
-    });
-  });
   </script>
 
 </body>
