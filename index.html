@@ -81,6 +81,9 @@
 </head>
 <body>
 
+  <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -145,12 +148,12 @@
       <div class="hero-glow hero-glow--magenta" aria-hidden="true"></div>
 
       <div class="hero-content">
-        <div class="hero-badge">
+        <div class="hero-badge scan-line">
           <span class="pulse"></span>
           Hub educațional AI
         </div>
 
-        <h1 class="hero-title">
+        <h1 class="hero-title glitch" data-text="Deblochează Geniul din Telefonul Tău">
           <span class="line">Deblochează <span class="gradient-text">Geniul</span></span>
           <span class="line">din Telefonul Tău</span>
         </h1>
@@ -171,13 +174,13 @@
 
         <!-- Generic phone mockups (no brand identifiers) -->
         <div class="hero-phones" aria-hidden="true">
-          <div class="phone-mockup phone-mockup--android">
+          <div class="phone-mockup phone-mockup--android float">
             <div class="phone-screen">
               <span class="ai-icon">🤖</span>
               <span class="phone-label">Android AI</span>
             </div>
           </div>
-          <div class="phone-mockup phone-mockup--ios">
+          <div class="phone-mockup phone-mockup--ios float" style="animation-delay: 1s">
             <div class="phone-screen">
               <span class="ai-icon">✨</span>
               <span class="phone-label">iOS AI</span>
@@ -191,15 +194,15 @@
     <div class="stats-bar reveal">
       <div class="stats-container">
         <div class="stat-item">
-          <div class="stat-number">50+</div>
+          <div class="stat-number" data-count="50" data-suffix="+">0</div>
           <div class="stat-label">Tutoriale disponibile</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">2</div>
+          <div class="stat-number" data-count="2">0</div>
           <div class="stat-label">Platforme acoperite</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">100%</div>
+          <div class="stat-number" data-count="100" data-suffix="%">0</div>
           <div class="stat-label">Gratuit</div>
         </div>
       </div>
@@ -210,7 +213,7 @@
       <div class="platform-container">
         <div class="platform-grid reveal">
           <div class="platform-visual">
-            <div class="platform-phone platform-phone--android">
+            <div class="platform-phone platform-phone--android float">
               <div class="platform-phone-screen">
                 <div class="screen-header">
                   <span class="icon">🤖</span>
@@ -302,7 +305,7 @@
           </div>
 
           <div class="platform-visual">
-            <div class="platform-phone platform-phone--ios">
+            <div class="platform-phone platform-phone--ios float" style="animation-delay: 0.5s">
               <div class="platform-phone-screen">
                 <div class="screen-header">
                   <span class="icon">✨</span>
@@ -448,6 +451,32 @@
         </div>
       </div>
     </section>
+
+    <!-- ========== PARTENERI & TEHNOLOGII ========== -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Google Gemini</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">Galaxy AI</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">Siri</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">ChatGPT</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">Copilot</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">Google Gemini</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">Galaxy AI</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">Siri</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">ChatGPT</span>
+        <span class="marquee-dot">◆</span>
+        <span class="marquee-item">Copilot</span>
+        <span class="marquee-dot">◆</span>
+      </div>
+    </div>
 
     <!-- ========== NEWSLETTER ========== -->
     <section class="newsletter-section">
