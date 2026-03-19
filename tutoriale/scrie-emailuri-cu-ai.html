@@ -263,6 +263,24 @@
       letter-spacing: 0.08em;
       font-weight: 600;
     }
+    .prompt-copy {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255,0,229,0.15);
+      border: 1px solid rgba(255,0,229,0.3);
+      color: #ff00e5;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .prompt-copy:hover {
+      background: rgba(255,0,229,0.3);
+    }
 
     /* Share Buttons */
     .share-section {
@@ -464,6 +482,7 @@
         </p>
 
         <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
           "Scrie un email către managerul meu prin care cer o zi liberă vineri pentru o programare medicală. Menționează că am terminat toate task-urile importante și că am aranjat cu colegul Andrei să mă acopere."
         </div>
 
@@ -472,6 +491,7 @@
         </p>
 
         <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
           "Răspunde clientului care a întrebat despre prețul serviciului de consultanță. Prețul este 500 EUR pe sesiune, cu reducere de 15% pentru pachetul de 5 sesiuni. Menționează că prima consultație este gratuită."
         </div>
 
@@ -614,5 +634,15 @@
 
   <!-- Scripts -->
   <script src="../js/main.js"></script>
+<script>
+function copyPrompt(btn) {
+  const block = btn.parentElement;
+  const text = block.textContent.replace('Copiază','').replace('Copiat!','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copiat!';
+    setTimeout(() => btn.textContent = 'Copiază', 2000);
+  });
+}
+</script>
 </body>
 </html>

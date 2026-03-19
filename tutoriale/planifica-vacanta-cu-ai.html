@@ -263,6 +263,24 @@
       letter-spacing: 0.08em;
       font-weight: 600;
     }
+    .prompt-copy {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255,0,229,0.15);
+      border: 1px solid rgba(255,0,229,0.3);
+      color: #ff00e5;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .prompt-copy:hover {
+      background: rgba(255,0,229,0.3);
+    }
 
     /* Share Buttons */
     .share-section {
@@ -466,6 +484,7 @@
         </ul>
 
         <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
           "Sugerează-mi 5 destinații pentru o vacanță de 7 zile în iulie, pentru un cuplu, cu buget mediu (1500-2500 EUR total), care să includă plajă și vizite culturale. Preferăm Europa de Sud."
         </div>
 
@@ -480,6 +499,7 @@
         </p>
 
         <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
           "Creează un itinerariu detaliat pentru 7 zile în Lisabona, Portugalia. Include atracții turistice, restaurante locale cu prețuri medii, transport între locații și ore recomandate pentru fiecare activitate. Adu în vedere că ne place arta, mâncarea locală și plimbările pe jos."
         </div>
 
@@ -504,6 +524,7 @@
         </p>
 
         <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
           "Estimează bugetul complet pentru vacanța de 7 zile în Lisabona pentru 2 persoane. Include: zborul din București, cazare (hotel 3-4 stele), mâncare (3 mese/zi), transport local, bilete la atracții și un fond de urgență de 10%. Afișează totalul în EUR și RON."
         </div>
 
@@ -527,6 +548,7 @@
         </p>
 
         <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
           "Creează o listă de împachetat pentru vacanța de 7 zile în Lisabona în iulie. Suntem un cuplu. Include haine, produse de igienă, electronice, documente și orice altceva relevant. Organizează lista pe categorii."
         </div>
 
@@ -645,5 +667,15 @@
 
   <!-- Scripts -->
   <script src="../js/main.js"></script>
+<script>
+function copyPrompt(btn) {
+  const block = btn.parentElement;
+  const text = block.textContent.replace('Copiază','').replace('Copiat!','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copiat!';
+    setTimeout(() => btn.textContent = 'Copiază', 2000);
+  });
+}
+</script>
 </body>
 </html>
