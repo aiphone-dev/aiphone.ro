@@ -979,25 +979,6 @@
           </div>
         </div>
 
-        <!-- Tool: Check Digit Generator -->
-        <div class="tool-card" id="toolCheckDigit">
-          <div class="tool-header" onclick="toggleTool('toolCheckDigit')">
-            <div class="tool-icon">&#128290;</div>
-            <div class="tool-title">Generator Check Digit</div>
-            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="tool-body">
-            <div class="tool-content">
-              <div class="tool-group">
-                <label class="tool-label">Introdu primele 14 cifre ale IMEI-ului</label>
-                <input type="text" class="tool-input" id="checkDigitInput" placeholder="35332510000000" maxlength="17" inputmode="numeric">
-              </div>
-              <button class="tool-btn" onclick="calcCheckDigit()">Calculeaza</button>
-              <div class="tool-result" id="checkDigitResult"></div>
-            </div>
-          </div>
-        </div>
-
         <!-- Tool: Phone Comparison -->
         <div class="tool-card" id="toolCompare">
           <div class="tool-header" onclick="toggleTool('toolCompare')">
@@ -1244,18 +1225,28 @@
     const device = window.TAC_DB ? window.TAC_DB[tac] : null;
     lastDeviceInfo = device;
 
-    // 1. Validation
-    document.getElementById('validationResult').innerHTML = isValid
+    // 1. Validation + Check Digit
+    const expectedCheck = calcLuhnDigit(imei.substring(0, 14));
+    const checkMatch = parseInt(check, 10) === expectedCheck;
+    let validHTML = isValid
       ? '<span class="validity-badge valid">&#10004; IMEI Valid &mdash; Algoritmul Luhn confirmat</span>'
       : '<span class="validity-badge invalid">&#10008; IMEI Invalid &mdash; Algoritmul Luhn a esuat</span>';
+    validHTML += '<div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.03);border-radius:8px;font-size:0.9rem;">';
+    validHTML += '<span style="color:rgba(255,255,255,0.5);">Cifra de control (check digit):</span> ';
+    validHTML += '<strong style="font-family:JetBrains Mono,monospace;color:' + (checkMatch ? '#34d399' : '#f87171') + ';">' + check + '</strong>';
+    if (!checkMatch) {
+      validHTML += ' <span style="color:#f87171;font-size:0.85rem;">(ar trebui sa fie ' + expectedCheck + ')</span>';
+    }
+    validHTML += '</div>';
+    document.getElementById('validationResult').innerHTML = validHTML;
 
     // 2. Structure
     document.getElementById('imeiStructure').innerHTML =
-      '<div class="imei-segment seg-tac"><span class="imei-segment-digits">' + tac + '</span><span class="imei-segment-label">TAC (8 cifre)</span></div>' +
+      '<div class="imei-segment seg-tac"><span class="imei-segment-digits">' + tac + '</span><span class="imei-segment-label">TAC &mdash; Identifica modelul</span></div>' +
       '<span class="seg-divider">|</span>' +
-      '<div class="imei-segment seg-serial"><span class="imei-segment-digits">' + serial + '</span><span class="imei-segment-label">Serial (6 cifre)</span></div>' +
+      '<div class="imei-segment seg-serial"><span class="imei-segment-digits">' + serial + '</span><span class="imei-segment-label">Serial &mdash; Nr. unic dispozitiv</span></div>' +
       '<span class="seg-divider">|</span>' +
-      '<div class="imei-segment seg-check"><span class="imei-segment-digits">' + check + '</span><span class="imei-segment-label">Check (1 cifra)</span></div>';
+      '<div class="imei-segment seg-check"><span class="imei-segment-digits">' + check + '</span><span class="imei-segment-label">Check &mdash; Cifra de control</span></div>';
 
     // Sections that require device data
     const deviceInfoSection = document.getElementById('deviceInfoSection');
@@ -1510,22 +1501,6 @@
     el.classList.add('active');
   }
 
-  // ---- Check Digit Calculator ----
-  function calcCheckDigit() {
-    const raw = document.getElementById('checkDigitInput').value.replace(/\D/g, '');
-    if (raw.length !== 14) {
-      showToast('Introdu exact 14 cifre');
-      return;
-    }
-    const digit = calcLuhnDigit(raw);
-    const fullIMEI = raw + digit;
-    const el = document.getElementById('checkDigitResult');
-    el.innerHTML = '<p style="margin-bottom:0.5rem;color:rgba(255,255,255,0.5);">Cifra de control calculata:</p>' +
-      '<div class="tool-result-value">' + digit + '</div>' +
-      '<p style="margin-top:0.75rem;color:rgba(255,255,255,0.5);">IMEI complet: <strong style="color:#fff;font-family:JetBrains Mono,monospace;letter-spacing:1px;">' + fullIMEI + '</strong></p>';
-    el.classList.add('active');
-  }
-
   // ---- Phone Comparison ----
   function populateCompareDropdowns() {
     if (!window.TAC_DB) return;
@@ -1694,10 +1669,10 @@
     if (window.TAC_DB) populateCompareDropdowns();
 
     // Format tool inputs that need numeric-only
-    document.querySelectorAll('#dualImei1, #dualImei2, #checkDigitInput').forEach(input => {
+    document.querySelectorAll('#dualImei1, #dualImei2').forEach(input => {
       input.addEventListener('input', function() {
         let raw = this.value.replace(/\D/g, '');
-        const max = this.id === 'checkDigitInput' ? 14 : 15;
+        const max = 15;
         if (raw.length > max) raw = raw.substring(0, max);
         let formatted = '';
         for (let i = 0; i < raw.length; i++) {
