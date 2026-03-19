@@ -1199,6 +1199,8 @@
   });
 
   // ---- Main IMEI Check ----
+  const IMEI_API_KEY = 'J6FQ-LMGV-92DA-QKXT-EW40-78ZO';
+
   function checkIMEI() {
     const raw = imeiInput.value.replace(/\D/g, '');
     if (raw.length !== 15) {
@@ -1209,20 +1211,70 @@
 
     lastCheckedIMEI = raw;
     const results = document.getElementById('imeiResults');
+    const btn = document.getElementById('imeiCheckBtn');
+    btn.disabled = true;
+    btn.textContent = 'Se verifică...';
 
-    // Instant results - no fake delay
-    renderResults(raw);
-    results.classList.add('active');
-    results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Try API first, fallback to local DB
+    fetch('https://alpha.imeicheck.com/api/free_with_key/modelBrandName?key=' + IMEI_API_KEY + '&imei=' + raw + '&format=json')
+      .then(r => r.json())
+      .then(data => {
+        btn.disabled = false;
+        btn.textContent = 'Verifică IMEI';
+        if (data.status === 'succes' && data.object) {
+          renderResults(raw, {
+            apiBrand: data.object.brand,
+            apiModel: data.object.name || data.object.model,
+            apiModelCode: data.object.model
+          });
+        } else {
+          renderResults(raw, null);
+        }
+        results.classList.add('active');
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Verifică IMEI';
+        // API failed, use local DB only
+        renderResults(raw, null);
+        results.classList.add('active');
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
   }
 
-  function renderResults(imei) {
+  function renderResults(imei, apiData) {
     const isValid = luhnCheck(imei);
     const tac = imei.substring(0, 8);
     const serial = imei.substring(8, 14);
     const check = imei.substring(14, 15);
-    const device = window.TAC_DB ? window.TAC_DB[tac] : null;
-    lastDeviceInfo = device;
+    const localDevice = window.TAC_DB ? window.TAC_DB[tac] : null;
+
+    // Merge API data with local DB
+    const device = localDevice ? Object.assign({}, localDevice) : null;
+    const hasAPI = apiData && apiData.apiBrand;
+
+    // If API found model but local DB didn't, create a basic device object
+    if (hasAPI && !device) {
+      lastDeviceInfo = {
+        brand: apiData.apiBrand,
+        model: apiData.apiModel,
+        modelCode: apiData.apiModelCode,
+        year: '-',
+        type: 'Smartphone',
+        _apiOnly: true
+      };
+    } else if (hasAPI && device) {
+      // API confirms/overrides brand and model
+      device.brand = apiData.apiBrand;
+      device.model = apiData.apiModel;
+      if (apiData.apiModelCode) device.modelCode = apiData.apiModelCode;
+      lastDeviceInfo = device;
+    } else {
+      lastDeviceInfo = device;
+    }
+
+    const finalDevice = lastDeviceInfo;
 
     // 1. Validation + Check Digit
     const expectedCheck = calcLuhnDigit(imei.substring(0, 14));
@@ -1254,19 +1306,38 @@
     const carrierSection = document.getElementById('carrierSection');
     const ussdSection = document.getElementById('ussdSection');
 
-    if (!device) {
+    if (!finalDevice) {
       [deviceInfoSection, specsSection, connectivitySection, carrierSection, ussdSection]
+        .forEach(s => s.style.display = 'none');
+      // Show "not found" message
+      deviceInfoSection.style.display = '';
+      document.getElementById('deviceInfoGrid').innerHTML =
+        '<div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--text-secondary);">' +
+        '<p style="font-size:1.1rem;margin-bottom:0.5rem;">&#128269; Model necunoscut</p>' +
+        '<p style="font-size:0.9rem;opacity:0.7;">IMEI-ul este valid dar modelul nu a fost găsit în baza noastră de date.</p></div>';
+      [specsSection, connectivitySection, carrierSection, ussdSection]
         .forEach(s => s.style.display = 'none');
       return;
     }
 
-    // 3. Device Info
+    // 3. Device Info - always show brand + model
     deviceInfoSection.style.display = '';
-    document.getElementById('deviceInfoGrid').innerHTML =
-      infoCard('Brand', device.brand) +
-      infoCard('Model', device.model) +
-      infoCard('An lansare', device.year) +
-      infoCard('Tip', device.type);
+    let infoHTML = infoCard('Brand', finalDevice.brand) +
+      infoCard('Model', finalDevice.model);
+    if (finalDevice.modelCode) infoHTML += infoCard('Cod model', finalDevice.modelCode);
+    if (finalDevice.year && finalDevice.year !== '-') infoHTML += infoCard('An lansare', finalDevice.year);
+    infoHTML += infoCard('Tip', finalDevice.type || 'Smartphone');
+    if (hasAPI) {
+      infoHTML += '<div class="info-card" style="border-color:rgba(16,185,129,0.2);background:rgba(16,185,129,0.05);"><div class="info-card-label">Sursa</div><div class="info-card-value" style="color:#34d399;font-size:0.85rem;">&#10004; Verificat online</div></div>';
+    }
+    document.getElementById('deviceInfoGrid').innerHTML = infoHTML;
+
+    // If API-only (no local specs), hide spec sections
+    if (finalDevice._apiOnly) {
+      [specsSection, connectivitySection, carrierSection, ussdSection]
+        .forEach(s => s.style.display = 'none');
+      return;
+    }
 
     // 4. Specs
     specsSection.style.display = '';
@@ -1342,9 +1413,11 @@
     text += 'Valid: ' + (luhnCheck(lastCheckedIMEI) ? 'Da' : 'Nu') + '\n';
     if (lastDeviceInfo) {
       const d = lastDeviceInfo;
-      text += 'Brand: ' + d.brand + '\nModel: ' + d.model + '\nAn: ' + d.year + '\n';
-      text += 'Ecran: ' + d.screen + '\nRAM: ' + d.ram + '\nStorare: ' + d.storage + '\n';
-      text += 'Camera: ' + d.camera + '\nBaterie: ' + d.battery + '\nOS: ' + d.os + '\n';
+      text += 'Brand: ' + d.brand + '\nModel: ' + d.model + '\n';
+      if (d.modelCode) text += 'Cod model: ' + d.modelCode + '\n';
+      if (d.year && d.year !== '-') text += 'An: ' + d.year + '\n';
+      if (d.screen) text += 'Ecran: ' + d.screen + '\nRAM: ' + d.ram + '\nStorare: ' + d.storage + '\n';
+      if (d.camera) text += 'Camera: ' + d.camera + '\nBaterie: ' + d.battery + '\nOS: ' + d.os + '\n';
     }
     copyText(text, 'Rezultatele au fost copiate!');
   }
