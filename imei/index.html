@@ -179,24 +179,6 @@
       color: #a5b4fc;
     }
 
-    /* Loading Animation */
-    .imei-loading {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-    }
-    .imei-loading.active { display: block; }
-    .loading-spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(99,102,241,0.2);
-      border-top-color: #6366f1;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 1rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
     /* Results Panel */
     .imei-results {
       display: none;
@@ -856,15 +838,10 @@
           <input type="text" class="imei-input" id="imeiInput" placeholder="Introdu IMEI-ul aici (15 cifre)" maxlength="18" autocomplete="off" inputmode="numeric">
           <button class="imei-btn" id="imeiCheckBtn" onclick="checkIMEI()">Verifica IMEI</button>
         </div>
-        <p class="imei-hint">Tasteaza <code>*#06#</code> pe telefon pentru a afla IMEI-ul</p>
+        <div id="liveCheckDigit" style="margin-top:0.5rem;font-size:0.9rem;font-family:'JetBrains Mono',monospace;min-height:1.4em;"></div>
+        <p class="imei-hint">Tastează <code>*#06#</code> pe telefon pentru a afla IMEI-ul</p>
       </div>
     </section>
-
-    <!-- Loading -->
-    <div class="imei-loading" id="imeiLoading">
-      <div class="loading-spinner"></div>
-      <p style="color: rgba(255,255,255,0.5);">Se analizeaza IMEI-ul...</p>
-    </div>
 
     <!-- ========== RESULTS ========== -->
     <div class="imei-results" id="imeiResults">
@@ -1168,8 +1145,10 @@
     return check;
   }
 
-  // ---- IMEI Input Formatting ----
+  // ---- IMEI Input Formatting + Live Check Digit ----
   const imeiInput = document.getElementById('imeiInput');
+  const liveCheckEl = document.getElementById('liveCheckDigit');
+
   imeiInput.addEventListener('input', function(e) {
     let raw = this.value.replace(/\D/g, '');
     if (raw.length > 15) raw = raw.substring(0, 15);
@@ -1181,10 +1160,26 @@
     }
     this.value = formatted;
 
-    // Live validation feedback
+    // Live check digit verification
     this.classList.remove('valid', 'invalid');
-    if (raw.length === 15) {
-      this.classList.add(luhnCheck(raw) ? 'valid' : 'invalid');
+    if (liveCheckEl) {
+      if (raw.length >= 14) {
+        const expected = calcLuhnDigit(raw.substring(0, 14));
+        if (raw.length === 15) {
+          const actual = parseInt(raw[14], 10);
+          if (actual === expected) {
+            liveCheckEl.innerHTML = '<span style="color:#34d399;">&#10004; Cifra de control corectă (' + expected + ')</span>';
+            this.classList.add('valid');
+          } else {
+            liveCheckEl.innerHTML = '<span style="color:#f87171;">&#10008; Cifra de control greșită (ai ' + actual + ', ar trebui ' + expected + ')</span>';
+            this.classList.add('invalid');
+          }
+        } else {
+          liveCheckEl.innerHTML = '<span style="color:#a5b4fc;">Cifra de control va fi: <strong>' + expected + '</strong></span>';
+        }
+      } else {
+        liveCheckEl.innerHTML = '';
+      }
     }
   });
 
@@ -1203,18 +1198,11 @@
 
     lastCheckedIMEI = raw;
     const results = document.getElementById('imeiResults');
-    const loading = document.getElementById('imeiLoading');
 
-    results.classList.remove('active');
-    loading.classList.add('active');
-
-    // Simulate brief processing delay for UX
-    setTimeout(() => {
-      loading.classList.remove('active');
-      renderResults(raw);
-      results.classList.add('active');
-      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 600);
+    // Instant results - no fake delay
+    renderResults(raw);
+    results.classList.add('active');
+    results.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function renderResults(imei) {
