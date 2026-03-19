@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recenzie ChatGPT — cel mai popular chatbot AI din lume, dezvoltat de OpenAI. Functii, avantaje, dezavantaje si verdict final.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Recenzie ChatGPT — AIphone.ro">
+  <meta property="og:description" content="Recenzie detaliata ChatGPT: cel mai popular chatbot AI din lume. GPT-4o, generare imagini, mod vocal si multe altele.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aiphone.ro/recenzii/chatgpt.html">
+  <meta property="og:image" content="https://aiphone.ro/img/og-image.png">
+  <title>Recenzie ChatGPT — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!-- Review Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "ChatGPT",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "UtilitiesApplication"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "datePublished": "2026-03-19"
+  }
+  </script>
+
+  <style>
+    /* Article Layout */
+    .article-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: #ff00e5;
+    }
+    .breadcrumb .sep {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+    .article-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 60%, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* App Info Card */
+    .app-info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .app-icon {
+      font-size: 3.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .app-details {
+      flex: 1;
+    }
+    .app-details h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: #fff;
+    }
+    .app-tagline {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.75rem;
+    }
+    .app-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .app-meta-item {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .app-meta-item strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Rating */
+    .rating-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .rating-score {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #00d4ff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .rating-stars {
+      display: flex;
+      gap: 0.15rem;
+    }
+    .rating-stars .star {
+      color: #ff00e5;
+      font-size: 1.2rem;
+    }
+    .rating-stars .star.empty {
+      opacity: 0.25;
+    }
+    .rating-stars .star.half {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 1.2rem;
+    }
+    .rating-max {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Store Buttons */
+    .store-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .store-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+      background: rgba(255,255,255,0.08);
+    }
+    .store-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .store-label {
+      font-size: 0.65rem;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .store-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #00d4ff;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      margin-bottom: 0.4rem;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter) ". ";
+      color: #ff00e5;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .toc a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: #00d4ff;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,212,255,0.15);
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #fff;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .article-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Pros/Cons */
+    .pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .pros-card, .cons-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .pros-card {
+      border-top: 3px solid #00d4ff;
+    }
+    .cons-card {
+      border-top: 3px solid #ff00e5;
+    }
+    .pros-card h3, .cons-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      margin-top: 0;
+    }
+    .pros-card ul, .cons-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pros-card li, .cons-card li {
+      padding: 0.4rem 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* Tip / Info boxes */
+    .tip-box {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .tip-box.tip-magenta {
+      background: rgba(255,0,229,0.06);
+      border-left-color: #ff00e5;
+    }
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Share Buttons */
+    .share-section {
+      margin: 3rem 0 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .share-section h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+    }
+
+    /* Next Review */
+    .next-tutorial {
+      display: block;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,0,229,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .next-tutorial:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.12);
+    }
+    .next-tutorial span.label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff00e5;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+    .next-tutorial span.title {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrapper {
+        padding: 1.25rem 1rem 3rem;
+      }
+      .article-content {
+        font-size: 1rem;
+      }
+      .app-info-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .app-meta-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .pros-cons-grid {
+        grid-template-columns: 1fr;
+      }
+      .store-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principala">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasa</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="themeToggle" aria-label="Schimba tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-wrapper">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Acasa</a>
+        <span class="sep">/</span>
+        <a href="../recenzii.html">Recenzii</a>
+        <span class="sep">/</span>
+        <span>ChatGPT</span>
+      </nav>
+
+      <!-- App Info Card -->
+      <div class="app-info-card">
+        <div class="app-icon">&#128172;</div>
+        <div class="app-details">
+          <h2>ChatGPT</h2>
+          <p class="app-tagline">Cel mai popular chatbot AI din lume</p>
+
+          <div class="rating-wrap">
+            <span class="rating-score">4.5</span>
+            <div class="rating-stars">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star half">&#9733;</span>
+            </div>
+            <span class="rating-max">/ 5</span>
+          </div>
+
+          <div class="app-meta-grid">
+            <div class="app-meta-item"><strong>Dezvoltator:</strong> OpenAI</div>
+            <div class="app-meta-item"><strong>Pret:</strong> Gratuit (Plus/Pro disponibil)</div>
+            <div class="app-meta-item"><strong>Platforme:</strong> Android, iOS</div>
+          </div>
+
+          <div class="store-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener" class="store-btn store-btn--android">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+              <div class="store-info"><span class="store-label">Descarca de pe</span><span class="store-name">Google Play</span></div>
+            </a>
+            <a href="https://apps.apple.com/app/chatgpt/id6448311069" target="_blank" rel="noopener" class="store-btn store-btn--ios">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <div class="store-info"><span class="store-label">Descarca de pe</span><span class="store-name">App Store</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Cuprins">
+        <h2>Cuprins</h2>
+        <ol>
+          <li><a href="#ce-este">Ce este ChatGPT?</a></li>
+          <li><a href="#functii">Functii principale</a></li>
+          <li><a href="#puncte-forte">Puncte forte</a></li>
+          <li><a href="#puncte-slabe">Puncte slabe</a></li>
+          <li><a href="#pentru-cine">Pentru cine este?</a></li>
+          <li><a href="#verdict">Verdict final</a></li>
+        </ol>
+      </nav>
+
+      <!-- Article Content -->
+      <div class="article-content">
+
+        <h2 id="ce-este">Ce este ChatGPT?</h2>
+        <p>
+          ChatGPT este cel mai cunoscut si cel mai utilizat asistent AI din lume, dezvoltat de <strong>OpenAI</strong>. Lansat initial in noiembrie 2022, ChatGPT a revolutionat modul in care oamenii interactioneaza cu inteligenta artificiala, devenind prima aplicatie care a atins 100 de milioane de utilizatori in doar 2 luni.
+        </p>
+        <p>
+          Aplicatia mobila pentru Android si iOS aduce toata puterea modelului <strong>GPT-4o</strong> direct pe telefonul tau. ChatGPT este un asistent AI multimodal — poate procesa text, imagini, fisiere si voce, oferind raspunsuri inteligente si contextuale la aproape orice intrebare sau sarcina.
+        </p>
+        <p>
+          Fie ca ai nevoie sa scrii un email, sa analizezi un document, sa generezi o imagine sau sa porti o conversatie naturala prin voce, ChatGPT este instrumentul AI cel mai versatil disponibil pe smartphone.
+        </p>
+
+        <h2 id="functii">Functii principale</h2>
+        <ul>
+          <li><strong>Conversatie avansata</strong> — Poarta conversatii naturale pe orice subiect. ChatGPT retine contextul conversatiei si poate raspunde la intrebari de follow-up.</li>
+          <li><strong>Generare de imagini (DALL-E)</strong> — Creeaza imagini originale din descrieri text folosind DALL-E 3 integrat. Ideal pentru social media, prezentari sau creativitate.</li>
+          <li><strong>Mod vocal (Voice Mode)</strong> — Conversatii vocale naturale in timp real, cu voci expresive si naturale. Poti intrerupe, schimba subiectul si avea o conversatie fluida.</li>
+          <li><strong>Analiza fisierelor</strong> — Incarca documente PDF, Excel, Word sau imagini si cere-i lui ChatGPT sa le analizeze, rezumeze sau extraga informatii.</li>
+          <li><strong>Ajutor la programare</strong> — Scrie, explica si depanadazea cod in zeci de limbaje de programare. Ideal pentru dezvoltatori si studenti.</li>
+          <li><strong>Navigare web</strong> — ChatGPT poate cauta pe internet pentru informatii actuale, nu doar din datele de antrenament.</li>
+          <li><strong>Marketplace GPTs</strong> — Acceseaza mii de GPT-uri personalizate create de comunitate, specializate pe diverse domenii: fitness, bucatarie, educatie, marketing si multe altele.</li>
+        </ul>
+
+        <h2 id="puncte-forte">Puncte forte</h2>
+        <div class="pros-cons-grid">
+          <div class="pros-card">
+            <h3>Avantaje</h3>
+            <ul>
+              <li>&#9989; <strong>Cel mai capabil model AI</strong> — GPT-4o este constant in topul benchmark-urilor AI, oferind raspunsuri de inalta calitate pentru sarcini complexe.</li>
+              <li>&#9989; <strong>Excelent la sarcini complexe</strong> — Analiza de date, scriere creativa, programare, cercetare — ChatGPT exceleaza la sarcini care necesita gandire aprofundata.</li>
+              <li>&#9989; <strong>Mod vocal natural</strong> — Voice Mode ofera cea mai naturala experienta de conversatie vocala AI disponibila pe telefon.</li>
+              <li>&#9989; <strong>Ecosistem vast de GPT-uri</strong> — Marketplace-ul de GPT-uri personalizate extinde functionalitatea in mii de directii specializate.</li>
+            </ul>
+          </div>
+
+          <div class="cons-card">
+            <h3>Dezavantaje</h3>
+            <ul>
+              <li>&#10060; <strong>Functiile premium necesita abonament</strong> — Cele mai bune functii (GPT-4o nelimitat, DALL-E, Advanced Voice) necesita abonamentul Plus de $20/luna.</li>
+              <li>&#10060; <strong>Poate fi lent in orele de varf</strong> — In perioadele de utilizare intensa, raspunsurile pot fi mai lente, mai ales pe planul gratuit.</li>
+              <li>&#10060; <strong>Fara integrare profunda cu telefonul</strong> — Spre deosebire de Gemini pe Android sau Siri pe iOS, ChatGPT nu se integreaza la nivel de sistem de operare.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 id="pentru-cine">Pentru cine este?</h2>
+        <p>
+          ChatGPT este ideal pentru <strong>oricine doreste cel mai puternic asistent AI pe telefon</strong>. Daca lucrezi cu texte complexe, ai nevoie de ajutor la programare, vrei sa generezi imagini sau doresti un asistent conversational versatil, ChatGPT este alegerea numarul 1.
+        </p>
+        <p>
+          Este deosebit de util pentru <strong>profesionisti, studenti, creatori de continut si antreprenori</strong> care au nevoie de un instrument AI puternic in buzunar. Planul gratuit este suficient pentru utilizare ocazionala, dar utilizatorii frecventi vor beneficia enorm de abonamentul Plus.
+        </p>
+        <p>
+          Daca prioritizezi integrarea cu sistemul de operare al telefonului, s-ar putea sa preferi Google Gemini (Android) sau Siri cu Apple Intelligence (iOS) ca asistenti principali, completand cu ChatGPT pentru sarcini complexe.
+        </p>
+
+        <h2 id="verdict">Verdict final</h2>
+        <p>
+          ChatGPT ramane <strong>standardul de aur al asistentilor AI</strong> pe telefon. Cu modelul GPT-4o, modul vocal avansat, generarea de imagini si un ecosistem vast de GPT-uri personalizate, ofera cea mai completa experienta AI disponibila pe smartphone.
+        </p>
+        <p>
+          <strong>Nota de 4.5/5</strong> reflecta excelenta generala a produsului, cu puncte scazute doar pentru costul abonamentului premium si lipsa integrarii profunde cu sistemul de operare. Daca ai de ales un singur asistent AI pe telefon, ChatGPT este cel pe care il recomandam cu incredere.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Recomandarea noastra</strong>
+          Incepe cu planul gratuit pentru a testa functiile de baza. Daca folosesti ChatGPT zilnic si ai nevoie de raspunsuri mai rapide, generare de imagini si modul vocal avansat, abonamentul Plus ($20/luna) merita fiecare ban.
+        </div>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-section">
+        <h3>Distribuie aceasta recenzie</h3>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="share-btn" href="https://wa.me/?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copiat!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiaza link
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Review -->
+      <a href="copilot.html" class="next-tutorial">
+        <span class="label">Recenzia urmatoare &rarr;</span>
+        <span class="title">Microsoft Copilot — AI-ul Microsoft pentru productivitate</span>
+      </a>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educational pentru Inteligenta Artificiala pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Inapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimtamant cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>Acest site foloseste cookie-uri</strong>
+        <p>Folosim cookie-uri esentiale pentru functionarea site-ului si cookie-uri analitice pentru a intelege cum este utilizat. Poti alege ce cookie-uri accepti.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setari</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz optionale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esentiale</strong>
+          <span>Necesare pentru functionarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajuta sa imbunatatim experienta</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salveaza preferintele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recenzii aplicații AI pentru telefon - Google Gemini, Galaxy AI, Siri, ChatGPT, Microsoft Copilot. Analize detaliate pe AIphone.ro">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Recenzii Aplicații AI — AIphone.ro">
+  <meta property="og:description" content="Analizăm cele mai bune aplicații de Inteligență Artificială pentru telefonul tău Android sau iOS.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/og-image.png">
+  <title>Recenzii Aplicații AI — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* Reviews Grid */
+    .reviews-hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .reviews-hero .hero-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .reviews-hero .hero-glow--blue {
+      top: 10%;
+      left: 20%;
+      background: var(--neon-blue);
+    }
+
+    .reviews-hero .hero-glow--magenta {
+      bottom: 10%;
+      right: 20%;
+      background: var(--neon-magenta);
+    }
+
+    .reviews-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .reviews-hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .reviews-hero-content .subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Review Cards Grid */
+    .reviews-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .review-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: calc(var(--radius-lg) + 1px);
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-magenta), var(--neon-cyan), var(--neon-magenta), var(--neon-blue));
+      background-size: 300% 100%;
+      animation: borderRotate 5s linear infinite;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .review-card::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: calc(var(--radius-lg) - 1px);
+      background: var(--bg-card-solid);
+      z-index: -1;
+      transition: background var(--transition);
+    }
+
+    .review-card:hover::before {
+      opacity: 0.7;
+    }
+
+    .review-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 212, 255, 0.08);
+    }
+
+    .review-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .review-card-emoji {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .review-card-info {
+      flex: 1;
+    }
+
+    .review-card-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .review-card-stars {
+      color: #FFD700;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .review-card-rating {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-left: 0.4rem;
+    }
+
+    .review-card-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .review-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .platform-badges {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .platform-badge--android {
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      color: var(--neon-blue);
+    }
+
+    .platform-badge--ios {
+      background: rgba(255, 0, 229, 0.1);
+      border: 1px solid rgba(255, 0, 229, 0.2);
+      color: var(--neon-magenta);
+    }
+
+    .review-card-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--neon-blue);
+      transition: all var(--transition);
+    }
+
+    .review-card-link:hover {
+      color: var(--neon-magenta);
+      text-shadow: 0 0 10px var(--neon-magenta-glow);
+    }
+
+    @media (max-width: 768px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem 4rem;
+      }
+
+      .reviews-hero {
+        padding: 7rem 1.5rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principala">
+    <a href="index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Acasa</a></li>
+      <li><a href="tutoriale.html">Tutoriale</a></li>
+      <li><a href="recenzii.html">Recenzii</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="despre.html">Despre</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="searchToggle" aria-label="Cauta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-btn" id="themeToggle" aria-label="Schimba tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Cauta tutoriale, functii AI..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-hint">Incearca: <span class="search-tag">Gemini</span> <span class="search-tag">Galaxy AI</span> <span class="search-tag">Apple Intelligence</span> <span class="search-tag">Siri</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="reviews-hero">
+      <div class="hero-glow hero-glow--blue" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--magenta" aria-hidden="true"></div>
+      <div class="reviews-hero-content">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          Recenzii AI
+        </div>
+        <h1>Recenzii <span class="gradient-text">Aplicatii AI</span></h1>
+        <p class="subtitle">Analizam cele mai bune aplicatii de Inteligenta Artificiala pentru telefonul tau</p>
+      </div>
+    </section>
+
+    <!-- Reviews Grid -->
+    <div class="reviews-grid reveal">
+
+      <!-- Google Gemini -->
+      <article class="review-card">
+        <div class="review-card-header">
+          <span class="review-card-emoji">🤖</span>
+          <div class="review-card-info">
+            <h2 class="review-card-name">Google Gemini</h2>
+            <div class="review-card-stars">★★★★☆ <span class="review-card-rating">4.5/5</span></div>
+          </div>
+        </div>
+        <p class="review-card-desc">Cel mai puternic asistent AI de la Google</p>
+        <div class="review-card-footer">
+          <div class="platform-badges">
+            <span class="platform-badge platform-badge--android">Android</span>
+            <span class="platform-badge platform-badge--ios">iOS</span>
+          </div>
+          <a href="recenzii/google-gemini.html" class="review-card-link">Citeste recenzia &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Galaxy AI -->
+      <article class="review-card">
+        <div class="review-card-header">
+          <span class="review-card-emoji">✨</span>
+          <div class="review-card-info">
+            <h2 class="review-card-name">Galaxy AI</h2>
+            <div class="review-card-stars">★★★★☆ <span class="review-card-rating">4.0/5</span></div>
+          </div>
+        </div>
+        <p class="review-card-desc">Suita AI Samsung integrata in telefon</p>
+        <div class="review-card-footer">
+          <div class="platform-badges">
+            <span class="platform-badge platform-badge--android">Android</span>
+          </div>
+          <a href="recenzii/galaxy-ai.html" class="review-card-link">Citeste recenzia &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Siri (Apple Intelligence) -->
+      <article class="review-card">
+        <div class="review-card-header">
+          <span class="review-card-emoji">🧠</span>
+          <div class="review-card-info">
+            <h2 class="review-card-name">Siri (Apple Intelligence)</h2>
+            <div class="review-card-stars">★★★☆☆ <span class="review-card-rating">3.5/5</span></div>
+          </div>
+        </div>
+        <p class="review-card-desc">Asistentul clasic Apple, reinventat cu AI</p>
+        <div class="review-card-footer">
+          <div class="platform-badges">
+            <span class="platform-badge platform-badge--ios">iOS</span>
+          </div>
+          <a href="recenzii/siri.html" class="review-card-link">Citeste recenzia &rarr;</a>
+        </div>
+      </article>
+
+      <!-- ChatGPT -->
+      <article class="review-card">
+        <div class="review-card-header">
+          <span class="review-card-emoji">💬</span>
+          <div class="review-card-info">
+            <h2 class="review-card-name">ChatGPT</h2>
+            <div class="review-card-stars">★★★★☆ <span class="review-card-rating">4.5/5</span></div>
+          </div>
+        </div>
+        <p class="review-card-desc">Cel mai popular chatbot AI din lume</p>
+        <div class="review-card-footer">
+          <div class="platform-badges">
+            <span class="platform-badge platform-badge--android">Android</span>
+            <span class="platform-badge platform-badge--ios">iOS</span>
+          </div>
+          <a href="recenzii/chatgpt.html" class="review-card-link">Citeste recenzia &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Microsoft Copilot -->
+      <article class="review-card">
+        <div class="review-card-header">
+          <span class="review-card-emoji">🚀</span>
+          <div class="review-card-info">
+            <h2 class="review-card-name">Microsoft Copilot</h2>
+            <div class="review-card-stars">★★★★☆ <span class="review-card-rating">4.0/5</span></div>
+          </div>
+        </div>
+        <p class="review-card-desc">AI-ul Microsoft pentru productivitate</p>
+        <div class="review-card-footer">
+          <div class="platform-badges">
+            <span class="platform-badge platform-badge--android">Android</span>
+            <span class="platform-badge platform-badge--ios">iOS</span>
+          </div>
+          <a href="recenzii/copilot.html" class="review-card-link">Citeste recenzia &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro &mdash; Hub educational pentru Inteligenta Artificiala pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Inapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimtamant cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>🍪 Acest site foloseste cookie-uri</strong>
+        <p>Folosim cookie-uri esentiale pentru functionarea site-ului si cookie-uri analitice pentru a intelege cum este utilizat. Poti alege ce cookie-uri accepti.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setari</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz optionale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esentiale</strong>
+          <span>Necesare pentru functionarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajuta sa imbunatatim experienta</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salveaza preferintele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

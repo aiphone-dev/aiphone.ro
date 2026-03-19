@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recenzie Galaxy AI - Suita AI Samsung integrata nativ in telefon. Analiza detaliata pe AIphone.ro">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Recenzie Galaxy AI — AIphone.ro">
+  <meta property="og:description" content="Suita AI Samsung integrata nativ. Analiza detaliata, puncte forte si slabe.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../img/og-image.png">
+  <title>Recenzie Galaxy AI — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <style>
+    /* Review Page Styles */
+    .breadcrumb {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--neon-blue);
+    }
+
+    .breadcrumb span {
+      margin: 0 0.4rem;
+    }
+
+    .review-hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .review-hero-emoji {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .review-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .review-hero-stars {
+      color: #FFD700;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .review-hero-stars .rating-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-left: 0.5rem;
+    }
+
+    .review-hero-tagline {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Info Box */
+    .review-info-box {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+    }
+
+    .review-info-grid {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .info-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Store Buttons */
+    .store-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .store-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      color: var(--text-primary);
+    }
+
+    .store-btn--android:hover {
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 20px var(--neon-blue-glow);
+    }
+
+    .store-btn--ios:hover {
+      border-color: var(--neon-magenta);
+      box-shadow: 0 0 20px var(--neon-magenta-glow);
+    }
+
+    .store-btn svg {
+      flex-shrink: 0;
+    }
+
+    .store-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .store-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .store-name {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    /* Review Content */
+    .review-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .review-section {
+      margin-bottom: 3rem;
+    }
+
+    .review-section h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .review-section h2 .highlight {
+      background: var(--gradient-shift);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease-in-out infinite;
+    }
+
+    .review-section p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .review-section ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .review-section ul li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding-left: 0.25rem;
+    }
+
+    .review-section ul li strong {
+      color: var(--text-primary);
+    }
+
+    /* Verdict Box */
+    .verdict-box {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verdict-box::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: calc(var(--radius-lg) + 1px);
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-magenta), var(--neon-cyan), var(--neon-magenta), var(--neon-blue));
+      background-size: 300% 100%;
+      animation: borderRotate 5s linear infinite;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .verdict-box::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: calc(var(--radius-lg) - 1px);
+      background: var(--bg-card-solid);
+      z-index: -1;
+    }
+
+    .verdict-box .verdict-stars {
+      color: #FFD700;
+      font-size: 1.8rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .verdict-box p {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Next Review Link */
+    .next-review {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      text-align: right;
+    }
+
+    .next-review a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--neon-blue);
+      transition: all var(--transition);
+    }
+
+    .next-review a:hover {
+      color: var(--neon-magenta);
+      text-shadow: 0 0 10px var(--neon-magenta-glow);
+    }
+
+    /* Share Section */
+    .review-share {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .breadcrumb {
+        padding: 5.5rem 1.5rem 0.5rem;
+      }
+
+      .review-hero {
+        padding: 1.5rem 1.5rem 2rem;
+      }
+
+      .review-info-box,
+      .store-buttons,
+      .review-content,
+      .next-review,
+      .review-share {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .review-info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .store-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principala">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasa</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="searchToggle" aria-label="Cauta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-btn" id="themeToggle" aria-label="Schimba tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Cauta tutoriale, functii AI..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-hint">Incearca: <span class="search-tag">Gemini</span> <span class="search-tag">Galaxy AI</span> <span class="search-tag">Apple Intelligence</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Acasa</a> <span>/</span>
+      <a href="../recenzii.html">Recenzii</a> <span>/</span>
+      Galaxy AI
+    </div>
+
+    <!-- Review Hero -->
+    <section class="review-hero">
+      <span class="review-hero-emoji">✨</span>
+      <h1>Galaxy <span class="gradient-text">AI</span></h1>
+      <div class="review-hero-stars">★★★★☆ <span class="rating-text">4.0 / 5</span></div>
+      <p class="review-hero-tagline">Suita AI Samsung integrata nativ</p>
+    </section>
+
+    <!-- Info Box -->
+    <div class="review-info-box">
+      <div class="review-info-grid">
+        <div class="info-item">
+          <span class="info-label">Dezvoltator</span>
+          <span class="info-value">Samsung</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Pret</span>
+          <span class="info-value">Gratuit (inclus pe telefoanele Samsung)</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Platforme</span>
+          <span class="info-value">Android (Samsung)</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Rating</span>
+          <span class="info-value" style="color: #FFD700;">★ 4.0 / 5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Store Buttons -->
+    <div class="store-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.samsung.android.app.spage" target="_blank" rel="noopener" class="store-btn store-btn--android">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+        <div class="store-info">
+          <span class="store-label">Descarca de pe</span>
+          <span class="store-name">Google Play</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Review Content -->
+    <div class="review-content">
+
+      <section class="review-section reveal">
+        <h2>Ce este Galaxy <span class="highlight">AI</span>?</h2>
+        <p>Galaxy AI este suita de functii de inteligenta artificiala dezvoltata de Samsung si integrata nativ in telefoanele din seria Galaxy. Spre deosebire de alte aplicatii AI care trebuie descarcate separat, Galaxy AI vine preinstalat si este incorporat direct in aplicatiile de sistem ale telefonului.</p>
+        <p>Lansat odata cu seria Galaxy S24, Galaxy AI a fost extins treptat si pe modele mai vechi, oferind utilizatorilor Samsung acces la functii AI avansate fara a fi nevoie de aplicatii terte. Suita foloseste o combinatie de procesare locala (on-device) si cloud pentru a oferi rezultate rapide si precise.</p>
+        <p>Galaxy AI se remarca prin integrarea profunda cu aplicatiile Samsung native, transformand fiecare interactiune cu telefonul intr-o experienta mai inteligenta si mai eficienta.</p>
+      </section>
+
+      <section class="review-section reveal">
+        <h2>Functii <span class="highlight">principale</span></h2>
+        <ul>
+          <li>🌍 <strong>Live Translate</strong> &mdash; Traducere in timp real a conversatiilor telefonice. Poti vorbi in romana iar interlocutorul aude in limba sa, si invers. Functioneaza si pentru mesaje text.</li>
+          <li>📸 <strong>Photo Assist</strong> &mdash; Editare foto avansata cu AI: sterge obiecte din imagini, muta subiecte, genereaza fundaluri noi si imbunatateste automat calitatea fotografiilor.</li>
+          <li>📝 <strong>Note Assist</strong> &mdash; Rezumare automata a notelor, formatare inteligenta, traducere si generare de rezumate. Transforma notele lungi in puncte cheie rapid.</li>
+          <li>🔍 <strong>Browsing Assist</strong> &mdash; Rezumare a paginilor web si articolelor lungi direct din browserul Samsung Internet. Obtii esentialul unui articol in cateva secunde.</li>
+          <li>⭕ <strong>Circle to Search</strong> &mdash; Incercuieste orice element de pe ecran pentru a-l cauta instant cu Google, fara a parasi aplicatia curenta. Functioneaza cu text, imagini si obiecte.</li>
+        </ul>
+      </section>
+
+      <section class="review-section reveal">
+        <h2>Puncte <span class="highlight">forte</span></h2>
+        <ul>
+          <li>✅ <strong>Integrare profunda in sistem</strong> &mdash; Functiile AI sunt incorporate direct in aplicatiile native Samsung (Telefon, Mesaje, Galerie, Note, Browser), oferind o experienta seamless.</li>
+          <li>✅ <strong>Nu necesita aplicatie suplimentara</strong> &mdash; Totul vine preinstalat pe telefonul Samsung. Nu trebuie sa descarci nimic, pur si simplu functioneaza.</li>
+          <li>✅ <strong>Editare foto excelenta</strong> &mdash; Instrumentele de editare foto cu AI sunt printre cele mai bune de pe piata, cu rezultate impresionante pentru stergerea obiectelor si imbunatatirea imaginilor.</li>
+          <li>✅ <strong>Traduceri in timp real in apeluri</strong> &mdash; Functia Live Translate este unica si extrem de utila pentru comunicarea internationala, functionand direct in aplicatia de telefon.</li>
+        </ul>
+      </section>
+
+      <section class="review-section reveal">
+        <h2>Puncte <span class="highlight">slabe</span></h2>
+        <ul>
+          <li>❌ <strong>Exclusiv Samsung</strong> &mdash; Galaxy AI este disponibil doar pe telefoanele Samsung, nu pe alte dispozitive Android sau iOS.</li>
+          <li>❌ <strong>Unele functii necesita modele noi</strong> &mdash; Cele mai avansate functii AI sunt disponibile doar pe telefoanele din seria S24 si mai noi, modelele mai vechi primind un set limitat de functionalitati.</li>
+          <li>❌ <strong>Mai limitat decat Gemini standalone</strong> &mdash; Comparativ cu Google Gemini ca aplicatie dedicata, Galaxy AI nu ofera conversatii AI deschise la fel de avansate si versatile.</li>
+        </ul>
+      </section>
+
+      <section class="review-section reveal">
+        <h2>Pentru cine <span class="highlight">este</span>?</h2>
+        <p>Galaxy AI este ideal pentru utilizatorii de telefoane Samsung care vor sa profite de functii AI fara a instala aplicatii suplimentare. Este perfect pentru cei care folosesc frecvent functia de telefon pentru apeluri internationale (datorita Live Translate), pentru pasionatii de fotografie care vor editare rapida si inteligenta, si pentru profesionisti care au nevoie de rezumare rapida a notelor si documentelor. Daca ai un telefon Samsung din seria S24 sau mai nou, Galaxy AI este deja la dispozitia ta.</p>
+      </section>
+
+      <section class="review-section reveal">
+        <h2>Verdict <span class="highlight">final</span></h2>
+        <div class="verdict-box">
+          <div class="verdict-stars">★★★★☆</div>
+          <p>Galaxy AI este o suita impresionanta de functii AI care transforma telefoanele Samsung in instrumente cu adevarat inteligente. Integrarea profunda in sistem, calitatea editarii foto si functia unica Live Translate sunt puncte forte majore. Limitarea la ecosistemul Samsung si dependenta de modele noi pentru functii complete sunt dezavantajele principale. Pentru posesorii de Samsung, este o experienta AI excelenta care vine gratuit cu telefonul. <strong>Rating: 4.0 / 5</strong></p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Share -->
+    <div class="review-share">
+      <div class="share-buttons">
+        <span class="share-label">Distribuie:</span>
+        <button class="share-btn share-btn--whatsapp" data-share="whatsapp" aria-label="Distribuie pe WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </button>
+        <button class="share-btn share-btn--facebook" data-share="facebook" aria-label="Distribuie pe Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </button>
+        <button class="share-btn share-btn--x" data-share="x" aria-label="Distribuie pe X">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </button>
+        <button class="share-btn share-btn--copy" data-share="copy" aria-label="Copiaza linkul">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Next Review -->
+    <div class="next-review">
+      <a href="siri.html">Recenzia urmatoare: Siri (Apple Intelligence) &rarr;</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro &mdash; Hub educational pentru Inteligenta Artificiala pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Inapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimtamant cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>🍪 Acest site foloseste cookie-uri</strong>
+        <p>Folosim cookie-uri esentiale pentru functionarea site-ului si cookie-uri analitice pentru a intelege cum este utilizat. Poti alege ce cookie-uri accepti.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setari</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz optionale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esentiale</strong>
+          <span>Necesare pentru functionarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajuta sa imbunatatim experienta</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salveaza preferintele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

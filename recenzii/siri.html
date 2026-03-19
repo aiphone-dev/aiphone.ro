@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recenzie Siri & Apple Intelligence — asistentul AI clasic Apple, reinventat cu funcții avansate de inteligență artificială pe iPhone.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Recenzie Siri & Apple Intelligence — AIphone.ro">
+  <meta property="og:description" content="Recenzie detaliată Siri & Apple Intelligence: funcții, avantaje, dezavantaje și verdict final.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aiphone.ro/recenzii/siri.html">
+  <meta property="og:image" content="https://aiphone.ro/img/og-image.png">
+  <title>Recenzie Siri & Apple Intelligence — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!-- Review Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Siri & Apple Intelligence",
+      "operatingSystem": "iOS",
+      "applicationCategory": "UtilitiesApplication"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "datePublished": "2026-03-19"
+  }
+  </script>
+
+  <style>
+    /* Article Layout */
+    .article-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: #ff00e5;
+    }
+    .breadcrumb .sep {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+    .article-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 60%, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* App Info Card */
+    .app-info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .app-icon {
+      font-size: 3.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .app-details {
+      flex: 1;
+    }
+    .app-details h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: #fff;
+    }
+    .app-tagline {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.75rem;
+    }
+    .app-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .app-meta-item {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .app-meta-item strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Rating */
+    .rating-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .rating-score {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #00d4ff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .rating-stars {
+      display: flex;
+      gap: 0.15rem;
+    }
+    .rating-stars .star {
+      color: #ff00e5;
+      font-size: 1.2rem;
+    }
+    .rating-stars .star.empty {
+      opacity: 0.25;
+    }
+    .rating-stars .star.half {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 1.2rem;
+    }
+    .rating-max {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Store Buttons */
+    .store-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .store-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+      background: rgba(255,255,255,0.08);
+    }
+    .store-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .store-label {
+      font-size: 0.65rem;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .store-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Preinstalled note */
+    .preinstalled-note {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #00d4ff;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      margin-bottom: 0.4rem;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter) ". ";
+      color: #ff00e5;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .toc a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: #00d4ff;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,212,255,0.15);
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #fff;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .article-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Pros/Cons */
+    .pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .pros-card, .cons-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .pros-card {
+      border-top: 3px solid #00d4ff;
+    }
+    .cons-card {
+      border-top: 3px solid #ff00e5;
+    }
+    .pros-card h3, .cons-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      margin-top: 0;
+    }
+    .pros-card ul, .cons-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pros-card li, .cons-card li {
+      padding: 0.4rem 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* Tip / Info boxes */
+    .tip-box {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .tip-box.tip-magenta {
+      background: rgba(255,0,229,0.06);
+      border-left-color: #ff00e5;
+    }
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Share Buttons */
+    .share-section {
+      margin: 3rem 0 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .share-section h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+    }
+
+    /* Next Review */
+    .next-tutorial {
+      display: block;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,0,229,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .next-tutorial:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.12);
+    }
+    .next-tutorial span.label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff00e5;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+    .next-tutorial span.title {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrapper {
+        padding: 1.25rem 1rem 3rem;
+      }
+      .article-content {
+        font-size: 1rem;
+      }
+      .app-info-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .app-meta-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .pros-cons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principala">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasa</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="themeToggle" aria-label="Schimba tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-wrapper">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Acasa</a>
+        <span class="sep">/</span>
+        <a href="../recenzii.html">Recenzii</a>
+        <span class="sep">/</span>
+        <span>Siri &amp; Apple Intelligence</span>
+      </nav>
+
+      <!-- App Info Card -->
+      <div class="app-info-card">
+        <div class="app-icon">&#129504;</div>
+        <div class="app-details">
+          <h2>Siri &amp; Apple Intelligence</h2>
+          <p class="app-tagline">Asistentul clasic Apple, reinventat cu AI</p>
+
+          <div class="rating-wrap">
+            <span class="rating-score">3.5</span>
+            <div class="rating-stars">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star half">&#9733;</span>
+              <span class="star empty">&#9733;</span>
+            </div>
+            <span class="rating-max">/ 5</span>
+          </div>
+
+          <div class="app-meta-grid">
+            <div class="app-meta-item"><strong>Dezvoltator:</strong> Apple</div>
+            <div class="app-meta-item"><strong>Pret:</strong> Gratuit (inclus in iOS)</div>
+            <div class="app-meta-item"><strong>Platforme:</strong> iOS</div>
+          </div>
+
+          <div class="preinstalled-note">
+            Siri vine preinstalat pe toate dispozitivele Apple. Activeaza-l din <strong>Setari &rarr; Siri</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Cuprins">
+        <h2>Cuprins</h2>
+        <ol>
+          <li><a href="#ce-este">Ce este Siri &amp; Apple Intelligence?</a></li>
+          <li><a href="#functii">Functii principale</a></li>
+          <li><a href="#puncte-forte">Puncte forte</a></li>
+          <li><a href="#puncte-slabe">Puncte slabe</a></li>
+          <li><a href="#pentru-cine">Pentru cine este?</a></li>
+          <li><a href="#verdict">Verdict final</a></li>
+        </ol>
+      </nav>
+
+      <!-- Article Content -->
+      <div class="article-content">
+
+        <h2 id="ce-este">Ce este Siri &amp; Apple Intelligence?</h2>
+        <p>
+          Siri a fost primul asistent vocal mainstream lansat pe un smartphone, inca din 2011. Dar in ultimii ani, Apple a ramas in urma competitiei in ceea ce priveste inteligenta artificiala. Totul s-a schimbat odata cu lansarea <strong>Apple Intelligence</strong> — un sistem AI complet integrat in iOS 18.1 si versiunile ulterioare.
+        </p>
+        <p>
+          Apple Intelligence nu este doar o actualizare a lui Siri, ci o suita completa de functii AI care functioneaza la nivel de sistem de operare. De la rescrierea textelor si rezumarea notificarilor, pana la generarea de imagini si emoji-uri personalizate, Apple Intelligence transforma modul in care interactionezi cu iPhone-ul tau.
+        </p>
+        <p>
+          Ce face Apple Intelligence unic este abordarea <strong>privacy-first</strong>: majoritatea procesarilor au loc direct pe dispozitiv, fara a trimite datele tale in cloud. Iar cand este nevoie de putere de procesare suplimentara, Apple foloseste <strong>Private Cloud Compute</strong>, un sistem cloud securizat special conceput pentru confidentialitate.
+        </p>
+
+        <h2 id="functii">Functii principale</h2>
+        <ul>
+          <li><strong>Writing Tools (Instrumente de scriere)</strong> — Rescrie, corecteaza, rezuma sau schimba tonul oricarui text direct din orice aplicatie. Functioneaza in Mail, Mesaje, Note, Safari si aplicatii terte.</li>
+          <li><strong>Rezumarea notificarilor</strong> — Apple Intelligence analizeaza notificarile si le prezinta sub forma de rezumate concise, astfel incat vezi rapid ce este important fara sa deschizi fiecare aplicatie.</li>
+          <li><strong>Genmoji</strong> — Creeaza emoji-uri personalizate bazate pe o descriere text. Poti genera emoji-uri cu chipul tau sau al prietenilor, direct din tastatura.</li>
+          <li><strong>Image Playground</strong> — Genereaza imagini originale in stiluri diferite (animatie, ilustratie, schita) bazate pe descrieri text sau fotografii existente.</li>
+          <li><strong>Smart Reply</strong> — Sugereaza raspunsuri inteligente si contextuale in Mesaje si Mail, analizand continutul conversatiei.</li>
+          <li><strong>Procesare pe dispozitiv</strong> — Majoritatea functiilor AI ruleaza local pe chip-ul A17 Pro sau M-series, fara a trimite date catre servere externe.</li>
+        </ul>
+
+        <h2 id="puncte-forte">Puncte forte</h2>
+        <div class="pros-cons-grid">
+          <div class="pros-card">
+            <h3>Avantaje</h3>
+            <ul>
+              <li>&#9989; <strong>Confidentialitate excelenta</strong> — Procesarea pe dispozitiv inseamna ca datele tale raman pe telefon. Apple nu are acces la cererile tale AI.</li>
+              <li>&#9989; <strong>Integrare profunda cu iOS</strong> — Functioneaza nativ in toate aplicatiile Apple si la nivel de sistem, fara a instala nimic separat.</li>
+              <li>&#9989; <strong>Writing Tools remarcabile</strong> — Instrumentele de scriere sunt intuitive si functioneaza universal in orice camp de text.</li>
+              <li>&#9989; <strong>Genmoji sunt distractivi</strong> — Crearea de emoji-uri personalizate adauga o dimensiune creativa unica conversatiilor.</li>
+            </ul>
+          </div>
+
+          <div class="cons-card">
+            <h3>Dezavantaje</h3>
+            <ul>
+              <li>&#10060; <strong>Suport limitat de dispozitive</strong> — Necesita iPhone 15 Pro (A17 Pro) sau mai nou. Majoritatea modelelor mai vechi nu sunt compatibile.</li>
+              <li>&#10060; <strong>Fara limba romana</strong> — Apple Intelligence nu suporta inca limba romana. Trebuie sa setezi limba pe engleza sau alta limba suportata.</li>
+              <li>&#10060; <strong>Mai putin capabil decat Gemini/ChatGPT</strong> — Pentru sarcini complexe (analiza de date, programare, cercetare), Siri ramane in urma competitiei.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 id="pentru-cine">Pentru cine este?</h2>
+        <p>
+          Siri si Apple Intelligence sunt ideale pentru <strong>utilizatorii ecosistemului Apple</strong> care doresc functii AI integrate natural in experienta iOS, fara compromisuri la capitolul confidentialitate. Daca ai deja un iPhone 15 Pro sau mai nou si folosesti aplicatiile Apple zilnic (Mail, Mesaje, Note, Safari), vei beneficia enorm de Writing Tools si rezumarea notificarilor.
+        </p>
+        <p>
+          Nu este cea mai buna alegere daca ai nevoie de un AI conversational puternic pentru sarcini complexe — in acest caz, ChatGPT sau Google Gemini raman superioare. De asemenea, daca vorbesti predominant romana, vei intampina limitari pana cand Apple va adauga suport pentru limba romana.
+        </p>
+
+        <h2 id="verdict">Verdict final</h2>
+        <p>
+          Apple Intelligence reprezinta un pas important pentru Apple in lumea AI. Abordarea axata pe <strong>confidentialitate si integrare la nivel de sistem</strong> este exact ceea ce multi utilizatori isi doreau. Writing Tools si rezumarea notificarilor sunt functii excelente care imbunatatesc productivitatea zilnica.
+        </p>
+        <p>
+          Totusi, <strong>nota de 3.5/5</strong> reflecta limitarile actuale: suport limitat de dispozitive, lipsa limbii romane si un Siri care inca nu este la nivelul competitiei pentru conversatii complexe. Apple Intelligence este un fundament solid, dar mai are drum de parcurs pana sa devina cu adevarat <em>inteligent</em> la nivelul asteptarilor utilizatorilor.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Recomandarea noastra</strong>
+          Daca ai un iPhone compatibil, activeaza Apple Intelligence din Setari — nu ai nimic de pierdut, fiind gratuit si integrat. Dar pentru sarcini AI avansate, completeaza cu ChatGPT sau Google Gemini din App Store.
+        </div>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-section">
+        <h3>Distribuie aceasta recenzie</h3>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="share-btn" href="https://wa.me/?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copiat!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiaza link
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Review -->
+      <a href="chatgpt.html" class="next-tutorial">
+        <span class="label">Recenzia urmatoare &rarr;</span>
+        <span class="title">ChatGPT — Cel mai popular chatbot AI din lume</span>
+      </a>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educational pentru Inteligenta Artificiala pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Inapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimtamant cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>Acest site foloseste cookie-uri</strong>
+        <p>Folosim cookie-uri esentiale pentru functionarea site-ului si cookie-uri analitice pentru a intelege cum este utilizat. Poti alege ce cookie-uri accepti.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setari</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz optionale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esentiale</strong>
+          <span>Necesare pentru functionarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajuta sa imbunatatim experienta</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salveaza preferintele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
