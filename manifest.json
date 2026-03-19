@@ -1,0 +1,27 @@
+{
+  "name": "AIphone.ro - AI pe Telefonul Tău",
+  "short_name": "AIphone",
+  "description": "Hub educațional pentru Inteligența Artificială pe smartphone",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00d4ff",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "technology"],
+  "lang": "ro",
+  "dir": "ltr"
+}

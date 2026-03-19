@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="50%" style="stop-color:#0d0d1a"/>
+      <stop offset="100%" style="stop-color:#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#ff00e5"/>
+    </linearGradient>
+    <linearGradient id="brandGradV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#ff00e5"/>
+    </linearGradient>
+    <filter id="glowBlue">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowMagenta">
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="subtleGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="glowOrb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glowOrb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff00e5;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#ff00e5;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="0" x2="0" y2="630"/><line x1="60" y1="0" x2="60" y2="630"/>
+    <line x1="120" y1="0" x2="120" y2="630"/><line x1="180" y1="0" x2="180" y2="630"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="360" y1="0" x2="360" y2="630"/><line x1="420" y1="0" x2="420" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/><line x1="540" y1="0" x2="540" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/><line x1="660" y1="0" x2="660" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="780" y1="0" x2="780" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/><line x1="1020" y1="0" x2="1020" y2="630"/>
+    <line x1="1080" y1="0" x2="1080" y2="630"/><line x1="1140" y1="0" x2="1140" y2="630"/>
+    <line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+
+  <!-- Neon glow orbs -->
+  <ellipse cx="250" cy="200" rx="250" ry="200" fill="url(#glowOrb1)"/>
+  <ellipse cx="950" cy="430" rx="300" ry="220" fill="url(#glowOrb2)"/>
+
+  <!-- Neural network dots scattered -->
+  <g opacity="0.3">
+    <circle cx="150" cy="120" r="3" fill="#00d4ff"/><circle cx="300" cy="80" r="2" fill="#00d4ff"/>
+    <circle cx="200" cy="500" r="2.5" fill="#ff00e5"/><circle cx="1000" cy="150" r="3" fill="#ff00e5"/>
+    <circle cx="1050" cy="500" r="2" fill="#00d4ff"/><circle cx="900" cy="100" r="2.5" fill="#00d4ff"/>
+    <circle cx="100" cy="350" r="2" fill="#ff00e5"/><circle cx="1100" cy="300" r="2.5" fill="#ff00e5"/>
+    <circle cx="450" cy="550" r="2" fill="#00d4ff"/><circle cx="750" cy="80" r="2" fill="#ff00e5"/>
+  </g>
+  <g opacity="0.1" stroke-width="0.5">
+    <line x1="150" y1="120" x2="300" y2="80" stroke="#00d4ff"/>
+    <line x1="900" y1="100" x2="1000" y2="150" stroke="#ff00e5"/>
+    <line x1="200" y1="500" x2="450" y2="550" stroke="#ff00e5"/>
+    <line x1="1050" y1="500" x2="1100" y2="300" stroke="#00d4ff"/>
+  </g>
+
+  <!-- Decorative top line -->
+  <rect x="400" y="160" width="400" height="2" rx="1" fill="url(#brandGrad)" opacity="0.4"/>
+
+  <!-- Brand text: AIphone.ro -->
+  <text x="600" y="290" text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', 'Helvetica', sans-serif" font-weight="900" font-size="88" fill="url(#brandGrad)" filter="url(#textGlow)">AIphone.ro</text>
+
+  <!-- Slogan -->
+  <text x="600" y="370" text-anchor="middle" font-family="'Helvetica Neue', 'Arial', sans-serif" font-weight="300" font-size="32" fill="#ffffff" opacity="0.85" filter="url(#subtleGlow)">Deblochează Geniul din Telefonul Tău</text>
+
+  <!-- Decorative bottom line -->
+  <rect x="400" y="410" width="400" height="2" rx="1" fill="url(#brandGrad)" opacity="0.4"/>
+
+  <!-- Bottom tagline -->
+  <text x="600" y="480" text-anchor="middle" font-family="'Helvetica Neue', 'Arial', sans-serif" font-weight="400" font-size="20" fill="#ffffff" opacity="0.4">Telefoane Premium cu AI Integrat</text>
+
+  <!-- Border glow effect -->
+  <rect x="2" y="2" width="1196" height="626" rx="8" ry="8" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" opacity="0.3"/>
+</svg>
