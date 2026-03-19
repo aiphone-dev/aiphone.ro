@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Verificare IMEI gratuit online. Identificare model telefon, specificații, compatibilitate operatori România. Fără API, totul local în browser.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Verificare IMEI Gratuit | Identificare Model Telefon - AIphone.ro">
+  <meta property="og:description" content="Verifică IMEI-ul telefonului gratuit. Identificare model, specificații complete, compatibilitate operatori România. 100% local, fără API.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../img/og-image.png">
+  <title>Verificare IMEI Gratuit | Identificare Model Telefon - AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ce este IMEI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IMEI (International Mobile Equipment Identity) este un cod unic de 15 cifre care identifică fiecare telefon mobil în mod individual. Este ca un CNP pentru telefonul tău. Fiecare telefon are cel puțin un IMEI, iar telefoanele dual SIM au două."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cum aflu IMEI-ul telefonului?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cea mai simplă metodă este să tastezi *#06# pe ecranul de apelare al telefonului. IMEI-ul va fi afișat instant. Alternativ, îl găsești în Setări > Despre telefon > IMEI sau pe cutia originală a telefonului."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ===== IMEI Tools Specific Styles ===== */
+
+    .imei-hero {
+      padding: 8rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .imei-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .imei-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      color: #a5b4fc;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .imei-hero-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .imei-hero-title .gradient-text {
+      background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .imei-hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* Main IMEI Input */
+    .imei-main-checker {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    .imei-input-wrap {
+      display: flex;
+      gap: 0.75rem;
+      align-items: stretch;
+    }
+    .imei-input {
+      flex: 1;
+      padding: 1rem 1.25rem;
+      font-size: 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(99,102,241,0.3);
+      border-radius: 12px;
+      color: #fff;
+      outline: none;
+      transition: all 0.3s;
+      letter-spacing: 2px;
+    }
+    .imei-input:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 4px rgba(99,102,241,0.15), 0 0 30px rgba(99,102,241,0.1);
+      background: rgba(255,255,255,0.06);
+    }
+    .imei-input::placeholder {
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0;
+      font-size: 0.95rem;
+    }
+    .imei-input.valid { border-color: #10b981; box-shadow: 0 0 0 4px rgba(16,185,129,0.15); }
+    .imei-input.invalid { border-color: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.15); }
+
+    .imei-btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+    .imei-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99,102,241,0.35);
+    }
+    .imei-btn:active { transform: translateY(0); }
+    .imei-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .imei-hint {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .imei-hint code {
+      background: rgba(99,102,241,0.15);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #a5b4fc;
+    }
+
+    /* Loading Animation */
+    .imei-loading {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .imei-loading.active { display: block; }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(99,102,241,0.2);
+      border-top-color: #6366f1;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Results Panel */
+    .imei-results {
+      display: none;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+    }
+    .imei-results.active { display: block; animation: fadeInUp 0.5s ease-out; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+    .result-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .result-section-title .icon {
+      font-size: 1.2rem;
+    }
+
+    /* Validation */
+    .validity-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .validity-badge.valid {
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.3);
+      color: #34d399;
+    }
+    .validity-badge.invalid {
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.3);
+      color: #f87171;
+    }
+
+    /* IMEI Structure */
+    .imei-structure {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .imei-segment {
+      text-align: center;
+      padding: 0.75rem 1rem;
+      position: relative;
+    }
+    .imei-segment-digits {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .imei-segment-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .seg-tac .imei-segment-digits { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; }
+    .seg-tac .imei-segment-label { color: #818cf8; }
+    .seg-serial .imei-segment-digits { background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; }
+    .seg-serial .imei-segment-label { color: #a855f7; }
+    .seg-check .imei-segment-digits { background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); color: #f472b6; }
+    .seg-check .imei-segment-label { color: #ec4899; }
+
+    .seg-divider {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.15);
+      padding-bottom: 1.5rem;
+    }
+
+    /* Info Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .info-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .info-card-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.35rem;
+    }
+    .info-card-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Specs Table */
+    .specs-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 4px;
+    }
+    .specs-table tr {
+      background: rgba(255,255,255,0.02);
+    }
+    .specs-table td {
+      padding: 0.65rem 1rem;
+      border: none;
+    }
+    .specs-table td:first-child {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      border-radius: 8px 0 0 8px;
+      width: 140px;
+    }
+    .specs-table td:last-child {
+      color: #fff;
+      font-weight: 500;
+      border-radius: 0 8px 8px 0;
+    }
+    .spec-icon {
+      margin-right: 0.5rem;
+      opacity: 0.6;
+    }
+
+    /* Network Badges */
+    .network-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .net-badge {
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .net-badge.active { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #34d399; }
+    .net-badge.inactive { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.25); }
+
+    .bands-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .band-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      color: #a5b4fc;
+    }
+
+    /* Carrier Compatibility */
+    .carrier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .carrier-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .carrier-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .carrier-status {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .carrier-check {
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .carrier-check.yes { color: #34d399; }
+    .carrier-check.no { color: #f87171; }
+
+    /* USSD Codes */
+    .ussd-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ussd-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.6rem 0.85rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+    }
+    .ussd-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #a5b4fc;
+      min-width: 140px;
+    }
+    .ussd-desc {
+      flex: 1;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+    }
+    .ussd-copy {
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+      color: #a5b4fc;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .ussd-copy:hover { background: rgba(99,102,241,0.25); }
+
+    /* Action Buttons */
+    .actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+    }
+    .action-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-1px);
+    }
+    .action-btn.primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-color: transparent;
+    }
+    .action-btn.primary:hover {
+      box-shadow: 0 4px 15px rgba(99,102,241,0.3);
+    }
+
+    /* Barcode */
+    .barcode-area {
+      display: none;
+      text-align: center;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    .barcode-area.active { display: block; animation: fadeInUp 0.3s; }
+    .barcode-area canvas { max-width: 100%; }
+    .barcode-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #333;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== Additional Tools ===== */
+    .tools-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+    .tools-section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .tools-section-sub {
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2rem;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    /* Tool Card (accordion) */
+    .tool-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .tool-card:hover, .tool-card.open {
+      border-color: rgba(99,102,241,0.3);
+    }
+    .tool-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .tool-header:hover {
+      background: rgba(255,255,255,0.02);
+    }
+    .tool-icon {
+      font-size: 1.5rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(99,102,241,0.1);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .tool-title {
+      flex: 1;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .tool-chevron {
+      transition: transform 0.3s;
+      color: rgba(255,255,255,0.3);
+    }
+    .tool-card.open .tool-chevron {
+      transform: rotate(180deg);
+    }
+    .tool-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .tool-card.open .tool-body {
+      max-height: 2000px;
+    }
+    .tool-content {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    /* Tool inputs */
+    .tool-input, .tool-textarea, .tool-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid rgba(99,102,241,0.2);
+      border-radius: 10px;
+      color: #fff;
+      outline: none;
+      transition: all 0.3s;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+    .tool-input:focus, .tool-textarea:focus, .tool-select:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+    }
+    .tool-input::placeholder, .tool-textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .tool-textarea { min-height: 120px; resize: vertical; font-family: 'JetBrains Mono', monospace; }
+    .tool-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6.5 6.5-6.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .tool-select option { background: #1a1a2e; color: #fff; }
+    .tool-label {
+      display: block;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .tool-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .tool-group {
+      margin-bottom: 1rem;
+    }
+    .tool-btn {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tool-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(99,102,241,0.3); }
+    .tool-result {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      display: none;
+    }
+    .tool-result.active { display: block; animation: fadeInUp 0.3s; }
+    .tool-result-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #a5b4fc;
+    }
+
+    /* Bulk table */
+    .bulk-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 3px;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+    .bulk-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .bulk-table td {
+      padding: 0.5rem 0.75rem;
+      background: rgba(255,255,255,0.02);
+      color: #fff;
+    }
+    .bulk-table td:first-child { border-radius: 6px 0 0 6px; font-family: 'JetBrains Mono', monospace; }
+    .bulk-table td:last-child { border-radius: 0 6px 6px 0; }
+
+    /* Comparison table */
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 3px;
+    }
+    .compare-table th {
+      text-align: left;
+      padding: 0.6rem 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+    .compare-table td {
+      padding: 0.6rem 0.85rem;
+      background: rgba(255,255,255,0.02);
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .compare-table td:first-child {
+      color: rgba(255,255,255,0.5);
+      border-radius: 6px 0 0 6px;
+    }
+    .compare-table td:last-child { border-radius: 0 6px 6px 0; }
+    .compare-table .better { color: #34d399; font-weight: 600; }
+
+    /* Warranty / Resale specific */
+    .warranty-status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .warranty-bar {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .warranty-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.5s ease;
+    }
+    .warranty-fill.green { background: linear-gradient(90deg, #10b981, #34d399); }
+    .warranty-fill.yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .warranty-fill.red { background: linear-gradient(90deg, #ef4444, #f87171); }
+    .warranty-fill.expired { background: #666; }
+
+    .price-range {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .price-card {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      background: rgba(99,102,241,0.06);
+      border: 1px solid rgba(99,102,241,0.15);
+      border-radius: 10px;
+    }
+    .price-card-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.25rem;
+    }
+    .price-card-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #a5b4fc;
+    }
+    .price-card-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 0.15rem;
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(16,185,129,0.95);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Print styles */
+    @media print {
+      .navbar, .imei-hero, .tools-section, .footer, .cookie-banner,
+      .back-to-top, .scroll-progress, .bg-grid, .actions-bar,
+      .imei-main-checker, .imei-loading { display: none !important; }
+      .imei-results {
+        display: block !important;
+        max-width: 100%;
+        padding: 0;
+      }
+      .result-section {
+        border: 1px solid #ddd;
+        background: #fff;
+        color: #000;
+        break-inside: avoid;
+      }
+      .result-section-title { color: #333; }
+      .info-card-value, .specs-table td:last-child, .carrier-name { color: #000; }
+      .specs-table td:first-child { color: #666; }
+      body { background: #fff; }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .imei-input-wrap { flex-direction: column; }
+      .imei-btn { width: 100%; }
+      .tool-row { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: repeat(2, 1fr); }
+      .carrier-grid { grid-template-columns: 1fr 1fr; }
+      .actions-bar { flex-direction: column; }
+      .action-btn { justify-content: center; }
+      .imei-segment { padding: 0.5rem 0.35rem; }
+      .imei-segment-digits { font-size: 1.15rem; letter-spacing: 2px; }
+      .ussd-item { flex-wrap: wrap; gap: 0.5rem; }
+      .ussd-code { min-width: auto; }
+      .price-range { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principala">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasa</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="#" class="active" style="color: #a5b4fc;">IMEI Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="searchToggle" aria-label="Cauta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-btn" id="themeToggle" aria-label="Schimba tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="imei-hero">
+      <div class="imei-hero-badge">
+        100% Gratuit &bull; Fara API &bull; Datele raman pe dispozitivul tau
+      </div>
+      <h1 class="imei-hero-title">
+        Instrumente <span class="gradient-text">IMEI & Telefon</span>
+      </h1>
+      <p class="imei-hero-subtitle">
+        Verifica, analizeaza si compara &mdash; totul gratuit, direct in browser
+      </p>
+
+      <!-- Main IMEI Checker -->
+      <div class="imei-main-checker">
+        <div class="imei-input-wrap">
+          <input type="text" class="imei-input" id="imeiInput" placeholder="Introdu IMEI-ul aici (15 cifre)" maxlength="18" autocomplete="off" inputmode="numeric">
+          <button class="imei-btn" id="imeiCheckBtn" onclick="checkIMEI()">Verifica IMEI</button>
+        </div>
+        <p class="imei-hint">Tasteaza <code>*#06#</code> pe telefon pentru a afla IMEI-ul</p>
+      </div>
+    </section>
+
+    <!-- Loading -->
+    <div class="imei-loading" id="imeiLoading">
+      <div class="loading-spinner"></div>
+      <p style="color: rgba(255,255,255,0.5);">Se analizeaza IMEI-ul...</p>
+    </div>
+
+    <!-- ========== RESULTS ========== -->
+    <div class="imei-results" id="imeiResults">
+
+      <!-- 1. Validation -->
+      <div class="result-section">
+        <div class="result-section-title"><span class="icon">&#9989;</span> Validare IMEI</div>
+        <div id="validationResult"></div>
+      </div>
+
+      <!-- 2. Structure -->
+      <div class="result-section">
+        <div class="result-section-title"><span class="icon">&#128270;</span> Structura IMEI</div>
+        <div class="imei-structure" id="imeiStructure"></div>
+      </div>
+
+      <!-- 3. Device Info -->
+      <div class="result-section" id="deviceInfoSection" style="display:none;">
+        <div class="result-section-title"><span class="icon">&#128241;</span> Informatii Dispozitiv</div>
+        <div class="info-grid" id="deviceInfoGrid"></div>
+      </div>
+
+      <!-- 4. Specs -->
+      <div class="result-section" id="specsSection" style="display:none;">
+        <div class="result-section-title"><span class="icon">&#9881;</span> Specificatii</div>
+        <table class="specs-table" id="specsTable"><tbody></tbody></table>
+      </div>
+
+      <!-- 5. Connectivity -->
+      <div class="result-section" id="connectivitySection" style="display:none;">
+        <div class="result-section-title"><span class="icon">&#128225;</span> Conectivitate</div>
+        <div id="connectivityContent"></div>
+      </div>
+
+      <!-- 6. Carrier Compatibility -->
+      <div class="result-section" id="carrierSection" style="display:none;">
+        <div class="result-section-title"><span class="icon">&#127479;&#127476;</span> Compatibilitate Operatori Romania</div>
+        <div class="carrier-grid" id="carrierGrid"></div>
+      </div>
+
+      <!-- 7. USSD Codes -->
+      <div class="result-section" id="ussdSection" style="display:none;">
+        <div class="result-section-title"><span class="icon">&#128222;</span> Coduri USSD Utile</div>
+        <div class="ussd-list" id="ussdList"></div>
+      </div>
+
+      <!-- 8. Actions -->
+      <div class="result-section">
+        <div class="result-section-title"><span class="icon">&#128640;</span> Actiuni</div>
+        <div class="actions-bar">
+          <button class="action-btn primary" onclick="downloadPDF()">&#128196; Descarca Raport PDF</button>
+          <button class="action-btn" onclick="copyResults()">&#128203; Copiaza Rezultatele</button>
+          <button class="action-btn" onclick="generateBarcode()">&#9612; Genereaza Barcode</button>
+          <button class="action-btn" onclick="shareResults()">&#128279; Distribuie</button>
+        </div>
+        <div class="barcode-area" id="barcodeArea">
+          <canvas id="barcodeCanvas"></canvas>
+          <div class="barcode-label" id="barcodeLabel"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========== ADDITIONAL TOOLS ========== -->
+    <section class="tools-section">
+      <h2 class="tools-section-title">Instrumente Aditionale</h2>
+      <p class="tools-section-sub">Toate uneltele de care ai nevoie, intr-un singur loc</p>
+
+      <div class="tools-grid">
+
+        <!-- Tool: Bulk Check -->
+        <div class="tool-card" id="toolBulk">
+          <div class="tool-header" onclick="toggleTool('toolBulk')">
+            <div class="tool-icon">&#128202;</div>
+            <div class="tool-title">Verificare Bulk IMEI</div>
+            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="tool-body">
+            <div class="tool-content">
+              <div class="tool-group">
+                <label class="tool-label">Introdu mai multe IMEI-uri (cate unul pe linie)</label>
+                <textarea class="tool-textarea" id="bulkInput" placeholder="353325100000001&#10;354406110000002&#10;359016110000003"></textarea>
+              </div>
+              <button class="tool-btn" onclick="bulkCheck()">Verifica Toate</button>
+              <div class="tool-result" id="bulkResult"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool: Dual SIM Detection -->
+        <div class="tool-card" id="toolDualSim">
+          <div class="tool-header" onclick="toggleTool('toolDualSim')">
+            <div class="tool-icon">&#128241;</div>
+            <div class="tool-title">Detectare Dual SIM</div>
+            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="tool-body">
+            <div class="tool-content">
+              <div class="tool-row">
+                <div class="tool-group">
+                  <label class="tool-label">IMEI 1</label>
+                  <input type="text" class="tool-input" id="dualImei1" placeholder="IMEI-ul primului slot" maxlength="18" inputmode="numeric">
+                </div>
+                <div class="tool-group">
+                  <label class="tool-label">IMEI 2</label>
+                  <input type="text" class="tool-input" id="dualImei2" placeholder="IMEI-ul celui de-al doilea slot" maxlength="18" inputmode="numeric">
+                </div>
+              </div>
+              <button class="tool-btn" onclick="dualSimCheck()">Verifica</button>
+              <div class="tool-result" id="dualSimResult"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool: Check Digit Generator -->
+        <div class="tool-card" id="toolCheckDigit">
+          <div class="tool-header" onclick="toggleTool('toolCheckDigit')">
+            <div class="tool-icon">&#128290;</div>
+            <div class="tool-title">Generator Check Digit</div>
+            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="tool-body">
+            <div class="tool-content">
+              <div class="tool-group">
+                <label class="tool-label">Introdu primele 14 cifre ale IMEI-ului</label>
+                <input type="text" class="tool-input" id="checkDigitInput" placeholder="35332510000000" maxlength="17" inputmode="numeric">
+              </div>
+              <button class="tool-btn" onclick="calcCheckDigit()">Calculeaza</button>
+              <div class="tool-result" id="checkDigitResult"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool: Phone Comparison -->
+        <div class="tool-card" id="toolCompare">
+          <div class="tool-header" onclick="toggleTool('toolCompare')">
+            <div class="tool-icon">&#9878;</div>
+            <div class="tool-title">Comparare Telefoane</div>
+            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="tool-body">
+            <div class="tool-content">
+              <div class="tool-row">
+                <div class="tool-group">
+                  <label class="tool-label">Telefon 1</label>
+                  <select class="tool-select" id="comparePhone1"><option value="">Alege modelul...</option></select>
+                </div>
+                <div class="tool-group">
+                  <label class="tool-label">Telefon 2</label>
+                  <select class="tool-select" id="comparePhone2"><option value="">Alege modelul...</option></select>
+                </div>
+              </div>
+              <button class="tool-btn" onclick="comparePhones()">Compara</button>
+              <div class="tool-result" id="compareResult"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool: PPI Calculator -->
+        <div class="tool-card" id="toolPPI">
+          <div class="tool-header" onclick="toggleTool('toolPPI')">
+            <div class="tool-icon">&#128187;</div>
+            <div class="tool-title">Calculator PPI (Densitate Pixeli)</div>
+            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="tool-body">
+            <div class="tool-content">
+              <div class="tool-row">
+                <div class="tool-group">
+                  <label class="tool-label">Diagonala ecran (inch)</label>
+                  <input type="number" class="tool-input" id="ppiDiag" placeholder="6.7" step="0.1" min="1">
+                </div>
+                <div class="tool-group">
+                  <label class="tool-label">Rezolutie latime (px)</label>
+                  <input type="number" class="tool-input" id="ppiW" placeholder="1440" min="1">
+                </div>
+              </div>
+              <div class="tool-group">
+                <label class="tool-label">Rezolutie inaltime (px)</label>
+                <input type="number" class="tool-input" id="ppiH" placeholder="3200" min="1">
+              </div>
+              <button class="tool-btn" onclick="calcPPI()">Calculeaza PPI</button>
+              <div class="tool-result" id="ppiResult"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool: Resale Value -->
+        <div class="tool-card" id="toolResale">
+          <div class="tool-header" onclick="toggleTool('toolResale')">
+            <div class="tool-icon">&#128176;</div>
+            <div class="tool-title">Estimare Valoare Revanzare</div>
+            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="tool-body">
+            <div class="tool-content">
+              <div class="tool-row">
+                <div class="tool-group">
+                  <label class="tool-label">Model telefon</label>
+                  <select class="tool-select" id="resaleModel"><option value="">Alege modelul...</option></select>
+                </div>
+                <div class="tool-group">
+                  <label class="tool-label">Stare</label>
+                  <select class="tool-select" id="resaleCondition">
+                    <option value="new">Nou (sigilat)</option>
+                    <option value="excellent">Foarte bun</option>
+                    <option value="good" selected>Bun</option>
+                    <option value="fair">Acceptabil</option>
+                  </select>
+                </div>
+              </div>
+              <button class="tool-btn" onclick="estimateResale()">Estimeaza Pretul</button>
+              <div class="tool-result" id="resaleResult"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool: Warranty Estimation -->
+        <div class="tool-card" id="toolWarranty">
+          <div class="tool-header" onclick="toggleTool('toolWarranty')">
+            <div class="tool-icon">&#128197;</div>
+            <div class="tool-title">Estimare Garantie</div>
+            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="tool-body">
+            <div class="tool-content">
+              <div class="tool-row">
+                <div class="tool-group">
+                  <label class="tool-label">Model telefon</label>
+                  <select class="tool-select" id="warrantyModel"><option value="">Alege modelul...</option></select>
+                </div>
+                <div class="tool-group">
+                  <label class="tool-label">Data achizitiei</label>
+                  <input type="date" class="tool-input" id="warrantyDate">
+                </div>
+              </div>
+              <button class="tool-btn" onclick="estimateWarranty()">Verifica Garantia</button>
+              <div class="tool-result" id="warrantyResult"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq-section" id="faq" style="padding-bottom: 3rem;">
+      <div class="faq-container reveal">
+        <span class="section-label">Intrebari frecvente</span>
+        <h2 class="section-title">Ai <span class="highlight">Intrebari</span>?</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Ce este IMEI?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>IMEI (International Mobile Equipment Identity) este un cod unic de 15 cifre care identifica fiecare telefon mobil in mod individual. Este ca un CNP pentru telefonul tau. Fiecare telefon are cel putin un IMEI, iar telefoanele dual SIM au doua.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Cum aflu IMEI-ul telefonului?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Cea mai simpla metoda este sa tastezi <strong>*#06#</strong> pe ecranul de apelare al telefonului. IMEI-ul va fi afisat instant. Alternativ, il gasesti in <strong>Setari > Despre telefon > IMEI</strong> sau pe cutia originala a telefonului.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Datele mele sunt in siguranta?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Da. Toate verificarile se fac <strong>100% local in browserul tau</strong>. Nu trimitem niciun IMEI catre vreun server. Baza de date TAC este incarcata direct in pagina, iar toate calculele se fac pe dispozitivul tau. Poti chiar sa folosesti instrumentul offline.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro &mdash; Hub educational pentru Inteligenta Artificiala pe smartphone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Inapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="tac-database.js"></script>
+  <script src="../js/main.js"></script>
+
+  <script>
+  /* ============================================
+     IMEI Tools - All Logic
+     ============================================ */
+
+  // ---- Globals ----
+  let lastCheckedIMEI = '';
+  let lastDeviceInfo = null;
+
+  // ---- Luhn Validation ----
+  function luhnCheck(imei) {
+    if (!/^\d{15}$/.test(imei)) return false;
+    let sum = 0;
+    for (let i = 0; i < 15; i++) {
+      let d = parseInt(imei[i], 10);
+      if (i % 2 === 1) {
+        d *= 2;
+        if (d > 9) d -= 9;
+      }
+      sum += d;
+    }
+    return sum % 10 === 0;
+  }
+
+  function calcLuhnDigit(partial) {
+    // partial is 14 digits, calculate the 15th
+    let sum = 0;
+    for (let i = 0; i < 14; i++) {
+      let d = parseInt(partial[i], 10);
+      if (i % 2 === 1) {
+        d *= 2;
+        if (d > 9) d -= 9;
+      }
+      sum += d;
+    }
+    let check = (10 - (sum % 10)) % 10;
+    return check;
+  }
+
+  // ---- IMEI Input Formatting ----
+  const imeiInput = document.getElementById('imeiInput');
+  imeiInput.addEventListener('input', function(e) {
+    let raw = this.value.replace(/\D/g, '');
+    if (raw.length > 15) raw = raw.substring(0, 15);
+    // Format: XXXX XXXX XXXX XXX
+    let formatted = '';
+    for (let i = 0; i < raw.length; i++) {
+      if (i > 0 && i % 4 === 0) formatted += ' ';
+      formatted += raw[i];
+    }
+    this.value = formatted;
+
+    // Live validation feedback
+    this.classList.remove('valid', 'invalid');
+    if (raw.length === 15) {
+      this.classList.add(luhnCheck(raw) ? 'valid' : 'invalid');
+    }
+  });
+
+  imeiInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkIMEI();
+  });
+
+  // ---- Main IMEI Check ----
+  function checkIMEI() {
+    const raw = imeiInput.value.replace(/\D/g, '');
+    if (raw.length !== 15) {
+      imeiInput.classList.add('invalid');
+      showToast('Introdu un IMEI valid de 15 cifre');
+      return;
+    }
+
+    lastCheckedIMEI = raw;
+    const results = document.getElementById('imeiResults');
+    const loading = document.getElementById('imeiLoading');
+
+    results.classList.remove('active');
+    loading.classList.add('active');
+
+    // Simulate brief processing delay for UX
+    setTimeout(() => {
+      loading.classList.remove('active');
+      renderResults(raw);
+      results.classList.add('active');
+      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 600);
+  }
+
+  function renderResults(imei) {
+    const isValid = luhnCheck(imei);
+    const tac = imei.substring(0, 8);
+    const serial = imei.substring(8, 14);
+    const check = imei.substring(14, 15);
+    const device = window.TAC_DB ? window.TAC_DB[tac] : null;
+    lastDeviceInfo = device;
+
+    // 1. Validation
+    document.getElementById('validationResult').innerHTML = isValid
+      ? '<span class="validity-badge valid">&#10004; IMEI Valid &mdash; Algoritmul Luhn confirmat</span>'
+      : '<span class="validity-badge invalid">&#10008; IMEI Invalid &mdash; Algoritmul Luhn a esuat</span>';
+
+    // 2. Structure
+    document.getElementById('imeiStructure').innerHTML =
+      '<div class="imei-segment seg-tac"><span class="imei-segment-digits">' + tac + '</span><span class="imei-segment-label">TAC (8 cifre)</span></div>' +
+      '<span class="seg-divider">|</span>' +
+      '<div class="imei-segment seg-serial"><span class="imei-segment-digits">' + serial + '</span><span class="imei-segment-label">Serial (6 cifre)</span></div>' +
+      '<span class="seg-divider">|</span>' +
+      '<div class="imei-segment seg-check"><span class="imei-segment-digits">' + check + '</span><span class="imei-segment-label">Check (1 cifra)</span></div>';
+
+    // Sections that require device data
+    const deviceInfoSection = document.getElementById('deviceInfoSection');
+    const specsSection = document.getElementById('specsSection');
+    const connectivitySection = document.getElementById('connectivitySection');
+    const carrierSection = document.getElementById('carrierSection');
+    const ussdSection = document.getElementById('ussdSection');
+
+    if (!device) {
+      [deviceInfoSection, specsSection, connectivitySection, carrierSection, ussdSection]
+        .forEach(s => s.style.display = 'none');
+      return;
+    }
+
+    // 3. Device Info
+    deviceInfoSection.style.display = '';
+    document.getElementById('deviceInfoGrid').innerHTML =
+      infoCard('Brand', device.brand) +
+      infoCard('Model', device.model) +
+      infoCard('An lansare', device.year) +
+      infoCard('Tip', device.type);
+
+    // 4. Specs
+    specsSection.style.display = '';
+    const specsData = [
+      ['&#128247;', 'Ecran', device.screen],
+      ['&#128190;', 'RAM', device.ram],
+      ['&#128193;', 'Stocare', device.storage],
+      ['&#128248;', 'Camera', device.camera],
+      ['&#128267;', 'Baterie', device.battery],
+      ['&#9889;', 'Incarcare', device.charging],
+      ['&#128187;', 'OS', device.os],
+      ['&#9878;', 'Greutate', device.weight]
+    ];
+    document.getElementById('specsTable').querySelector('tbody').innerHTML = specsData.map(
+      s => '<tr><td><span class="spec-icon">' + s[0] + '</span>' + s[1] + '</td><td>' + s[2] + '</td></tr>'
+    ).join('');
+
+    // 5. Connectivity
+    connectivitySection.style.display = '';
+    const nets = ['2G', '3G', '4G', '5G'];
+    let netHTML = '<div class="network-badges">' +
+      nets.map(n => '<span class="net-badge ' + (device.network.includes(n) ? 'active' : 'inactive') + '">' + n + '</span>').join('') +
+      '</div>';
+    netHTML += '<p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:0.5rem;">Tip SIM: <strong style="color:#fff;">' + device.sim + '</strong></p>';
+    if (device.bands5g && device.bands5g.length > 0) {
+      netHTML += '<p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:0.5rem;">Benzi 5G suportate:</p>';
+      netHTML += '<div class="bands-list">' + device.bands5g.map(b => '<span class="band-tag">' + b + '</span>').join('') + '</div>';
+    }
+    document.getElementById('connectivityContent').innerHTML = netHTML;
+
+    // 6. Carrier Compatibility
+    carrierSection.style.display = '';
+    const carriers = window.CARRIER_BANDS || {};
+    let carrierHTML = '';
+    for (const key in carriers) {
+      const c = carriers[key];
+      const has4G = true; // All modern phones have 4G bands matching Romanian carriers
+      const has5G = device.network.includes('5G') && c['5G'].some(b => device.bands5g && device.bands5g.includes(b));
+      carrierHTML += '<div class="carrier-card">' +
+        '<div class="carrier-name" style="color:' + c.color + '">' + key + '</div>' +
+        '<div style="font-size:0.8rem;color:rgba(255,255,255,0.4);">' + c.name + '</div>' +
+        '<div class="carrier-status">' +
+        '<span class="carrier-check yes">&#10004; 4G</span>' +
+        (has5G ? '<span class="carrier-check yes">&#10004; 5G</span>' : '<span class="carrier-check no">&#10008; 5G</span>') +
+        '</div></div>';
+    }
+    document.getElementById('carrierGrid').innerHTML = carrierHTML;
+
+    // 7. USSD Codes
+    ussdSection.style.display = '';
+    const codes = (window.USSD_CODES && window.USSD_CODES[device.brand]) || (window.USSD_CODES && window.USSD_CODES['default']) || [];
+    document.getElementById('ussdList').innerHTML = codes.map(c =>
+      '<div class="ussd-item">' +
+      '<span class="ussd-code">' + c.code + '</span>' +
+      '<span class="ussd-desc">' + c.desc + '</span>' +
+      '<button class="ussd-copy" onclick="copyText(\'' + c.code + '\')">Copiaza</button>' +
+      '</div>'
+    ).join('');
+  }
+
+  function infoCard(label, value) {
+    return '<div class="info-card"><div class="info-card-label">' + label + '</div><div class="info-card-value">' + value + '</div></div>';
+  }
+
+  // ---- Actions ----
+  function downloadPDF() {
+    window.print();
+  }
+
+  function copyResults() {
+    if (!lastCheckedIMEI) return;
+    let text = 'IMEI: ' + lastCheckedIMEI + '\n';
+    text += 'Valid: ' + (luhnCheck(lastCheckedIMEI) ? 'Da' : 'Nu') + '\n';
+    if (lastDeviceInfo) {
+      const d = lastDeviceInfo;
+      text += 'Brand: ' + d.brand + '\nModel: ' + d.model + '\nAn: ' + d.year + '\n';
+      text += 'Ecran: ' + d.screen + '\nRAM: ' + d.ram + '\nStorare: ' + d.storage + '\n';
+      text += 'Camera: ' + d.camera + '\nBaterie: ' + d.battery + '\nOS: ' + d.os + '\n';
+    }
+    copyText(text, 'Rezultatele au fost copiate!');
+  }
+
+  function generateBarcode() {
+    if (!lastCheckedIMEI) return;
+    const canvas = document.getElementById('barcodeCanvas');
+    const ctx = canvas.getContext('2d');
+    const area = document.getElementById('barcodeArea');
+    area.classList.add('active');
+
+    // Code 128B barcode generation
+    const code = lastCheckedIMEI;
+    const barWidth = 2;
+    const height = 80;
+    const quietZone = 20;
+
+    // Code 128B encoding tables
+    const CODE128B = [
+      '11011001100','11001101100','11001100110','10010011000','10010001100',
+      '10001001100','10011001000','10011000100','10001100100','11001001000',
+      '11001000100','11000100100','10110011100','10011011100','10011001110',
+      '10111001100','10011101100','10011100110','11001110010','11001011100',
+      '11001001110','11011100100','11001110100','11100101100','11100100110',
+      '11101100100','11100110100','11100110010','11011011000','11011000110',
+      '11000110110','10100011000','10001011000','10001000110','10110001000',
+      '10001101000','10001100010','11010001000','11000101000','11000100010',
+      '10110111000','10110001110','10001101110','10111011000','10111000110',
+      '10001110110','11101110110','11010001110','11000101110','11011101000',
+      '11011100010','11011101110','11101011000','11101000110','11100010110',
+      '11101101000','11101100010','11100011010','11101111010','11001000010',
+      '11110001010','10100110000','10100001100','10010110000','10010000110',
+      '10000101100','10000100110','10110010000','10110000100','10011010000',
+      '10011000010','10000110100','10000110010','11000010010','11001010000',
+      '11110111010','11000010100','10001111010','10100111100','10010111100',
+      '10010011110','10111100100','10011110100','10011110010','11110100100',
+      '11110010100','11110010010','11011011110','11011110110','11110110110',
+      '10101111000','10100011110','10001011110','10111101000','10111100010',
+      '11110101000','11110100010','10111011110','10111101110','11101011110',
+      '11110101110','11010000100','11010010000','11010011100','1100011101011'
+    ];
+
+    // Start code B = 104, stop = 106
+    let encoded = CODE128B[104]; // Start B
+    let checksum = 104;
+
+    for (let i = 0; i < code.length; i++) {
+      const charCode = code.charCodeAt(i) - 32;
+      encoded += CODE128B[charCode];
+      checksum += charCode * (i + 1);
+    }
+    checksum = checksum % 103;
+    encoded += CODE128B[checksum];
+    encoded += CODE128B[106]; // Stop
+
+    canvas.width = encoded.length * barWidth + quietZone * 2;
+    canvas.height = height + 30;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < encoded.length; i++) {
+      if (encoded[i] === '1') {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(quietZone + i * barWidth, 5, barWidth, height);
+      }
+    }
+
+    document.getElementById('barcodeLabel').textContent = code;
+  }
+
+  function shareResults() {
+    if (!lastCheckedIMEI) return;
+    let text = 'Verificare IMEI: ' + lastCheckedIMEI;
+    if (lastDeviceInfo) text += ' - ' + lastDeviceInfo.brand + ' ' + lastDeviceInfo.model;
+
+    if (navigator.share) {
+      navigator.share({
+        title: 'Verificare IMEI - AIphone.ro',
+        text: text,
+        url: window.location.href
+      }).catch(() => {});
+    } else {
+      copyText(window.location.href, 'Link copiat!');
+    }
+  }
+
+  // ---- Tool Accordion ----
+  function toggleTool(id) {
+    const card = document.getElementById(id);
+    const wasOpen = card.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('open'));
+    if (!wasOpen) card.classList.add('open');
+  }
+
+  // ---- Bulk Check ----
+  function bulkCheck() {
+    const lines = document.getElementById('bulkInput').value.trim().split('\n').filter(l => l.trim());
+    if (lines.length === 0) { showToast('Introdu cel putin un IMEI'); return; }
+
+    let html = '<table class="bulk-table"><thead><tr><th>IMEI</th><th>Valid</th><th>Model</th></tr></thead><tbody>';
+    lines.forEach(line => {
+      const raw = line.trim().replace(/\D/g, '');
+      if (raw.length !== 15) {
+        html += '<tr><td>' + line.trim() + '</td><td style="color:#f87171">Format invalid</td><td>-</td></tr>';
+        return;
+      }
+      const valid = luhnCheck(raw);
+      const tac = raw.substring(0, 8);
+      const device = window.TAC_DB ? window.TAC_DB[tac] : null;
+      html += '<tr><td>' + raw + '</td><td style="color:' + (valid ? '#34d399' : '#f87171') + '">' + (valid ? '&#10004; Valid' : '&#10008; Invalid') + '</td><td>' + (device ? device.brand + ' ' + device.model : 'Necunoscut') + '</td></tr>';
+    });
+    html += '</tbody></table>';
+
+    const el = document.getElementById('bulkResult');
+    el.innerHTML = html;
+    el.classList.add('active');
+  }
+
+  // ---- Dual SIM Detection ----
+  function dualSimCheck() {
+    const raw1 = document.getElementById('dualImei1').value.replace(/\D/g, '');
+    const raw2 = document.getElementById('dualImei2').value.replace(/\D/g, '');
+
+    if (raw1.length !== 15 || raw2.length !== 15) {
+      showToast('Ambele IMEI-uri trebuie sa aiba 15 cifre');
+      return;
+    }
+
+    const tac1 = raw1.substring(0, 8);
+    const tac2 = raw2.substring(0, 8);
+    const serial1 = parseInt(raw1.substring(8, 14), 10);
+    const serial2 = parseInt(raw2.substring(8, 14), 10);
+
+    const sameTAC = tac1 === tac2;
+    const sequential = sameTAC && Math.abs(serial1 - serial2) === 1;
+
+    let html = '<div style="padding:0.5rem 0;">';
+    if (sequential) {
+      html += '<p style="color:#34d399;font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;">&#10004; Probabil acelasi telefon dual SIM</p>';
+      html += '<p style="color:rgba(255,255,255,0.6);">Cele doua IMEI-uri au acelasi TAC (' + tac1 + ') si numere seriale consecutive (' + serial1 + ' si ' + serial2 + '). Acesta este un indicator puternic ca apartin aceluiasi telefon dual SIM.</p>';
+    } else if (sameTAC) {
+      html += '<p style="color:#fbbf24;font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;">&#9888; Acelasi model, dar nu secventiale</p>';
+      html += '<p style="color:rgba(255,255,255,0.6);">Cele doua IMEI-uri au acelasi TAC (' + tac1 + ') dar numerele seriale nu sunt consecutive. Pot fi din aceeasi serie de productie dar nu neaparat acelasi telefon.</p>';
+    } else {
+      html += '<p style="color:#f87171;font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;">&#10008; Modele diferite</p>';
+      html += '<p style="color:rgba(255,255,255,0.6);">Cele doua IMEI-uri au coduri TAC diferite (' + tac1 + ' vs ' + tac2 + '). Nu apartin aceluiasi model de telefon.</p>';
+    }
+    html += '</div>';
+
+    const el = document.getElementById('dualSimResult');
+    el.innerHTML = html;
+    el.classList.add('active');
+  }
+
+  // ---- Check Digit Calculator ----
+  function calcCheckDigit() {
+    const raw = document.getElementById('checkDigitInput').value.replace(/\D/g, '');
+    if (raw.length !== 14) {
+      showToast('Introdu exact 14 cifre');
+      return;
+    }
+    const digit = calcLuhnDigit(raw);
+    const fullIMEI = raw + digit;
+    const el = document.getElementById('checkDigitResult');
+    el.innerHTML = '<p style="margin-bottom:0.5rem;color:rgba(255,255,255,0.5);">Cifra de control calculata:</p>' +
+      '<div class="tool-result-value">' + digit + '</div>' +
+      '<p style="margin-top:0.75rem;color:rgba(255,255,255,0.5);">IMEI complet: <strong style="color:#fff;font-family:JetBrains Mono,monospace;letter-spacing:1px;">' + fullIMEI + '</strong></p>';
+    el.classList.add('active');
+  }
+
+  // ---- Phone Comparison ----
+  function populateCompareDropdowns() {
+    if (!window.TAC_DB) return;
+    const models = [];
+    const seen = new Set();
+    for (const tac in window.TAC_DB) {
+      const d = window.TAC_DB[tac];
+      const key = d.brand + ' ' + d.model;
+      if (!seen.has(key)) {
+        seen.add(key);
+        models.push({ tac, label: key, device: d });
+      }
+    }
+    models.sort((a, b) => a.label.localeCompare(b.label));
+
+    const selects = ['comparePhone1', 'comparePhone2', 'resaleModel', 'warrantyModel'];
+    selects.forEach(id => {
+      const sel = document.getElementById(id);
+      if (!sel) return;
+      const first = sel.options[0];
+      sel.innerHTML = '';
+      sel.appendChild(first);
+      models.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.tac;
+        opt.textContent = m.label;
+        sel.appendChild(opt);
+      });
+    });
+  }
+
+  function comparePhones() {
+    const tac1 = document.getElementById('comparePhone1').value;
+    const tac2 = document.getElementById('comparePhone2').value;
+    if (!tac1 || !tac2) { showToast('Selecteaza ambele modele'); return; }
+
+    const d1 = window.TAC_DB[tac1];
+    const d2 = window.TAC_DB[tac2];
+    if (!d1 || !d2) return;
+
+    const fields = [
+      ['Ecran', 'screen'], ['RAM', 'ram'], ['Stocare', 'storage'],
+      ['Camera', 'camera'], ['Baterie', 'battery'], ['Incarcare', 'charging'],
+      ['OS', 'os'], ['Greutate', 'weight'], ['Retea', 'network'], ['SIM', 'sim'],
+      ['Pret original (RON)', 'price']
+    ];
+
+    let html = '<table class="compare-table"><thead><tr><th>Specificatie</th><th>' + d1.brand + ' ' + d1.model + '</th><th>' + d2.brand + ' ' + d2.model + '</th></tr></thead><tbody>';
+    fields.forEach(([label, key]) => {
+      let v1 = key === 'network' ? d1[key].join(', ') : (key === 'price' ? d1[key].toLocaleString('ro-RO') + ' RON' : d1[key]);
+      let v2 = key === 'network' ? d2[key].join(', ') : (key === 'price' ? d2[key].toLocaleString('ro-RO') + ' RON' : d2[key]);
+      html += '<tr><td>' + label + '</td><td>' + v1 + '</td><td>' + v2 + '</td></tr>';
+    });
+    html += '</tbody></table>';
+
+    const el = document.getElementById('compareResult');
+    el.innerHTML = html;
+    el.classList.add('active');
+  }
+
+  // ---- PPI Calculator ----
+  function calcPPI() {
+    const diag = parseFloat(document.getElementById('ppiDiag').value);
+    const w = parseInt(document.getElementById('ppiW').value, 10);
+    const h = parseInt(document.getElementById('ppiH').value, 10);
+
+    if (!diag || !w || !h || diag <= 0) {
+      showToast('Completeaza toate campurile');
+      return;
+    }
+
+    const ppi = Math.round(Math.sqrt(w * w + h * h) / diag);
+    let quality = '';
+    if (ppi >= 500) quality = 'Excelent - ultra-sharp';
+    else if (ppi >= 400) quality = 'Foarte bun - retina quality';
+    else if (ppi >= 300) quality = 'Bun - detalii fine';
+    else if (ppi >= 200) quality = 'Mediu - acceptabil';
+    else quality = 'Scazut - pixeli vizibili';
+
+    const el = document.getElementById('ppiResult');
+    el.innerHTML = '<div class="tool-result-value">' + ppi + ' PPI</div>' +
+      '<p style="margin-top:0.5rem;color:rgba(255,255,255,0.5);">Calitate: <strong style="color:#fff;">' + quality + '</strong></p>' +
+      '<p style="margin-top:0.25rem;color:rgba(255,255,255,0.35);font-size:0.85rem;">Formula: sqrt(' + w + '&sup2; + ' + h + '&sup2;) / ' + diag + ' = ' + ppi + '</p>';
+    el.classList.add('active');
+  }
+
+  // ---- Resale Value Estimation ----
+  function estimateResale() {
+    const tac = document.getElementById('resaleModel').value;
+    const condition = document.getElementById('resaleCondition').value;
+    if (!tac) { showToast('Selecteaza un model'); return; }
+
+    const device = window.TAC_DB[tac];
+    if (!device) return;
+
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - device.year;
+
+    // Depreciation: ~25% first year, ~15% subsequent years
+    let depreciationFactor = 1;
+    if (age >= 1) depreciationFactor -= 0.25;
+    if (age >= 2) depreciationFactor -= 0.15;
+    if (age >= 3) depreciationFactor -= 0.12;
+    if (age >= 4) depreciationFactor -= 0.10;
+    if (age >= 5) depreciationFactor -= 0.08;
+    if (depreciationFactor < 0.15) depreciationFactor = 0.15;
+
+    // Condition multiplier
+    const condMult = { new: 1.0, excellent: 0.9, good: 0.75, fair: 0.55 };
+    const mult = condMult[condition] || 0.75;
+
+    const basePrice = device.price * depreciationFactor * mult;
+    const lowRON = Math.round(basePrice * 0.85 / 10) * 10;
+    const highRON = Math.round(basePrice * 1.15 / 10) * 10;
+    const eurRate = 4.97;
+    const lowEUR = Math.round(lowRON / eurRate);
+    const highEUR = Math.round(highRON / eurRate);
+
+    const condLabels = { new: 'Nou (sigilat)', excellent: 'Foarte bun', good: 'Bun', fair: 'Acceptabil' };
+
+    const el = document.getElementById('resaleResult');
+    el.innerHTML =
+      '<p style="color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">' + device.brand + ' ' + device.model + ' (' + device.year + ') &mdash; Stare: ' + condLabels[condition] + '</p>' +
+      '<div class="price-range">' +
+      '<div class="price-card"><div class="price-card-label">Pret minim</div><div class="price-card-value">' + lowRON.toLocaleString('ro-RO') + ' RON</div><div class="price-card-sub">~' + lowEUR + ' EUR</div></div>' +
+      '<div class="price-card"><div class="price-card-label">Pret maxim</div><div class="price-card-value">' + highRON.toLocaleString('ro-RO') + ' RON</div><div class="price-card-sub">~' + highEUR + ' EUR</div></div>' +
+      '</div>' +
+      '<p style="margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.3);">* Estimare orientativa bazata pe pretul original (' + device.price.toLocaleString('ro-RO') + ' RON), vechime (' + age + ' ani) si starea dispozitivului. Preturile reale pot varia.</p>';
+    el.classList.add('active');
+  }
+
+  // ---- Warranty Estimation ----
+  function estimateWarranty() {
+    const tac = document.getElementById('warrantyModel').value;
+    const dateStr = document.getElementById('warrantyDate').value;
+    if (!tac || !dateStr) { showToast('Completeaza modelul si data'); return; }
+
+    const device = window.TAC_DB[tac];
+    if (!device) return;
+
+    const purchaseDate = new Date(dateStr);
+    const warrantyEnd = new Date(purchaseDate);
+    warrantyEnd.setMonth(warrantyEnd.getMonth() + 24); // 24 months EU warranty
+
+    const today = new Date();
+    const totalDays = Math.round((warrantyEnd - purchaseDate) / (1000 * 60 * 60 * 24));
+    const elapsedDays = Math.round((today - purchaseDate) / (1000 * 60 * 60 * 24));
+    const remainingDays = Math.max(0, totalDays - elapsedDays);
+    const remainingMonths = Math.max(0, Math.floor(remainingDays / 30.44));
+    const pct = Math.min(100, Math.max(0, (elapsedDays / totalDays) * 100));
+
+    const isExpired = today > warrantyEnd;
+    let barClass = 'green';
+    if (pct > 75) barClass = 'yellow';
+    if (pct > 90) barClass = 'red';
+    if (isExpired) barClass = 'expired';
+
+    const el = document.getElementById('warrantyResult');
+    el.innerHTML =
+      '<p style="color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">' + device.brand + ' ' + device.model + '</p>' +
+      '<p style="font-size:1.1rem;font-weight:700;color:' + (isExpired ? '#f87171' : '#34d399') + ';">' +
+        (isExpired ? '&#10008; Garantia a expirat' : '&#10004; In garantie') +
+      '</p>' +
+      '<div class="warranty-status">' +
+        '<span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">0 luni</span>' +
+        '<div class="warranty-bar"><div class="warranty-fill ' + barClass + '" style="width:' + pct + '%"></div></div>' +
+        '<span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">24 luni</span>' +
+      '</div>' +
+      '<div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;text-align:center;">' +
+        '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Data achizitiei</div><div style="color:#fff;font-weight:600;">' + purchaseDate.toLocaleDateString('ro-RO') + '</div></div>' +
+        '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Expirare garantie</div><div style="color:#fff;font-weight:600;">' + warrantyEnd.toLocaleDateString('ro-RO') + '</div></div>' +
+        '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Ramas</div><div style="color:' + (isExpired ? '#f87171' : '#34d399') + ';font-weight:700;">' + (isExpired ? 'Expirat' : remainingMonths + ' luni') + '</div></div>' +
+      '</div>' +
+      '<p style="margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.3);">* Calculat pe baza garantiei standard UE de 24 luni. Unii producatori ofera garantie extinsa.</p>';
+    el.classList.add('active');
+  }
+
+  // ---- Utility ----
+  function copyText(text, msg) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(msg || 'Copiat!');
+    }).catch(() => {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast(msg || 'Copiat!');
+    });
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  // ---- Init ----
+  document.addEventListener('DOMContentLoaded', () => {
+    populateCompareDropdowns();
+
+    // Format tool inputs that need numeric-only
+    document.querySelectorAll('#dualImei1, #dualImei2, #checkDigitInput').forEach(input => {
+      input.addEventListener('input', function() {
+        let raw = this.value.replace(/\D/g, '');
+        const max = this.id === 'checkDigitInput' ? 14 : 15;
+        if (raw.length > max) raw = raw.substring(0, max);
+        let formatted = '';
+        for (let i = 0; i < raw.length; i++) {
+          if (i > 0 && i % 4 === 0) formatted += ' ';
+          formatted += raw[i];
+        }
+        this.value = formatted;
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>
