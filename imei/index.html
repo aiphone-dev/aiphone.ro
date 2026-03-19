@@ -221,71 +221,6 @@
       font-size: 1.2rem;
     }
 
-    /* Validation */
-    .validity-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.25rem;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    .validity-badge.valid {
-      background: rgba(16,185,129,0.12);
-      border: 1px solid rgba(16,185,129,0.3);
-      color: #34d399;
-    }
-    .validity-badge.invalid {
-      background: rgba(239,68,68,0.12);
-      border: 1px solid rgba(239,68,68,0.3);
-      color: #f87171;
-    }
-
-    /* IMEI Structure */
-    .imei-structure {
-      display: flex;
-      gap: 0;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 1rem 0;
-    }
-    .imei-segment {
-      text-align: center;
-      padding: 0.75rem 1rem;
-      position: relative;
-    }
-    .imei-segment-digits {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      padding: 0.5rem 0.75rem;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-    .imei-segment-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .seg-tac .imei-segment-digits { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; }
-    .seg-tac .imei-segment-label { color: #818cf8; }
-    .seg-serial .imei-segment-digits { background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; }
-    .seg-serial .imei-segment-label { color: #a855f7; }
-    .seg-check .imei-segment-digits { background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); color: #f472b6; }
-    .seg-check .imei-segment-label { color: #ec4899; }
-
-    .seg-divider {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      color: rgba(255,255,255,0.15);
-      padding-bottom: 1.5rem;
-    }
-
     /* Info Grid */
     .info-grid {
       display: grid;
@@ -906,21 +841,9 @@
     <!-- ========== RESULTS ========== -->
     <div class="imei-results" id="imeiResults">
 
-      <!-- 1. Validation -->
-      <div class="result-section">
-        <div class="result-section-title"><span class="icon">&#9989;</span> Validare IMEI</div>
-        <div id="validationResult"></div>
-      </div>
-
-      <!-- 2. Structure -->
-      <div class="result-section">
-        <div class="result-section-title"><span class="icon">&#128270;</span> Structura IMEI</div>
-        <div class="imei-structure" id="imeiStructure"></div>
-      </div>
-
-      <!-- 3. Device Info -->
+      <!-- Device Info -->
       <div class="result-section" id="deviceInfoSection" style="display:none;">
-        <div class="result-section-title"><span class="icon">&#128241;</span> Informatii Dispozitiv</div>
+        <div class="result-section-title"><span class="icon">&#128241;</span> Telefonul tău</div>
         <div class="info-grid" id="deviceInfoGrid"></div>
       </div>
 
@@ -1224,29 +1147,6 @@
     }
 
     const finalDevice = lastDeviceInfo;
-
-    // 1. Validation + Check Digit
-    const expectedCheck = calcLuhnDigit(imei.substring(0, 14));
-    const checkMatch = parseInt(check, 10) === expectedCheck;
-    let validHTML = isValid
-      ? '<span class="validity-badge valid">&#10004; IMEI Valid &mdash; Algoritmul Luhn confirmat</span>'
-      : '<span class="validity-badge invalid">&#10008; IMEI Invalid &mdash; Algoritmul Luhn a esuat</span>';
-    validHTML += '<div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.03);border-radius:8px;font-size:0.9rem;">';
-    validHTML += '<span style="color:rgba(255,255,255,0.5);">Cifra de control (check digit):</span> ';
-    validHTML += '<strong style="font-family:JetBrains Mono,monospace;color:' + (checkMatch ? '#34d399' : '#f87171') + ';">' + check + '</strong>';
-    if (!checkMatch) {
-      validHTML += ' <span style="color:#f87171;font-size:0.85rem;">(ar trebui sa fie ' + expectedCheck + ')</span>';
-    }
-    validHTML += '</div>';
-    document.getElementById('validationResult').innerHTML = validHTML;
-
-    // 2. Structure
-    document.getElementById('imeiStructure').innerHTML =
-      '<div class="imei-segment seg-tac"><span class="imei-segment-digits">' + tac + '</span><span class="imei-segment-label">TAC &mdash; Identifica modelul</span></div>' +
-      '<span class="seg-divider">|</span>' +
-      '<div class="imei-segment seg-serial"><span class="imei-segment-digits">' + serial + '</span><span class="imei-segment-label">Serial &mdash; Nr. unic dispozitiv</span></div>' +
-      '<span class="seg-divider">|</span>' +
-      '<div class="imei-segment seg-check"><span class="imei-segment-digits">' + check + '</span><span class="imei-segment-label">Check &mdash; Cifra de control</span></div>';
 
     // Sections that require device data
     const deviceInfoSection = document.getElementById('deviceInfoSection');
