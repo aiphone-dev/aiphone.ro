@@ -13,7 +13,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.9 inch OLED, 2868x1320, 460 PPI",
     ram: "8 GB",
     storage: "256/512GB/1TB",
@@ -24,7 +24,8 @@ window.TAC_DB = {
     weight: "227 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n53", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 8500
   },
   "35407216": {
     brand: "Apple",
@@ -32,7 +33,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.3 inch OLED, 2622x1206, 460 PPI",
     ram: "8 GB",
     storage: "128/256/512GB/1TB",
@@ -43,7 +44,8 @@ window.TAC_DB = {
     weight: "199 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n53", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7500
   },
   "35407317": {
     brand: "Apple",
@@ -51,7 +53,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2796x1290, 460 PPI",
     ram: "8 GB",
     storage: "128/256/512GB",
@@ -62,7 +64,8 @@ window.TAC_DB = {
     weight: "199 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "35407418": {
     brand: "Apple",
@@ -70,7 +73,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2556x1179, 460 PPI",
     ram: "8 GB",
     storage: "128/256/512GB",
@@ -81,7 +84,8 @@ window.TAC_DB = {
     weight: "170 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5500
   },
 
   // ============================================================
@@ -93,7 +97,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2796x1290, 460 PPI",
     ram: "8 GB",
     storage: "256/512GB/1TB",
@@ -104,7 +108,8 @@ window.TAC_DB = {
     weight: "221 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n53", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 8000
   },
   "35332611": {
     brand: "Apple",
@@ -112,7 +117,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2556x1179, 460 PPI",
     ram: "8 GB",
     storage: "128/256/512GB/1TB",
@@ -123,7 +128,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n53", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7000
   },
   "35332712": {
     brand: "Apple",
@@ -131,7 +137,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2796x1290, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB",
@@ -142,7 +148,8 @@ window.TAC_DB = {
     weight: "201 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6000
   },
   "35332813": {
     brand: "Apple",
@@ -150,7 +157,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2556x1179, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB",
@@ -161,7 +168,8 @@ window.TAC_DB = {
     weight: "171 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
 
   // ============================================================
@@ -173,7 +181,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2796x1290, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB/1TB",
@@ -184,7 +192,8 @@ window.TAC_DB = {
     weight: "240 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7800
   },
   "35391215": {
     brand: "Apple",
@@ -192,7 +201,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2556x1179, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB/1TB",
@@ -203,7 +212,8 @@ window.TAC_DB = {
     weight: "206 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6800
   },
   "35391316": {
     brand: "Apple",
@@ -211,7 +221,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2778x1284, 458 PPI",
     ram: "6 GB",
     storage: "128/256/512GB",
@@ -222,7 +232,8 @@ window.TAC_DB = {
     weight: "203 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5800
   },
   "35391417": {
     brand: "Apple",
@@ -230,7 +241,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2532x1170, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB",
@@ -241,7 +252,8 @@ window.TAC_DB = {
     weight: "172 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4800
   },
 
   // ============================================================
@@ -253,7 +265,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2778x1284, 458 PPI",
     ram: "6 GB",
     storage: "128/256/512GB/1TB",
@@ -264,7 +276,8 @@ window.TAC_DB = {
     weight: "238 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7500
   },
   "35369914": {
     brand: "Apple",
@@ -272,7 +285,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2532x1170, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB/1TB",
@@ -283,7 +296,8 @@ window.TAC_DB = {
     weight: "204 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "35370015": {
     brand: "Apple",
@@ -291,7 +305,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "5.4 inch OLED, 2340x1080, 476 PPI",
     ram: "4 GB",
     storage: "128/256/512GB",
@@ -302,7 +316,8 @@ window.TAC_DB = {
     weight: "140 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4200
   },
   "35370116": {
     brand: "Apple",
@@ -310,7 +325,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2532x1170, 460 PPI",
     ram: "4 GB",
     storage: "128/256/512GB",
@@ -321,7 +336,8 @@ window.TAC_DB = {
     weight: "174 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4800
   },
 
   // ============================================================
@@ -333,7 +349,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2778x1284, 458 PPI",
     ram: "6 GB",
     storage: "128/256/512GB",
@@ -344,7 +360,8 @@ window.TAC_DB = {
     weight: "228 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7000
   },
   "35325713": {
     brand: "Apple",
@@ -352,7 +369,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2532x1170, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB",
@@ -363,7 +380,8 @@ window.TAC_DB = {
     weight: "189 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6000
   },
   "35325814": {
     brand: "Apple",
@@ -371,7 +389,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "5.4 inch OLED, 2340x1080, 476 PPI",
     ram: "4 GB",
     storage: "64/128/256GB",
@@ -382,7 +400,8 @@ window.TAC_DB = {
     weight: "135 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3800
   },
   "35325915": {
     brand: "Apple",
@@ -390,7 +409,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2532x1170, 460 PPI",
     ram: "4 GB",
     storage: "64/128/256GB",
@@ -401,7 +420,8 @@ window.TAC_DB = {
     weight: "164 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
 
   // ============================================================
@@ -413,7 +433,7 @@ window.TAC_DB = {
     year: 2019,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.5 inch OLED, 2688x1242, 458 PPI",
     ram: "4 GB",
     storage: "64/256/512GB",
@@ -424,7 +444,8 @@ window.TAC_DB = {
     weight: "226 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "35319512": {
     brand: "Apple",
@@ -432,7 +453,7 @@ window.TAC_DB = {
     year: 2019,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "5.8 inch OLED, 2436x1125, 458 PPI",
     ram: "4 GB",
     storage: "64/256/512GB",
@@ -443,7 +464,8 @@ window.TAC_DB = {
     weight: "188 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5800
   },
   "35319613": {
     brand: "Apple",
@@ -451,7 +473,7 @@ window.TAC_DB = {
     year: 2019,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.1 inch IPS LCD, 1792x828, 326 PPI",
     ram: "4 GB",
     storage: "64/128/256GB",
@@ -462,7 +484,8 @@ window.TAC_DB = {
     weight: "194 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3800
   },
 
   // ============================================================
@@ -474,7 +497,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "4.7 inch IPS LCD, 1334x750, 326 PPI",
     ram: "4 GB",
     storage: "64/128/256GB",
@@ -485,7 +508,8 @@ window.TAC_DB = {
     weight: "144 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2800
   },
   "35316120": {
     brand: "Apple",
@@ -493,7 +517,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "4.7 inch IPS LCD, 1334x750, 326 PPI",
     ram: "3 GB",
     storage: "64/128/256GB",
@@ -504,7 +528,8 @@ window.TAC_DB = {
     weight: "148 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
 
   // ============================================================
@@ -516,7 +541,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch Dynamic AMOLED, 3120x1440, 505 PPI",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -527,7 +552,8 @@ window.TAC_DB = {
     weight: "232 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7500
   },
   "35189025": {
     brand: "Samsung",
@@ -535,7 +561,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch Dynamic AMOLED, 3120x1440, 513 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -546,7 +572,8 @@ window.TAC_DB = {
     weight: "196 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6000
   },
   "35189126": {
     brand: "Samsung",
@@ -554,7 +581,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.2 inch Dynamic AMOLED, 2340x1080, 416 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -565,7 +592,8 @@ window.TAC_DB = {
     weight: "167 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4800
   },
 
   // ============================================================
@@ -577,7 +605,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch Dynamic AMOLED, 3088x1440, 500 PPI",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -588,7 +616,8 @@ window.TAC_DB = {
     weight: "234 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7000
   },
   "35477924": {
     brand: "Samsung",
@@ -596,7 +625,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.6 inch Dynamic AMOLED, 2340x1080, 393 PPI",
     ram: "8 GB",
     storage: "256/512GB",
@@ -607,7 +636,8 @@ window.TAC_DB = {
     weight: "195 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5500
   },
   "35478025": {
     brand: "Samsung",
@@ -615,7 +645,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch Dynamic AMOLED, 2340x1080, 425 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -626,7 +656,8 @@ window.TAC_DB = {
     weight: "168 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
 
   // ============================================================
@@ -638,7 +669,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch Dynamic AMOLED, 3088x1440, 500 PPI",
     ram: "12 GB",
     storage: "128/256/512GB/1TB",
@@ -649,7 +680,8 @@ window.TAC_DB = {
     weight: "229 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6800
   },
   "35154423": {
     brand: "Samsung",
@@ -657,7 +689,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.6 inch Dynamic AMOLED, 2340x1080, 393 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -668,7 +700,8 @@ window.TAC_DB = {
     weight: "196 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5200
   },
   "35154524": {
     brand: "Samsung",
@@ -676,7 +709,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch Dynamic AMOLED, 2340x1080, 425 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -687,7 +720,8 @@ window.TAC_DB = {
     weight: "167 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4200
   },
 
   // ============================================================
@@ -699,7 +733,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch Dynamic AMOLED, 3200x1440, 515 PPI",
     ram: "12 GB",
     storage: "128/256/512GB",
@@ -710,7 +744,8 @@ window.TAC_DB = {
     weight: "227 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "35273422": {
     brand: "Samsung",
@@ -718,7 +753,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch Dynamic AMOLED, 2400x1080, 394 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -729,7 +764,8 @@ window.TAC_DB = {
     weight: "200 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
   "35273523": {
     brand: "Samsung",
@@ -737,7 +773,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.2 inch Dynamic AMOLED, 2400x1080, 421 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -748,7 +784,8 @@ window.TAC_DB = {
     weight: "169 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4000
   },
 
   // ============================================================
@@ -760,7 +797,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Foldable Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "7.6 inch Dynamic AMOLED (inner), 6.2 inch (cover), 2176x1812",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -771,7 +808,8 @@ window.TAC_DB = {
     weight: "253 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 9800
   },
   "35612422": {
     brand: "Samsung",
@@ -779,7 +817,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Foldable Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "7.6 inch Dynamic AMOLED (inner), 6.2 inch (cover), 2176x1812",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -790,7 +828,8 @@ window.TAC_DB = {
     weight: "263 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 9200
   },
   "35614523": {
     brand: "Samsung",
@@ -798,7 +837,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Foldable Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch Dynamic AMOLED (inner), 3.4 inch (cover), 2640x1080",
     ram: "8 GB",
     storage: "256/512GB",
@@ -809,7 +848,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5800
   },
   "35614422": {
     brand: "Samsung",
@@ -817,7 +857,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Foldable Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch Dynamic AMOLED (inner), 1.9 inch (cover), 2640x1080",
     ram: "8 GB",
     storage: "128/256/512GB",
@@ -828,7 +868,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5200
   },
 
   // ============================================================
@@ -840,7 +881,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.4 inch Super AMOLED, 2340x1080, 403 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -851,7 +892,8 @@ window.TAC_DB = {
     weight: "202 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2300
   },
   "35261834": {
     brand: "Samsung",
@@ -859,7 +901,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.6 inch Super AMOLED, 2340x1080, 390 PPI",
     ram: "6 GB",
     storage: "128/256GB",
@@ -870,7 +912,8 @@ window.TAC_DB = {
     weight: "199 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1700
   },
   "35261924": {
     brand: "Samsung",
@@ -878,7 +921,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.5 inch Super AMOLED, 2340x1080, 396 PPI",
     ram: "4 GB",
     storage: "128GB",
@@ -889,7 +932,8 @@ window.TAC_DB = {
     weight: "195 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1300
   },
   "35262014": {
     brand: "Samsung",
@@ -897,7 +941,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.6 inch PLS LCD, 2408x1080, 400 PPI",
     ram: "4 GB",
     storage: "64/128GB",
@@ -908,7 +952,8 @@ window.TAC_DB = {
     weight: "202 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1000
   },
   "35262104": {
     brand: "Samsung",
@@ -916,7 +961,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.5 inch PLS LCD, 1600x720, 270 PPI",
     ram: "3 GB",
     storage: "32/64GB",
@@ -927,7 +972,8 @@ window.TAC_DB = {
     weight: "188 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 700
   },
 
   // ============================================================
@@ -939,7 +985,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.9 inch Dynamic AMOLED, 3088x1440, 496 PPI",
     ram: "12 GB",
     storage: "128/256/512GB",
@@ -950,7 +996,8 @@ window.TAC_DB = {
     weight: "208 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
 
   // ============================================================
@@ -962,7 +1009,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch LTPO OLED, 2992x1344, 489 PPI",
     ram: "12 GB",
     storage: "128/256/512GB/1TB",
@@ -973,7 +1020,8 @@ window.TAC_DB = {
     weight: "213 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5500
   },
   "35833109": {
     brand: "Google",
@@ -981,7 +1029,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.2 inch OLED, 2400x1080, 428 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -992,7 +1040,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4000
   },
   "35833210": {
     brand: "Google",
@@ -1000,7 +1049,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2400x1080, 431 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1011,7 +1060,8 @@ window.TAC_DB = {
     weight: "188 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3000
   },
 
   // ============================================================
@@ -1023,7 +1073,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch LTPO OLED, 3120x1440, 512 PPI",
     ram: "12 GB",
     storage: "128/256/512GB",
@@ -1034,7 +1084,8 @@ window.TAC_DB = {
     weight: "212 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
   "35831608": {
     brand: "Google",
@@ -1042,7 +1093,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.3 inch OLED, 2400x1080, 416 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1053,7 +1104,8 @@ window.TAC_DB = {
     weight: "197 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3500
   },
   "35831709": {
     brand: "Google",
@@ -1061,7 +1113,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2400x1080, 429 PPI",
     ram: "8 GB",
     storage: "128GB",
@@ -1072,7 +1124,8 @@ window.TAC_DB = {
     weight: "193 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
 
   // ============================================================
@@ -1084,7 +1137,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch LTPO OLED, 3120x1440, 512 PPI",
     ram: "12 GB",
     storage: "128/256/512GB",
@@ -1095,7 +1148,8 @@ window.TAC_DB = {
     weight: "210 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4800
   },
   "35829107": {
     brand: "Google",
@@ -1103,7 +1157,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.4 inch OLED, 2400x1080, 411 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1114,7 +1168,8 @@ window.TAC_DB = {
     weight: "207 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3200
   },
   "35829208": {
     brand: "Google",
@@ -1122,7 +1177,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2400x1080, 431 PPI",
     ram: "6 GB",
     storage: "128GB",
@@ -1133,7 +1188,8 @@ window.TAC_DB = {
     weight: "178 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2300
   },
 
   // ============================================================
@@ -1145,7 +1201,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.73 inch LTPO AMOLED, 3200x1440, 522 PPI",
     ram: "16 GB",
     storage: "512GB/1TB",
@@ -1156,7 +1212,8 @@ window.TAC_DB = {
     weight: "227 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "86490114": {
     brand: "Xiaomi",
@@ -1164,7 +1221,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.36 inch LTPO AMOLED, 2670x1200, 460 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -1175,7 +1232,8 @@ window.TAC_DB = {
     weight: "193 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
   "86488013": {
     brand: "Xiaomi",
@@ -1183,7 +1241,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.73 inch LTPO AMOLED, 3200x1440, 522 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -1194,7 +1252,8 @@ window.TAC_DB = {
     weight: "229 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5500
   },
   "86488113": {
     brand: "Xiaomi",
@@ -1202,7 +1261,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.36 inch AMOLED, 2400x1080, 414 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1213,7 +1272,8 @@ window.TAC_DB = {
     weight: "185 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4000
   },
 
   // ============================================================
@@ -1225,7 +1285,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2712x1220, 446 PPI",
     ram: "8/12 GB",
     storage: "256/512GB",
@@ -1236,7 +1296,8 @@ window.TAC_DB = {
     weight: "204 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
   "86152113": {
     brand: "Xiaomi",
@@ -1244,7 +1305,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1255,7 +1316,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1800
   },
   "86152213": {
     brand: "Xiaomi",
@@ -1263,7 +1325,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "6/8 GB",
     storage: "128/256GB",
@@ -1274,7 +1336,8 @@ window.TAC_DB = {
     weight: "188 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1200
   },
   "86150012": {
     brand: "Xiaomi",
@@ -1282,7 +1345,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "8 GB",
     storage: "256GB",
@@ -1293,7 +1356,8 @@ window.TAC_DB = {
     weight: "210 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2000
   },
   "86150112": {
     brand: "Xiaomi",
@@ -1301,7 +1365,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "6/8 GB",
     storage: "128/256GB",
@@ -1312,7 +1376,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1600
   },
   "86150212": {
     brand: "Xiaomi",
@@ -1320,7 +1385,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "4/6 GB",
     storage: "64/128GB",
@@ -1331,7 +1396,8 @@ window.TAC_DB = {
     weight: "188 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1000
   },
 
   // ============================================================
@@ -1343,7 +1409,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "8/12 GB",
     storage: "256GB",
@@ -1354,7 +1420,8 @@ window.TAC_DB = {
     weight: "181 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1800
   },
   "86455105": {
     brand: "Xiaomi",
@@ -1362,7 +1429,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "6/8 GB",
     storage: "128/256GB",
@@ -1373,7 +1440,8 @@ window.TAC_DB = {
     weight: "181 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1600
   },
   "86455205": {
     brand: "Xiaomi",
@@ -1381,7 +1449,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.58 inch IPS LCD, 2408x1080, 401 PPI",
     ram: "4/6 GB",
     storage: "64/128GB",
@@ -1392,7 +1460,8 @@ window.TAC_DB = {
     weight: "201 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 900
   },
 
   // ============================================================
@@ -1404,7 +1473,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.82 inch LTPO AMOLED, 3168x1440, 510 PPI",
     ram: "12/16 GB",
     storage: "256/512GB",
@@ -1415,7 +1484,8 @@ window.TAC_DB = {
     weight: "220 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
   "86741111": {
     brand: "OnePlus",
@@ -1423,7 +1493,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch LTPO AMOLED, 3216x1440, 525 PPI",
     ram: "8/16 GB",
     storage: "128/256GB",
@@ -1434,7 +1504,8 @@ window.TAC_DB = {
     weight: "205 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4200
   },
   "86741210": {
     brand: "OnePlus",
@@ -1442,7 +1513,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch LTPO AMOLED, 3216x1440, 525 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -1453,7 +1524,8 @@ window.TAC_DB = {
     weight: "201 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
   "86743003": {
     brand: "OnePlus",
@@ -1461,7 +1533,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.74 inch AMOLED, 2772x1240, 450 PPI",
     ram: "8/16 GB",
     storage: "128/256GB",
@@ -1472,7 +1544,8 @@ window.TAC_DB = {
     weight: "193 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
   "86743103": {
     brand: "OnePlus",
@@ -1480,7 +1553,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.72 inch IPS LCD, 2400x1080, 393 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -1491,7 +1564,8 @@ window.TAC_DB = {
     weight: "184 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2000
   },
   "86743203": {
     brand: "OnePlus",
@@ -1499,7 +1573,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.72 inch IPS LCD, 2400x1080, 393 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1510,7 +1584,8 @@ window.TAC_DB = {
     weight: "195 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1500
   },
   "86741309": {
     brand: "OnePlus",
@@ -1518,7 +1593,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch LTPO AMOLED, 3216x1440, 525 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -1529,7 +1604,8 @@ window.TAC_DB = {
     weight: "197 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
   "86741409": {
     brand: "OnePlus",
@@ -1537,7 +1613,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.55 inch AMOLED, 2400x1080, 402 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -1548,7 +1624,8 @@ window.TAC_DB = {
     weight: "192 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3800
   },
 
   // ============================================================
@@ -1560,7 +1637,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.67 inch LTPO OLED, 2700x1220, 444 PPI",
     ram: "8 GB",
     storage: "256/512GB",
@@ -1571,7 +1648,8 @@ window.TAC_DB = {
     weight: "200 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
   "86126150": {
     brand: "Huawei",
@@ -1579,7 +1657,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.6 inch OLED, 2700x1228, 450 PPI",
     ram: "8 GB",
     storage: "128/256/512GB",
@@ -1590,7 +1668,8 @@ window.TAC_DB = {
     weight: "195 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
   "86126250": {
     brand: "Huawei",
@@ -1598,7 +1677,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.74 inch OLED, 2616x1212, 428 PPI",
     ram: "8 GB",
     storage: "256/512GB",
@@ -1609,7 +1688,8 @@ window.TAC_DB = {
     weight: "205 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6000
   },
   "86126311": {
     brand: "Huawei",
@@ -1617,7 +1697,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.78 inch OLED, 2652x1200, 431 PPI",
     ram: "8 GB",
     storage: "256GB",
@@ -1628,7 +1708,8 @@ window.TAC_DB = {
     weight: "188 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
   "86126411": {
     brand: "Huawei",
@@ -1636,7 +1717,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.7 inch OLED, 2412x1084, 394 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1647,7 +1728,8 @@ window.TAC_DB = {
     weight: "168 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2000
   },
   "86126540": {
     brand: "Huawei",
@@ -1655,7 +1737,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.58 inch OLED, 2640x1200, 441 PPI",
     ram: "8 GB",
     storage: "128/256/512GB",
@@ -1666,7 +1748,8 @@ window.TAC_DB = {
     weight: "209 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: ["n1", "n3", "n28", "n38", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4800
   },
   "86126640": {
     brand: "Huawei",
@@ -1674,7 +1757,7 @@ window.TAC_DB = {
     year: 2020,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2340x1080, 422 PPI",
     ram: "8 GB",
     storage: "128GB",
@@ -1685,7 +1768,8 @@ window.TAC_DB = {
     weight: "175 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: ["n1", "n3", "n28", "n38", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3800
   },
   "86126730": {
     brand: "Huawei",
@@ -1693,7 +1777,7 @@ window.TAC_DB = {
     year: 2019,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.47 inch OLED, 2340x1080, 398 PPI",
     ram: "8 GB",
     storage: "128/256/512GB",
@@ -1704,7 +1788,8 @@ window.TAC_DB = {
     weight: "192 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4200
   },
   "86126830": {
     brand: "Huawei",
@@ -1712,7 +1797,7 @@ window.TAC_DB = {
     year: 2019,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.1 inch OLED, 2340x1080, 422 PPI",
     ram: "6 GB",
     storage: "128GB",
@@ -1723,7 +1808,8 @@ window.TAC_DB = {
     weight: "165 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3400
   },
   "86126920": {
     brand: "Huawei",
@@ -1731,7 +1817,7 @@ window.TAC_DB = {
     year: 2018,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.39 inch OLED, 3120x1440, 538 PPI",
     ram: "6 GB",
     storage: "128/256GB",
@@ -1742,7 +1828,8 @@ window.TAC_DB = {
     weight: "189 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
 
   // ============================================================
@@ -1754,7 +1841,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch pOLED, 2400x1080, 395 PPI",
     ram: "12 GB",
     storage: "256GB",
@@ -1765,7 +1852,8 @@ window.TAC_DB = {
     weight: "199 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#2486#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4000
   },
   "35851140": {
     brand: "Motorola",
@@ -1773,7 +1861,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.55 inch pOLED, 2400x1080, 402 PPI",
     ram: "8 GB",
     storage: "256GB",
@@ -1784,7 +1872,8 @@ window.TAC_DB = {
     weight: "167 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#2486#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3000
   },
   "35852040": {
     brand: "Motorola",
@@ -1792,7 +1881,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Foldable Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.9 inch pOLED (inner), 3.6 inch (cover), 2640x1080",
     ram: "8 GB",
     storage: "256GB",
@@ -1803,7 +1892,8 @@ window.TAC_DB = {
     weight: "188 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#2486#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5500
   },
   "35853084": {
     brand: "Motorola",
@@ -1811,7 +1901,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.55 inch pOLED, 2400x1080, 402 PPI",
     ram: "8 GB",
     storage: "256GB",
@@ -1822,7 +1912,8 @@ window.TAC_DB = {
     weight: "169 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#2486#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1500
   },
   "35853173": {
     brand: "Motorola",
@@ -1830,7 +1921,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.5 inch IPS LCD, 2400x1080, 405 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1841,7 +1932,8 @@ window.TAC_DB = {
     weight: "181 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#2486#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1300
   },
 
   // ============================================================
@@ -1853,7 +1945,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.5 inch OLED, 3840x1644, 643 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -1864,7 +1956,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7378423#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "35909855": {
     brand: "Sony",
@@ -1872,7 +1965,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.1 inch OLED, 2520x1080, 449 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -1883,7 +1976,8 @@ window.TAC_DB = {
     weight: "182 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7378423#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
   "35909714": {
     brand: "Sony",
@@ -1891,7 +1985,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.5 inch OLED, 3840x1644, 643 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -1902,7 +1996,8 @@ window.TAC_DB = {
     weight: "185 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7378423#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6000
   },
 
   // ============================================================
@@ -1914,7 +2009,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch LTPO OLED, 2412x1080, 394 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -1925,7 +2020,8 @@ window.TAC_DB = {
     weight: "201 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#0#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
   "35901101": {
     brand: "Nothing",
@@ -1933,7 +2029,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.55 inch OLED, 2400x1080, 402 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -1944,7 +2040,8 @@ window.TAC_DB = {
     weight: "193 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#0#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
   "35901203": {
     brand: "Nothing",
@@ -1952,7 +2049,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2412x1084, 394 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -1963,7 +2060,8 @@ window.TAC_DB = {
     weight: "190 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#0#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1800
   },
 
   // ============================================================
@@ -1975,7 +2073,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.82 inch LTPO AMOLED, 3168x1440, 510 PPI",
     ram: "12/16 GB",
     storage: "256/512GB",
@@ -1986,7 +2084,8 @@ window.TAC_DB = {
     weight: "216 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5500
   },
   "86325106": {
     brand: "OPPO",
@@ -1994,7 +2093,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.74 inch LTPO AMOLED, 2772x1240, 450 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -2005,7 +2104,8 @@ window.TAC_DB = {
     weight: "207 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
   "86327010": {
     brand: "OPPO",
@@ -2013,7 +2113,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2412x1080, 394 PPI",
     ram: "8/12 GB",
     storage: "256GB",
@@ -2024,7 +2124,8 @@ window.TAC_DB = {
     weight: "185 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2800
   },
   "86327110": {
     brand: "OPPO",
@@ -2032,7 +2133,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2412x1080, 394 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2043,7 +2144,8 @@ window.TAC_DB = {
     weight: "185 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
   "86329005": {
     brand: "OPPO",
@@ -2051,7 +2153,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.72 inch IPS LCD, 2400x1080, 393 PPI",
     ram: "8 GB",
     storage: "256GB",
@@ -2062,7 +2164,8 @@ window.TAC_DB = {
     weight: "190 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1800
   },
 
   // ============================================================
@@ -2074,7 +2177,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch LTPO AMOLED, 2780x1264, 450 PPI",
     ram: "12/16 GB",
     storage: "256/512GB/1TB",
@@ -2085,7 +2188,8 @@ window.TAC_DB = {
     weight: "218 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3200
   },
   "86380105": {
     brand: "Realme",
@@ -2093,7 +2197,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.74 inch AMOLED, 2772x1240, 450 PPI",
     ram: "8/12/16 GB",
     storage: "128/256/512GB/1TB",
@@ -2104,7 +2208,8 @@ window.TAC_DB = {
     weight: "194 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2800
   },
   "86382011": {
     brand: "Realme",
@@ -2112,7 +2217,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2412x1080, 394 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -2123,7 +2228,8 @@ window.TAC_DB = {
     weight: "189 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
   "86382111": {
     brand: "Realme",
@@ -2131,7 +2237,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2412x1080, 394 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2142,7 +2248,8 @@ window.TAC_DB = {
     weight: "175 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1800
   },
   "86384012": {
     brand: "Realme",
@@ -2150,7 +2257,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2412x1080, 394 PPI",
     ram: "8/12 GB",
     storage: "256GB",
@@ -2161,7 +2268,8 @@ window.TAC_DB = {
     weight: "190 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
 
   // ============================================================
@@ -2173,7 +2281,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch LTPO AMOLED, 2800x1260, 452 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -2184,7 +2292,8 @@ window.TAC_DB = {
     weight: "214 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#558#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
   "86440190": {
     brand: "Vivo",
@@ -2192,7 +2301,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch AMOLED, 2800x1260, 452 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -2203,7 +2312,8 @@ window.TAC_DB = {
     weight: "196 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#558#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3500
   },
   "86442100": {
     brand: "Vivo",
@@ -2211,7 +2321,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch LTPO AMOLED, 2800x1260, 452 PPI",
     ram: "12/16 GB",
     storage: "256/512GB",
@@ -2222,7 +2332,8 @@ window.TAC_DB = {
     weight: "225 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#558#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
   "86444017": {
     brand: "Vivo",
@@ -2230,7 +2341,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch AMOLED, 2400x1080, 388 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -2241,7 +2352,8 @@ window.TAC_DB = {
     weight: "182 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#558#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
   "86444117": {
     brand: "Vivo",
@@ -2249,7 +2361,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch AMOLED, 2400x1080, 388 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2260,7 +2372,8 @@ window.TAC_DB = {
     weight: "182 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#558#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2000
   },
   "86446030": {
     brand: "Vivo",
@@ -2268,7 +2381,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.64 inch IPS LCD, 2388x1080, 395 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2279,7 +2392,8 @@ window.TAC_DB = {
     weight: "190 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#558#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1200
   },
 
   // ============================================================
@@ -2291,7 +2405,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.6 inch Super AMOLED, 2340x1080, 390 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2302,7 +2416,8 @@ window.TAC_DB = {
     weight: "213 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2400
   },
   "35261655": {
     brand: "Samsung",
@@ -2310,7 +2425,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.6 inch Super AMOLED, 2340x1080, 390 PPI",
     ram: "6/8 GB",
     storage: "128/256GB",
@@ -2321,7 +2436,8 @@ window.TAC_DB = {
     weight: "209 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1800
   },
   "35261415": {
     brand: "Samsung",
@@ -2329,7 +2445,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.5 inch Super AMOLED, 2340x1080, 396 PPI",
     ram: "4 GB",
     storage: "64/128GB",
@@ -2340,7 +2456,8 @@ window.TAC_DB = {
     weight: "200 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1100
   },
 
   // ============================================================
@@ -2352,7 +2469,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.73 inch LTPO AMOLED, 3200x1440, 522 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -2363,7 +2480,8 @@ window.TAC_DB = {
     weight: "205 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5000
   },
   "86486112": {
     brand: "Xiaomi",
@@ -2371,7 +2489,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.28 inch AMOLED, 2400x1080, 419 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2382,7 +2500,8 @@ window.TAC_DB = {
     weight: "180 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3800
   },
   "86484011": {
     brand: "Xiaomi",
@@ -2390,7 +2509,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "8/12 GB",
     storage: "128/256GB",
@@ -2401,7 +2520,8 @@ window.TAC_DB = {
     weight: "204 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3000
   },
   "86154010": {
     brand: "Xiaomi",
@@ -2409,7 +2529,7 @@ window.TAC_DB = {
     year: 2021,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "6/8 GB",
     storage: "64/128GB",
@@ -2420,7 +2540,8 @@ window.TAC_DB = {
     weight: "193 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1500
   },
 
   // ============================================================
@@ -2432,7 +2553,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.3 inch LTPO OLED, 2856x1280, 495 PPI",
     ram: "16 GB",
     storage: "128/256/512GB/1TB",
@@ -2443,7 +2564,8 @@ window.TAC_DB = {
     weight: "199 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5800
   },
   "35834109": {
     brand: "Google",
@@ -2451,7 +2573,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.3 inch OLED, 2424x1080, 422 PPI",
     ram: "12 GB",
     storage: "128/256GB",
@@ -2462,7 +2584,8 @@ window.TAC_DB = {
     weight: "198 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4500
   },
   "35834209": {
     brand: "Google",
@@ -2470,7 +2593,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch LTPO OLED, 2992x1344, 486 PPI",
     ram: "16 GB",
     storage: "128/256/512GB/1TB",
@@ -2481,7 +2604,8 @@ window.TAC_DB = {
     weight: "221 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#7780#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n28", "n30", "n38", "n40", "n41", "n48", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
 
   // ============================================================
@@ -2493,7 +2617,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Foldable Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch AMOLED (inner), 3.26 inch (cover), 2520x1080",
     ram: "12 GB",
     storage: "256GB",
@@ -2504,7 +2628,8 @@ window.TAC_DB = {
     weight: "198 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5800
   },
 
   // ============================================================
@@ -2516,7 +2641,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.9 inch OLED, 2868x1320, 460 PPI",
     ram: "8 GB",
     storage: "256/512GB/1TB",
@@ -2527,7 +2652,8 @@ window.TAC_DB = {
     weight: "227 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n53", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 8500
   },
   "35333015": {
     brand: "Apple",
@@ -2535,7 +2661,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2796x1290, 460 PPI",
     ram: "8 GB",
     storage: "256/512GB/1TB",
@@ -2546,7 +2672,8 @@ window.TAC_DB = {
     weight: "221 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n53", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 8000
   },
   "35392114": {
     brand: "Apple",
@@ -2554,7 +2681,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch OLED, 2796x1290, 460 PPI",
     ram: "6 GB",
     storage: "128/256/512GB/1TB",
@@ -2565,7 +2692,8 @@ window.TAC_DB = {
     weight: "240 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n14", "n20", "n25", "n26", "n28", "n29", "n30", "n38", "n40", "n41", "n48", "n66", "n70", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7800
   },
 
   // ============================================================
@@ -2577,7 +2705,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch Dynamic AMOLED, 3120x1440, 505 PPI",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -2588,7 +2716,8 @@ window.TAC_DB = {
     weight: "232 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7500
   },
   "35478123": {
     brand: "Samsung",
@@ -2596,7 +2725,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.8 inch Dynamic AMOLED, 3088x1440, 500 PPI",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -2607,7 +2736,8 @@ window.TAC_DB = {
     weight: "234 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7000
   },
 
   // ============================================================
@@ -2619,7 +2749,7 @@ window.TAC_DB = {
     year: 2025,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.9 inch Dynamic AMOLED, 3120x1440, 500 PPI",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -2630,7 +2760,8 @@ window.TAC_DB = {
     weight: "218 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 8200
   },
   "35190125": {
     brand: "Samsung",
@@ -2638,7 +2769,7 @@ window.TAC_DB = {
     year: 2025,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch Dynamic AMOLED, 3120x1440, 513 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -2649,7 +2780,8 @@ window.TAC_DB = {
     weight: "190 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "35190225": {
     brand: "Samsung",
@@ -2657,7 +2789,7 @@ window.TAC_DB = {
     year: 2025,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.2 inch Dynamic AMOLED, 2340x1080, 416 PPI",
     ram: "12 GB",
     storage: "128/256GB",
@@ -2668,7 +2800,8 @@ window.TAC_DB = {
     weight: "162 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n26", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5200
   },
 
   // ============================================================
@@ -2680,7 +2813,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Foldable Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "7.6 inch Dynamic AMOLED (inner), 6.3 inch (cover), 2160x1856",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -2691,7 +2824,8 @@ window.TAC_DB = {
     weight: "239 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 10500
   },
   "35614624": {
     brand: "Samsung",
@@ -2699,7 +2833,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Foldable Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch Dynamic AMOLED (inner), 3.4 inch (cover), 2640x1080",
     ram: "12 GB",
     storage: "256/512GB",
@@ -2710,7 +2844,8 @@ window.TAC_DB = {
     weight: "187 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
 
   // ============================================================
@@ -2722,7 +2857,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2712x1220, 446 PPI",
     ram: "12 GB",
     storage: "256/512GB/1TB",
@@ -2733,7 +2868,8 @@ window.TAC_DB = {
     weight: "209 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3200
   },
   "86492114": {
     brand: "Xiaomi",
@@ -2741,7 +2877,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2712x1220, 446 PPI",
     ram: "12 GB",
     storage: "256GB",
@@ -2752,7 +2888,8 @@ window.TAC_DB = {
     weight: "195 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
   "86457006": {
     brand: "Xiaomi",
@@ -2760,7 +2897,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 3200x1440, 526 PPI",
     ram: "12/16 GB",
     storage: "256/512GB/1TB",
@@ -2771,7 +2908,8 @@ window.TAC_DB = {
     weight: "209 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2500
   },
   "86457106": {
     brand: "Xiaomi",
@@ -2779,7 +2917,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.67 inch AMOLED, 2400x1080, 395 PPI",
     ram: "8/12 GB",
     storage: "256/512GB",
@@ -2790,7 +2928,8 @@ window.TAC_DB = {
     weight: "179 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#6484#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1800
   },
 
   // ============================================================
@@ -2802,7 +2941,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.67 inch OLED, 2700x1220, 444 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2813,7 +2952,8 @@ window.TAC_DB = {
     weight: "197 g",
     ussd: ["*#06#", "*#*#2846579#*#*", "*#*#4636#*#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3500
   },
 
   // ============================================================
@@ -2825,7 +2965,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch LTPO AMOLED, 2780x1264, 450 PPI",
     ram: "8/16 GB",
     storage: "128/256GB",
@@ -2836,7 +2976,8 @@ window.TAC_DB = {
     weight: "207 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#808#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3200
   },
 
   // ============================================================
@@ -2848,7 +2989,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch pOLED, 2712x1220, 446 PPI",
     ram: "12 GB",
     storage: "256/512GB",
@@ -2859,7 +3000,8 @@ window.TAC_DB = {
     weight: "186 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#*#2486#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3200
   },
 
   // ============================================================
@@ -2871,7 +3013,7 @@ window.TAC_DB = {
     year: 2018,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.5 inch OLED, 2688x1242, 458 PPI",
     ram: "4 GB",
     storage: "64/256/512GB",
@@ -2882,7 +3024,8 @@ window.TAC_DB = {
     weight: "208 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6000
   },
   "35313618": {
     brand: "Apple",
@@ -2890,7 +3033,7 @@ window.TAC_DB = {
     year: 2018,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "5.8 inch OLED, 2436x1125, 458 PPI",
     ram: "4 GB",
     storage: "64/256/512GB",
@@ -2901,7 +3044,8 @@ window.TAC_DB = {
     weight: "177 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 5500
   },
   "35313718": {
     brand: "Apple",
@@ -2909,7 +3053,7 @@ window.TAC_DB = {
     year: 2018,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.1 inch IPS LCD, 1792x828, 326 PPI",
     ram: "3 GB",
     storage: "64/128/256GB",
@@ -2920,7 +3064,8 @@ window.TAC_DB = {
     weight: "194 g",
     ussd: ["*#06#", "*#67#", "*#61#", "*3001#12345#*"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4000
   },
 
   // ============================================================
@@ -2932,7 +3077,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.5 inch Super AMOLED, 2340x1080, 396 PPI",
     ram: "6/8 GB",
     storage: "128GB",
@@ -2943,7 +3088,8 @@ window.TAC_DB = {
     weight: "208 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1500
   },
   "35265154": {
     brand: "Samsung",
@@ -2951,7 +3097,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch Super AMOLED, 2340x1080, 385 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2962,7 +3108,8 @@ window.TAC_DB = {
     weight: "199 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
 
   // ============================================================
@@ -2974,7 +3121,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.4 inch Dynamic AMOLED, 2340x1080, 403 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -2985,7 +3132,8 @@ window.TAC_DB = {
     weight: "209 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3500
   },
   "35155721": {
     brand: "Samsung",
@@ -2993,7 +3141,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "eSIM + Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.4 inch Dynamic AMOLED, 2340x1080, 401 PPI",
     ram: "6/8 GB",
     storage: "128/256GB",
@@ -3004,7 +3152,8 @@ window.TAC_DB = {
     weight: "177 g",
     ussd: ["*#06#", "*#0*#", "*#*#4636#*#*", "*#9900#"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n71", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3500
   },
 
   // ============================================================
@@ -3016,7 +3165,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2772x1240, 450 PPI",
     ram: "12 GB",
     storage: "256GB",
@@ -3027,7 +3176,8 @@ window.TAC_DB = {
     weight: "194 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3200
   },
 
   // ============================================================
@@ -3039,7 +3189,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.7 inch AMOLED, 2412x1080, 394 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -3050,7 +3200,8 @@ window.TAC_DB = {
     weight: "190 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
   "86382211": {
     brand: "Realme",
@@ -3058,7 +3209,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "4G",
+    network: ["4G"],
     screen: "6.72 inch IPS LCD, 2400x1080, 393 PPI",
     ram: "8 GB",
     storage: "128/256GB",
@@ -3069,7 +3220,8 @@ window.TAC_DB = {
     weight: "191 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#888#"],
     bands5g: [],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1200
   },
 
   // ============================================================
@@ -3081,7 +3233,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch LTPO AMOLED, 2800x1260, 452 PPI",
     ram: "12/16 GB",
     storage: "256/512GB",
@@ -3092,7 +3244,8 @@ window.TAC_DB = {
     weight: "206 g",
     ussd: ["*#06#", "*#*#4636#*#*", "*#558#"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 3800
   },
 
   // ============================================================
@@ -3104,7 +3257,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Gaming Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch AMOLED, 2448x1080, 395 PPI, 165Hz",
     ram: "16 GB",
     storage: "512GB",
@@ -3115,7 +3268,8 @@ window.TAC_DB = {
     weight: "239 g",
     ussd: ["*#06#", "*#*#4636#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 6500
   },
   "35560108": {
     brand: "ASUS",
@@ -3123,7 +3277,7 @@ window.TAC_DB = {
     year: 2024,
     type: "Gaming Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.78 inch LTPO AMOLED, 2400x1080, 388 PPI, 165Hz",
     ram: "16/24 GB",
     storage: "512GB/1TB",
@@ -3134,7 +3288,8 @@ window.TAC_DB = {
     weight: "225 g",
     ussd: ["*#06#", "*#*#4636#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 7000
   },
 
   // ============================================================
@@ -3146,7 +3301,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "5.9 inch AMOLED, 2400x1080, 445 PPI, 144Hz",
     ram: "8/16 GB",
     storage: "128/256/512GB",
@@ -3157,7 +3312,8 @@ window.TAC_DB = {
     weight: "172 g",
     ussd: ["*#06#", "*#*#4636#*#*"],
     bands5g: ["n1", "n2", "n3", "n5", "n7", "n8", "n12", "n20", "n25", "n28", "n38", "n40", "n41", "n66", "n77", "n78", "n79"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 4000
   },
 
   // ============================================================
@@ -3169,7 +3325,7 @@ window.TAC_DB = {
     year: 2022,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.43 inch AMOLED, 2400x1080, 409 PPI",
     ram: "6/8 GB",
     storage: "128/256GB",
@@ -3180,7 +3336,8 @@ window.TAC_DB = {
     weight: "185 g",
     ussd: ["*#06#", "*#*#4636#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 2200
   },
   "35670140": {
     brand: "Nokia",
@@ -3188,7 +3345,7 @@ window.TAC_DB = {
     year: 2023,
     type: "Smartphone",
     sim: "Dual Nano SIM",
-    network: "5G",
+    network: ["4G", "5G"],
     screen: "6.56 inch IPS LCD, 1612x720, 269 PPI",
     ram: "4/6 GB",
     storage: "128GB",
@@ -3199,6 +3356,7 @@ window.TAC_DB = {
     weight: "193 g",
     ussd: ["*#06#", "*#*#4636#*#*"],
     bands5g: ["n1", "n3", "n5", "n7", "n8", "n20", "n28", "n38", "n40", "n41", "n77", "n78"],
-    roCompat: { orange: true, vodafone: true, digi: true, telekom: true }
+    roCompat: { orange: true, vodafone: true, digi: true, telekom: true },
+    price: 1200
   }
 };

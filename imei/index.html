@@ -711,30 +711,7 @@
     .compare-table td:last-child { border-radius: 0 6px 6px 0; }
     .compare-table .better { color: #34d399; font-weight: 600; }
 
-    /* Warranty / Resale specific */
-    .warranty-status {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-    .warranty-bar {
-      flex: 1;
-      height: 8px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .warranty-fill {
-      height: 100%;
-      border-radius: 100px;
-      transition: width 0.5s ease;
-    }
-    .warranty-fill.green { background: linear-gradient(90deg, #10b981, #34d399); }
-    .warranty-fill.yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-    .warranty-fill.red { background: linear-gradient(90deg, #ef4444, #f87171); }
-    .warranty-fill.expired { background: #666; }
-
+    /* Resale specific */
     .price-range {
       display: flex;
       gap: 1rem;
@@ -1101,31 +1078,6 @@
               </div>
               <button class="tool-btn" onclick="estimateResale()">Estimeaza Pretul</button>
               <div class="tool-result" id="resaleResult"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tool: Warranty Estimation -->
-        <div class="tool-card" id="toolWarranty">
-          <div class="tool-header" onclick="toggleTool('toolWarranty')">
-            <div class="tool-icon">&#128197;</div>
-            <div class="tool-title">Estimare Garantie</div>
-            <svg class="tool-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-          <div class="tool-body">
-            <div class="tool-content">
-              <div class="tool-row">
-                <div class="tool-group">
-                  <label class="tool-label">Model telefon</label>
-                  <select class="tool-select" id="warrantyModel"><option value="">Alege modelul...</option></select>
-                </div>
-                <div class="tool-group">
-                  <label class="tool-label">Data achizitiei</label>
-                  <input type="date" class="tool-input" id="warrantyDate">
-                </div>
-              </div>
-              <button class="tool-btn" onclick="estimateWarranty()">Verifica Garantia</button>
-              <div class="tool-result" id="warrantyResult"></div>
             </div>
           </div>
         </div>
@@ -1589,7 +1541,7 @@
     }
     models.sort((a, b) => a.label.localeCompare(b.label));
 
-    const selects = ['comparePhone1', 'comparePhone2', 'resaleModel', 'warrantyModel'];
+    const selects = ['comparePhone1', 'comparePhone2', 'resaleModel'];
     selects.forEach(id => {
       const sel = document.getElementById(id);
       if (!sel) return;
@@ -1623,8 +1575,8 @@
 
     let html = '<table class="compare-table"><thead><tr><th>Specificatie</th><th>' + d1.brand + ' ' + d1.model + '</th><th>' + d2.brand + ' ' + d2.model + '</th></tr></thead><tbody>';
     fields.forEach(([label, key]) => {
-      let v1 = key === 'network' ? d1[key].join(', ') : (key === 'price' ? d1[key].toLocaleString('ro-RO') + ' RON' : d1[key]);
-      let v2 = key === 'network' ? d2[key].join(', ') : (key === 'price' ? d2[key].toLocaleString('ro-RO') + ' RON' : d2[key]);
+      let v1 = key === 'network' ? (Array.isArray(d1[key]) ? d1[key].join(', ') : d1[key]) : (key === 'price' ? (d1[key] ? d1[key].toLocaleString('ro-RO') + ' RON' : 'N/A') : d1[key]);
+      let v2 = key === 'network' ? (Array.isArray(d2[key]) ? d2[key].join(', ') : d2[key]) : (key === 'price' ? (d2[key] ? d2[key].toLocaleString('ro-RO') + ' RON' : 'N/A') : d2[key]);
       html += '<tr><td>' + label + '</td><td>' + v1 + '</td><td>' + v2 + '</td></tr>';
     });
     html += '</tbody></table>';
@@ -1669,6 +1621,13 @@
     const device = window.TAC_DB[tac];
     if (!device) return;
 
+    if (!device.price) {
+      const el = document.getElementById('resaleResult');
+      el.innerHTML = '<p style="color:#fbbf24;font-weight:600;">Pretul original nu este disponibil pentru acest model.</p>';
+      el.classList.add('active');
+      return;
+    }
+
     const currentYear = new Date().getFullYear();
     const age = currentYear - device.year;
 
@@ -1705,52 +1664,6 @@
     el.classList.add('active');
   }
 
-  // ---- Warranty Estimation ----
-  function estimateWarranty() {
-    const tac = document.getElementById('warrantyModel').value;
-    const dateStr = document.getElementById('warrantyDate').value;
-    if (!tac || !dateStr) { showToast('Completeaza modelul si data'); return; }
-
-    const device = window.TAC_DB[tac];
-    if (!device) return;
-
-    const purchaseDate = new Date(dateStr);
-    const warrantyEnd = new Date(purchaseDate);
-    warrantyEnd.setMonth(warrantyEnd.getMonth() + 24); // 24 months EU warranty
-
-    const today = new Date();
-    const totalDays = Math.round((warrantyEnd - purchaseDate) / (1000 * 60 * 60 * 24));
-    const elapsedDays = Math.round((today - purchaseDate) / (1000 * 60 * 60 * 24));
-    const remainingDays = Math.max(0, totalDays - elapsedDays);
-    const remainingMonths = Math.max(0, Math.floor(remainingDays / 30.44));
-    const pct = Math.min(100, Math.max(0, (elapsedDays / totalDays) * 100));
-
-    const isExpired = today > warrantyEnd;
-    let barClass = 'green';
-    if (pct > 75) barClass = 'yellow';
-    if (pct > 90) barClass = 'red';
-    if (isExpired) barClass = 'expired';
-
-    const el = document.getElementById('warrantyResult');
-    el.innerHTML =
-      '<p style="color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">' + device.brand + ' ' + device.model + '</p>' +
-      '<p style="font-size:1.1rem;font-weight:700;color:' + (isExpired ? '#f87171' : '#34d399') + ';">' +
-        (isExpired ? '&#10008; Garantia a expirat' : '&#10004; In garantie') +
-      '</p>' +
-      '<div class="warranty-status">' +
-        '<span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">0 luni</span>' +
-        '<div class="warranty-bar"><div class="warranty-fill ' + barClass + '" style="width:' + pct + '%"></div></div>' +
-        '<span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">24 luni</span>' +
-      '</div>' +
-      '<div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;text-align:center;">' +
-        '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Data achizitiei</div><div style="color:#fff;font-weight:600;">' + purchaseDate.toLocaleDateString('ro-RO') + '</div></div>' +
-        '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Expirare garantie</div><div style="color:#fff;font-weight:600;">' + warrantyEnd.toLocaleDateString('ro-RO') + '</div></div>' +
-        '<div><div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Ramas</div><div style="color:' + (isExpired ? '#f87171' : '#34d399') + ';font-weight:700;">' + (isExpired ? 'Expirat' : remainingMonths + ' luni') + '</div></div>' +
-      '</div>' +
-      '<p style="margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.3);">* Calculat pe baza garantiei standard UE de 24 luni. Unii producatori ofera garantie extinsa.</p>';
-    el.classList.add('active');
-  }
-
   // ---- Utility ----
   function copyText(text, msg) {
     navigator.clipboard.writeText(text).then(() => {
@@ -1778,7 +1691,7 @@
 
   // ---- Init ----
   document.addEventListener('DOMContentLoaded', () => {
-    populateCompareDropdowns();
+    if (window.TAC_DB) populateCompareDropdowns();
 
     // Format tool inputs that need numeric-only
     document.querySelectorAll('#dualImei1, #dualImei2, #checkDigitInput').forEach(input => {
