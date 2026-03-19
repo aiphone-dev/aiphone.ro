@@ -127,6 +127,145 @@
   text-shadow: none;
 }
 
+/* Light theme: all remaining overrides */
+[data-theme="light"] .hero-title,
+[data-theme="light"] .hero-subtitle {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .hero-badge {
+  background: rgba(0, 144, 204, 0.08);
+  border-color: rgba(0, 144, 204, 0.3);
+  color: var(--neon-blue);
+}
+
+[data-theme="light"] .stat-item .stat-label {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .feature-text,
+[data-theme="light"] .feature-list li {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .feature-text strong {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .platform-description {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .tutorial-card {
+  background: var(--bg-card-solid);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .tutorial-card-header {
+  background: linear-gradient(135deg, rgba(0, 144, 204, 0.06), rgba(196, 0, 176, 0.06));
+}
+
+[data-theme="light"] .tutorial-card-title,
+[data-theme="light"] .tutorial-card-description {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .tutorial-card-description {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .faq-item {
+  background: var(--bg-card-solid);
+}
+
+[data-theme="light"] .faq-question {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .faq-answer {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .newsletter-container {
+  background: var(--bg-card-solid);
+}
+
+[data-theme="light"] .newsletter-title {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .newsletter-text {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .newsletter-input {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .footer {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .footer-brand {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .reviewed-app-card {
+  background: var(--bg-card-solid);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .reviewed-app-name {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .reviewed-app-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 144, 204, 0.15);
+}
+
+[data-theme="light"] .stats-bar {
+  background: var(--bg-card-solid);
+}
+
+[data-theme="light"] .section-divider {
+  background: linear-gradient(90deg, transparent, rgba(0, 144, 204, 0.3), rgba(196, 0, 176, 0.3), transparent);
+}
+
+[data-theme="light"] .scroll-progress {
+  box-shadow: 0 0 10px rgba(0, 144, 204, 0.3);
+}
+
+[data-theme="light"] .back-to-top {
+  background: var(--bg-card-solid);
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .cookie-text p,
+[data-theme="light"] .cookie-text strong {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .cookie-btn--decline {
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .share-btn {
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .meta-item {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .phone-screen .phone-label {
+  color: var(--text-secondary);
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -1465,8 +1604,17 @@ main {
 
 .reviewed-app-card:hover {
   border-color: var(--neon-blue);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.15);
+}
+
+.reviewed-app-card:hover .reviewed-app-emoji {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.reviewed-app-emoji {
+  transition: transform 0.3s ease;
 }
 
 .reviewed-app-emoji {
