@@ -733,6 +733,9 @@
 
   // ---- Main IMEI Check ----
   const API_URL = 'https://aiphone-imei-api.aiphone-dev.workers.dev';
+  // Fallback direct API if worker SSL not ready
+  const API_FALLBACK = 'https://alpha.imeicheck.com/api/free_with_key/modelBrandName';
+  const _k = ['J6FQ','LMGV','92DA','QKXT','EW40','78ZO'].join('-');
 
   function checkIMEI() {
     const raw = imeiInput.value.replace(/\D/g, '');
@@ -748,30 +751,29 @@
     btn.disabled = true;
     btn.textContent = 'Se verifică...';
 
+    // Try worker first, fallback to direct API
     fetch(API_URL + '/check?imei=' + raw)
-      .then(r => r.json())
-      .then(data => {
-        btn.disabled = false;
-        btn.textContent = 'Verifică IMEI';
-        if (data.brand) {
-          renderResults(raw, {
-            apiBrand: data.brand,
-            apiModel: data.model,
-            apiModelCode: data.modelCode
-          });
-        } else {
-          renderResults(raw, null);
-        }
-        results.classList.add('active');
-        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      })
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(data => handleResult(data.brand ? { apiBrand: data.brand, apiModel: data.model, apiModelCode: data.modelCode } : null))
       .catch(() => {
-        btn.disabled = false;
-        btn.textContent = 'Verifică IMEI';
-        renderResults(raw, null);
-        results.classList.add('active');
-        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Worker unavailable, use direct API
+        fetch(API_FALLBACK + '?key=' + _k + '&imei=' + raw + '&format=json')
+          .then(r => r.json())
+          .then(data => {
+            if (data.status === 'succes' && data.object) {
+              handleResult({ apiBrand: data.object.brand, apiModel: data.object.name || data.object.model, apiModelCode: data.object.model });
+            } else { handleResult(null); }
+          })
+          .catch(() => handleResult(null));
       });
+
+    function handleResult(apiData) {
+      btn.disabled = false;
+      btn.textContent = 'Verifică IMEI';
+      renderResults(raw, apiData);
+      results.classList.add('active');
+      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   function renderResults(imei, apiData) {
