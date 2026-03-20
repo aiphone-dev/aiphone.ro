@@ -11,13 +11,14 @@
     gtag('config', 'G-9ZX8ZER188');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Verificare IMEI gratuit online. Identificare model telefon, specificații, compatibilitate operatori România. Fără API, totul local în browser.">
+  <meta name="description" content="Verificare IMEI telefon second-hand gratuit. Verifică dacă telefonul e furat, model real, IMEI valid. Ghid complet cumpărare telefon SH în siguranță.">
   <meta name="theme-color" content="#0a0a0f">
-  <meta property="og:title" content="Verificare IMEI Gratuit | Identificare Model Telefon - AIphone.ro">
-  <meta property="og:description" content="Verifică IMEI-ul telefonului gratuit. Identificare model, specificații complete, compatibilitate operatori România. 100% local, fără API.">
+  <meta name="keywords" content="verificare telefon second-hand, telefon furat verificare, cumpara telefon sh verificare, verificare IMEI gratuit, telefon second hand, IMEI check Romania">
+  <meta property="og:title" content="Verificare IMEI Telefon Second-Hand | Cumpără în Siguranță - AIphone.ro">
+  <meta property="og:description" content="Verifică telefonul înainte să-l cumperi second-hand. IMEI valid, model real, checklist complet pentru cumpărători. 100% gratuit.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="../img/og-image.png">
-  <title>Verificare IMEI Gratuit | Identificare Model Telefon - AIphone.ro</title>
+  <title>Verificare IMEI Telefon Second-Hand | Cumpără în Siguranță - AIphone.ro</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,10 +43,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Ce este IMEI?",
+        "name": "De ce trebuie să verific IMEI-ul?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "IMEI (International Mobile Equipment Identity) este un cod unic de 15 cifre care identifică fiecare telefon mobil în mod individual. Este ca un CNP pentru telefonul tău. Fiecare telefon are cel puțin un IMEI, iar telefoanele dual SIM au două."
+          "text": "Verificarea IMEI-ului înainte de a cumpăra un telefon second-hand te protejează de telefoane furate, blocate sau cu identitate falsă. IMEI-ul confirmă modelul real al telefonului și dacă codul este valid. Este primul pas esențial în achiziția unui telefon SH."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cum știu dacă un telefon e furat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Verifică IMEI-ul telefonului folosind tool-ul nostru gratuit. Un IMEI invalid (Luhn check eșuat) este un semnal de alarmă major. Cere întotdeauna factura originală și verifică dacă IMEI-ul de pe telefon (*#06#) se potrivește cu cel de pe cutie. Dacă vânzătorul refuză să-ți dea IMEI-ul, nu cumpăra telefonul."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ce e Find My iPhone și de ce contează?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Find My iPhone (sau Activation Lock) este o funcție Apple care blochează telefonul pe contul proprietarului. Dacă cumperi un iPhone cu Find My activat, nu vei putea folosi telefonul fără parola proprietarului anterior. Cere ÎNTOTDEAUNA dezactivarea Find My înainte de a plăti."
         }
       },
       {
@@ -342,7 +359,154 @@
       color: #a5b4fc;
     }
 
-    /* Coming soon badges */
+    /* Trust Score section inside result card */
+    .trust-score {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .trust-score-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.4rem;
+    }
+    .trust-check {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0;
+      font-size: 0.78rem;
+    }
+    .trust-check .check-icon {
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      width: 1.2rem;
+      text-align: center;
+    }
+    .trust-check .check-text {
+      color: rgba(255,255,255,0.7);
+    }
+    .trust-check .check-text strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .trust-check.pass .check-icon { color: #34d399; }
+    .trust-check.pass .check-text { color: rgba(255,255,255,0.8); }
+    .trust-check.warn .check-icon { color: #fbbf24; }
+    .trust-check.warn .check-text { color: rgba(255,255,255,0.5); font-style: italic; }
+
+    /* Buyer Guide section */
+    .buyer-guide {
+      max-width: 640px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+    .buyer-guide-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .buyer-guide-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .buyer-guide-header h2 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+    }
+    .buyer-guide-header .guide-icon {
+      font-size: 1.1rem;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.35rem 0;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.4;
+    }
+    .checklist-item .cb {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: transparent;
+      background: transparent;
+    }
+    .checklist-item .cb.checked {
+      background: rgba(16,185,129,0.2);
+      border-color: #34d399;
+      color: #34d399;
+    }
+
+    /* FAQ Accordion */
+    .faq-section {
+      max-width: 640px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+    }
+    .faq-section h2 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      margin-bottom: 0.4rem;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+    .faq-question {
+      padding: 0.6rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .faq-question:hover { background: rgba(255,255,255,0.04); }
+    .faq-question .faq-arrow {
+      transition: transform 0.3s;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .faq-item.open .faq-question .faq-arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 0.85rem 0.65rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* Coming soon badges - kept for legacy */
     .coming-soon-row {
       display: flex;
       gap: 0.5rem;
@@ -418,7 +582,7 @@
     @media print {
       .navbar, .imei-hero, .footer, .cookie-banner,
       .back-to-top, .scroll-progress, .bg-grid,
-      .imei-main-checker, .coming-soon-section, .faq-micro { display: none !important; }
+      .imei-main-checker, .buyer-guide, .faq-section { display: none !important; }
       .imei-results {
         display: block !important;
         max-width: 100%;
@@ -489,6 +653,7 @@
     <section class="imei-hero">
       <div class="imei-hero-badge">100% Gratuit &bull; <span id="checkCounter">0</span> verificări azi &bull; Powered by ImeiCheck.com</div>
       <h1 class="imei-hero-title">Verificare <span class="gradient-text">IMEI</span></h1>
+      <p style="color:rgba(255,255,255,0.55);font-size:0.95rem;margin-bottom:0.75rem;margin-top:-0.25rem;">Verifică telefonul înainte să-l cumperi</p>
 
       <div class="imei-main-checker">
         <div class="imei-input-wrap">
@@ -511,22 +676,78 @@
       <div id="historyList" style="display:flex;flex-direction:column;gap:0.2rem;"></div>
     </div>
 
-    <!-- ========== COMING SOON (compact, one row) ========== -->
-    <section class="coming-soon-section" style="max-width:640px;margin:0.5rem auto;padding:0.75rem 1rem;text-align:center;">
-      <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;font-weight:600;">Disponibil în curând</div>
-      <div class="coming-soon-row">
-        <span class="cs-badge">🔍 Find My iPhone</span>
-        <span class="cs-badge">🚫 Blacklist</span>
-        <span class="cs-badge">🔓 SimLock</span>
-        <span class="cs-badge">🛡️ iCloud & Garanție</span>
+    <!-- ========== BUYER GUIDE ========== -->
+    <section class="buyer-guide">
+      <div class="buyer-guide-card">
+        <div class="buyer-guide-header">
+          <span class="guide-icon">&#128203;</span>
+          <h2>Checklist telefon second-hand</h2>
+        </div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Verifică IMEI-ul (folosește tool-ul de mai sus)</div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Cere factura / dovada achiziției originale</div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Verifică ecranul pentru pete sau linii</div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Testează toate butoanele și porturile</div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Verifică bateria (Setări &gt; Baterie &gt; Sănătate)</div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Cere dezactivarea Find My iPhone / Google FRP</div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Compară prețul pe OLX / marketplace</div>
+        <div class="checklist-item"><span class="cb" onclick="this.classList.toggle('checked')">&#10003;</span> Nu plăti înainte de a testa telefonul</div>
       </div>
     </section>
 
-    <!-- ========== FAQ (micro, barely visible) ========== -->
-    <div class="faq-micro" style="max-width:540px;margin:0.5rem auto 1.5rem;padding:0 1rem;opacity:0.4;font-size:0.7rem;color:rgba(255,255,255,0.5);line-height:1.6;">
-      <strong>Ce este IMEI?</strong> Cod unic de 15 cifre ce identifică fiecare telefon. Tastează *#06# pentru a-l afla.
-      <strong>Sigur?</strong> Verificarea se face securizat prin HTTPS. Nu stocăm IMEI-ul tău.
-    </div>
+    <!-- ========== FAQ (accordion) ========== -->
+    <section class="faq-section">
+      <h2>Întrebări frecvente</h2>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>De ce trebuie să verific IMEI-ul?</span>
+          <span class="faq-arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          IMEI-ul este „buletinul" telefonului - un cod unic de 15 cifre. Verificarea IMEI-ului înainte de cumpărare te protejează de telefoane furate, blocate în rețea sau cu identitate falsă. Un IMEI invalid (care nu trece testul Luhn) este un semnal de alarmă major. Dacă vânzătorul refuză să-ți dea IMEI-ul, nu cumpăra telefonul.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Cum știu dacă un telefon e furat?</span>
+          <span class="faq-arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Verifică IMEI-ul cu tool-ul de mai sus. Apoi compară IMEI-ul afișat pe telefon (tastează *#06#) cu cel de pe cutia originală - trebuie să se potrivească. Cere întotdeauna factura sau dovada achiziției. Dacă prețul este suspect de mic sau vânzătorul evită întrebările, sunt semne de alarmă. În curând vom adăuga și verificare blacklist internațional.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Ce e Find My iPhone și de ce contează?</span>
+          <span class="faq-arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Find My iPhone (Activation Lock) este o funcție Apple care blochează telefonul pe contul proprietarului. Dacă cumperi un iPhone cu Find My activat, <strong>nu vei putea folosi telefonul</strong> fără parola proprietarului anterior. Cere ÎNTOTDEAUNA dezactivarea Find My și resetarea telefonului în fața ta înainte de a plăti. La Android, echivalentul este Google FRP (Factory Reset Protection).
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Cum aflu IMEI-ul telefonului?</span>
+          <span class="faq-arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Cea mai simplă metodă: tastează <strong>*#06#</strong> pe ecranul de apelare al telefonului. IMEI-ul va fi afișat instant. Alternativ, îl găsești în Setări &gt; Despre telefon &gt; IMEI sau pe cutia originală a telefonului. Telefoanele dual SIM au două IMEI-uri.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Este sigură verificarea pe AIphone.ro?</span>
+          <span class="faq-arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Da. Verificarea se face securizat prin HTTPS. Nu stocăm IMEI-ul tău pe serverele noastre. Istoricul verificărilor este salvat doar local în browser-ul tău și poate fi șters oricând.
+        </div></div>
+      </div>
+    </section>
 
   </main>
 
@@ -792,9 +1013,18 @@
 
     // --- Not found ---
     if (!d) {
+      const luhnOkNF = luhnCheck(imei);
       card.innerHTML =
         '<div class="rc-header"><span class="rc-device-name">&#128269; Model necunoscut</span></div>' +
-        '<div class="rc-row"><span class="rc-item" style="color:rgba(255,255,255,0.5);">IMEI-ul este valid dar modelul nu a fost găsit în baza de date.</span></div>';
+        '<div class="trust-score">' +
+        '<div class="trust-score-title">&#128737; Evaluare siguranță</div>' +
+        '<div class="trust-check ' + (luhnOkNF ? 'pass' : 'warn') + '"><span class="check-icon">' + (luhnOkNF ? '&#9989;' : '&#10060;') + '</span><span class="check-text">' + (luhnOkNF ? 'IMEI Valid (Luhn check passed)' : 'IMEI Invalid (Luhn check eșuat)') + '</span></div>' +
+        '<div class="trust-check warn"><span class="check-icon">&#9888;&#65039;</span><span class="check-text">Model neidentificat în baza de date</span></div>' +
+        '<div class="trust-check warn"><span class="check-icon">&#9888;&#65039;</span><span class="check-text">Blacklist: Verificare indisponibilă (în curând)</span></div>' +
+        '<div class="trust-check warn"><span class="check-icon">&#9888;&#65039;</span><span class="check-text">Find My iPhone: Verificare indisponibilă (în curând)</span></div>' +
+        '<div class="trust-check warn"><span class="check-icon">&#9888;&#65039;</span><span class="check-text">SimLock: Verificare indisponibilă (în curând)</span></div>' +
+        '</div>' +
+        '<div class="rc-row"><span class="rc-item" style="color:rgba(255,255,255,0.5);">IMEI-ul ' + (luhnOkNF ? 'este valid' : 'este invalid') + ' dar modelul nu a fost găsit în baza de date.</span></div>';
       return;
     }
 
@@ -807,6 +1037,26 @@
     if (hasAPI) html += '<span class="rc-verified">&#10004; Verificat online</span>';
     html += '</div>';
 
+    // === TRUST SCORE ===
+    const luhnOk = luhnCheck(imei);
+    html += '<div class="trust-score">';
+    html += '<div class="trust-score-title">&#128737; Evaluare siguranță</div>';
+    // Luhn check
+    html += '<div class="trust-check ' + (luhnOk ? 'pass' : 'warn') + '">';
+    html += '<span class="check-icon">' + (luhnOk ? '&#9989;' : '&#10060;') + '</span>';
+    html += '<span class="check-text">' + (luhnOk ? 'IMEI Valid (Luhn check passed)' : 'IMEI Invalid (Luhn check eșuat)') + '</span>';
+    html += '</div>';
+    // Model identified
+    html += '<div class="trust-check pass">';
+    html += '<span class="check-icon">&#9989;</span>';
+    html += '<span class="check-text">Model identificat: <strong>' + d.brand + ' ' + d.model + '</strong></span>';
+    html += '</div>';
+    // Coming soon checks
+    html += '<div class="trust-check warn"><span class="check-icon">&#9888;&#65039;</span><span class="check-text">Blacklist: Verificare indisponibilă (în curând)</span></div>';
+    html += '<div class="trust-check warn"><span class="check-icon">&#9888;&#65039;</span><span class="check-text">Find My iPhone: Verificare indisponibilă (în curând)</span></div>';
+    html += '<div class="trust-check warn"><span class="check-icon">&#9888;&#65039;</span><span class="check-text">SimLock: Verificare indisponibilă (în curând)</span></div>';
+    html += '</div>';
+
     // === ROW 1: Basic info (year, type, code) ===
     html += '<div class="rc-row">';
     if (d.year && d.year !== '-') html += '<span class="rc-item"><span class="rc-label">An:</span> <strong>' + d.year + '</strong></span>';
@@ -814,10 +1064,10 @@
     if (d.modelCode) html += '<span class="rc-item"><span class="rc-label">Cod:</span> <strong>' + d.modelCode + '</strong></span>';
     html += '</div>';
 
-    // If API-only, no specs - just show actions and stop
+    // If API-only, no specs - just show trust score + actions and stop
     if (d._apiOnly) {
       html += '<div class="rc-actions">';
-      html += '<button class="rc-olx" onclick="generateOLXReport()">📋 Raport OLX</button>';
+      html += '<button class="rc-olx" onclick="generateOLXReport()">&#128203; Raport OLX</button>';
       html += '<button class="rc-act" onclick="downloadPDF()">PDF</button>';
       html += '<button class="rc-act" onclick="copyResults()">Copiază</button>';
       html += '<button class="rc-act" onclick="shareResults()">Share</button>';
