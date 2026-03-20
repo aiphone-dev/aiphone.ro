@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Politica de Cookies AIphone.ro — Află ce cookie-uri folosim, de ce le folosim și cum le poți controla.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Politica de Cookies — AIphone.ro">
+  <meta property="og:description" content="Politica de cookies a site-ului AIphone.ro. Transparență totală despre cookie-urile utilizate.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aiphone.ro/cookies.html">
+  <meta property="og:image" content="https://aiphone.ro/img/og-image.png">
+  <title>Politica de Cookies — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    .legal-hero {
+      padding: 8rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legal-hero .hero-glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .legal-hero .hero-glow--blue {
+      background: #00d4ff;
+      top: -100px;
+      left: 20%;
+    }
+
+    .legal-hero .hero-glow--magenta {
+      background: #ff00e5;
+      bottom: -100px;
+      right: 20%;
+    }
+
+    .legal-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .legal-hero .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary, rgba(255,255,255,0.6));
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .legal-content section {
+      margin-bottom: 2.5rem;
+    }
+
+    .legal-content h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary, #fff);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+    }
+
+    .legal-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.5rem;
+      color: var(--text-primary, #fff);
+    }
+
+    .legal-content p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-secondary, rgba(255,255,255,0.7));
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0;
+    }
+
+    .legal-content ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary, rgba(255,255,255,0.7));
+    }
+
+    .legal-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00d4ff;
+    }
+
+    .legal-content a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .legal-content a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .legal-update {
+      font-size: 0.9rem;
+      color: var(--text-secondary, rgba(255,255,255,0.5));
+      font-style: italic;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border, rgba(255,255,255,0.08));
+    }
+
+    .legal-card {
+      background: var(--card-bg, rgba(255,255,255,0.04));
+      border: 1px solid var(--border, rgba(255,255,255,0.08));
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .cookie-table th,
+    .cookie-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+      color: var(--text-secondary, rgba(255,255,255,0.7));
+    }
+
+    .cookie-table th {
+      color: var(--text-primary, #fff);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cookie-table code {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .cookie-table {
+        font-size: 0.85rem;
+      }
+      .cookie-table th,
+      .cookie-table td {
+        padding: 0.5rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="tutoriale.html">Tutoriale</a></li>
+      <li><a href="recenzii.html">Recenzii</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="despre.html">Despre</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="imei/index.html">IMEI Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Search Toggle -->
+      <button class="nav-btn" id="searchToggle" aria-label="Caută">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+
+      <!-- Theme Toggle -->
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <!-- Mobile Nav Toggle -->
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Caută tutoriale, funcții AI..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-hint">Încearcă: <span class="search-tag">Gemini</span> <span class="search-tag">Galaxy AI</span> <span class="search-tag">Apple Intelligence</span> <span class="search-tag">Siri</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="legal-hero">
+      <div class="hero-glow hero-glow--blue" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--magenta" aria-hidden="true"></div>
+      <h1>Politica de <span class="gradient-text">Cookies</span></h1>
+      <p class="hero-subtitle">Ce sunt cookie-urile, ce cookie-uri folosim și cum le poți controla.</p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Content -->
+    <div class="legal-content">
+
+      <section>
+        <h2>1. Ce sunt cookie-urile?</h2>
+        <p>Cookie-urile sunt fișiere mici de text pe care site-urile web le stochează pe dispozitivul tău (telefon, tabletă, computer) atunci când le vizitezi. Ele servesc la memorarea preferințelor tale și la înțelegerea modului în care interacționezi cu site-ul.</p>
+        <p>Cookie-urile nu pot accesa alte informații de pe dispozitivul tău, nu pot instala programe și nu conțin viruși.</p>
+      </section>
+
+      <section>
+        <h2>2. Ce cookie-uri folosim</h2>
+
+        <h3>Cookie-uri esențiale (nu necesită consimțământ)</h3>
+        <p>Aceste cookie-uri sunt necesare pentru funcționarea de bază a site-ului. Fără ele, anumite funcții nu ar funcționa corect. Sunt stocate în localStorage-ul browserului tău:</p>
+
+        <div class="legal-card">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Nume</th>
+                <th>Scop</th>
+                <th>Durată</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>aiphone-theme</code></td>
+                <td>Salvează preferința ta pentru modul dark sau light</td>
+                <td>Permanent (până la ștergere manuală)</td>
+              </tr>
+              <tr>
+                <td><code>aiphone-cookie-consent</code></td>
+                <td>Memorează alegerea ta privind acceptarea cookie-urilor</td>
+                <td>Permanent (până la ștergere manuală)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Cookie-uri analitice (necesită consimțământ)</h3>
+        <p>Aceste cookie-uri ne ajută să înțelegem cum este utilizat site-ul, ce pagini sunt cele mai populare și cum putem îmbunătăți experiența. Sunt activate <strong>doar dacă îți dai consimțământul explicit</strong> prin banner-ul de cookie-uri.</p>
+
+        <div class="legal-card">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Nume</th>
+                <th>Furnizor</th>
+                <th>Scop</th>
+                <th>Durată</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>_ga</code></td>
+                <td>Google Analytics 4</td>
+                <td>Identificare vizitator unic (anonimizat) pentru statisticile de trafic</td>
+                <td>2 ani</td>
+              </tr>
+              <tr>
+                <td><code>_ga_*</code></td>
+                <td>Google Analytics 4</td>
+                <td>Menține starea sesiunii — durata vizitei, paginile accesate</td>
+                <td>2 ani</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Cum controlezi cookie-urile</h2>
+        <p>Ai control complet asupra cookie-urilor utilizate pe AIphone.ro:</p>
+
+        <h3>Banner-ul de cookie-uri</h3>
+        <p>La prima ta vizită pe site, vei vedea un banner care îți permite să alegi ce cookie-uri accepți. Poți accepta toate cookie-urile, doar pe cele esențiale, sau poți personaliza setările.</p>
+
+        <h3>Setările browserului</h3>
+        <p>Poți configura browserul tău să blocheze sau să șteargă cookie-urile. Iată cum:</p>
+        <ul>
+          <li><strong>Chrome:</strong> Setări &rarr; Confidențialitate și securitate &rarr; Cookie-uri</li>
+          <li><strong>Firefox:</strong> Setări &rarr; Confidențialitate &amp; Securitate &rarr; Cookie-uri</li>
+          <li><strong>Safari:</strong> Preferințe &rarr; Confidențialitate &rarr; Gestionare date site</li>
+          <li><strong>Edge:</strong> Setări &rarr; Confidențialitate &rarr; Cookie-uri</li>
+        </ul>
+
+        <h3>Refuzul cookie-urilor analitice</h3>
+        <p>Poți refuza cookie-urile analitice fără niciun impact asupra funcționalității site-ului. Vei putea accesa toate paginile, tutorialele, tool-urile și funcțiile exact la fel. Singura diferență este că vizita ta nu va fi înregistrată în statisticile noastre de trafic.</p>
+      </section>
+
+      <section>
+        <h2>4. Google Analytics</h2>
+        <p>Folosim Google Analytics 4 (GA4) pentru a înțelege cum este utilizat site-ul nostru. Google Analytics colectează informații anonimizate despre:</p>
+        <ul>
+          <li>Numărul de vizitatori și sesiuni</li>
+          <li>Paginile vizitate și timpul petrecut pe fiecare pagină</li>
+          <li>Sursa traficului (motor de căutare, link direct, rețele sociale)</li>
+          <li>Tipul dispozitivului, browserul și sistemul de operare</li>
+          <li>Țara și regiunea (la nivel general)</li>
+        </ul>
+        <p>Aceste date sunt folosite exclusiv pentru a îmbunătăți conținutul și experiența pe site. Nu le folosim pentru a te identifica personal.</p>
+        <p>Pentru mai multe detalii, consultă <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politica de confidențialitate Google</a> și <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+      </section>
+
+      <section>
+        <h2>5. localStorage</h2>
+        <p>Pe lângă cookie-urile tradiționale, site-ul folosește <strong>localStorage</strong> — un mecanism de stocare local în browserul tău. Datele stocate în localStorage <strong>nu sunt trimise către serverele noastre</strong> și rămân exclusiv pe dispozitivul tău.</p>
+        <p>Ce stocăm în localStorage:</p>
+        <ul>
+          <li><strong>Preferința de temă</strong> (dark/light mode)</li>
+          <li><strong>Alegerea privind cookie-urile</strong></li>
+          <li><strong>Istoricul verificărilor IMEI</strong> — codurile IMEI verificate anterior, pentru acces rapid</li>
+        </ul>
+        <p>Poți șterge oricând datele din localStorage prin setările browserului tău (Clear site data / Clear browsing data) sau direct din tool-ul IMEI.</p>
+      </section>
+
+      <section>
+        <h2>6. Modificări ale politicii de cookies</h2>
+        <p>Această politică poate fi actualizată periodic pentru a reflecta modificări ale cookie-urilor utilizate sau ale legislației aplicabile. Te încurajăm să verifici această pagină ocazional.</p>
+      </section>
+
+      <section>
+        <h2>7. Contact</h2>
+        <p>Dacă ai întrebări despre modul în care folosim cookie-urile, ne poți contacta la:</p>
+        <div class="legal-card">
+          <p><strong>Email:</strong> <a href="mailto:contact@aiphone.ro">contact@aiphone.ro</a></p>
+        </div>
+      </section>
+
+      <p class="legal-update">Ultima actualizare: 20 martie 2026</p>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+      <p class="footer-disclaimer">
+        AIphone.ro este un proiect editorial independent. Nu suntem afiliați, sponsorizați sau asociați cu Apple Inc., Samsung Electronics, Google LLC, OpenAI, Microsoft Corporation sau orice alt producător menționat pe acest site. Toate numele de produse, logo-urile și mărcile aparțin deținătorilor respectivi. Conținutul este oferit exclusiv în scop educațional și informativ.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>🍪 Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <!-- Cookie Settings Panel -->
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Politica de Confidențialitate AIphone.ro — Află cum colectăm, utilizăm și protejăm datele tale personale conform GDPR.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Politica de Confidențialitate — AIphone.ro">
+  <meta property="og:description" content="Politica de confidențialitate AIphone.ro. Află ce date colectăm și cum le protejăm.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aiphone.ro/confidentialitate.html">
+  <meta property="og:image" content="https://aiphone.ro/img/og-image.png">
+  <title>Politica de Confidențialitate — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    .legal-hero {
+      padding: 8rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legal-hero .hero-glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .legal-hero .hero-glow--blue {
+      background: #00d4ff;
+      top: -100px;
+      left: 20%;
+    }
+
+    .legal-hero .hero-glow--magenta {
+      background: #ff00e5;
+      bottom: -100px;
+      right: 20%;
+    }
+
+    .legal-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .legal-hero .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary, rgba(255,255,255,0.6));
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .legal-content section {
+      margin-bottom: 2.5rem;
+    }
+
+    .legal-content h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary, #fff);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+    }
+
+    .legal-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.5rem;
+      color: var(--text-primary, #fff);
+    }
+
+    .legal-content p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-secondary, rgba(255,255,255,0.7));
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0;
+    }
+
+    .legal-content ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary, rgba(255,255,255,0.7));
+    }
+
+    .legal-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00d4ff;
+    }
+
+    .legal-content a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .legal-content a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .legal-update {
+      font-size: 0.9rem;
+      color: var(--text-secondary, rgba(255,255,255,0.5));
+      font-style: italic;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border, rgba(255,255,255,0.08));
+    }
+
+    .legal-card {
+      background: var(--card-bg, rgba(255,255,255,0.04));
+      border: 1px solid var(--border, rgba(255,255,255,0.08));
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="tutoriale.html">Tutoriale</a></li>
+      <li><a href="recenzii.html">Recenzii</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="despre.html">Despre</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="imei/index.html">IMEI Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Search Toggle -->
+      <button class="nav-btn" id="searchToggle" aria-label="Caută">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+
+      <!-- Theme Toggle -->
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <!-- Mobile Nav Toggle -->
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Caută tutoriale, funcții AI..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-hint">Încearcă: <span class="search-tag">Gemini</span> <span class="search-tag">Galaxy AI</span> <span class="search-tag">Apple Intelligence</span> <span class="search-tag">Siri</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="legal-hero">
+      <div class="hero-glow hero-glow--blue" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--magenta" aria-hidden="true"></div>
+      <h1>Politica de <span class="gradient-text">Confidențialitate</span></h1>
+      <p class="hero-subtitle">Transparența este importantă pentru noi. Află cum colectăm, utilizăm și protejăm datele tale.</p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Content -->
+    <div class="legal-content">
+
+      <section>
+        <h2>1. Introducere</h2>
+        <p>AIphone.ro este un proiect editorial independent operat de o persoană fizică din România. Nu suntem o companie, nu vindem produse și nu efectuăm tranzacții comerciale. Site-ul oferă conținut educațional gratuit despre Inteligența Artificială pe smartphone-uri.</p>
+        <p>Această politică de confidențialitate explică modul în care colectăm, utilizăm și protejăm informațiile tale atunci când vizitezi site-ul nostru, în conformitate cu Regulamentul General privind Protecția Datelor (GDPR).</p>
+      </section>
+
+      <section>
+        <h2>2. Ce date colectăm</h2>
+
+        <h3>Date tehnice colectate automat</h3>
+        <p>Prin intermediul Google Analytics 4 (GA4), colectăm:</p>
+        <ul>
+          <li>Adresa IP (anonimizată)</li>
+          <li>Tipul și versiunea browserului</li>
+          <li>Sistemul de operare</li>
+          <li>Paginile vizitate și durata vizitei</li>
+          <li>Sursa traficului (de unde ai ajuns pe site)</li>
+          <li>Țara și regiunea (la nivel general, nu localizare exactă)</li>
+        </ul>
+
+        <h3>Date furnizate voluntar de tine</h3>
+        <ul>
+          <li><strong>Newsletter:</strong> Adresa de email, dacă alegi să te abonezi</li>
+          <li><strong>Formular de contact:</strong> Numele și adresa de email, împreună cu mesajul tău</li>
+        </ul>
+
+        <h3>Date IMEI</h3>
+        <p>Dacă folosești tool-ul de verificare IMEI, codul IMEI introdus este trimis direct către ImeiCheck.com prin conexiune HTTPS securizată. <strong>Nu stocăm codurile IMEI pe serverele noastre.</strong> Istoricul verificărilor este salvat doar local, în browserul tău (localStorage), și poate fi șters oricând de tine.</p>
+
+        <h3>Cookie-uri</h3>
+        <ul>
+          <li><strong>Esențiale:</strong> Preferința de temă (dark/light) și alegerea ta privind cookie-urile (stocate în localStorage)</li>
+          <li><strong>Analitice:</strong> Cookie-uri Google Analytics (<code>_ga</code>, <code>_ga_*</code>), activate doar cu consimțământul tău</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Scopul prelucrării datelor</h2>
+        <ul>
+          <li><strong>Funcționarea site-ului:</strong> Asigurarea afișării corecte și a funcționalităților de bază</li>
+          <li><strong>Analiza traficului:</strong> Înțelegerea modului în care este utilizat site-ul, pentru a îmbunătăți conținutul (prin Google Analytics)</li>
+          <li><strong>Comunicare:</strong> Răspunsul la mesajele primite prin formularul de contact și trimiterea newsletter-ului</li>
+          <li><strong>Serviciul de verificare IMEI:</strong> Procesarea cererii tale de verificare prin API-ul ImeiCheck.com</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Temeiul legal</h2>
+        <div class="legal-card">
+          <p><strong>Consimțământ — Art. 6(1)(a) GDPR:</strong> Pentru cookie-urile analitice (Google Analytics) și pentru abonarea la newsletter. Poți refuza sau retrage consimțământul oricând.</p>
+        </div>
+        <div class="legal-card">
+          <p><strong>Interes legitim — Art. 6(1)(f) GDPR:</strong> Pentru funcționarea tehnică a site-ului, inclusiv cookie-urile esențiale și prelucrarea datelor necesare furnizării serviciului de verificare IMEI.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. Terți cu care partajăm date</h2>
+        <ul>
+          <li><strong>Google LLC</strong> (Google Analytics 4) — date anonimizate despre trafic. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politica de confidențialitate Google</a></li>
+          <li><strong>ImeiCheck.com</strong> — doar codul IMEI, transmis prin HTTPS, fără alte date personale</li>
+          <li><strong>GitHub Pages</strong> — hosting-ul site-ului. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Politica de confidențialitate GitHub</a></li>
+        </ul>
+        <p>Nu vindem, nu închiriem și nu partajăm datele tale personale cu terți în scopuri comerciale.</p>
+      </section>
+
+      <section>
+        <h2>6. Durata stocării datelor</h2>
+        <ul>
+          <li><strong>Cookie-uri analitice:</strong> Maximum 26 de luni de la ultima vizită</li>
+          <li><strong>Date de contact și newsletter:</strong> Până la solicitarea ta de ștergere</li>
+          <li><strong>Date localStorage:</strong> Până când le ștergi din browser</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>7. Drepturile tale conform GDPR</h2>
+        <p>Ai următoarele drepturi în legătură cu datele tale personale:</p>
+        <ul>
+          <li><strong>Dreptul de acces</strong> — poți solicita o copie a datelor pe care le deținem despre tine</li>
+          <li><strong>Dreptul la rectificare</strong> — poți cere corectarea datelor incorecte</li>
+          <li><strong>Dreptul la ștergere</strong> — poți cere ștergerea datelor tale ("dreptul de a fi uitat")</li>
+          <li><strong>Dreptul la restricționarea prelucrării</strong> — poți cere limitarea modului în care utilizăm datele tale</li>
+          <li><strong>Dreptul la portabilitatea datelor</strong> — poți solicita datele tale într-un format structurat</li>
+          <li><strong>Dreptul la opoziție</strong> — poți obiecta la prelucrarea datelor tale</li>
+          <li><strong>Dreptul de retragere a consimțământului</strong> — poți retrage oricând consimțământul acordat, fără a afecta legalitatea prelucrării anterioare</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>8. Cum îți exerciți drepturile</h2>
+        <p>Pentru orice solicitare legată de datele tale personale, ne poți contacta la:</p>
+        <div class="legal-card">
+          <p><strong>Email:</strong> <a href="mailto:contact@aiphone.ro">contact@aiphone.ro</a></p>
+        </div>
+        <p>Vom răspunde solicitării tale în cel mult 30 de zile de la primire.</p>
+      </section>
+
+      <section>
+        <h2>9. Securitate</h2>
+        <p>Luăm măsuri rezonabile pentru a proteja datele tale:</p>
+        <ul>
+          <li>Site-ul este accesat exclusiv prin <strong>HTTPS</strong> (conexiune criptată)</li>
+          <li>Nu stocăm date sensibile pe serverele noastre</li>
+          <li>Datele IMEI nu sunt reținute de site-ul nostru</li>
+          <li>Cookie-urile analitice sunt activate doar cu consimțământul tău explicit</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>10. Modificări ale politicii</h2>
+        <p>Ne rezervăm dreptul de a actualiza această politică de confidențialitate. Orice modificare va fi publicată pe această pagină cu data actualizării. Te încurajăm să verifici periodic această pagină.</p>
+      </section>
+
+      <section>
+        <h2>11. Persoana de contact pentru protecția datelor</h2>
+        <p>Pentru întrebări legate de protecția datelor personale, ne poți contacta la:</p>
+        <div class="legal-card">
+          <p><strong>Email:</strong> <a href="mailto:contact@aiphone.ro">contact@aiphone.ro</a></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>12. Autoritatea de supraveghere</h2>
+        <p>Dacă consideri că drepturile tale privind protecția datelor au fost încălcate, ai dreptul de a depune o plângere la autoritatea de supraveghere competentă:</p>
+        <div class="legal-card">
+          <p><strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</strong></p>
+          <p>B-dul G-ral. Gheorghe Magheru 28-30, Sector 1, București, România</p>
+          <p>Website: <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">www.dataprotection.ro</a></p>
+        </div>
+      </section>
+
+      <p class="legal-update">Ultima actualizare: 20 martie 2026</p>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+      <p class="footer-disclaimer">
+        AIphone.ro este un proiect editorial independent. Nu suntem afiliați, sponsorizați sau asociați cu Apple Inc., Samsung Electronics, Google LLC, OpenAI, Microsoft Corporation sau orice alt producător menționat pe acest site. Toate numele de produse, logo-urile și mărcile aparțin deținătorilor respectivi. Conținutul este oferit exclusiv în scop educațional și informativ.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>🍪 Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <!-- Cookie Settings Panel -->
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
