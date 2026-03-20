@@ -732,7 +732,7 @@
   });
 
   // ---- Main IMEI Check ----
-  const IMEI_API_KEY = 'J6FQ-LMGV-92DA-QKXT-EW40-78ZO';
+  const API_URL = 'https://aiphone-imei-api.vaidadanx.workers.dev';
 
   function checkIMEI() {
     const raw = imeiInput.value.replace(/\D/g, '');
@@ -748,17 +748,16 @@
     btn.disabled = true;
     btn.textContent = 'Se verifică...';
 
-    // Try API first, fallback to local DB
-    fetch('https://alpha.imeicheck.com/api/free_with_key/modelBrandName?key=' + IMEI_API_KEY + '&imei=' + raw + '&format=json')
+    fetch(API_URL + '/check?imei=' + raw)
       .then(r => r.json())
       .then(data => {
         btn.disabled = false;
         btn.textContent = 'Verifică IMEI';
-        if (data.status === 'succes' && data.object) {
+        if (data.brand) {
           renderResults(raw, {
-            apiBrand: data.object.brand,
-            apiModel: data.object.name || data.object.model,
-            apiModelCode: data.object.model
+            apiBrand: data.brand,
+            apiModel: data.model,
+            apiModelCode: data.modelCode
           });
         } else {
           renderResults(raw, null);
@@ -769,7 +768,6 @@
       .catch(() => {
         btn.disabled = false;
         btn.textContent = 'Verifică IMEI';
-        // API failed, use local DB only
         renderResults(raw, null);
         results.classList.add('active');
         results.scrollIntoView({ behavior: 'smooth', block: 'start' });
