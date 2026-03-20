@@ -61,31 +61,30 @@
   </script>
 
   <style>
-    /* ===== IMEI Tools Specific Styles ===== */
+    /* ===== IMEI Tool - Ultra Compact ===== */
 
     .imei-hero {
-      padding: 5rem 1.5rem 1rem;
+      padding: 4rem 1rem 0.5rem;
       text-align: center;
-      position: relative;
     }
     .imei-hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.3rem 1rem;
+      padding: 0.25rem 0.75rem;
       border-radius: 100px;
       background: rgba(99,102,241,0.1);
       border: 1px solid rgba(99,102,241,0.25);
       color: #a5b4fc;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 500;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
     .imei-hero-title {
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
       font-weight: 900;
       color: #fff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       line-height: 1.1;
     }
     .imei-hero-title .gradient-text {
@@ -94,33 +93,25 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .imei-hero-subtitle {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.5);
-      max-width: 500px;
-      margin: 0 auto 1.25rem;
-      line-height: 1.6;
-    }
 
     /* Main IMEI Input */
     .imei-main-checker {
-      max-width: 640px;
-      margin: 0 auto 2rem;
-      position: relative;
+      max-width: 540px;
+      margin: 0 auto 1rem;
     }
     .imei-input-wrap {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.5rem;
       align-items: stretch;
     }
     .imei-input {
       flex: 1;
-      padding: 0.75rem 1rem;
-      font-size: 1.1rem;
+      padding: 0.6rem 0.75rem;
+      font-size: 1rem;
       font-family: 'JetBrains Mono', monospace;
       background: rgba(255,255,255,0.04);
       border: 2px solid rgba(99,102,241,0.3);
-      border-radius: 12px;
+      border-radius: 10px;
       color: #fff;
       outline: none;
       transition: all 0.3s;
@@ -128,276 +119,245 @@
     }
     .imei-input:focus {
       border-color: #6366f1;
-      box-shadow: 0 0 0 4px rgba(99,102,241,0.15), 0 0 30px rgba(99,102,241,0.1);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
       background: rgba(255,255,255,0.06);
     }
     .imei-input::placeholder {
       color: rgba(255,255,255,0.25);
       letter-spacing: 0;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
     }
-    .imei-input.valid { border-color: #10b981; box-shadow: 0 0 0 4px rgba(16,185,129,0.15); }
-    .imei-input.invalid { border-color: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.15); }
+    .imei-input.valid { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.15); }
+    .imei-input.invalid { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.15); }
 
     .imei-btn {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.95rem;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
       font-weight: 700;
       background: linear-gradient(135deg, #6366f1, #8b5cf6);
       color: #fff;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.3s;
     }
     .imei-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(99,102,241,0.35);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(99,102,241,0.3);
     }
     .imei-btn:active { transform: translateY(0); }
-    .imei-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
+    .imei-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
     .imei-hint {
-      margin-top: 0.75rem;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.35);
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
     }
     .imei-hint code {
       background: rgba(99,102,241,0.15);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
       font-family: 'JetBrains Mono', monospace;
       color: #a5b4fc;
+      font-size: 0.7rem;
     }
 
-    /* Results Panel */
+    /* ===== Single Result Card ===== */
     .imei-results {
       display: none;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-      padding: 0 1.5rem;
+      max-width: 640px;
+      margin: 0 auto 1rem;
+      padding: 0 1rem;
     }
-    .imei-results.active { display: block; animation: fadeInUp 0.5s ease-out; }
+    .imei-results.active { display: block; animation: fadeInUp 0.4s ease-out; }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .result-section {
+    .result-card {
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 0.75rem;
+      overflow: hidden;
     }
-    .result-section-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #a5b4fc;
-      margin-bottom: 0.75rem;
+
+    /* Card header */
+    .rc-header {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 0.5rem;
     }
-    .result-section-title .icon {
-      font-size: 1.2rem;
-    }
-
-    /* Info Grid */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .info-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px;
-      padding: 0.6rem 0.8rem;
-      text-align: center;
-    }
-    .info-card-label {
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.4);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.2rem;
-    }
-    .info-card-value {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    /* Specs Table */
-    .specs-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0 4px;
-    }
-    .specs-table tr {
-      background: rgba(255,255,255,0.02);
-    }
-    .specs-table td {
-      padding: 0.4rem 0.75rem;
-      font-size: 0.85rem;
-      border: none;
-    }
-    .specs-table td:first-child {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9rem;
-      white-space: nowrap;
-      border-radius: 8px 0 0 8px;
-      width: 140px;
-    }
-    .specs-table td:last-child {
-      color: #fff;
-      font-weight: 500;
-      border-radius: 0 8px 8px 0;
-    }
-    .spec-icon {
-      margin-right: 0.5rem;
-      opacity: 0.6;
-    }
-
-    /* Network Badges */
-    .network-badges {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .net-badge {
-      padding: 0.35rem 0.85rem;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-    .net-badge.active { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #34d399; }
-    .net-badge.inactive { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.25); }
-
-    .bands-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-    .band-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      background: rgba(99,102,241,0.1);
-      border: 1px solid rgba(99,102,241,0.2);
-      color: #a5b4fc;
-    }
-
-    /* Carrier Compatibility */
-    .carrier-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .carrier-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px;
-      padding: 0.6rem;
-      text-align: center;
-    }
-    .carrier-name {
-      font-weight: 700;
+    .rc-device-name {
       font-size: 1rem;
-      margin-bottom: 0.5rem;
+      font-weight: 800;
+      color: #fff;
     }
-    .carrier-status {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-    .carrier-check {
-      font-size: 0.8rem;
+    .rc-verified {
+      font-size: 0.7rem;
+      color: #34d399;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
+      white-space: nowrap;
     }
-    .carrier-check.yes { color: #34d399; }
-    .carrier-check.no { color: #f87171; }
 
-    /* USSD Codes */
-    .ussd-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .ussd-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 0.6rem;
-      background: rgba(255,255,255,0.03);
-      border-radius: 8px;
-    }
-    .ussd-code {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      color: #a5b4fc;
-      min-width: 140px;
-    }
-    .ussd-desc {
-      flex: 1;
-      color: rgba(255,255,255,0.6);
-      font-size: 0.9rem;
-    }
-    .ussd-copy {
-      background: rgba(99,102,241,0.12);
-      border: 1px solid rgba(99,102,241,0.25);
-      color: #a5b4fc;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.75rem;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-    .ussd-copy:hover { background: rgba(99,102,241,0.25); }
-
-    /* Action Buttons */
-    .actions-bar {
+    /* Card row sections */
+    .rc-row {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.25rem 1rem;
+      align-items: center;
     }
-    .action-btn {
+    .rc-row:last-child { border-bottom: none; }
+
+    .rc-item {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
+    }
+    .rc-item strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .rc-item .rc-label {
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Carrier inline badges */
+    .rc-carrier {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1.25rem;
-      border-radius: 10px;
-      font-size: 0.9rem;
+      gap: 0.2rem;
+      font-size: 0.75rem;
       font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .rc-carrier.ok { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.2); color: #34d399; }
+    .rc-carrier .rc-carrier-5g { font-size: 0.65rem; opacity: 0.7; margin-left: 0.15rem; }
+
+    /* USSD compact */
+    .rc-ussd-toggle {
+      font-size: 0.75rem;
+      color: #a5b4fc;
       cursor: pointer;
-      transition: all 0.2s;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .rc-ussd-toggle:hover { background: rgba(99,102,241,0.2); }
+    .rc-ussd-panel {
+      display: none;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .rc-ussd-panel.open { display: block; }
+    .rc-ussd-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0;
+      font-size: 0.75rem;
+    }
+    .rc-ussd-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #a5b4fc;
+      min-width: 100px;
+      font-size: 0.75rem;
+    }
+    .rc-ussd-desc {
+      flex: 1;
+      color: rgba(255,255,255,0.5);
+    }
+    .rc-ussd-copy {
+      font-size: 0.65rem;
+      color: #a5b4fc;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .rc-ussd-copy:hover { background: rgba(99,102,241,0.25); }
+
+    /* Action buttons inside card */
+    .rc-actions {
+      padding: 0.5rem 1rem;
+      display: flex;
+      gap: 0.4rem;
+      justify-content: flex-end;
+    }
+    .rc-act {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 5px;
+      cursor: pointer;
       border: 1px solid rgba(255,255,255,0.1);
       background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .rc-act:hover {
+      background: rgba(255,255,255,0.08);
       color: #fff;
     }
-    .action-btn:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.2);
-      transform: translateY(-1px);
+
+    /* Network badges inline */
+    .net-badge-sm {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      font-weight: 700;
     }
-    .action-btn.primary {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      border-color: transparent;
+    .net-badge-sm.active { background: rgba(16,185,129,0.12); color: #34d399; }
+    .net-badge-sm.inactive { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.2); }
+
+    /* Band tags compact */
+    .rc-bands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.2rem;
     }
-    .action-btn.primary:hover {
-      box-shadow: 0 4px 15px rgba(99,102,241,0.3);
+    .rc-band-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      background: rgba(99,102,241,0.08);
+      border: 1px solid rgba(99,102,241,0.15);
+      color: #a5b4fc;
+    }
+
+    /* Coming soon badges */
+    .coming-soon-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    .cs-badge {
+      padding: 0.3rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: rgba(251,191,36,0.08);
+      border: 1px solid rgba(251,191,36,0.2);
+      color: #fbbf24;
+      white-space: nowrap;
     }
 
     /* Toast notification */
@@ -408,10 +368,10 @@
       transform: translateX(-50%) translateY(100px);
       background: rgba(16,185,129,0.95);
       color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       z-index: 9999;
       transition: transform 0.3s ease;
       backdrop-filter: blur(8px);
@@ -420,23 +380,21 @@
 
     /* Print styles */
     @media print {
-      .navbar, .imei-hero, .tools-section, .footer, .cookie-banner,
-      .back-to-top, .scroll-progress, .bg-grid, .actions-bar,
-      .imei-main-checker, .imei-loading { display: none !important; }
+      .navbar, .imei-hero, .footer, .cookie-banner,
+      .back-to-top, .scroll-progress, .bg-grid,
+      .imei-main-checker, .coming-soon-section, .faq-micro { display: none !important; }
       .imei-results {
         display: block !important;
         max-width: 100%;
         padding: 0;
       }
-      .result-section {
+      .result-card {
         border: 1px solid #ddd;
         background: #fff;
         color: #000;
-        break-inside: avoid;
       }
-      .result-section-title { color: #333; }
-      .info-card-value, .specs-table td:last-child, .carrier-name { color: #000; }
-      .specs-table td:first-child { color: #666; }
+      .rc-device-name, .rc-item strong { color: #000; }
+      .rc-item, .rc-item .rc-label { color: #666; }
       body { background: #fff; }
     }
 
@@ -444,16 +402,10 @@
     @media (max-width: 640px) {
       .imei-input-wrap { flex-direction: column; }
       .imei-btn { width: 100%; }
-      .tool-row { grid-template-columns: 1fr; }
-      .info-grid { grid-template-columns: repeat(2, 1fr); }
-      .carrier-grid { grid-template-columns: 1fr 1fr; }
-      .actions-bar { flex-direction: column; }
-      .action-btn { justify-content: center; }
-      .imei-segment { padding: 0.5rem 0.35rem; }
-      .imei-segment-digits { font-size: 1.15rem; letter-spacing: 2px; }
-      .ussd-item { flex-wrap: wrap; gap: 0.5rem; }
-      .ussd-code { min-width: auto; }
-      .price-range { flex-direction: column; }
+      .cs-badge { padding: 0.2rem 0.4rem; font-size: 0.55rem; }
+      .rc-header { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+      .rc-ussd-row { flex-wrap: wrap; }
+      .rc-ussd-code { min-width: auto; }
     }
   </style>
 </head>
@@ -497,116 +449,42 @@
 
   <main>
 
-    <!-- ========== HERO ========== -->
+    <!-- ========== HERO (minimal) ========== -->
     <section class="imei-hero">
-      <div class="imei-hero-badge">
-        100% Gratuit &bull; Identificare reală &bull; Powered by ImeiCheck.com
-      </div>
-      <h1 class="imei-hero-title">
-        Verificare <span class="gradient-text">IMEI</span> Gratuită
-      </h1>
-      <p class="imei-hero-subtitle">
-        Introdu IMEI-ul și află instant ce model de telefon ai
-      </p>
+      <div class="imei-hero-badge">100% Gratuit &bull; Powered by ImeiCheck.com</div>
+      <h1 class="imei-hero-title">Verificare <span class="gradient-text">IMEI</span></h1>
 
-      <!-- Main IMEI Checker -->
       <div class="imei-main-checker">
         <div class="imei-input-wrap">
-          <input type="text" class="imei-input" id="imeiInput" placeholder="Introdu IMEI-ul aici (15 cifre)" maxlength="18" autocomplete="off" inputmode="numeric">
-          <button class="imei-btn" id="imeiCheckBtn" onclick="checkIMEI()">Verifica IMEI</button>
+          <input type="text" class="imei-input" id="imeiInput" placeholder="Introdu IMEI (15 cifre)" maxlength="18" autocomplete="off" inputmode="numeric">
+          <button class="imei-btn" id="imeiCheckBtn" onclick="checkIMEI()">Verifică</button>
         </div>
-        <div id="liveCheckDigit" style="margin-top:0.5rem;font-size:0.9rem;font-family:'JetBrains Mono',monospace;min-height:1.4em;"></div>
-        <p class="imei-hint">Tastează <code>*#06#</code> pe telefon pentru a afla IMEI-ul</p>
+        <div id="liveCheckDigit" style="margin-top:0.35rem;font-size:0.8rem;font-family:'JetBrains Mono',monospace;min-height:1.2em;"></div>
+        <p class="imei-hint">Tastează <code>*#06#</code> pe telefon pentru IMEI</p>
       </div>
     </section>
 
-    <!-- ========== RESULTS ========== -->
+    <!-- ========== SINGLE RESULT CARD ========== -->
     <div class="imei-results" id="imeiResults">
-
-      <!-- Device Info -->
-      <div class="result-section" id="deviceInfoSection" style="display:none;">
-        <div class="result-section-title"><span class="icon">&#128241;</span> Telefonul tău</div>
-        <div class="info-grid" id="deviceInfoGrid"></div>
-      </div>
-
-      <!-- 4. Specs -->
-      <div class="result-section" id="specsSection" style="display:none;">
-        <div class="result-section-title"><span class="icon">&#9881;</span> Specificatii</div>
-        <table class="specs-table" id="specsTable"><tbody></tbody></table>
-      </div>
-
-      <!-- 5. Connectivity -->
-      <div class="result-section" id="connectivitySection" style="display:none;">
-        <div class="result-section-title"><span class="icon">&#128225;</span> Conectivitate</div>
-        <div id="connectivityContent"></div>
-      </div>
-
-      <!-- 6. Carrier Compatibility -->
-      <div class="result-section" id="carrierSection" style="display:none;">
-        <div class="result-section-title"><span class="icon">&#127479;&#127476;</span> Compatibilitate Operatori Romania</div>
-        <div class="carrier-grid" id="carrierGrid"></div>
-      </div>
-
-      <!-- 7. USSD Codes -->
-      <div class="result-section" id="ussdSection" style="display:none;">
-        <div class="result-section-title"><span class="icon">&#128222;</span> Coduri USSD Utile</div>
-        <div class="ussd-list" id="ussdList"></div>
-      </div>
-
-      <!-- Actions - inline compact -->
-      <div style="display:flex;gap:0.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap;">
-        <button class="action-btn" onclick="downloadPDF()" style="padding:0.5rem 1rem;font-size:0.8rem;">📄 PDF</button>
-        <button class="action-btn" onclick="copyResults()" style="padding:0.5rem 1rem;font-size:0.8rem;">📋 Copiază</button>
-        <button class="action-btn" onclick="shareResults()" style="padding:0.5rem 1rem;font-size:0.8rem;">🔗 Share</button>
-      </div>
-
+      <div class="result-card" id="resultCard"></div>
     </div>
 
-    <!-- ========== PREMIUM - COMPACT ========== -->
-    <section style="max-width:900px;margin:0 auto;padding:2rem 1.5rem;">
-      <h3 style="text-align:center;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1rem;">Disponibil în curând</h3>
-      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-        <span style="padding:0.5rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);color:#fbbf24;">🔍 Find My iPhone</span>
-        <span style="padding:0.5rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);color:#fbbf24;">🚫 Blacklist</span>
-        <span style="padding:0.5rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);color:#fbbf24;">🔓 SimLock</span>
-        <span style="padding:0.5rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);color:#fbbf24;">🛡️ iCloud & Garanție</span>
+    <!-- ========== COMING SOON (compact, one row) ========== -->
+    <section class="coming-soon-section" style="max-width:640px;margin:0.5rem auto;padding:0.75rem 1rem;text-align:center;">
+      <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;font-weight:600;">Disponibil în curând</div>
+      <div class="coming-soon-row">
+        <span class="cs-badge">🔍 Find My iPhone</span>
+        <span class="cs-badge">🚫 Blacklist</span>
+        <span class="cs-badge">🔓 SimLock</span>
+        <span class="cs-badge">🛡️ iCloud & Garanție</span>
       </div>
     </section>
 
-    <!-- ========== FAQ ========== -->
-    <section style="padding:1rem 1.5rem 2rem;max-width:800px;margin:0 auto;">
-      <div>
-        <div class="faq-list" style="margin-top:0;">
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>Ce este IMEI?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <p>IMEI (International Mobile Equipment Identity) este un cod unic de 15 cifre care identifica fiecare telefon mobil in mod individual. Este ca un CNP pentru telefonul tau. Fiecare telefon are cel putin un IMEI, iar telefoanele dual SIM au doua.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>Cum aflu IMEI-ul telefonului?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <p>Cea mai simpla metoda este sa tastezi <strong>*#06#</strong> pe ecranul de apelare al telefonului. IMEI-ul va fi afisat instant. Alternativ, il gasesti in <strong>Setari > Despre telefon > IMEI</strong> sau pe cutia originala a telefonului.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>Datele mele sunt in siguranta?</span>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="faq-answer">
-              <p>Da. Verificarea de bază (validare Luhn, structură IMEI) se face local în browser. Pentru identificarea modelului, IMEI-ul este trimis securizat către baza de date <strong>ImeiCheck.com</strong> prin conexiune HTTPS criptată. Nu stocăm și nu partajăm IMEI-ul tău cu nimeni altcineva.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
+    <!-- ========== FAQ (micro, barely visible) ========== -->
+    <div class="faq-micro" style="max-width:540px;margin:0.5rem auto 1.5rem;padding:0 1rem;opacity:0.4;font-size:0.7rem;color:rgba(255,255,255,0.5);line-height:1.6;">
+      <strong>Ce este IMEI?</strong> Cod unic de 15 cifre ce identifică fiecare telefon. Tastează *#06# pentru a-l afla.
+      <strong>Sigur?</strong> Verificarea se face securizat prin HTTPS. Nu stocăm IMEI-ul tău.
+    </div>
 
   </main>
 
@@ -639,7 +517,7 @@
 
   <script>
   /* ============================================
-     IMEI Tools - All Logic
+     IMEI Tools - All Logic (compact single-card)
      ============================================ */
 
   // ---- Globals ----
@@ -662,7 +540,6 @@
   }
 
   function calcLuhnDigit(partial) {
-    // partial is 14 digits, calculate the 15th
     let sum = 0;
     for (let i = 0; i < 14; i++) {
       let d = parseInt(partial[i], 10);
@@ -672,8 +549,7 @@
       }
       sum += d;
     }
-    let check = (10 - (sum % 10)) % 10;
-    return check;
+    return (10 - (sum % 10)) % 10;
   }
 
   // ---- IMEI Input Formatting + Live Check Digit ----
@@ -683,7 +559,6 @@
   imeiInput.addEventListener('input', function(e) {
     let raw = this.value.replace(/\D/g, '');
     if (raw.length > 15) raw = raw.substring(0, 15);
-    // Format: XXXX XXXX XXXX XXX
     let formatted = '';
     for (let i = 0; i < raw.length; i++) {
       if (i > 0 && i % 4 === 0) formatted += ' ';
@@ -691,7 +566,6 @@
     }
     this.value = formatted;
 
-    // Live check digit verification
     this.classList.remove('valid', 'invalid');
     if (liveCheckEl) {
       if (raw.length >= 14) {
@@ -740,7 +614,7 @@
       .then(r => r.json())
       .then(data => {
         btn.disabled = false;
-        btn.textContent = 'Verifică IMEI';
+        btn.textContent = 'Verifică';
         if (data.status === 'succes' && data.object) {
           renderResults(raw, { apiBrand: data.object.brand, apiModel: data.object.name || data.object.model, apiModelCode: data.object.model });
         } else {
@@ -751,7 +625,7 @@
       })
       .catch(() => {
         btn.disabled = false;
-        btn.textContent = 'Verifică IMEI';
+        btn.textContent = 'Verifică';
         renderResults(raw, null);
         results.classList.add('active');
         results.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -759,17 +633,13 @@
   }
 
   function renderResults(imei, apiData) {
-    const isValid = luhnCheck(imei);
     const tac = imei.substring(0, 8);
-    const serial = imei.substring(8, 14);
-    const check = imei.substring(14, 15);
     const localDevice = window.TAC_DB ? window.TAC_DB[tac] : null;
-
-    // Merge API data with local DB
-    const device = localDevice ? Object.assign({}, localDevice) : null;
     const hasAPI = apiData && apiData.apiBrand;
 
-    // If API found model but local DB didn't, create a basic device object
+    // Merge API data with local DB
+    let device = localDevice ? Object.assign({}, localDevice) : null;
+
     if (hasAPI && !device) {
       lastDeviceInfo = {
         brand: apiData.apiBrand,
@@ -780,7 +650,6 @@
         _apiOnly: true
       };
     } else if (hasAPI && device) {
-      // API confirms/overrides brand and model
       device.brand = apiData.apiBrand;
       device.model = apiData.apiModel;
       if (apiData.apiModelCode) device.modelCode = apiData.apiModelCode;
@@ -789,109 +658,126 @@
       lastDeviceInfo = device;
     }
 
-    const finalDevice = lastDeviceInfo;
+    const d = lastDeviceInfo;
+    const card = document.getElementById('resultCard');
 
-    // Sections that require device data
-    const deviceInfoSection = document.getElementById('deviceInfoSection');
-    const specsSection = document.getElementById('specsSection');
-    const connectivitySection = document.getElementById('connectivitySection');
-    const carrierSection = document.getElementById('carrierSection');
-    const ussdSection = document.getElementById('ussdSection');
-
-    if (!finalDevice) {
-      [deviceInfoSection, specsSection, connectivitySection, carrierSection, ussdSection]
-        .forEach(s => s.style.display = 'none');
-      // Show "not found" message
-      deviceInfoSection.style.display = '';
-      document.getElementById('deviceInfoGrid').innerHTML =
-        '<div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--text-secondary);">' +
-        '<p style="font-size:1.1rem;margin-bottom:0.5rem;">&#128269; Model necunoscut</p>' +
-        '<p style="font-size:0.9rem;opacity:0.7;">IMEI-ul este valid dar modelul nu a fost găsit în baza noastră de date.</p></div>';
-      [specsSection, connectivitySection, carrierSection, ussdSection]
-        .forEach(s => s.style.display = 'none');
+    // --- Not found ---
+    if (!d) {
+      card.innerHTML =
+        '<div class="rc-header"><span class="rc-device-name">&#128269; Model necunoscut</span></div>' +
+        '<div class="rc-row"><span class="rc-item" style="color:rgba(255,255,255,0.5);">IMEI-ul este valid dar modelul nu a fost găsit în baza de date.</span></div>';
       return;
     }
 
-    // 3. Device Info - always show brand + model
-    deviceInfoSection.style.display = '';
-    let infoHTML = infoCard('Brand', finalDevice.brand) +
-      infoCard('Model', finalDevice.model);
-    if (finalDevice.modelCode) infoHTML += infoCard('Cod model', finalDevice.modelCode);
-    if (finalDevice.year && finalDevice.year !== '-') infoHTML += infoCard('An lansare', finalDevice.year);
-    infoHTML += infoCard('Tip', finalDevice.type || 'Smartphone');
-    if (hasAPI) {
-      infoHTML += '<div class="info-card" style="border-color:rgba(16,185,129,0.2);background:rgba(16,185,129,0.05);"><div class="info-card-label">Sursa</div><div class="info-card-value" style="color:#34d399;font-size:0.85rem;">&#10004; Verificat online</div></div>';
-    }
-    document.getElementById('deviceInfoGrid').innerHTML = infoHTML;
+    let html = '';
 
-    // If API-only (no local specs), hide spec sections
-    if (finalDevice._apiOnly) {
-      [specsSection, connectivitySection, carrierSection, ussdSection]
-        .forEach(s => s.style.display = 'none');
+    // === HEADER: device name + verified ===
+    const modelCode = d.modelCode ? ' (' + d.modelCode + ')' : '';
+    html += '<div class="rc-header">';
+    html += '<span class="rc-device-name">&#128241; ' + d.brand + ' ' + d.model + modelCode + '</span>';
+    if (hasAPI) html += '<span class="rc-verified">&#10004; Verificat online</span>';
+    html += '</div>';
+
+    // === ROW 1: Basic info (year, type, code) ===
+    html += '<div class="rc-row">';
+    if (d.year && d.year !== '-') html += '<span class="rc-item"><span class="rc-label">An:</span> <strong>' + d.year + '</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">Tip:</span> <strong>' + (d.type || 'Smartphone') + '</strong></span>';
+    if (d.modelCode) html += '<span class="rc-item"><span class="rc-label">Cod:</span> <strong>' + d.modelCode + '</strong></span>';
+    html += '</div>';
+
+    // If API-only, no specs - just show actions and stop
+    if (d._apiOnly) {
+      html += '<div class="rc-actions">';
+      html += '<button class="rc-act" onclick="downloadPDF()">&#128196; PDF</button>';
+      html += '<button class="rc-act" onclick="copyResults()">&#128203; Copiază</button>';
+      html += '<button class="rc-act" onclick="shareResults()">&#128279; Share</button>';
+      html += '</div>';
+      card.innerHTML = html;
       return;
     }
 
-    // 4. Specs
-    specsSection.style.display = '';
-    const specsData = [
-      ['&#128247;', 'Ecran', device.screen],
-      ['&#128190;', 'RAM', device.ram],
-      ['&#128193;', 'Stocare', device.storage],
-      ['&#128248;', 'Camera', device.camera],
-      ['&#128267;', 'Baterie', device.battery],
-      ['&#9889;', 'Incarcare', device.charging],
-      ['&#128187;', 'OS', device.os],
-      ['&#9878;', 'Greutate', device.weight]
-    ];
-    document.getElementById('specsTable').querySelector('tbody').innerHTML = specsData.map(
-      s => '<tr><td><span class="spec-icon">' + s[0] + '</span>' + s[1] + '</td><td>' + s[2] + '</td></tr>'
-    ).join('');
+    // === ROW 2: Specs ===
+    html += '<div class="rc-row">';
+    if (d.screen) html += '<span class="rc-item"><span class="rc-label">Ecran:</span> <strong>' + d.screen + '</strong></span>';
+    if (d.ram) html += '<span class="rc-item"><span class="rc-label">RAM:</span> <strong>' + d.ram + '</strong></span>';
+    if (d.camera) html += '<span class="rc-item"><span class="rc-label">Cam:</span> <strong>' + d.camera + '</strong></span>';
+    html += '</div>';
 
-    // 5. Connectivity
-    connectivitySection.style.display = '';
+    html += '<div class="rc-row">';
+    if (d.battery) html += '<span class="rc-item"><span class="rc-label">Baterie:</span> <strong>' + d.battery + '</strong></span>';
+    if (d.storage) html += '<span class="rc-item"><span class="rc-label">Stocare:</span> <strong>' + d.storage + '</strong></span>';
+    if (d.os) html += '<span class="rc-item"><span class="rc-label">OS:</span> <strong>' + d.os + '</strong></span>';
+    if (d.weight) html += '<span class="rc-item"><span class="rc-label">Greutate:</span> <strong>' + d.weight + '</strong></span>';
+    if (d.charging) html += '<span class="rc-item"><span class="rc-label">Încărcare:</span> <strong>' + d.charging + '</strong></span>';
+    html += '</div>';
+
+    // === ROW 3: Connectivity ===
+    html += '<div class="rc-row">';
     const nets = ['2G', '3G', '4G', '5G'];
-    let netHTML = '<div class="network-badges">' +
-      nets.map(n => '<span class="net-badge ' + (device.network.includes(n) ? 'active' : 'inactive') + '">' + n + '</span>').join('') +
-      '</div>';
-    netHTML += '<p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:0.5rem;">Tip SIM: <strong style="color:#fff;">' + device.sim + '</strong></p>';
-    if (device.bands5g && device.bands5g.length > 0) {
-      netHTML += '<p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:0.5rem;">Benzi 5G suportate:</p>';
-      netHTML += '<div class="bands-list">' + device.bands5g.map(b => '<span class="band-tag">' + b + '</span>').join('') + '</div>';
-    }
-    document.getElementById('connectivityContent').innerHTML = netHTML;
+    html += '<span class="rc-item"><span class="rc-label">Rețea:</span> ';
+    html += nets.map(function(n) {
+      return '<span class="net-badge-sm ' + (d.network && d.network.includes(n) ? 'active' : 'inactive') + '">' + n + '</span>';
+    }).join(' ');
+    html += '</span>';
+    if (d.sim) html += '<span class="rc-item"><span class="rc-label">SIM:</span> <strong>' + d.sim + '</strong></span>';
 
-    // 6. Carrier Compatibility
-    carrierSection.style.display = '';
+    // USSD toggle button
+    const codes = (window.USSD_CODES && window.USSD_CODES[d.brand]) || (window.USSD_CODES && window.USSD_CODES['default']) || [];
+    if (codes.length > 0) {
+      html += '<button class="rc-ussd-toggle" onclick="toggleUSSD()">&#128222; USSD</button>';
+    }
+    html += '</div>';
+
+    // 5G Bands (if any)
+    if (d.bands5g && d.bands5g.length > 0) {
+      html += '<div class="rc-row"><span class="rc-item"><span class="rc-label">Benzi 5G:</span></span>';
+      html += '<div class="rc-bands">' + d.bands5g.map(function(b) { return '<span class="rc-band-tag">' + b + '</span>'; }).join('') + '</div>';
+      html += '</div>';
+    }
+
+    // === USSD Panel (hidden by default) ===
+    if (codes.length > 0) {
+      html += '<div class="rc-ussd-panel" id="ussdPanel">';
+      html += codes.map(function(c) {
+        return '<div class="rc-ussd-row">' +
+          '<span class="rc-ussd-code">' + c.code + '</span>' +
+          '<span class="rc-ussd-desc">' + c.desc + '</span>' +
+          '<button class="rc-ussd-copy" onclick="copyText(\'' + c.code + '\')">Copiază</button>' +
+          '</div>';
+      }).join('');
+      html += '</div>';
+    }
+
+    // === ROW 4: Carrier compatibility ===
     const carriers = window.CARRIER_BANDS || {};
-    let carrierHTML = '';
-    for (const key in carriers) {
-      const c = carriers[key];
-      const has4G = true; // All modern phones have 4G bands matching Romanian carriers
-      const has5G = device.network.includes('5G') && c['5G'].some(b => device.bands5g && device.bands5g.includes(b));
-      carrierHTML += '<div class="carrier-card">' +
-        '<div class="carrier-name" style="color:' + c.color + '">' + key + '</div>' +
-        '<div style="font-size:0.8rem;color:rgba(255,255,255,0.4);">' + c.name + '</div>' +
-        '<div class="carrier-status">' +
-        '<span class="carrier-check yes">&#10004; 4G</span>' +
-        (has5G ? '<span class="carrier-check yes">&#10004; 5G</span>' : '<span class="carrier-check no">&#10008; 5G</span>') +
-        '</div></div>';
+    const carrierKeys = Object.keys(carriers);
+    if (carrierKeys.length > 0) {
+      html += '<div class="rc-row">';
+      html += '<span class="rc-item" style="margin-right:0.25rem;"><span class="rc-label">&#127479;&#127476;</span></span>';
+      carrierKeys.forEach(function(key) {
+        var c = carriers[key];
+        var has5G = d.network && d.network.includes('5G') && c['5G'] && c['5G'].some(function(b) { return d.bands5g && d.bands5g.includes(b); });
+        html += '<span class="rc-carrier ok">' + key + ' &#10004;4G';
+        if (has5G) html += ' <span class="rc-carrier-5g">&#10004;5G</span>';
+        else html += ' <span class="rc-carrier-5g" style="color:#f87171;">&#10008;5G</span>';
+        html += '</span>';
+      });
+      html += '</div>';
     }
-    document.getElementById('carrierGrid').innerHTML = carrierHTML;
 
-    // 7. USSD Codes
-    ussdSection.style.display = '';
-    const codes = (window.USSD_CODES && window.USSD_CODES[device.brand]) || (window.USSD_CODES && window.USSD_CODES['default']) || [];
-    document.getElementById('ussdList').innerHTML = codes.map(c =>
-      '<div class="ussd-item">' +
-      '<span class="ussd-code">' + c.code + '</span>' +
-      '<span class="ussd-desc">' + c.desc + '</span>' +
-      '<button class="ussd-copy" onclick="copyText(\'' + c.code + '\')">Copiaza</button>' +
-      '</div>'
-    ).join('');
+    // === ACTIONS (inside card, bottom right) ===
+    html += '<div class="rc-actions">';
+    html += '<button class="rc-act" onclick="downloadPDF()">&#128196; PDF</button>';
+    html += '<button class="rc-act" onclick="copyResults()">&#128203; Copiază</button>';
+    html += '<button class="rc-act" onclick="shareResults()">&#128279; Share</button>';
+    html += '</div>';
+
+    card.innerHTML = html;
   }
 
-  function infoCard(label, value) {
-    return '<div class="info-card"><div class="info-card-label">' + label + '</div><div class="info-card-value">' + value + '</div></div>';
+  function toggleUSSD() {
+    var panel = document.getElementById('ussdPanel');
+    if (panel) panel.classList.toggle('open');
   }
 
   // ---- Actions ----
