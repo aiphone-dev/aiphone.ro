@@ -11,14 +11,14 @@
     gtag('config', 'G-9ZX8ZER188');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Testează gratuit: cât de performant e telefonul tău? Scor din 100 bazat pe hardware, software, AI features. Partajează cu prietenii!">
-  <meta name="keywords" content="scor telefon, test telefon, cat de bun e telefonul meu, performanta telefon">
+  <meta name="description" content="Cat de rapid e telefonul tau? Ruleaza un benchmark real in 3 secunde si afla scorul de performanta. Partajeaza cu prietenii!">
+  <meta name="keywords" content="benchmark telefon, test viteza telefon, scor performanta, speed test telefon">
   <meta name="theme-color" content="#0a0a0f">
-  <meta property="og:title" content="Scorul Telefonului Tău | Cât de bun e telefonul tău? - AIphone.ro">
-  <meta property="og:description" content="Testează gratuit: cât de performant e telefonul tău? Scor din 100 bazat pe hardware, software, AI features. Partajează cu prietenii!">
+  <meta property="og:title" content="Cat de rapid e telefonul tau? - AIphone.ro">
+  <meta property="og:description" content="Benchmark real in 3 secunde. Testeaza viteza telefonului tau si compara cu altii!">
   <meta property="og:type" content="website">
   <meta property="og:image" content="../img/og-image.png">
-  <title>Scorul Telefonului Tău | Cât de bun e telefonul tău? - AIphone.ro</title>
+  <title>Cat de rapid e telefonul tau? | Benchmark Real - AIphone.ro</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,13 +36,13 @@
   <link rel="manifest" href="../manifest.json">
 
   <style>
-    /* ===== Scor Telefon - Phone Scoring Tool ===== */
+    /* ===== Benchmark Page Styles ===== */
 
-    .scor-hero {
-      padding: 4rem 1rem 1rem;
+    .bench-hero {
+      padding: 4rem 1rem 1.5rem;
       text-align: center;
     }
-    .scor-hero-badge {
+    .bench-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -53,212 +53,316 @@
       color: #a5b4fc;
       font-size: 0.7rem;
       font-weight: 500;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
-    .scor-hero-title {
-      font-size: clamp(1.3rem, 3.5vw, 2rem);
+    .bench-title {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
       font-weight: 900;
       color: #fff;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.4rem;
       line-height: 1.1;
     }
-    .scor-hero-title .gradient-text {
+    .bench-title .gradient-text {
       background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .scor-subtitle {
-      color: rgba(255,255,255,0.55);
+    .bench-subtitle {
+      color: rgba(255,255,255,0.5);
       font-size: 0.95rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
     }
 
-    /* Gauge container */
-    .gauge-container {
+    /* Start Button */
+    .bench-start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.5rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      box-shadow: 0 0 30px rgba(99,102,241,0.3), 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .bench-start-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(99,102,241,0.5), 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .bench-start-btn:active {
+      transform: translateY(0);
+    }
+    .bench-start-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Running animation */
+    .bench-running {
       max-width: 640px;
-      margin: 0 auto 1.5rem;
-      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      text-align: center;
+      display: none;
+    }
+    .bench-running.active { display: block; }
+
+    .bench-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+    .bench-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .bench-running-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+    .bench-running-test {
+      font-size: 1.1rem;
+      color: #a5b4fc;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+    .bench-dots {
+      display: inline-block;
+    }
+    .bench-dots span {
+      animation: dotPulse 1.4s infinite;
+      opacity: 0;
+      font-size: 1.2rem;
+    }
+    .bench-dots span:nth-child(1) { animation-delay: 0s; }
+    .bench-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .bench-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotPulse {
+      0%, 80%, 100% { opacity: 0; }
+      40% { opacity: 1; }
     }
 
-    .gauge-card {
+    /* Results container */
+    .bench-results {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+      display: none;
+    }
+    .bench-results.active { display: block; }
+
+    .bench-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
       overflow: hidden;
       animation: fadeInUp 0.6s ease-out;
-      padding: 2rem 1.5rem 1.5rem;
-      text-align: center;
     }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* SVG Gauge */
-    .gauge-wrap {
-      position: relative;
-      width: 220px;
-      height: 220px;
-      margin: 0 auto 1rem;
+    .bench-section {
+      padding: 1.5rem;
     }
-    .gauge-svg {
-      width: 100%;
-      height: 100%;
-      transform: rotate(-90deg);
+    .bench-section + .bench-section {
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
-    .gauge-bg {
-      fill: none;
-      stroke: rgba(255,255,255,0.08);
-      stroke-width: 12;
+    .bench-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
     }
-    .gauge-fill {
-      fill: none;
-      stroke-width: 12;
-      stroke-linecap: round;
-      transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.5s;
-    }
-    .gauge-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+
+    /* Score display */
+    .score-display {
       text-align: center;
+      padding: 2rem 1.5rem 1rem;
     }
-    .gauge-score {
-      font-size: 3.5rem;
+    .score-number {
+      font-size: clamp(3.5rem, 10vw, 5rem);
       font-weight: 900;
       line-height: 1;
       background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 0.25rem;
     }
-    .gauge-score-max {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.3);
-      font-weight: 600;
-    }
-    .gauge-grade {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-top: 0.15rem;
-      letter-spacing: 0.5px;
-    }
-    .gauge-grade-label {
-      font-size: 0.75rem;
+    .score-label {
+      font-size: 0.85rem;
       color: rgba(255,255,255,0.4);
-      margin-top: 0.1rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
     }
 
-    /* Glow effect behind gauge */
-    .gauge-glow {
+    /* Spectrum bar */
+    .spectrum-container {
+      padding: 0 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .spectrum-bar {
+      position: relative;
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #f87171, #fbbf24, #34d399, #22d3ee);
+      margin-bottom: 0.5rem;
+    }
+    .spectrum-dot {
       position: absolute;
       top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%);
-      width: 160px;
-      height: 160px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
-      filter: blur(40px);
-      opacity: 0.25;
-      pointer-events: none;
-      z-index: -1;
+      background: #fff;
+      border: 3px solid #a855f7;
+      box-shadow: 0 0 12px rgba(168,85,247,0.6), 0 0 24px rgba(168,85,247,0.3);
+      transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    /* Breakdown section */
-    .breakdown-title {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.4);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin: 1.5rem 0 0.5rem;
-      text-align: left;
-    }
-
-    .breakdown-row {
+    .spectrum-labels {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .breakdown-row:last-child { border-bottom: none; }
-
-    .breakdown-label {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.6);
-      min-width: 110px;
-      flex-shrink: 0;
-    }
-    .breakdown-bar {
-      flex: 1;
-      height: 8px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 4px;
-      overflow: hidden;
-      min-width: 60px;
-    }
-    .breakdown-bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .breakdown-value {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.5);
-      font-family: 'JetBrains Mono', monospace;
-      min-width: 38px;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    /* Device info section */
-    .device-info {
-      margin-top: 1.25rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      text-align: left;
-    }
-    .device-info-row {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.55);
-      padding: 0.25rem 0;
-    }
-    .device-info-row strong {
-      color: #fff;
+      justify-content: space-between;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.35);
       font-weight: 600;
     }
-    .device-info-row a {
-      color: #a5b4fc;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .device-info-row a:hover { color: #c4b5fd; }
 
-    .ai-badge-inline {
+    /* Benchmark times */
+    .bench-times {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .bench-time-item {
+      text-align: center;
+    }
+    .bench-time-name {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+    .bench-time-value {
+      font-size: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    /* Device info grid */
+    .device-grid {
+      display: grid;
+      gap: 0.35rem;
+    }
+    .device-row {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.35rem 0;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .device-row:last-child { border-bottom: none; }
+    .device-row-label {
+      color: rgba(255,255,255,0.4);
+      min-width: 90px;
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+    .device-row-value {
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+      word-break: break-word;
+    }
+    .device-row-note {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+    }
+    .detecting-placeholder {
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+    }
+
+    /* AI section */
+    .ai-info {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+    .ai-info strong {
+      color: #a5b4fc;
+      font-weight: 700;
+    }
+    .ai-apps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+    .ai-app-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      padding: 0.15rem 0.45rem;
-      border-radius: 5px;
-      font-size: 0.7rem;
+      gap: 0.25rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
       font-weight: 600;
       background: rgba(99,102,241,0.1);
       border: 1px solid rgba(99,102,241,0.2);
       color: #a5b4fc;
     }
+    .ai-app-tag.special {
+      background: rgba(236,72,153,0.1);
+      border-color: rgba(236,72,153,0.25);
+      color: #f9a8d4;
+    }
+    .ai-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 0.5rem;
+    }
+    .ai-link {
+      color: #a5b4fc;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+    .ai-link:hover { color: #c4b5fd; }
 
-    /* Action buttons */
-    .scor-actions {
+    /* Share buttons */
+    .bench-actions {
       display: flex;
       gap: 0.5rem;
-      margin-top: 1.25rem;
       flex-wrap: wrap;
       justify-content: center;
     }
-    .scor-btn {
+    .bench-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
@@ -270,29 +374,30 @@
       background: rgba(255,255,255,0.05);
       color: rgba(255,255,255,0.8);
       font-weight: 600;
+      font-family: 'Inter', sans-serif;
       transition: all 0.2s;
       text-decoration: none;
     }
-    .scor-btn:hover {
+    .bench-btn:hover {
       background: rgba(255,255,255,0.1);
       color: #fff;
       transform: translateY(-1px);
     }
-    .scor-btn-whatsapp {
+    .bench-btn-whatsapp {
       border-color: rgba(37,211,102,0.3);
       background: rgba(37,211,102,0.1);
       color: #25d366;
     }
-    .scor-btn-whatsapp:hover {
+    .bench-btn-whatsapp:hover {
       background: rgba(37,211,102,0.2);
       color: #2ae573;
     }
-    .scor-btn-primary {
+    .bench-btn-primary {
       border-color: rgba(99,102,241,0.3);
       background: rgba(99,102,241,0.1);
       color: #a5b4fc;
     }
-    .scor-btn-primary:hover {
+    .bench-btn-primary:hover {
       background: rgba(99,102,241,0.2);
       color: #c4b5fd;
     }
@@ -317,11 +422,12 @@
 
     /* Responsive */
     @media (max-width: 480px) {
-      .gauge-wrap { width: 180px; height: 180px; }
-      .gauge-score { font-size: 2.8rem; }
-      .breakdown-label { min-width: 85px; font-size: 0.72rem; }
-      .scor-actions { flex-direction: column; }
-      .scor-btn { justify-content: center; }
+      .score-number { font-size: 3.2rem; }
+      .bench-actions { flex-direction: column; }
+      .bench-btn { justify-content: center; }
+      .bench-times { gap: 0.75rem; }
+      .device-row-label { min-width: 75px; font-size: 0.72rem; }
+      .device-row-value { font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -366,45 +472,75 @@
   <main>
 
     <!-- Hero -->
-    <section class="scor-hero">
-      <div class="scor-hero-badge">Phone Score &#8226; 100% Client-Side &#8226; Instant</div>
-      <h1 class="scor-hero-title">Scorul <span class="gradient-text">Telefonului T&#259;u</span></h1>
-      <p class="scor-subtitle">Afl&#259; c&#226;t de bun e telefonul t&#259;u &#8212; &#238;n 3 secunde</p>
+    <section class="bench-hero">
+      <div class="bench-badge">Benchmark Real &#8226; 100% Client-Side &#8226; 3 Secunde</div>
+      <h1 class="bench-title">C&#226;t de <span class="gradient-text">rapid</span> e telefonul t&#259;u?</h1>
+      <p class="bench-subtitle">Afl&#259; &#238;n 3 secunde &#8212; benchmark real, nu estim&#259;ri</p>
+
+      <div id="startArea">
+        <button class="bench-start-btn" id="startBtn" onclick="startBenchmark()">
+          &#9889; Start Test
+        </button>
+      </div>
     </section>
 
-    <!-- Gauge & Results -->
-    <div class="gauge-container">
-      <div class="gauge-card" id="gaugeCard">
+    <!-- Running animation -->
+    <div class="bench-running" id="runningArea">
+      <div class="bench-running-label">Se ruleaz&#259; benchmark-ul<span class="bench-dots"><span>.</span><span>.</span><span>.</span></span></div>
+      <div class="bench-progress-bar">
+        <div class="bench-progress-fill" id="progressFill"></div>
+      </div>
+      <div class="bench-running-test" id="runningTest">Se preg&#259;te&#537;te...</div>
+    </div>
 
-        <!-- SVG Gauge -->
-        <div class="gauge-wrap">
-          <div class="gauge-glow" id="gaugeGlow"></div>
-          <svg class="gauge-svg" viewBox="0 0 220 220">
-            <circle class="gauge-bg" cx="110" cy="110" r="95"></circle>
-            <circle class="gauge-fill" id="gaugeFill" cx="110" cy="110" r="95"
-              stroke-dasharray="597"
-              stroke-dashoffset="597"></circle>
-          </svg>
-          <div class="gauge-center">
-            <div class="gauge-score" id="gaugeScore">--</div>
-            <div class="gauge-score-max">/100</div>
-            <div class="gauge-grade" id="gaugeGrade">...</div>
-            <div class="gauge-grade-label" id="gaugeGradeLabel"></div>
+    <!-- Results -->
+    <div class="bench-results" id="resultsArea">
+      <div class="bench-card">
+
+        <!-- Section 1: Benchmark Score -->
+        <div class="score-display">
+          <div class="score-number" id="scoreNumber">0</div>
+          <div class="score-label">puncte de performan&#539;&#259;</div>
+
+          <div class="spectrum-container">
+            <div class="spectrum-bar">
+              <div class="spectrum-dot" id="spectrumDot" style="left: 0%"></div>
+            </div>
+            <div class="spectrum-labels">
+              <span>Budget</span>
+              <span>Mid-range</span>
+              <span>Flagship</span>
+              <span>Top</span>
+            </div>
+          </div>
+
+          <div class="bench-times" id="benchTimes"></div>
+        </div>
+
+        <!-- Section 2: Device Info -->
+        <div class="bench-section">
+          <div class="bench-section-title">&#128241; Telefonul T&#259;u</div>
+          <div class="device-grid" id="deviceGrid">
+            <div class="device-row">
+              <span class="device-row-label">Se detecteaz&#259;...</span>
+            </div>
           </div>
         </div>
 
-        <!-- Breakdown -->
-        <div class="breakdown-title">&#128202; Detalii scor</div>
-        <div id="breakdownBody"></div>
+        <!-- Section 3: AI Info -->
+        <div class="bench-section">
+          <div class="bench-section-title">&#129302; AI Disponibil</div>
+          <div class="ai-info" id="aiInfo">Se analizeaz&#259;...</div>
+        </div>
 
-        <!-- Device Info -->
-        <div class="device-info" id="deviceInfo"></div>
-
-        <!-- Action Buttons -->
-        <div class="scor-actions">
-          <button class="scor-btn scor-btn-whatsapp" onclick="shareWhatsApp()">&#128241; Trimite pe WhatsApp</button>
-          <button class="scor-btn scor-btn-primary" onclick="copyScore()">&#128203; Copiaz&#259; scorul</button>
-          <button class="scor-btn" onclick="shareScore()">&#128279; Share</button>
+        <!-- Section 4: Share -->
+        <div class="bench-section">
+          <div class="bench-section-title">&#128640; Partajeaz&#259;</div>
+          <div class="bench-actions">
+            <button class="bench-btn bench-btn-whatsapp" onclick="shareWhatsApp()">&#128172; WhatsApp</button>
+            <button class="bench-btn bench-btn-primary" onclick="copyScore()">&#128203; Copiaz&#259;</button>
+            <button class="bench-btn" onclick="startBenchmark()">&#128260; Retesteaz&#259;</button>
+          </div>
         </div>
 
       </div>
@@ -481,97 +617,110 @@
 
   <script>
   /* ============================================
-     Scorul Telefonului Tău - Phone Scoring Tool
+     Benchmark Real - AIphone.ro
      ============================================ */
 
-  var scoreData = {
-    total: 0,
-    grade: '',
-    gradeLabel: '',
-    categories: [],
-    device: '',
-    brand: '',
-    model: '',
-    aiFeatures: '',
-    aiLink: '',
-    osName: '',
-    osVersion: ''
-  };
+  var benchResult = null;
 
-  function detectDevice() {
-    var ua = navigator.userAgent || '';
-    var brand = 'Necunoscut';
-    var model = '';
+  // ========== BENCHMARK ENGINE ==========
 
-    if (/iPhone/i.test(ua)) {
-      brand = 'Apple';
-      model = 'iPhone';
-      var w = screen.width, h = screen.height;
-      var s = Math.min(w, h) + 'x' + Math.max(w, h);
-      var dpr = window.devicePixelRatio || 1;
-      if (s === '430x932') model = 'iPhone 15 Pro Max / 16 Pro Max';
-      else if (s === '393x852' && dpr === 3) model = 'iPhone 15 Pro / 16 Pro / 15 / 16';
-      else if (s === '414x896' && dpr === 3) model = 'iPhone 11 Pro Max / XS Max';
-      else if (s === '414x896' && dpr === 2) model = 'iPhone 11 / XR';
-      else if (s === '390x844') model = 'iPhone 13 / 14 / 12';
-      else if (s === '375x812') model = 'iPhone X / XS / 11 Pro / 12 Mini / 13 Mini';
-      else if (s === '375x667') model = 'iPhone 6/7/8/SE (2nd/3rd)';
-      else if (s === '320x568') model = 'iPhone 5/5s/SE (1st)';
-      else model = 'iPhone';
-    } else if (/Samsung/i.test(ua) || /SM-[A-Z]/i.test(ua)) {
-      brand = 'Samsung';
-      var samModel = ua.match(/Samsung\s*(Galaxy\s*\S+[\s\S]*?)(?:\s*Build|[;\)])/i);
-      if (samModel) model = samModel[1].trim();
-      if (!model) {
-        var smMatch = ua.match(/SM-\S+/i);
-        if (smMatch) model = smMatch[0];
-      }
-      if (!model) model = 'Galaxy';
-    } else if (/Pixel/i.test(ua)) {
-      brand = 'Google';
-      var pixModel = ua.match(/Pixel\s*\d*\s*\w*/i);
-      model = pixModel ? pixModel[0] : 'Pixel';
-    } else if (/Huawei|HUAWEI/i.test(ua)) {
-      brand = 'Huawei';
-      var hwModel = ua.match(/(?:HUAWEI|Huawei)\s+(\S+)/i);
-      model = hwModel ? hwModel[1] : '';
-    } else if (/Xiaomi|Redmi|POCO|Mi\s/i.test(ua)) {
-      brand = 'Xiaomi';
-      var xiModel = ua.match(/(Redmi\s*\S+|POCO\s*\S+|Mi\s*\d+\S*)/i);
-      model = xiModel ? xiModel[1] : '';
-      if (!model) { var xiGen = ua.match(/;\s*([^;)]+?)\s*Build/i); if (xiGen) model = xiGen[1]; }
-    } else if (/OPPO/i.test(ua)) {
-      brand = 'OPPO';
-      var opModel = ua.match(/OPPO\s*(\S+)/i);
-      model = opModel ? opModel[1] : '';
-    } else if (/vivo/i.test(ua)) {
-      brand = 'Vivo';
-      var viModel = ua.match(/vivo\s*(\S+)/i);
-      model = viModel ? viModel[1] : '';
-    } else if (/OnePlus/i.test(ua)) {
-      brand = 'OnePlus';
-      var oplusModel = ua.match(/OnePlus\s*(\S+)/i);
-      model = oplusModel ? oplusModel[1] : '';
-    } else if (/Motorola|moto/i.test(ua)) {
-      brand = 'Motorola';
-      var motModel = ua.match(/moto\s*(\S+)/i);
-      model = motModel ? motModel[1] : '';
-    } else if (/Android/i.test(ua)) {
-      brand = 'Android';
-      var genModel = ua.match(/;\s*([^;)]+?)\s*Build/i);
-      model = genModel ? genModel[1] : 'Dispozitiv Android';
-    } else if (/Macintosh/i.test(ua)) {
-      brand = 'Apple'; model = 'Mac';
-    } else if (/Windows/i.test(ua)) {
-      brand = 'Microsoft'; model = 'Windows PC';
-    } else if (/Linux/i.test(ua)) {
-      brand = 'Linux'; model = 'PC';
+  function runMathBench() {
+    var start = performance.now();
+    var x = 0;
+    for (var i = 0; i < 1000000; i++) {
+      x += Math.sin(i * 0.001) + Math.cos(i * 0.002) + Math.sqrt(i);
     }
-
-    return { brand: brand, model: model, ua: ua };
+    var end = performance.now();
+    // Prevent dead code elimination
+    if (x === -999) console.log(x);
+    return Math.round(end - start);
   }
 
-  function getOS() {
+  function runArrayBench() {
+    var arr = new Array(100000);
+    for (var i = 0; i < 100000; i++) {
+      arr[i] = Math.random();
+    }
+    var start = performance.now();
+    arr.sort(function(a, b) { return a - b; });
+    var end = performance.now();
+    return Math.round(end - start);
+  }
+
+  function runDomBench() {
+    var container = document.createElement('div');
+    container.style.position = 'absolute';
+    container.style.left = '-9999px';
+    container.style.top = '-9999px';
+    document.body.appendChild(container);
+
+    var start = performance.now();
+    for (var i = 0; i < 1000; i++) {
+      var el = document.createElement('div');
+      el.className = 'bench-temp-' + i;
+      el.textContent = 'test ' + i;
+      container.appendChild(el);
+    }
+    // Force layout
+    var h = container.offsetHeight;
+    // Remove all
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+    var end = performance.now();
+    document.body.removeChild(container);
+    if (h === -1) console.log(h);
+    return Math.round(end - start);
+  }
+
+  function calculateBenchScore(mathMs, arrayMs, domMs) {
+    var mathScore = Math.max(0, Math.round(5000 / mathMs * 1000));
+    var arrayScore = Math.max(0, Math.round(3000 / arrayMs * 1000));
+    var domScore = Math.max(0, Math.round(2000 / domMs * 1000));
+    var totalScore = Math.round((mathScore + arrayScore + domScore) / 3);
+    // Cap at a reasonable max
+    if (totalScore > 15000) totalScore = 15000;
+    return totalScore;
+  }
+
+  // ========== DEVICE DETECTION ==========
+
+  function detectBrowser() {
+    var ua = navigator.userAgent || '';
+    var name = 'Necunoscut';
+    var version = '';
+    if (/Chrome\/(\d+)/i.test(ua) && !/Edg/i.test(ua) && !/OPR/i.test(ua)) {
+      name = 'Chrome'; version = ua.match(/Chrome\/(\d+)/)[1];
+    } else if (/Edg\/(\d+)/i.test(ua)) {
+      name = 'Edge'; version = ua.match(/Edg\/(\d+)/)[1];
+    } else if (/OPR\/(\d+)/i.test(ua)) {
+      name = 'Opera'; version = ua.match(/OPR\/(\d+)/)[1];
+    } else if (/Firefox\/(\d+)/i.test(ua)) {
+      name = 'Firefox'; version = ua.match(/Firefox\/(\d+)/)[1];
+    } else if (/Version\/(\d+)/i.test(ua) && /Safari/i.test(ua)) {
+      name = 'Safari'; version = ua.match(/Version\/(\d+)/)[1];
+    } else if (/SamsungBrowser\/(\d+)/i.test(ua)) {
+      name = 'Samsung Internet'; version = ua.match(/SamsungBrowser\/(\d+)/)[1];
+    }
+    return name + (version ? ' ' + version : '');
+  }
+
+  function detectGPU() {
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (gl) {
+        var ext = gl.getExtension('WEBGL_debug_renderer_info');
+        if (ext) {
+          var renderer = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);
+          if (renderer) return renderer;
+        }
+      }
+    } catch(e) {}
+    return 'Nedisponibil';
+  }
+
+  function getBasicOS() {
     var ua = navigator.userAgent || '';
     var osName = 'Necunoscut';
     var osVersion = '';
@@ -579,432 +728,114 @@
 
     if (/iPhone|iPad|iPod/i.test(ua)) {
       osName = 'iOS';
-      var iosV = ua.match(/OS (\d+)[_\.]/i);
-      if (iosV) { osMajor = parseInt(iosV[1]); osVersion = iosV[1]; }
       var iosVFull = ua.match(/OS (\d+[_\.]\d+[_\.]?\d*)/i);
-      if (iosVFull) osVersion = iosVFull[1].replace(/_/g, '.');
+      if (iosVFull) {
+        osVersion = iosVFull[1].replace(/_/g, '.');
+        osMajor = parseInt(osVersion);
+      }
     } else if (/Android/i.test(ua)) {
       osName = 'Android';
-      var andV = ua.match(/Android (\d+)/i);
-      if (andV) { osMajor = parseInt(andV[1]); }
       var andVFull = ua.match(/Android ([\d.]+)/i);
-      if (andVFull) osVersion = andVFull[1];
-      // Note: real Android version is obtained in calculateScore() via userAgentData
+      if (andVFull) {
+        osVersion = andVFull[1];
+        osMajor = parseInt(osVersion);
+      }
     } else if (/Windows NT/i.test(ua)) {
       osName = 'Windows';
       var winV = ua.match(/Windows NT (\d+\.\d+)/);
       if (winV) { osVersion = winV[1]; osMajor = 10; }
     } else if (/Mac OS X/i.test(ua)) {
       osName = 'macOS';
-      var macV = ua.match(/Mac OS X (\d+)/i);
-      if (macV) osMajor = parseInt(macV[1]);
       var macVFull = ua.match(/Mac OS X (\d+[_\.]\d+[_\.]?\d*)/i);
-      if (macVFull) osVersion = macVFull[1].replace(/_/g, '.');
+      if (macVFull) {
+        osVersion = macVFull[1].replace(/_/g, '.');
+        osMajor = parseInt(osVersion);
+      }
     } else if (/Linux/i.test(ua)) {
-      osName = 'Linux'; osMajor = 10;
+      osName = 'Linux';
     }
 
     return { name: osName, version: osVersion, major: osMajor };
   }
 
-  var osRealVersion = null;
-  var osRealMajor = null;
-
-  function recalculateWithRealOS(realMajor, realVersion) {
-    var prev = lastScoreData;
-    if (!prev) return;
-    // Fix OS points (scala /10)
-    var oldOsPoints = prev.categories[0].points;
-    var newOsPoints = 3;
-    if (realMajor >= 15) newOsPoints = 10;
-    else if (realMajor >= 14) newOsPoints = 8;
-    else if (realMajor >= 13) newOsPoints = 6;
-    else if (realMajor >= 12) newOsPoints = 4;
-    if (newOsPoints === oldOsPoints) return;
-    prev.categories[0].points = newOsPoints;
-    prev.categories[0].detail = 'Android ' + realVersion;
-    prev.osVersion = realVersion;
-    // Recalculate total
-    var rawScore = 0;
-    for (var i = 0; i < prev.categories.length; i++) rawScore += prev.categories[i].points;
-    prev.total = Math.round((rawScore / 70) * 100);
-    if (prev.total > 100) prev.total = 100;
-    // Recalculate grade
-    var s = prev.total;
-    if (s >= 90) { prev.grade = 'A+'; prev.gradeLabel = 'Excelent'; }
-    else if (s >= 80) { prev.grade = 'A'; prev.gradeLabel = 'Foarte bun'; }
-    else if (s >= 70) { prev.grade = 'B+'; prev.gradeLabel = 'Bun'; }
-    else if (s >= 60) { prev.grade = 'B'; prev.gradeLabel = 'Decent'; }
-    else if (s >= 50) { prev.grade = 'C'; prev.gradeLabel = 'Mediu'; }
-    else { prev.grade = 'D'; prev.gradeLabel = 'Necesită upgrade'; }
-    renderScore(prev);
+  function getBasicDevice() {
+    var ua = navigator.userAgent || '';
+    if (/iPhone/i.test(ua)) return 'iPhone';
+    if (/iPad/i.test(ua)) return 'iPad';
+    if (/Samsung|SM-/i.test(ua)) {
+      var m = ua.match(/Samsung\s*(Galaxy\s*\S+[\s\S]*?)(?:\s*Build|[;\)])/i);
+      if (m) return 'Samsung ' + m[1].trim();
+      var sm = ua.match(/SM-\S+/i);
+      if (sm) return 'Samsung ' + sm[0];
+      return 'Samsung Galaxy';
+    }
+    if (/Pixel/i.test(ua)) {
+      var px = ua.match(/Pixel\s*\d*\s*\w*/i);
+      return px ? 'Google ' + px[0] : 'Google Pixel';
+    }
+    if (/Xiaomi|Redmi|POCO/i.test(ua)) {
+      var xi = ua.match(/(Redmi\s*\S+|POCO\s*\S+|Xiaomi\s*\S+)/i);
+      return xi ? xi[1] : 'Xiaomi';
+    }
+    if (/OnePlus/i.test(ua)) {
+      var op = ua.match(/OnePlus\s*(\S+)/i);
+      return op ? 'OnePlus ' + op[1] : 'OnePlus';
+    }
+    if (/Huawei/i.test(ua)) return 'Huawei';
+    if (/OPPO/i.test(ua)) return 'OPPO';
+    if (/vivo/i.test(ua)) return 'Vivo';
+    if (/Motorola|moto/i.test(ua)) return 'Motorola';
+    // Generic Android
+    if (/Android/i.test(ua)) {
+      var gen = ua.match(/;\s*([^;)]+?)\s*Build/i);
+      if (gen) return gen[1];
+      return 'Dispozitiv Android';
+    }
+    if (/Macintosh/i.test(ua)) return 'Mac';
+    if (/Windows/i.test(ua)) return 'Windows PC';
+    if (/Linux/i.test(ua)) return 'Linux PC';
+    return 'Necunoscut';
   }
 
-  var lastScoreData = null;
+  function getScreenInfo() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = screen.width || 0;
+    var cssH = screen.height || 0;
+    var realW = Math.round(cssW * dpr);
+    var realH = Math.round(cssH * dpr);
+    var depth = screen.colorDepth || '?';
+    return realW + ' \u00d7 ' + realH + ' px \u00b7 ' + dpr + 'x \u00b7 ' + depth + '-bit';
+  }
 
-  function calculateScore() {
-    var device = detectDevice();
-    var os = getOS();
+  function getNetworkInfo() {
+    if (!navigator.connection) return null;
+    var conn = navigator.connection;
+    var result = '';
+    if (conn.effectiveType) result += conn.effectiveType.toUpperCase();
+    if (conn.downlink) result += ' \u00b7 ' + conn.downlink + ' Mbps';
+    return result || null;
+  }
 
-    // If Android, try to get REAL version first before scoring
-    if (os.name === 'Android' && navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
-      navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function(vals) {
-        if (vals.platformVersion) {
-          var realMajor = parseInt(vals.platformVersion.split('.')[0]);
-          if (realMajor > 0) {
-            os.major = realMajor;
-            os.version = vals.platformVersion;
-          }
-        }
-        doCalculateScore(device, os);
+  // ========== HIGH ENTROPY DETECTION (async) ==========
+
+  function detectHighEntropy(callback) {
+    var data = { model: null, platformVersion: null, platform: null };
+
+    if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+      navigator.userAgentData.getHighEntropyValues(['model', 'platformVersion', 'platform']).then(function(vals) {
+        if (vals.model) data.model = vals.model;
+        if (vals.platformVersion) data.platformVersion = vals.platformVersion;
+        if (vals.platform) data.platform = vals.platform;
+        callback(data);
       }).catch(function() {
-        doCalculateScore(device, os);
+        callback(data);
       });
     } else {
-      doCalculateScore(device, os);
+      callback(data);
     }
   }
 
-  function doCalculateScore(device, os) {
-    var ua = navigator.userAgent || '';
-    var score = 0;
-    var categories = [];
-
-    // ========== 1. OS Freshness (0-10) ==========
-    var osPoints = 3;
-    var osDetail = os.name + ' ' + (os.version || '?');
-    if (os.name === 'Android') {
-      if (os.major >= 15) osPoints = 10;
-      else if (os.major >= 14) osPoints = 8;
-      else if (os.major >= 13) osPoints = 6;
-      else if (os.major >= 12) osPoints = 4;
-      else osPoints = 2;
-      osDetail = 'Android ' + (os.version || os.major);
-    } else if (os.name === 'iOS') {
-      if (os.major >= 18) osPoints = 10;
-      else if (os.major >= 17) osPoints = 8;
-      else if (os.major >= 16) osPoints = 6;
-      else osPoints = 3;
-      osDetail = 'iOS ' + (os.version || os.major);
-    } else if (os.name === 'Windows' || os.name === 'macOS') {
-      osPoints = 8;
-      osDetail = os.name + ' ' + (os.version || '');
-    }
-    categories.push({ name: 'Sistem Operare', points: osPoints, max: 10, detail: osDetail });
-
-    // ========== 2. Screen Quality (0-10) ==========
-    var dpr = window.devicePixelRatio || 1;
-    var screenW = screen.width || 0;
-    var screenH = screen.height || 0;
-    // Calculate real physical pixels
-    var realW = Math.round(screenW * dpr);
-    var realH = Math.round(screenH * dpr);
-    var totalPixels = realW * realH;
-    var screenPoints = 2;
-    // Score based on total real pixels (Full HD = ~2M, QHD = ~3.7M, 4K = ~8.3M)
-    if (totalPixels >= 4000000) screenPoints = 10;     // QHD+ and above
-    else if (totalPixels >= 2500000) screenPoints = 9;  // ~FHD+ high DPR
-    else if (totalPixels >= 2000000) screenPoints = 8;  // Full HD
-    else if (totalPixels >= 1500000) screenPoints = 6;
-    else if (totalPixels >= 1000000) screenPoints = 5;
-    else screenPoints = 3;
-    var screenDetail = realW + '×' + realH + ' px (fizici) · DPR ' + dpr + ' · ' + (screen.colorDepth || '?') + '-bit';
-    categories.push({ name: 'Calitate Ecran', points: screenPoints, max: 10, detail: screenDetail });
-
-    // ========== 3. CPU Power (0-10) ==========
-    var cores = navigator.hardwareConcurrency || 2;
-    var cpuPoints = 2;
-    if (cores >= 8) cpuPoints = 10;
-    else if (cores >= 6) cpuPoints = 7;
-    else if (cores >= 4) cpuPoints = 5;
-    else cpuPoints = 3;
-    var cpuDetail = cores + ' nuclee';
-    // Try GPU info
-    try {
-      var canvas = document.createElement('canvas');
-      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      if (gl) {
-        var ext = gl.getExtension('WEBGL_debug_renderer_info');
-        if (ext) cpuDetail += ' · GPU: ' + gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);
-      }
-    } catch(e) {}
-    categories.push({ name: 'Procesor', points: cpuPoints, max: 10, detail: cpuDetail });
-
-    // ========== 4. RAM (0-10) ==========
-    var ram = navigator.deviceMemory;
-    var ramPoints = 5;
-    var ramDetail = 'Nedisponibil (browser nu raportează)';
-    if (ram !== undefined) {
-      // Chrome caps deviceMemory at 8GB - phones with 12/16GB still report 8
-      if (ram >= 8) { ramPoints = 10; ramDetail = ram + '+ GB (browser raportează max 8)'; }
-      else if (ram >= 6) { ramPoints = 8; ramDetail = ram + ' GB'; }
-      else if (ram >= 4) { ramPoints = 6; ramDetail = ram + ' GB'; }
-      else if (ram >= 2) { ramPoints = 4; ramDetail = ram + ' GB'; }
-      else { ramPoints = 2; ramDetail = ram + ' GB'; }
-    }
-    categories.push({ name: 'Memorie RAM', points: ramPoints, max: 10, detail: ramDetail });
-
-    // ========== 5. AI Features (0-10) ==========
-    // Logic: AI capability depends on OS version + brand, not just brand
-    // Any modern Android (14+) or iOS (17+) phone can run ChatGPT, Gemini, Copilot, Claude etc.
-    // Brand-specific features (Galaxy AI, Apple Intelligence) are bonuses
-    var aiPoints = 3;
-    var aiFeatures = '';
-    var aiLink = '';
-    var brandLower = device.brand.toLowerCase();
-    var modelLower = (device.model || '').toLowerCase();
-    var aiDetail = '';
-    var osMajorForAI = os.major;
-
-    // Base score from OS version (can install all AI apps)
-    if (os.name === 'Android') {
-      if (osMajorForAI >= 14) {
-        aiPoints = 8; // Modern Android = all AI apps available
-        aiFeatures = 'ChatGPT, Gemini, Copilot, Claude, Perplexity';
-        aiDetail = 'Toate aplicațiile AI disponibile';
-        aiLink = '../blog/limite-gratuite-ai-2026.html';
-      } else if (osMajorForAI >= 12) {
-        aiPoints = 6;
-        aiFeatures = 'ChatGPT, Gemini, Copilot';
-        aiDetail = 'Majoritatea aplicațiilor AI';
-        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
-      } else {
-        aiPoints = 3;
-        aiFeatures = 'Aplicații AI limitate';
-        aiDetail = 'OS vechi - unele apps nu sunt compatibile';
-        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
-      }
-
-      // Brand bonuses (on-device AI = extra points)
-      if (brandLower === 'samsung' && /s2[3-9]|s24|s25|z\s*f(lip|old)/i.test(device.model)) {
-        aiPoints = 10;
-        aiFeatures += ' + Galaxy AI (Live Translate, Photo Assist, Note Assist)';
-        aiDetail = 'Galaxy AI nativ + toate aplicațiile AI';
-        aiLink = '../recenzii/galaxy-ai.html';
-      } else if (brandLower === 'google' && /pixel\s*(8|9|pro)/i.test(device.model)) {
-        aiPoints = 10;
-        aiFeatures += ' + Gemini Nano on-device';
-        aiDetail = 'Google AI nativ + toate aplicațiile AI';
-        aiLink = '../blog/google-gemini-android.html';
-      } else if (brandLower === 'motorola' && osMajorForAI >= 14) {
-        aiPoints = 9;
-        aiFeatures += ' + Moto AI';
-        aiDetail = 'Moto AI + toate aplicațiile AI';
-        aiLink = '../blog/google-gemini-android.html';
-      } else if (osMajorForAI >= 14) {
-        aiPoints = 8; // Any modern Android flagship
-      }
-
-    } else if (os.name === 'iOS') {
-      if (/15 pro|16|17/i.test(device.model) && os.major >= 18) {
-        aiPoints = 10;
-        aiFeatures = 'Apple Intelligence + ChatGPT, Gemini, Copilot, Claude';
-        aiDetail = 'Apple Intelligence nativ + toate aplicațiile AI';
-        aiLink = '../blog/apple-intelligence-ghid.html';
-      } else if (os.major >= 17) {
-        aiPoints = 8;
-        aiFeatures = 'ChatGPT, Gemini, Copilot, Claude';
-        aiDetail = 'Toate aplicațiile AI (fără Apple Intelligence)';
-        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
-      } else {
-        aiPoints = 5;
-        aiFeatures = 'Aplicații AI limitate';
-        aiDetail = 'Actualizează iOS pentru suport complet';
-        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
-      }
-    } else {
-      aiPoints = 4;
-      aiFeatures = 'AI disponibil din browser (ChatGPT, Gemini, Copilot)';
-      aiDetail = 'Acces prin browser';
-      aiLink = '../blog/limite-gratuite-ai-2026.html';
-    }
-    categories.push({ name: 'Funcții AI', points: aiPoints, max: 10, detail: aiDetail });
-
-    // ========== 6. Browser Modernity (0-10) ==========
-    var webgl = false;
-    try { webgl = !!document.createElement('canvas').getContext('webgl'); } catch(e) {}
-    var sw = 'serviceWorker' in navigator;
-    var wasm = typeof WebAssembly === 'object';
-    var touch = 'ontouchstart' in window;
-    var modernCount = (webgl ? 1 : 0) + (sw ? 1 : 0) + (wasm ? 1 : 0) + (touch ? 1 : 0);
-    var browserPoints = 3;
-    if (modernCount >= 4) browserPoints = 10;
-    else if (modernCount === 3) browserPoints = 8;
-    else if (modernCount === 2) browserPoints = 5;
-    var browserName = 'Necunoscut';
-    var browserV = '';
-    if (/Chrome\/(\d+)/i.test(ua) && !/Edg/i.test(ua)) { browserName = 'Chrome'; browserV = ua.match(/Chrome\/(\d+)/)[1]; }
-    else if (/Edg\/(\d+)/i.test(ua)) { browserName = 'Edge'; browserV = ua.match(/Edg\/(\d+)/)[1]; }
-    else if (/Firefox\/(\d+)/i.test(ua)) { browserName = 'Firefox'; browserV = ua.match(/Firefox\/(\d+)/)[1]; }
-    else if (/Safari\/(\d+)/i.test(ua) && /Version\/(\d+)/i.test(ua)) { browserName = 'Safari'; browserV = ua.match(/Version\/(\d+)/)[1]; }
-    var browserDetail = browserName + (browserV ? ' ' + browserV : '') + ' · WebGL: ' + (webgl?'✓':'✗') + ' · WASM: ' + (wasm?'✓':'✗');
-    categories.push({ name: 'Browser', points: browserPoints, max: 10, detail: browserDetail });
-
-    // ========== 7. Network (0-10) ==========
-    var netPoints = 5;
-    var netDetail = 'Necunoscut';
-    if (navigator.connection) {
-      var etype = navigator.connection.effectiveType || '';
-      var downlink = navigator.connection.downlink;
-      if (etype === '4g') netPoints = 10;
-      else if (etype === '3g') netPoints = 5;
-      else if (etype === '2g') netPoints = 2;
-      else netPoints = 7;
-      netDetail = etype.toUpperCase() + (downlink ? ' · ' + downlink + ' Mbps' : '');
-    }
-    if (!navigator.onLine) { netPoints = 0; netDetail = 'Offline'; }
-    categories.push({ name: 'Rețea', points: netPoints, max: 10, detail: netDetail });
-
-    // ========== Calculate total (0-70 raw → 0-100 scaled) ==========
-    for (var i = 0; i < categories.length; i++) {
-      score += categories[i].points;
-    }
-    // Scale from 0-70 to 0-100
-    score = Math.round((score / 70) * 100);
-    if (score > 100) score = 100;
-
-    // ========== Grade ==========
-    var grade = 'D';
-    var gradeLabel = 'Necesită upgrade';
-    if (score >= 90) { grade = 'A+'; gradeLabel = 'Excelent'; }
-    else if (score >= 80) { grade = 'A'; gradeLabel = 'Foarte bun'; }
-    else if (score >= 70) { grade = 'B+'; gradeLabel = 'Bun'; }
-    else if (score >= 60) { grade = 'B'; gradeLabel = 'Decent'; }
-    else if (score >= 50) { grade = 'C'; gradeLabel = 'Mediu'; }
-
-    // Store results
-    var displayName = device.brand;
-    if (device.model) displayName += ' ' + device.model;
-
-    scoreData = {
-      total: score,
-      grade: grade,
-      gradeLabel: gradeLabel,
-      categories: categories,
-      device: displayName,
-      brand: device.brand,
-      model: device.model,
-      aiFeatures: aiFeatures,
-      aiLink: aiLink,
-      osName: os.name,
-      osVersion: os.version
-    };
-
-    lastScoreData = scoreData;
-    renderScore(scoreData);
-  }
-
-  function renderScore(data) {
-    scoreData = data;
-    renderGauge();
-    renderBreakdown();
-    renderDeviceInfo();
-  }
-
-  function getScoreColor(score) {
-    if (score >= 80) return '#34d399';
-    if (score >= 60) return '#22d3ee';
-    if (score >= 40) return '#fbbf24';
-    return '#f87171';
-  }
-
-  function renderGauge() {
-    var score = scoreData.total;
-    var color = getScoreColor(score);
-    var circumference = 2 * Math.PI * 95; // ~597
-    var offset = circumference - (score / 100) * circumference;
-
-    // Animate gauge fill
-    var gaugeFill = document.getElementById('gaugeFill');
-    gaugeFill.style.stroke = color;
-    setTimeout(function() {
-      gaugeFill.style.strokeDashoffset = offset;
-    }, 100);
-
-    // Animate score number
-    var scoreEl = document.getElementById('gaugeScore');
-    var current = 0;
-    var duration = 1500;
-    var start = performance.now();
-    function animateScore(now) {
-      var elapsed = now - start;
-      var progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      var eased = 1 - Math.pow(1 - progress, 3);
-      current = Math.round(eased * score);
-      scoreEl.textContent = current;
-      if (progress < 1) requestAnimationFrame(animateScore);
-    }
-    requestAnimationFrame(animateScore);
-
-    // Grade
-    var gradeEl = document.getElementById('gaugeGrade');
-    gradeEl.textContent = scoreData.grade;
-    gradeEl.style.color = color;
-
-    var gradeLabelEl = document.getElementById('gaugeGradeLabel');
-    gradeLabelEl.textContent = scoreData.gradeLabel;
-
-    // Glow
-    var glow = document.getElementById('gaugeGlow');
-    glow.style.background = color;
-
-    // Update gradient on score text based on color
-    scoreEl.style.background = 'linear-gradient(135deg, ' + color + ', ' + lightenColor(color) + ')';
-    scoreEl.style.webkitBackgroundClip = 'text';
-    scoreEl.style.webkitTextFillColor = 'transparent';
-    scoreEl.style.backgroundClip = 'text';
-  }
-
-  function lightenColor(hex) {
-    // Simple lighten: shift toward white
-    var map = {
-      '#34d399': '#6ee7b7',
-      '#22d3ee': '#67e8f9',
-      '#fbbf24': '#fcd34d',
-      '#f87171': '#fca5a5'
-    };
-    return map[hex] || '#c4b5fd';
-  }
-
-  function renderBreakdown() {
-    var html = '';
-
-    for (var i = 0; i < scoreData.categories.length; i++) {
-      var cat = scoreData.categories[i];
-      var pct = (cat.points / cat.max) * 100;
-      var color = getScoreColor(pct);
-
-      html += '<div class="breakdown-row">';
-      html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">';
-      html += '<span class="breakdown-label">' + cat.name + '</span>';
-      html += '<span class="breakdown-value" style="font-weight:800;color:' + color + ';">' + cat.points + '/10</span>';
-      html += '</div>';
-      html += '<div class="breakdown-bar"><div class="breakdown-bar-fill" style="width:' + pct + '%;background:' + color + ';"></div></div>';
-      if (cat.detail) {
-        html += '<div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:0.15rem;">' + escapeHTML(cat.detail) + '</div>';
-      }
-      html += '</div>';
-    }
-
-    document.getElementById('breakdownBody').innerHTML = html;
-  }
-
-  function renderDeviceInfo() {
-    var html = '';
-    html += '<div class="device-info-row"><span style="color:rgba(255,255,255,0.4);">Dispozitiv detectat:</span> <strong>' + escapeHTML(scoreData.device) + '</strong></div>';
-    html += '<div class="device-info-row"><span style="color:rgba(255,255,255,0.4);">Sistem:</span> <strong>' + escapeHTML(scoreData.osName + (scoreData.osVersion ? ' ' + scoreData.osVersion : '')) + '</strong></div>';
-
-    if (scoreData.aiFeatures) {
-      html += '<div class="device-info-row"><span style="color:rgba(255,255,255,0.4);">AI disponibil:</span> <span class="ai-badge-inline">\u2728 ' + escapeHTML(scoreData.aiFeatures) + '</span></div>';
-    }
-
-    if (scoreData.aiLink) {
-      html += '<div class="device-info-row"><a href="' + scoreData.aiLink + '">Cite\u0219te mai mult despre AI pe telefonul t\u0103u \u2192</a></div>';
-    }
-
-    document.getElementById('deviceInfo').innerHTML = html;
-  }
+  // ========== RENDER RESULTS ==========
 
   function escapeHTML(str) {
     var div = document.createElement('div');
@@ -1012,10 +843,254 @@
     return div.innerHTML;
   }
 
-  // ========== Share Actions ==========
+  function renderResults(score, mathMs, arrayMs, domMs) {
+    benchResult = { score: score, mathMs: mathMs, arrayMs: arrayMs, domMs: domMs };
+
+    // Score number with animation
+    var scoreEl = document.getElementById('scoreNumber');
+    var target = score;
+    var current = 0;
+    var startTime = performance.now();
+    var duration = 1200;
+    function animateScore(now) {
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      current = Math.round(eased * target);
+      scoreEl.textContent = current;
+      if (progress < 1) requestAnimationFrame(animateScore);
+    }
+    requestAnimationFrame(animateScore);
+
+    // Spectrum dot position (0-10000 mapped to 0-100%)
+    var pct = Math.min(100, Math.max(0, (score / 10000) * 100));
+    setTimeout(function() {
+      document.getElementById('spectrumDot').style.left = pct + '%';
+    }, 100);
+
+    // Benchmark times
+    var timesEl = document.getElementById('benchTimes');
+    timesEl.innerHTML =
+      '<div class="bench-time-item"><div class="bench-time-name">Math</div><div class="bench-time-value">' + mathMs + 'ms</div></div>' +
+      '<div class="bench-time-item"><div class="bench-time-name">Array</div><div class="bench-time-value">' + arrayMs + 'ms</div></div>' +
+      '<div class="bench-time-item"><div class="bench-time-name">DOM</div><div class="bench-time-value">' + domMs + 'ms</div></div>';
+
+    // Device info - start with basics, update with high entropy
+    var os = getBasicOS();
+    var deviceName = getBasicDevice();
+    var browser = detectBrowser();
+    var gpu = detectGPU();
+    var cores = navigator.hardwareConcurrency || null;
+    var screenInfo = getScreenInfo();
+    var netInfo = getNetworkInfo();
+
+    renderDeviceGrid(deviceName, os, browser, screenInfo, gpu, cores, netInfo);
+    renderAIInfo(os, deviceName);
+
+    // Try high entropy values for better data
+    detectHighEntropy(function(he) {
+      var updated = false;
+
+      if (he.model && he.model.length > 0) {
+        deviceName = he.model;
+        updated = true;
+      }
+
+      if (he.platformVersion) {
+        var realMajor = parseInt(he.platformVersion.split('.')[0]);
+        if (he.platform === 'Android' || os.name === 'Android') {
+          // On Chrome for Android, platformVersion major maps to Android version
+          if (realMajor > 0) {
+            os.version = he.platformVersion;
+            os.major = realMajor;
+            os.name = 'Android';
+            updated = true;
+          }
+        } else if (he.platform === 'Windows') {
+          // Windows: platformVersion 13+ = Windows 11, else Windows 10
+          if (realMajor >= 13) {
+            os.name = 'Windows';
+            os.version = '11';
+            os.major = 11;
+          } else {
+            os.name = 'Windows';
+            os.version = '10';
+            os.major = 10;
+          }
+          updated = true;
+        }
+      }
+
+      if (updated) {
+        renderDeviceGrid(deviceName, os, browser, screenInfo, gpu, cores, netInfo);
+        renderAIInfo(os, deviceName);
+      }
+    });
+  }
+
+  function renderDeviceGrid(deviceName, os, browser, screenInfo, gpu, cores, netInfo) {
+    var html = '';
+
+    // Device
+    html += '<div class="device-row"><span class="device-row-label">Dispozitiv</span><span class="device-row-value">' + escapeHTML(deviceName) + '</span></div>';
+
+    // OS
+    var osDisplay = os.name;
+    if (os.version) osDisplay += ' ' + os.version;
+    html += '<div class="device-row"><span class="device-row-label">Sistem</span><span class="device-row-value">' + escapeHTML(osDisplay) + '</span></div>';
+
+    // Browser
+    html += '<div class="device-row"><span class="device-row-label">Browser</span><span class="device-row-value">' + escapeHTML(browser) + '</span></div>';
+
+    // Screen
+    html += '<div class="device-row"><span class="device-row-label">Ecran</span><span class="device-row-value">' + escapeHTML(screenInfo) + '</span></div>';
+
+    // GPU
+    html += '<div class="device-row"><span class="device-row-label">GPU</span><span class="device-row-value">' + escapeHTML(gpu) + '</span></div>';
+
+    // CPU cores
+    if (cores) {
+      var coreNote = '';
+      if (cores === 2 || cores === 4) coreNote = ' <span class="device-row-note">(estimat de browser)</span>';
+      html += '<div class="device-row"><span class="device-row-label">CPU nuclee</span><span class="device-row-value">' + cores + coreNote + '</span></div>';
+    }
+
+    // Network
+    if (netInfo) {
+      html += '<div class="device-row"><span class="device-row-label">Re\u021bea</span><span class="device-row-value">' + escapeHTML(netInfo) + '</span></div>';
+    }
+
+    document.getElementById('deviceGrid').innerHTML = html;
+  }
+
+  function renderAIInfo(os, deviceName) {
+    var html = '';
+    var apps = [];
+    var specialNote = '';
+    var link = '';
+    var deviceLower = (deviceName || '').toLowerCase();
+
+    if (os.name === 'Android') {
+      if (os.major >= 14) {
+        apps = ['ChatGPT', 'Gemini', 'Copilot', 'Claude', 'Perplexity'];
+        link = '../blog/limite-gratuite-ai-2026.html';
+      } else if (os.major >= 12) {
+        apps = ['ChatGPT', 'Gemini', 'Copilot'];
+        html += '<p class="ai-note">Actualizeaz\u0103 la Android 14+ pentru acces la toate aplica\u021biile AI</p>';
+        link = '../blog/top-10-aplicatii-ai-gratuite.html';
+      } else {
+        html += '<p class="ai-info">Actualizeaz\u0103 OS-ul pentru acces complet la aplica\u021bii AI. Versiunea ta de Android nu suport\u0103 toate aplica\u021biile moderne.</p>';
+        link = '../blog/top-10-aplicatii-ai-gratuite.html';
+      }
+
+      // Samsung Galaxy AI
+      if (/samsung|galaxy|sm-/i.test(deviceLower)) {
+        specialNote = 'Galaxy AI nativ';
+      }
+      // Pixel Gemini Nano
+      if (/pixel/i.test(deviceLower)) {
+        specialNote = 'Gemini Nano on-device';
+      }
+
+    } else if (os.name === 'iOS') {
+      if (os.major >= 18) {
+        apps = ['ChatGPT', 'Gemini', 'Copilot', 'Claude'];
+        specialNote = 'Apple Intelligence';
+        link = '../blog/apple-intelligence-ghid.html';
+      } else if (os.major >= 16) {
+        apps = ['ChatGPT', 'Gemini', 'Copilot', 'Claude'];
+        html += '<p class="ai-note">Actualizeaz\u0103 la iOS 18+ pentru Apple Intelligence</p>';
+        link = '../blog/top-10-aplicatii-ai-gratuite.html';
+      } else {
+        html += '<p class="ai-info">Actualizeaz\u0103 OS-ul pentru acces complet la aplica\u021bii AI.</p>';
+        link = '../blog/top-10-aplicatii-ai-gratuite.html';
+      }
+    } else {
+      html += '<p class="ai-info">AI disponibil din browser: <a href="https://chat.openai.com" class="ai-link" target="_blank">ChatGPT</a>, <a href="https://gemini.google.com" class="ai-link" target="_blank">Gemini</a>, <a href="https://copilot.microsoft.com" class="ai-link" target="_blank">Copilot</a></p>';
+    }
+
+    if (apps.length > 0) {
+      html += '<p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;"><strong style="color:#a5b4fc;">Po\u021bi instala:</strong></p>';
+      html += '<div class="ai-apps">';
+      if (specialNote) {
+        html += '<span class="ai-app-tag special">\u2728 ' + escapeHTML(specialNote) + '</span>';
+      }
+      for (var i = 0; i < apps.length; i++) {
+        html += '<span class="ai-app-tag">' + escapeHTML(apps[i]) + '</span>';
+      }
+      html += '</div>';
+    }
+
+    if (link) {
+      html += '<p style="margin-top:0.75rem;"><a href="' + link + '" class="ai-link">Cite\u0219te mai mult despre AI pe telefonul t\u0103u \u2192</a></p>';
+    }
+
+    document.getElementById('aiInfo').innerHTML = html;
+  }
+
+  // ========== BENCHMARK RUNNER ==========
+
+  function startBenchmark() {
+    var startBtn = document.getElementById('startBtn');
+    var runningArea = document.getElementById('runningArea');
+    var resultsArea = document.getElementById('resultsArea');
+    var progressFill = document.getElementById('progressFill');
+    var runningTest = document.getElementById('runningTest');
+
+    // Reset
+    startBtn.disabled = true;
+    resultsArea.classList.remove('active');
+    runningArea.classList.add('active');
+    progressFill.style.width = '0%';
+
+    // Step 1: Math test
+    runningTest.textContent = '\u{1f9ee} Test matematic...';
+    progressFill.style.width = '10%';
+
+    setTimeout(function() {
+      var mathMs = runMathBench();
+
+      // Step 2: Array test
+      runningTest.textContent = '\u{1f4ca} Test sortare array...';
+      progressFill.style.width = '40%';
+
+      setTimeout(function() {
+        var arrayMs = runArrayBench();
+
+        // Step 3: DOM test
+        runningTest.textContent = '\u{1f3d7}\ufe0f Test DOM...';
+        progressFill.style.width = '70%';
+
+        setTimeout(function() {
+          var domMs = runDomBench();
+
+          progressFill.style.width = '100%';
+          runningTest.textContent = '\u2705 Complet!';
+
+          // Calculate score
+          var score = calculateBenchScore(mathMs, arrayMs, domMs);
+
+          setTimeout(function() {
+            runningArea.classList.remove('active');
+            resultsArea.classList.add('active');
+            startBtn.disabled = false;
+
+            renderResults(score, mathMs, arrayMs, domMs);
+
+            // Scroll to results
+            resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 500);
+
+        }, 50);
+      }, 50);
+    }, 100);
+  }
+
+  // ========== SHARE ==========
 
   function getShareText() {
-    return 'Telefonul meu a primit scorul ' + scoreData.total + '/100 (' + scoreData.grade + ') pe AIphone.ro! \uD83C\uDFC6 Al t\u0103u c\u00E2t are? Testeaz\u0103 aici: https://aiphone.ro/tools/scor.html';
+    if (!benchResult) return '';
+    return 'Telefonul meu a ob\u021binut scorul ' + benchResult.score + ' pe AIphone.ro! \uD83C\uDFC6 Al t\u0103u c\u00E2t are? Testeaz\u0103 aici: https://aiphone.ro/tools/scor.html';
   }
 
   function shareWhatsApp() {
@@ -1025,10 +1100,10 @@
 
   function copyScore() {
     var text = getShareText();
+    if (!text) return;
     navigator.clipboard.writeText(text).then(function() {
       showToast('Scorul a fost copiat!');
     }).catch(function() {
-      // Fallback
       var ta = document.createElement('textarea');
       ta.value = text;
       ta.style.position = 'fixed';
@@ -1041,27 +1116,12 @@
     });
   }
 
-  function shareScore() {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Scorul Telefonului Meu - AIphone.ro',
-        text: getShareText(),
-        url: 'https://aiphone.ro/tools/scor.html'
-      }).catch(function() {});
-    } else {
-      copyScore();
-    }
-  }
-
   function showToast(msg) {
     var toast = document.getElementById('toast');
     toast.textContent = msg;
     toast.classList.add('show');
     setTimeout(function() { toast.classList.remove('show'); }, 2500);
   }
-
-  // Run scoring on load
-  calculateScore();
   </script>
 
 </body>
