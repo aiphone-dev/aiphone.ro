@@ -55,6 +55,18 @@
       font-weight: 500;
       margin-bottom: 0.75rem;
     }
+    .bench-hero.minimized {
+      padding-top: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .bench-hero.minimized .bench-subtitle,
+    .bench-hero.minimized .bench-badge {
+      display: none;
+    }
+    .bench-hero.minimized .bench-title {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
     .bench-title {
       font-size: clamp(1.5rem, 4vw, 2.4rem);
       font-weight: 900;
@@ -213,7 +225,41 @@
       font-size: 0.85rem;
       color: rgba(255,255,255,0.4);
       font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .score-verdict {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 700;
       margin-bottom: 1.5rem;
+      letter-spacing: 0.3px;
+    }
+    .score-verdict.tier-top {
+      background: rgba(34,211,238,0.12);
+      border: 1px solid rgba(34,211,238,0.3);
+      color: #22d3ee;
+    }
+    .score-verdict.tier-flagship {
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.3);
+      color: #34d399;
+    }
+    .score-verdict.tier-bun {
+      background: rgba(251,191,36,0.12);
+      border: 1px solid rgba(251,191,36,0.3);
+      color: #fbbf24;
+    }
+    .score-verdict.tier-mediu {
+      background: rgba(251,146,60,0.12);
+      border: 1px solid rgba(251,146,60,0.3);
+      color: #fb923c;
+    }
+    .score-verdict.tier-slab {
+      background: rgba(248,113,113,0.12);
+      border: 1px solid rgba(248,113,113,0.3);
+      color: #f87171;
     }
 
     /* Spectrum bar */
@@ -384,12 +430,15 @@
       transform: translateY(-1px);
     }
     .bench-btn-whatsapp {
-      border-color: rgba(37,211,102,0.3);
-      background: rgba(37,211,102,0.1);
+      border-color: rgba(37,211,102,0.4);
+      background: rgba(37,211,102,0.15);
       color: #25d366;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.5rem;
+      flex-grow: 1;
     }
     .bench-btn-whatsapp:hover {
-      background: rgba(37,211,102,0.2);
+      background: rgba(37,211,102,0.25);
       color: #2ae573;
     }
     .bench-btn-primary {
@@ -422,9 +471,11 @@
 
     /* Responsive */
     @media (max-width: 480px) {
+      .bench-hero { padding-top: 3rem; }
       .score-number { font-size: 3.2rem; }
       .bench-actions { flex-direction: column; }
       .bench-btn { justify-content: center; }
+      .bench-btn-whatsapp { font-size: 1rem; padding: 0.75rem 1.5rem; }
       .bench-times { gap: 0.75rem; }
       .device-row-label { min-width: 75px; font-size: 0.72rem; }
       .device-row-value { font-size: 0.75rem; }
@@ -473,7 +524,7 @@
 
     <!-- Hero -->
     <section class="bench-hero">
-      <div class="bench-badge">Benchmark Real &#8226; 100% Client-Side &#8226; 3 Secunde</div>
+      <div class="bench-badge">Benchmark Real &#8226; F&#259;r&#259; date trimise &#8226; 3 Secunde</div>
       <h1 class="bench-title">C&#226;t de <span class="gradient-text">rapid</span> e telefonul t&#259;u?</h1>
       <p class="bench-subtitle">Afl&#259; &#238;n 3 secunde &#8212; benchmark real, nu estim&#259;ri</p>
 
@@ -501,16 +552,17 @@
         <div class="score-display">
           <div class="score-number" id="scoreNumber">0</div>
           <div class="score-label">puncte de performan&#539;&#259;</div>
+          <div class="score-verdict" id="scoreVerdict" style="display:none;"></div>
 
           <div class="spectrum-container">
             <div class="spectrum-bar">
               <div class="spectrum-dot" id="spectrumDot" style="left: 0%"></div>
             </div>
             <div class="spectrum-labels">
-              <span>Budget</span>
-              <span>Mid-range</span>
-              <span>Flagship</span>
-              <span>Top</span>
+              <span>Slab</span>
+              <span>Mediu</span>
+              <span>Rapid</span>
+              <span>Bestie</span>
             </div>
           </div>
 
@@ -538,8 +590,9 @@
           <div class="bench-section-title">&#128640; Partajeaz&#259;</div>
           <div class="bench-actions">
             <button class="bench-btn bench-btn-whatsapp" onclick="shareWhatsApp()">&#128172; WhatsApp</button>
-            <button class="bench-btn bench-btn-primary" onclick="copyScore()">&#128203; Copiaz&#259;</button>
-            <button class="bench-btn" onclick="startBenchmark()">&#128260; Retesteaz&#259;</button>
+            <button class="bench-btn bench-btn-primary" onclick="generateScoreCard()">&#128247; Descarcă Card</button>
+            <button class="bench-btn" onclick="copyScore()">&#128203; Copiază</button>
+            <button class="bench-btn" onclick="startBenchmark()">&#128260; Retest</button>
           </div>
         </div>
 
@@ -624,8 +677,9 @@
 
   // ========== BENCHMARK ENGINE ==========
 
-  // Run each test 3x, take median for consistency
+  // Run warmup + 3x, take median for JIT-fair results
   function median3(fn) {
+    fn(); // warmup - let JIT compile hot paths
     var results = [fn(), fn(), fn()];
     results.sort(function(a,b) { return a-b; });
     return results[1];
@@ -706,18 +760,43 @@
     return Math.round(end - start);
   }
 
-  function calculateBenchScore(mathMs, arrayMs, domMs, memMs) {
-    // Calibrated so that:
-    // Budget phone (old): ~1500-3000
-    // Mid-range: ~3000-5000
-    // Flagship: ~5000-7500
-    // Top flagship/desktop: ~7500-10000
-    // Score is inverse of time - faster = higher
-    var mathScore = Math.round(2000 / Math.max(mathMs, 1) * 1000);
-    var arrayScore = Math.round(1500 / Math.max(arrayMs, 1) * 1000);
-    var domScore = Math.round(800 / Math.max(domMs, 1) * 1000);
-    var memScore = Math.round(1200 / Math.max(memMs, 1) * 1000);
-    var totalScore = Math.round((mathScore + arrayScore + domScore + memScore) / 4);
+  function runStringBench() {
+    // Regex/string processing - exercises different engine paths
+    var start = performance.now();
+    var text = '';
+    for (var i = 0; i < 1000; i++) {
+      text += 'User ' + i + ' wrote: The quick brown fox jumps over the lazy dog at ' + (1000000 + i) + '. Email: user' + i + '@test.com\n';
+    }
+    var count = 0;
+    for (var j = 0; j < 150; j++) {
+      var emails = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g);
+      count += emails ? emails.length : 0;
+      var replaced = text.replace(/\b\d{4,}\b/g, function(m) { return '[' + m + ']'; });
+      count += replaced.length;
+      var lines = text.split('\n');
+      var filtered = lines.filter(function(l) { return l.indexOf('fox') !== -1; });
+      count += filtered.length;
+    }
+    var end = performance.now();
+    if (count === -1) console.log(count);
+    return Math.round(end - start);
+  }
+
+  function calculateBenchScore(mathMs, arrayMs, domMs, memMs, strMs) {
+    // Each sub-score capped at 10000 individually
+    var mathScore = Math.min(10000, Math.round(2000 / Math.max(mathMs, 1) * 1000));
+    var arrayScore = Math.min(10000, Math.round(1500 / Math.max(arrayMs, 1) * 1000));
+    var domScore = Math.min(10000, Math.round(800 / Math.max(domMs, 1) * 1000));
+    var memScore = Math.min(10000, Math.round(1200 / Math.max(memMs, 1) * 1000));
+    var strScore = Math.min(10000, Math.round(1000 / Math.max(strMs, 1) * 1000));
+    // Weighted: CPU-heavy tests matter more for phone differentiation
+    var totalScore = Math.round(
+      mathScore * 0.25 +
+      arrayScore * 0.20 +
+      memScore * 0.20 +
+      strScore * 0.20 +
+      domScore * 0.15
+    );
     if (totalScore > 10000) totalScore = 10000;
     return totalScore;
   }
@@ -882,8 +961,16 @@
     return div.innerHTML;
   }
 
-  function renderResults(score, mathMs, arrayMs, domMs, memMs) {
-    benchResult = { score: score, mathMs: mathMs, arrayMs: arrayMs, domMs: domMs, memMs: memMs };
+  function getScoreVerdict(score) {
+    if (score >= 7500) return { text: 'Excelent — top performan\u021b\u0103', cls: 'tier-top', emoji: '\uD83C\uDFC6' };
+    if (score >= 5000) return { text: 'Foarte bun — nivel flagship', cls: 'tier-flagship', emoji: '\uD83D\uDE80' };
+    if (score >= 3000) return { text: 'Bun — performan\u021b\u0103 solid\u0103', cls: 'tier-bun', emoji: '\uD83D\uDC4D' };
+    if (score >= 1500) return { text: 'Mediu — func\u021bioneaz\u0103 ok', cls: 'tier-mediu', emoji: '\u26a0\ufe0f' };
+    return { text: 'Slab — telefonul obose\u0219te', cls: 'tier-slab', emoji: '\uD83D\uDC22' };
+  }
+
+  function renderResults(score, mathMs, arrayMs, domMs, memMs, strMs) {
+    benchResult = { score: score, mathMs: mathMs, arrayMs: arrayMs, domMs: domMs, memMs: memMs, strMs: strMs };
 
     // Score number with animation
     var scoreEl = document.getElementById('scoreNumber');
@@ -901,6 +988,14 @@
     }
     requestAnimationFrame(animateScore);
 
+    // Verdict badge
+    var verdict = getScoreVerdict(score);
+    var verdictEl = document.getElementById('scoreVerdict');
+    verdictEl.className = 'score-verdict ' + verdict.cls;
+    verdictEl.textContent = verdict.emoji + ' ' + verdict.text;
+    verdictEl.style.display = 'inline-block';
+    benchResult.verdict = verdict;
+
     // Spectrum dot position (0-10000 mapped to 0-100%)
     var pct = Math.min(100, Math.max(0, (score / 10000) * 100));
     setTimeout(function() {
@@ -912,7 +1007,8 @@
     timesEl.innerHTML =
       '<div class="bench-time-item"><div class="bench-time-name">Math</div><div class="bench-time-value">' + mathMs + 'ms</div></div>' +
       '<div class="bench-time-item"><div class="bench-time-name">Array</div><div class="bench-time-value">' + arrayMs + 'ms</div></div>' +
-      '<div class="bench-time-item"><div class="bench-time-name">Memorie</div><div class="bench-time-value">' + memMs + 'ms</div></div>' +
+      '<div class="bench-time-item"><div class="bench-time-name">Mem</div><div class="bench-time-value">' + memMs + 'ms</div></div>' +
+      '<div class="bench-time-item"><div class="bench-time-name">String</div><div class="bench-time-value">' + strMs + 'ms</div></div>' +
       '<div class="bench-time-item"><div class="bench-time-name">DOM</div><div class="bench-time-value">' + domMs + 'ms</div></div>';
 
     // Device info - start with basics, update with high entropy
@@ -1083,57 +1179,63 @@
     runningArea.classList.add('active');
     progressFill.style.width = '0%';
 
-    // Step 1: Math test (heavy)
-    runningTest.textContent = '\u{1f9ee} Test matematic (5M iterații)...';
+    // Minimize hero on mobile to save space
+    document.querySelector('.bench-hero').classList.add('minimized');
+    document.getElementById('startArea').style.display = 'none';
+
+    // Step 1: Math test
+    runningTest.textContent = '\u{1f9ee} Test matematic...';
     progressFill.style.width = '5%';
 
     setTimeout(function() {
-      var mathMs = runMathBench();
-      progressFill.style.width = '25%';
-
-      // Step 2: Array test
-      runningTest.textContent = '\u{1f4ca} Test sortare (500K obiecte)...';
+      var mathMs = median3(runMathBench);
+      progressFill.style.width = '20%';
+      runningTest.textContent = '\u{1f4ca} Test sortare...';
 
       setTimeout(function() {
-        var arrayMs = runArrayBench();
-        progressFill.style.width = '50%';
-
-        // Step 3: Memory test
-        runningTest.textContent = '\u{1f4be} Test memorie (5M Float64)...';
+        var arrayMs = median3(runArrayBench);
+        progressFill.style.width = '40%';
+        runningTest.textContent = '\u{1f4be} Test memorie...';
 
         setTimeout(function() {
-          var memMs = runMemoryBench();
-          progressFill.style.width = '75%';
-
-          // Step 4: DOM test
-          runningTest.textContent = '\u{1f3d7}\ufe0f Test DOM (3000 elemente)...';
+          var memMs = median3(runMemoryBench);
+          progressFill.style.width = '60%';
+          runningTest.textContent = '\u{1f520} Test string/regex...';
 
           setTimeout(function() {
-            var domMs = runDomBench();
-            progressFill.style.width = '100%';
-            runningTest.textContent = '\u2705 Complet!';
-
-            var score = calculateBenchScore(mathMs, arrayMs, domMs, memMs);
+            var strMs = median3(runStringBench);
+            progressFill.style.width = '80%';
+            runningTest.textContent = '\u{1f3d7}\ufe0f Test DOM...';
 
             setTimeout(function() {
-              runningArea.classList.remove('active');
-              resultsArea.classList.add('active');
-              startBtn.disabled = false;
-              renderResults(score, mathMs, arrayMs, domMs, memMs);
-              resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 400);
+              var domMs = median3(runDomBench);
+              progressFill.style.width = '100%';
+              runningTest.textContent = '\u2705 Complet!';
 
-          }, 30);
-        }, 30);
-      }, 30);
-    }, 80);
+              var score = calculateBenchScore(mathMs, arrayMs, domMs, memMs, strMs);
+
+              setTimeout(function() {
+                runningArea.classList.remove('active');
+                resultsArea.classList.add('active');
+                startBtn.disabled = false;
+                document.getElementById('startArea').style.display = '';
+                renderResults(score, mathMs, arrayMs, domMs, memMs, strMs);
+                resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 300);
+
+            }, 200); // GC delay
+          }, 200);
+        }, 200);
+      }, 200);
+    }, 200);
   }
 
   // ========== SHARE ==========
 
   function getShareText() {
     if (!benchResult) return '';
-    return 'Telefonul meu a ob\u021binut scorul ' + benchResult.score + ' pe AIphone.ro! \uD83C\uDFC6 Al t\u0103u c\u00E2t are? Testeaz\u0103 aici: https://aiphone.ro/tools/scor.html';
+    var v = benchResult.verdict || getScoreVerdict(benchResult.score);
+    return v.emoji + ' Telefonul meu: *' + benchResult.score + ' puncte* (' + v.text + ')\n\nAl t\u0103u c\u00E2t are? \uD83D\uDC47 Testeaz\u0103 in 3 secunde:\nhttps://aiphone.ro/tools/scor.html';
   }
 
   function shareWhatsApp() {
@@ -1157,6 +1259,138 @@
       document.body.removeChild(ta);
       showToast('Scorul a fost copiat!');
     });
+  }
+
+  function generateScoreCard() {
+    if (!benchResult) return;
+    var c = document.createElement('canvas');
+    c.width = 1080; c.height = 1920;
+    var ctx = c.getContext('2d');
+
+    // Background
+    var bg = ctx.createLinearGradient(0, 0, 0, 1920);
+    bg.addColorStop(0, '#0a0a1a');
+    bg.addColorStop(0.5, '#12082e');
+    bg.addColorStop(1, '#0a0a1a');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, 1080, 1920);
+
+    // Subtle grid
+    ctx.strokeStyle = 'rgba(99,102,241,0.05)';
+    ctx.lineWidth = 1;
+    for (var gx = 0; gx < 1080; gx += 60) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, 1920); ctx.stroke(); }
+    for (var gy = 0; gy < 1920; gy += 60) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(1080, gy); ctx.stroke(); }
+
+    // Brand
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(165,180,252,0.6)';
+    ctx.font = '600 36px Inter, system-ui, sans-serif';
+    ctx.fillText('AIphone.ro', 540, 180);
+
+    // "Cat de rapid e telefonul tau?"
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    ctx.font = '500 28px Inter, system-ui, sans-serif';
+    ctx.fillText('Cât de rapid e telefonul tău?', 540, 240);
+
+    // Score
+    var scoreGrad = ctx.createLinearGradient(300, 500, 780, 500);
+    scoreGrad.addColorStop(0, '#6366f1');
+    scoreGrad.addColorStop(0.5, '#a855f7');
+    scoreGrad.addColorStop(1, '#ec4899');
+    ctx.fillStyle = scoreGrad;
+    ctx.font = '900 200px Inter, system-ui, sans-serif';
+    ctx.fillText(benchResult.score.toString(), 540, 550);
+
+    // Verdict
+    var v = benchResult.verdict || getScoreVerdict(benchResult.score);
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = '600 36px Inter, system-ui, sans-serif';
+    ctx.fillText(v.emoji + ' ' + v.text, 540, 630);
+
+    // Spectrum bar
+    var barX = 140, barW = 800, barY = 720, barH = 20;
+    var specGrad = ctx.createLinearGradient(barX, 0, barX + barW, 0);
+    specGrad.addColorStop(0, '#f87171');
+    specGrad.addColorStop(0.33, '#fbbf24');
+    specGrad.addColorStop(0.66, '#34d399');
+    specGrad.addColorStop(1, '#22d3ee');
+    ctx.fillStyle = specGrad;
+    ctx.beginPath();
+    ctx.roundRect(barX, barY, barW, barH, 10);
+    ctx.fill();
+    // Dot
+    var dotX = barX + (benchResult.score / 10000) * barW;
+    ctx.beginPath();
+    ctx.arc(dotX, barY + barH / 2, 20, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+    ctx.strokeStyle = '#a855f7';
+    ctx.lineWidth = 6;
+    ctx.stroke();
+
+    // Labels
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.font = '500 22px Inter, system-ui, sans-serif';
+    var labels = ['Slab', 'Mediu', 'Rapid', 'Bestie'];
+    for (var li = 0; li < 4; li++) {
+      ctx.fillText(labels[li], barX + (barW / 3) * li, barY + 55);
+    }
+
+    // Test results
+    var tests = [
+      ['MATH', benchResult.mathMs + 'ms'],
+      ['ARRAY', benchResult.arrayMs + 'ms'],
+      ['MEM', benchResult.memMs + 'ms'],
+      ['STRING', benchResult.strMs + 'ms'],
+      ['DOM', benchResult.domMs + 'ms']
+    ];
+    ctx.font = '600 26px Inter, system-ui, sans-serif';
+    var testY = 900;
+    for (var ti = 0; ti < tests.length; ti++) {
+      var tx = 180 + (ti % 3) * 270;
+      var ty = testY + Math.floor(ti / 3) * 90;
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      ctx.fillText(tests[ti][0], tx, ty);
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      ctx.font = '700 32px JetBrains Mono, monospace';
+      ctx.fillText(tests[ti][1], tx, ty + 40);
+      ctx.font = '600 26px Inter, system-ui, sans-serif';
+    }
+
+    // Device info
+    var device = getBasicDevice();
+    var os = getBasicOS();
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = '500 30px Inter, system-ui, sans-serif';
+    ctx.fillText(device, 540, 1250);
+    ctx.fillText(os.name + ' ' + os.version, 540, 1300);
+    ctx.fillText(new Date().toLocaleDateString('ro-RO'), 540, 1350);
+
+    // CTA
+    ctx.fillStyle = '#a5b4fc';
+    ctx.font = '600 28px Inter, system-ui, sans-serif';
+    ctx.fillText('Testează și tu: aiphone.ro/tools/scor.html', 540, 1750);
+
+    // Watermark
+    ctx.fillStyle = 'rgba(99,102,241,0.15)';
+    ctx.font = '900 120px Inter, system-ui, sans-serif';
+    ctx.fillText('AIphone.ro', 540, 1550);
+
+    // Download
+    try {
+      c.toBlob(function(blob) {
+        if (!blob) { showToast('Eroare la generare'); return; }
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'scor-aiphone-' + benchResult.score + '.png';
+        a.click();
+        setTimeout(function() { URL.revokeObjectURL(url); }, 5000);
+        showToast('Card descărcat!');
+      }, 'image/png');
+    } catch(e) {
+      showToast('Browser-ul nu suportă descărcarea');
+    }
   }
 
   function showToast(msg) {
