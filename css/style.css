@@ -2515,10 +2515,44 @@ main {
 .hp-newsletter strong { font-size: 0.9rem; color: var(--text-primary); display: block; margin-bottom: 0.3rem; }
 .hp-newsletter p { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
 
-/* Responsive */
+/* Responsive - tablet */
 @media (max-width: 900px) {
   .hp-grid { grid-template-columns: 1fr; }
-  .hp-tut-grid { grid-template-columns: 1fr; }
+  .hp-tut-grid { grid-template-columns: 1fr 1fr; }
+  .hp-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .hp-sidebar .hp-section { margin-bottom: 0.5rem; }
+}
+
+/* Responsive - mobile */
+@media (max-width: 600px) {
+  .hero {
+    padding: 5.5rem 1.25rem 1.5rem !important;
+  }
+  .hero-title {
+    font-size: 1.6rem !important;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+  }
+  .hp-grid { padding: 1rem 0.75rem; gap: 1rem; }
+  .hp-section { margin-bottom: 0.75rem; }
+  .hp-section-header { margin-bottom: 0.5rem; }
+  .hp-featured img { height: 160px; }
+  .hp-tut-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .hp-tut-card { padding: 0.4rem; }
+  .hp-tut-card img { width: 60px; height: 40px; }
+  .hp-tut-info h4 { font-size: 0.72rem; }
+  .hp-tut-info span { font-size: 0.65rem; }
+  .hp-sidebar { grid-template-columns: 1fr; }
+  .hp-article-item { padding: 0.4rem 0; }
+  .hp-article-title { font-size: 0.82rem; }
+  .hp-review-item { padding: 0.4rem 0; }
+  .hp-newsletter { padding: 0.75rem; }
+  .hp-tool-card { padding: 0.75rem; }
 }
 .hp-review-icon {
   display: flex;
