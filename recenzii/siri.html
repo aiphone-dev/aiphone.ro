@@ -548,9 +548,11 @@
         <h2>Cuprins</h2>
         <ol>
           <li><a href="#ce-este">Ce este Siri &amp; Apple Intelligence?</a></li>
+          <li><a href="#cifre">Cifre si Performanta</a></li>
           <li><a href="#functii">Functii principale</a></li>
+          <li><a href="#istoric">Istoric versiuni</a></li>
           <li><a href="#puncte-forte">Puncte forte</a></li>
-          <li><a href="#puncte-slabe">Puncte slabe</a></li>
+          <li><a href="#comparatie">Comparatie directa</a></li>
           <li><a href="#pentru-cine">Pentru cine este?</a></li>
           <li><a href="#verdict">Verdict final</a></li>
         </ol>
@@ -561,23 +563,51 @@
 
         <h2 id="ce-este">Ce este Siri &amp; Apple Intelligence?</h2>
         <p>
-          Siri a fost primul asistent vocal mainstream lansat pe un smartphone, inca din 2011. Dar in ultimii ani, Apple a ramas in urma competitiei in ceea ce priveste inteligenta artificiala. Totul s-a schimbat odata cu lansarea <strong>Apple Intelligence</strong> — un sistem AI complet integrat in iOS 18.1 si versiunile ulterioare.
+          Siri a fost primul asistent vocal mainstream lansat pe un smartphone, inca din octombrie 2011 — cu 3 ani inainte de Amazon Alexa si 5 ani inainte de Google Assistant. Timp de peste un deceniu, Siri a fost sinomim cu "asistent vocal", dar in ultimii ani, Apple a ramas vizibil in urma competitiei in ceea ce priveste inteligenta artificiala generativa. In timp ce ChatGPT revolutiona lumea si Google lansa Gemini, Siri ramasese un asistent bazat pe comenzi predefinite, fara capacitati reale de intelegere contextuala sau generare de continut.
         </p>
         <p>
-          Apple Intelligence nu este doar o actualizare a lui Siri, ci o suita completa de functii AI care functioneaza la nivel de sistem de operare. De la rescrierea textelor si rezumarea notificarilor, pana la generarea de imagini si emoji-uri personalizate, Apple Intelligence transforma modul in care interactionezi cu iPhone-ul tau.
+          Totul s-a schimbat la WWDC 2024, cand Apple a anuntat <strong>Apple Intelligence</strong> — nu doar o actualizare a lui Siri, ci un sistem AI complet, integrat la fiecare nivel al sistemului de operare iOS, iPadOS si macOS. Apple Intelligence este o suita de modele de limbaj antrenate de Apple, optimizate sa ruleze direct pe chipurile Apple Silicon (A17 Pro, A18, A18 Pro, seria M) si sa proceseze informatia cu un accent obsesiv pe confidentialitate. De la rescrierea textelor si rezumarea notificarilor, pana la generarea de imagini si emoji-uri personalizate, Apple Intelligence transforma fundamental modul in care interactionezi cu iPhone-ul tau.
         </p>
         <p>
-          Ce face Apple Intelligence unic este abordarea <strong>privacy-first</strong>: majoritatea procesarilor au loc direct pe dispozitiv, fara a trimite datele tale in cloud. Iar cand este nevoie de putere de procesare suplimentara, Apple foloseste <strong>Private Cloud Compute</strong>, un sistem cloud securizat special conceput pentru confidentialitate.
+          Ce face Apple Intelligence cu adevarat unic — si ce il diferentiaza radical de toti competitorii — este abordarea <strong>privacy-first</strong>. Modelul on-device de 3 miliarde de parametri proceseaza majoritatea cererilor direct pe chipul telefonului, in mai putin de o secunda, fara ca datele tale sa paraseasca vreodata dispozitivul. Iar cand sarcina depaseste capacitatea chipului local (de exemplu, generarea de imagini complexe), Apple foloseste <strong>Private Cloud Compute</strong> — un sistem cloud construit pe servere Apple Silicon dedicate, cu criptare end-to-end, fara stocare a datelor si cu verificare publica independenta a codului. Este cea mai serioasa infrastructura de confidentialitate AI construita vreodata.
         </p>
+
+        <h2 id="cifre">Cifre si Performanta</h2>
+        <p>
+          Apple Intelligence nu concureaza pe benchmark-urile clasice ale modelelor de limbaj — Apple a ales deliberat sa optimizeze pentru altceva: viteza on-device, confidentialitate si integrare cu sistemul. Dar cifrele tehnice sunt fascinante in felul lor:
+        </p>
+        <ul>
+          <li><strong>Apple Neural Engine (ANE): 35 TOPS (A17 Pro), 38 TOPS (A18 Pro)</strong> — Procesorul neural dedicat din chipurile Apple executa 35-38 de trilioane de operatii pe secunda, optimizat specific pentru inferenta modelelor de limbaj si viziune computerizata. Comparativ, NPU-ul Snapdragon 8 Gen 3 din Galaxy S24 ofera 73 TOPS, dar Apple compenseaza prin optimizarea software-hardware superioara.</li>
+          <li><strong>Model on-device: 3 miliarde de parametri, procesare in sub 1 secunda</strong> — Modelul de limbaj care ruleaza local pe iPhone are 3 miliarde de parametri — suficient de mare pentru sarcini practice (scriere, rezumare, clasificare), suficient de mic pentru a rula rapid si eficient energetic. Timpul mediu de procesare este sub 1 secunda pentru majoritatea cererilor.</li>
+          <li><strong>Private Cloud Compute: zero stocare, criptare end-to-end</strong> — Cand procesarea locala nu este suficienta, cererea este trimisa catre servere Apple Silicon dedicate. Datele nu sunt stocate niciodata, sesiunea este criptata end-to-end, iar codul serverelor este verificabil public de cercetatori de securitate independenti. Este singurul sistem cloud AI din industrie cu aceste garantii.</li>
+          <li><strong>Writing Tools: disponibile in 12 limbi</strong> — Instrumentele de scriere (rescriere, rezumare, corectare, schimbare ton) sunt disponibile in 12 limbi: engleza, franceza, germana, spaniola, italiana, portugheza, japoneza, coreeana, chineza simplificata, chineza traditionala, olandeza si hindi. <strong>Romana NU este inca suportata</strong> — o limitare semnificativa pentru utilizatorii din Romania.</li>
+          <li><strong>Dispozitive compatibile: iPhone 15 Pro+, toate iPhone 16, iPad M1+, Mac M1+</strong> — Apple Intelligence necesita minimum chipul A17 Pro (iPhone 15 Pro/Pro Max) sau A18/A18 Pro (toate modelele iPhone 16) sau chip M1+ pentru iPad si Mac. Aceasta inseamna ca <strong>aproximativ 40% din iPhone-urile active</strong> la nivel global pot rula Apple Intelligence — restul de 60% sunt excluse.</li>
+          <li><strong>Genmoji: generare emoji personalizat in 3-5 secunde</strong> — Functia de generare de emoji-uri personalizate din descrieri text produce rezultate in 3-5 secunde, cu un stil vizual consistent si posibilitatea de a crea emoji-uri bazate pe fotografii ale persoanelor din contactele tale.</li>
+          <li><strong>Image Playground: 3 stiluri (Animation, Illustration, Sketch)</strong> — Generatorul de imagini ofera 3 stiluri artistice si poate crea imagini bazate pe text, pe fotografii existente sau pe combinatii ale acestora. Apple a ales deliberat sa NU ofere fotorealism — o decizie de design menita sa previna deepfakes si dezinformarea.</li>
+          <li><strong>Integrare ChatGPT: acces la GPT-5.2 direct din Siri</strong> — Pentru sarcini care depasesc capacitatile Apple Intelligence, Siri poate delega catre ChatGPT (cu permisiunea explicita a utilizatorului), oferind un fallback inteligent catre cel mai capabil model AI din lume.</li>
+        </ul>
 
         <h2 id="functii">Functii principale</h2>
         <ul>
-          <li><strong>Writing Tools (Instrumente de scriere)</strong> — Rescrie, corecteaza, rezuma sau schimba tonul oricarui text direct din orice aplicatie. Functioneaza in Mail, Mesaje, Note, Safari si aplicatii terte.</li>
-          <li><strong>Rezumarea notificarilor</strong> — Apple Intelligence analizeaza notificarile si le prezinta sub forma de rezumate concise, astfel incat vezi rapid ce este important fara sa deschizi fiecare aplicatie.</li>
-          <li><strong>Genmoji</strong> — Creeaza emoji-uri personalizate bazate pe o descriere text. Poti genera emoji-uri cu chipul tau sau al prietenilor, direct din tastatura.</li>
-          <li><strong>Image Playground</strong> — Genereaza imagini originale in stiluri diferite (animatie, ilustratie, schita) bazate pe descrieri text sau fotografii existente.</li>
-          <li><strong>Smart Reply</strong> — Sugereaza raspunsuri inteligente si contextuale in Mesaje si Mail, analizand continutul conversatiei.</li>
-          <li><strong>Procesare pe dispozitiv</strong> — Majoritatea functiilor AI ruleaza local pe chip-ul A17 Pro sau M-series, fara a trimite date catre servere externe.</li>
+          <li><strong>Writing Tools (Instrumente de scriere)</strong> — Rescrie, corecteaza, rezuma sau schimba tonul oricarui text direct din orice aplicatie care suporta campuri de text. Functioneaza nativ in Mail, Mesaje, Note, Safari, Pages si in aplicatii terte. Disponibil in 12 limbi (romana NU este inca suportata). Ofera 4 moduri principale: Proofread (corectare gramaticala), Rewrite (rescriere completa), Friendly/Professional/Concise (schimbare ton) si Summarize (rezumare).</li>
+          <li><strong>Rezumarea notificarilor si emailurilor</strong> — Apple Intelligence analizeaza notificarile de la toate aplicatiile si le prezinta sub forma de rezumate concise de 1-2 randuri, astfel incat vezi rapid ce este important fara sa deschizi fiecare aplicatie. In Mail, rezumeaza automat emailurile lungi si evidentiaza actiunile necesare. Pe Lock Screen, grupeaza si prioritizeaza notificarile inteligent.</li>
+          <li><strong>Genmoji (emoji-uri generate)</strong> — Creeaza emoji-uri personalizate unice bazate pe descrieri text. Poti genera emoji-uri cu chipul tau sau al prietenilor (folosind fotografii din Contacte), cu expresii, accesorii si contexte personalizate. Genereaza in 3-5 secunde, direct din tastatura. O functie surprinzator de captivanta care adauga o dimensiune creativa unica conversatiilor.</li>
+          <li><strong>Image Playground</strong> — Genereaza imagini originale in 3 stiluri artistice (Animation, Illustration, Sketch) bazate pe descrieri text, fotografii existente sau combinatii. Integrat in Mesaje, Note si ca aplicatie standalone. Apple a ales deliberat sa excluda fotorealismul pentru a preveni deepfakes — o decizie etica controversata dar principiala.</li>
+          <li><strong>Smart Reply (raspunsuri inteligente)</strong> — Sugereaza raspunsuri contextuale in Mesaje si Mail, analizand continutul conversatiei si oferind 3-4 optiuni de raspuns relevante. Raspunsurile sunt generate on-device si tin cont de stilul tau de comunicare invatat in timp.</li>
+          <li><strong>Visual Intelligence (Camera + AI)</strong> — Folosind camera iPhone-ului, poti identifica obiecte, plante, animale, monumente si produse in timp real. Similar cu Google Lens, dar integrat nativ in aplicatia Camera si procesat on-device.</li>
+          <li><strong>Clean Up (Photo AI)</strong> — Sterge obiecte nedorite din fotografii cu AI. Similar cu Photo Assist de la Samsung, dar mai basic — functioneaza bine pentru elemente mici (fire de curent, persoane in fundal), dar nu ofera generative fill avansat.</li>
+          <li><strong>Siri cu intelegere contextuala imbunatatita</strong> — Siri poate acum intelege cereri mai complexe si contextuale, poate accesa informatii din aplicatii si poate efectua actiuni in mai multi pasi. Integrarea cu ChatGPT permite delegarea sarcinilor complexe catre GPT-5.2 cu permisiunea utilizatorului.</li>
+        </ul>
+
+        <h2 id="istoric">Istoric versiuni</h2>
+        <ul>
+          <li><strong>Octombrie 2011</strong> — Lansarea Siri pe iPhone 4S. Primul asistent vocal mainstream pe un smartphone.</li>
+          <li><strong>2012-2023</strong> — Evolutie incrementala a Siri: adaugarea de limbi, integrari cu aplicatii, Shortcuts, dar fara capacitati AI generative.</li>
+          <li><strong>Iunie 2024 (WWDC)</strong> — Anuntarea Apple Intelligence. Cea mai mare reinventare a Siri din istorie.</li>
+          <li><strong>Octombrie 2024 (iOS 18.1)</strong> — Lansarea Apple Intelligence: Writing Tools, rezumarea notificarilor, Clean Up, Smart Reply.</li>
+          <li><strong>Decembrie 2024 (iOS 18.2)</strong> — Genmoji, Image Playground, Visual Intelligence, integrare ChatGPT.</li>
+          <li><strong>Martie 2025 (iOS 18.4)</strong> — Extinderea suportului de limbi pentru Writing Tools. Imbunatatiri Siri.</li>
+          <li><strong>Septembrie 2025 (iOS 19)</strong> — Siri cu intelegere contextuala avansata, actiuni in mai multi pasi si acces la informatii din aplicatii.</li>
         </ul>
 
         <h2 id="puncte-forte">Puncte forte</h2>
@@ -585,42 +615,111 @@
           <div class="pros-card">
             <h3>Avantaje</h3>
             <ul>
-              <li>&#9989; <strong>Confidentialitate excelenta</strong> — Procesarea pe dispozitiv inseamna ca datele tale raman pe telefon. Apple nu are acces la cererile tale AI.</li>
-              <li>&#9989; <strong>Integrare profunda cu iOS</strong> — Functioneaza nativ in toate aplicatiile Apple si la nivel de sistem, fara a instala nimic separat.</li>
-              <li>&#9989; <strong>Writing Tools remarcabile</strong> — Instrumentele de scriere sunt intuitive si functioneaza universal in orice camp de text.</li>
-              <li>&#9989; <strong>Genmoji sunt distractivi</strong> — Crearea de emoji-uri personalizate adauga o dimensiune creativa unica conversatiilor.</li>
+              <li>&#9989; <strong>Confidentialitate la alt nivel</strong> — Procesarea on-device cu model de 3B parametri, Private Cloud Compute cu zero stocare si criptare end-to-end, verificare publica independenta a codului server. Niciun alt asistent AI nu ofera garantii de confidentialitate comparabile. Pentru utilizatorii pentru care confidentialitatea este prioritatea #1, Apple Intelligence este singura alegere.</li>
+              <li>&#9989; <strong>Integrare profunda si seamless cu iOS</strong> — Functioneaza nativ in toate aplicatiile Apple si la nivel de sistem de operare, fara a instala nimic separat. Writing Tools in orice camp de text, rezumare notificari pe Lock Screen, Smart Reply in Mesaje — AI-ul se simte ca o parte organica a iOS, nu ca un adaos.</li>
+              <li>&#9989; <strong>Writing Tools excelente</strong> — Instrumentele de scriere sunt intuitive, rapide (sub 1 secunda on-device) si functioneaza universal in orice aplicatie cu campuri de text. Rescriere, corectare, rezumare, schimbare ton — toate cu o calitate surprinzator de buna pentru un model de doar 3B parametri.</li>
+              <li>&#9989; <strong>Genmoji — creativitate pura</strong> — Crearea de emoji-uri personalizate din descrieri text, cu posibilitatea de a genera emoji-uri cu chipurile persoanelor din contacte, este o functie unica, captivanta si surprinzator de utila in conversatii. Genereaza in 3-5 secunde cu consistenta vizuala excelenta.</li>
+              <li>&#9989; <strong>Fallback inteligent la ChatGPT</strong> — Pentru sarcinile care depasesc capacitatile modelului local, Siri poate delega la GPT-5.2 cu permisiunea explicita a utilizatorului, oferind accesul la cel mai capabil model AI din lume fara a compromite confidentialitatea pentru cererile obisnuite.</li>
             </ul>
           </div>
 
           <div class="cons-card">
             <h3>Dezavantaje</h3>
             <ul>
-              <li>&#10060; <strong>Suport limitat de dispozitive</strong> — Necesita iPhone 15 Pro (A17 Pro) sau mai nou. Majoritatea modelelor mai vechi nu sunt compatibile.</li>
-              <li>&#10060; <strong>Fara limba romana</strong> — Apple Intelligence nu suporta inca limba romana. Trebuie sa setezi limba pe engleza sau alta limba suportata.</li>
-              <li>&#10060; <strong>Mai putin capabil decat Gemini/ChatGPT</strong> — Pentru sarcini complexe (analiza de date, programare, cercetare), Siri ramane in urma competitiei.</li>
+              <li>&#10060; <strong>~60% din iPhone-uri sunt excluse</strong> — Necesita minimum A17 Pro (iPhone 15 Pro) sau A18 (iPhone 16). Aproximativ 60% din iPhone-urile active la nivel global nu sunt compatibile. Aceasta este cea mai restrictiva cerinta hardware din industria AI — Galaxy AI si Gemini au o baza de dispozitive mult mai larga.</li>
+              <li>&#10060; <strong>Fara limba romana — limitare critica</strong> — Apple Intelligence suporta doar 12 limbi, iar romana NU este printre ele. Pentru utilizatorii din Romania, acest lucru inseamna ca Writing Tools, rezumarea notificarilor si Smart Reply nu functioneaza daca limba telefonului este setata pe romana. Trebuie sa schimbi limba in engleza — un compromis semnificativ.</li>
+              <li>&#10060; <strong>Siri ramane inferior ca asistent conversational</strong> — Chiar si cu Apple Intelligence, Siri nu poate tine conversatii complexe, nu poate scrie cod, nu poate analiza documente si nu poate genera continut creativ long-form la nivelul ChatGPT (MMLU 92.1%) sau Google Gemini (MMLU 90.2%). Modelul de 3B parametri este optimizat pentru sarcini scurte si practice, nu pentru rationament profund.</li>
+              <li>&#10060; <strong>Fara fotorealism in generarea de imagini</strong> — Apple a ales sa excluda stilul fotorealist din Image Playground, limitandu-l la Animation, Illustration si Sketch. Desi decizia este motivata etic (prevenirea deepfakes), rezultatul este o capacitate de generare de imagini semnificativ mai limitata decat DALL-E 3 (ChatGPT/Copilot) sau Imagen 3 (Gemini).</li>
+              <li>&#10060; <strong>Ritmul lent al evolutiei</strong> — Apple Intelligence a fost anuntat in iunie 2024, dar a ajuns la maturitate abia la inceputul lui 2025. Comparativ cu ciclurile de actualizare lunare ale ChatGPT si Google Gemini, Apple se misca considerabil mai lent.</li>
             </ul>
           </div>
         </div>
 
+        <h2 id="comparatie">Comparatie directa</h2>
+        <p>Cum se compara Siri &amp; Apple Intelligence cu principalii competitori? Iata datele:</p>
+        <div style="overflow-x: auto; margin: 1.5rem 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; color: rgba(255,255,255,0.82);">
+            <thead>
+              <tr style="border-bottom: 2px solid rgba(0, 212, 255, 0.3);">
+                <th style="padding: 0.75rem; text-align: left; color: #fff;">Criteriu</th>
+                <th style="padding: 0.75rem; text-align: center; color: #fff;">Apple Intelligence</th>
+                <th style="padding: 0.75rem; text-align: center; color: #fff;">ChatGPT</th>
+                <th style="padding: 0.75rem; text-align: center; color: #fff;">Galaxy AI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 0.75rem;">Confidentialitate</td>
+                <td style="padding: 0.75rem; text-align: center;">Excelenta (on-device + PCC)</td>
+                <td style="padding: 0.75rem; text-align: center;">Medie (cloud)</td>
+                <td style="padding: 0.75rem; text-align: center;">Buna (hibrid)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 0.75rem;">Acuratete conversationala</td>
+                <td style="padding: 0.75rem; text-align: center;">Medie (3B model)</td>
+                <td style="padding: 0.75rem; text-align: center;">Excelenta (92.1% MMLU)</td>
+                <td style="padding: 0.75rem; text-align: center;">N/A (nu e chatbot)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 0.75rem;">Viteza procesare</td>
+                <td style="padding: 0.75rem; text-align: center;">&lt;1 sec (on-device)</td>
+                <td style="padding: 0.75rem; text-align: center;">2-5 sec (cloud)</td>
+                <td style="padding: 0.75rem; text-align: center;">1-5 sec (hibrid)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 0.75rem;">Pret</td>
+                <td style="padding: 0.75rem; text-align: center;">Gratuit (inclus)</td>
+                <td style="padding: 0.75rem; text-align: center;">Gratuit + $20/luna</td>
+                <td style="padding: 0.75rem; text-align: center;">Gratuit (inclus)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 0.75rem;">Limbi suportate</td>
+                <td style="padding: 0.75rem; text-align: center;">12 (fara romana)</td>
+                <td style="padding: 0.75rem; text-align: center;">40+ (cu romana)</td>
+                <td style="padding: 0.75rem; text-align: center;">20 (cu romana)</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem;">Dispozitive compatibile</td>
+                <td style="padding: 0.75rem; text-align: center;">~40% din iPhone-uri</td>
+                <td style="padding: 0.75rem; text-align: center;">Orice smartphone</td>
+                <td style="padding: 0.75rem; text-align: center;">250M+ Samsung</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Apple Intelligence castiga clar si detasat la capitolul confidentialitate — niciun competitor nu se apropie. Pierde insa la capabilitate conversationala (Siri vs ChatGPT nici nu e o competitie), la suportul de limbi (12 vs 40+) si la disponibilitatea pe dispozitive. Este cel mai bun AI privat, dar nu cel mai capabil AI, punct.</p>
+
         <h2 id="pentru-cine">Pentru cine este?</h2>
         <p>
-          Siri si Apple Intelligence sunt ideale pentru <strong>utilizatorii ecosistemului Apple</strong> care doresc functii AI integrate natural in experienta iOS, fara compromisuri la capitolul confidentialitate. Daca ai deja un iPhone 15 Pro sau mai nou si folosesti aplicatiile Apple zilnic (Mail, Mesaje, Note, Safari), vei beneficia enorm de Writing Tools si rezumarea notificarilor.
+          Siri si Apple Intelligence sunt ideale pentru categorii specifice de utilizatori, si recomandarile noastre sunt nuantate:
         </p>
         <p>
-          Nu este cea mai buna alegere daca ai nevoie de un AI conversational puternic pentru sarcini complexe — in acest caz, ChatGPT sau Google Gemini raman superioare. De asemenea, daca vorbesti predominant romana, vei intampina limitari pana cand Apple va adauga suport pentru limba romana.
+          <strong>Utilizatorii obsedati de confidentialitate:</strong> Daca confidentialitatea datelor este prioritatea ta absoluta, Apple Intelligence este singurul asistent AI care ofera procesare on-device cu un model de 3B parametri, Private Cloud Compute cu zero stocare si criptare end-to-end, si verificare publica independenta. Pentru jurnalisti, avocati, medici si oricine lucreaza cu date sensibile, aceasta este o garantie pe care ChatGPT si Google Gemini nu o pot oferi.
+        </p>
+        <p>
+          <strong>Utilizatorii ecosistemului Apple care vorbesc engleza:</strong> Daca ai un iPhone 15 Pro+ sau iPhone 16, folosesti aplicatiile Apple zilnic si limba principala este engleza (sau una din cele 12 limbi suportate), vei beneficia enorm de Writing Tools, rezumarea notificarilor si Smart Reply. Aceste functii se integreaza seamless in fluxul zilnic si economisesc timp real.
+        </p>
+        <p>
+          <strong>NU este cea mai buna alegere daca:</strong> Vorbesti predominant romana (functiile AI nu vor functiona), ai nevoie de un asistent conversational puternic (ChatGPT si Gemini sunt mult superioare), vrei sa generezi imagini fotorealiste (Apple exclude deliberat fotorealismul) sau ai un iPhone mai vechi de iPhone 15 Pro (nu esti compatibil).
+        </p>
+        <p>
+          <strong>Sfatul nostru:</strong> Activeaza Apple Intelligence daca ai un dispozitiv compatibil — este gratuit si nu ai nimic de pierdut. Dar completeaza cu ChatGPT sau Google Gemini din App Store pentru sarcini AI complexe. Aceasta combinatie (Apple Intelligence pentru confidentialitate si sarcini scurte + ChatGPT/Gemini pentru sarcini complexe) este cea mai puternica configuratie AI pe iPhone in 2026.
+        </p>
+        <p>
+          Pentru o comparatie completa a limitelor gratuite, citeste: <a href="../blog/limite-gratuite-ai-2026.html" style="color: #00d4ff;">Limite gratuite AI 2026 — Ce primesti fara sa platesti</a>.
         </p>
 
         <h2 id="verdict">Verdict final</h2>
         <p>
-          Apple Intelligence reprezinta un pas important pentru Apple in lumea AI. Abordarea axata pe <strong>confidentialitate si integrare la nivel de sistem</strong> este exact ceea ce multi utilizatori isi doreau. Writing Tools si rezumarea notificarilor sunt functii excelente care imbunatatesc productivitatea zilnica.
+          Apple Intelligence reprezinta cel mai important pas facut vreodata de Apple in lumea inteligentei artificiale. Abordarea axata pe <strong>confidentialitate si integrare la nivel de sistem</strong> este nu doar unica in industrie, ci reflecta filozofia fundamentala a Apple: tehnologia trebuie sa serveasca utilizatorul fara a-i compromite intimitatea. Modelul on-device de 3B parametri cu procesare sub 1 secunda, Private Cloud Compute cu zero stocare si criptare end-to-end, si verificarea publica independenta a codului server — aceasta este infrastructura de confidentialitate AI cea mai serioasa construita vreodata. Writing Tools sunt excelente, rezumarea notificarilor schimba modul in care interactionezi cu telefonul, iar Genmoji adauga o dimensiune creativa captivanta.
         </p>
         <p>
-          Totusi, <strong>nota de 3.5/5</strong> reflecta limitarile actuale: suport limitat de dispozitive, lipsa limbii romane si un Siri care inca nu este la nivelul competitiei pentru conversatii complexe. Apple Intelligence este un fundament solid, dar mai are drum de parcurs pana sa devina cu adevarat <em>inteligent</em> la nivelul asteptarilor utilizatorilor.
+          Totusi, <strong>nota de 3.5/5</strong> reflecta limitarile care tin Apple Intelligence departe de varf: compatibilitate cu doar ~40% din iPhone-urile active, lipsa limbii romane (una din cele mai mari piete europene Apple), un Siri care inca nu poate tine o conversatie complexa la nivelul ChatGPT sau Gemini, lipsa generarii de imagini fotorealiste si un ritm de evolutie mai lent decat competitia. Apple Intelligence este un fundament extraordinar — dar in aceasta cursa a AI-ului, un fundament nu este suficient. Trebuie sa construiesti rapid pe el, iar Apple trebuie sa accelereze semnificativ ritmul adaugarii de limbi, capabilitati conversationale si dispozitive compatibile.
         </p>
 
         <div class="tip-box tip-magenta">
           <strong>Recomandarea noastra</strong>
-          Daca ai un iPhone compatibil, activeaza Apple Intelligence din Setari — nu ai nimic de pierdut, fiind gratuit si integrat. Dar pentru sarcini AI avansate, completeaza cu ChatGPT sau Google Gemini din App Store.
+          Daca ai un iPhone 15 Pro, iPhone 16 sau mai nou, activeaza Apple Intelligence din Setari &rarr; Apple Intelligence &amp; Siri — nu ai nimic de pierdut, este gratuit si integrat. Seteaza limba pe engleza pentru a debloca toate functiile. Dar pentru sarcini AI avansate (conversatii complexe, programare, analiza de date, generare imagini fotorealiste), instaleaza ChatGPT sau Google Gemini din App Store. Combinatia Apple Intelligence + ChatGPT este cea mai puternica configuratie AI pe iPhone in 2026.
         </div>
       </div>
 
