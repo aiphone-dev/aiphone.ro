@@ -149,31 +149,20 @@
 
   <main>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="pulse"></span>
-          Hub educațional AI
-        </div>
-
-        <h1 class="hero-title">
+    <!-- ========== HERO (compact) ========== -->
+    <section class="hero" id="hero" style="min-height:auto;padding:4.5rem 1.5rem 1rem;">
+      <div class="hero-content" style="max-width:700px;">
+        <div id="deviceBanner" style="display:none;margin-bottom:0.75rem;padding:0.4rem 1rem;border-radius:100px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);font-size:0.8rem;color:var(--neon-blue);display:inline-flex;align-items:center;gap:0.4rem;"></div>
+        <h1 class="hero-title" style="font-size:clamp(1.8rem,4.5vw,3rem);margin-bottom:0.5rem;">
           <span class="line">Deblochează <span class="gradient-text">Geniul</span></span>
           <span class="line">din Telefonul Tău</span>
         </h1>
-
-        <p class="hero-subtitle">
-          Învață să folosești puterea Inteligenței Artificiale direct de pe smartphone-ul tău. Tutoriale pas cu pas pentru Android și iOS.
+        <p class="hero-subtitle" style="font-size:1rem;margin-bottom:1.25rem;">
+          Tutoriale AI pas cu pas pentru Android și iOS. Gratuit.
         </p>
-
-        <div class="hero-actions">
-          <a href="tutoriale.html" class="btn btn-primary">
-            <span class="btn-icon">⚡</span>
-            Începe Tutorialele
-          </a>
-          <a href="#android" class="btn btn-secondary">
-            Descoperă funcțiile AI
-          </a>
+        <div class="hero-actions" style="gap:0.75rem;">
+          <a href="tutoriale.html" class="btn btn-primary" style="padding:0.7rem 1.5rem;font-size:0.9rem;">⚡ Începe Tutorialele</a>
+          <a href="imei/index.html" class="btn btn-secondary" style="padding:0.7rem 1.5rem;font-size:0.9rem;">🔍 Verificare IMEI</a>
         </div>
       </div>
     </section>
@@ -434,5 +423,90 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script>
+  // Device detection - show personalized banner
+  (function() {
+    const ua = navigator.userAgent;
+    const banner = document.getElementById('deviceBanner');
+    if (!banner) return;
+
+    let device = null;
+    let platform = null;
+    let link = null;
+
+    // iOS detection
+    if (/iPhone/.test(ua)) {
+      const match = ua.match(/iPhone\s?(\d+)?/);
+      device = 'iPhone';
+      platform = 'ios';
+      link = 'recenzii/siri.html';
+      // Try to get model from platform
+      if (/iPhone17/.test(ua)) device = 'iPhone 15 Pro';
+      else if (/iPhone16/.test(ua)) device = 'iPhone 15';
+      else if (/iPhone15/.test(ua)) device = 'iPhone 14';
+      else if (/iPhone14/.test(ua)) device = 'iPhone 13';
+    }
+    // Samsung detection
+    else if (/SM-[A-Z]|Samsung|SAMSUNG/.test(ua)) {
+      device = 'Samsung Galaxy';
+      platform = 'android';
+      link = 'recenzii/galaxy-ai.html';
+      const sm = ua.match(/SM-([A-Z]\d{3}[A-Z]?)/);
+      if (sm) {
+        const code = sm[1];
+        if (code.startsWith('S9')) device = 'Samsung Galaxy S24';
+        else if (code.startsWith('S8')) device = 'Samsung Galaxy S23';
+        else if (code.startsWith('A5')) device = 'Samsung Galaxy A54';
+        else if (code.startsWith('A3')) device = 'Samsung Galaxy A34';
+      }
+    }
+    // Google Pixel
+    else if (/Pixel/.test(ua)) {
+      const px = ua.match(/Pixel\s?(\d+a?\s?Pro)?/);
+      device = px ? 'Google ' + px[0].trim() : 'Google Pixel';
+      platform = 'android';
+      link = 'recenzii/google-gemini.html';
+    }
+    // Xiaomi
+    else if (/Xiaomi|Redmi|POCO|Mi\s/.test(ua)) {
+      device = 'Xiaomi';
+      platform = 'android';
+      const xi = ua.match(/(Redmi\s?Note\s?\d+|POCO\s?[A-Z]\d+|Xiaomi\s?\d+)/i);
+      if (xi) device = xi[0];
+      link = 'recenzii/google-gemini.html';
+    }
+    // OnePlus
+    else if (/OnePlus|IN20|KB20/.test(ua)) {
+      device = 'OnePlus';
+      platform = 'android';
+      link = 'recenzii/google-gemini.html';
+    }
+    // Huawei
+    else if (/Huawei|HUAWEI/.test(ua)) {
+      device = 'Huawei';
+      platform = 'android';
+      link = 'recenzii/google-gemini.html';
+    }
+    // Generic Android
+    else if (/Android/.test(ua)) {
+      device = 'Android';
+      platform = 'android';
+      link = 'recenzii/google-gemini.html';
+    }
+    // iPad
+    else if (/iPad/.test(ua) || (/Macintosh/.test(ua) && 'ontouchend' in document)) {
+      device = 'iPad';
+      platform = 'ios';
+      link = 'recenzii/siri.html';
+    }
+
+    if (device && platform) {
+      const emoji = platform === 'ios' ? '🍎' : '🤖';
+      const aiName = platform === 'ios' ? 'Apple Intelligence' : 'Google Gemini';
+      banner.style.display = 'inline-flex';
+      banner.innerHTML = emoji + ' Detectat: <strong>' + device + '</strong> · <a href="' + link + '" style="color:var(--neon-magenta);font-weight:600;">Descoperă ' + aiName + ' →</a>';
+    }
+  })();
+  </script>
 </body>
 </html>
