@@ -2348,7 +2348,10 @@ main {
   gap: 1.5rem;
 }
 .hp-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+.hp-section:last-child {
+  margin-bottom: 0;
 }
 .hp-section-header {
   display: flex;
