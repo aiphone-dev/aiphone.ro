@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+<defs>
+  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00d4ff"/>
+    <stop offset="100%" stop-color="#ff00e5"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:0.75}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  @keyframes draw{0%{stroke-dashoffset:200}100%{stroke-dashoffset:0}}
+  .pulse{animation:pulse 3s ease-in-out infinite}
+  .float{animation:float 3.5s ease-in-out infinite}
+  .draw{animation:draw 4s linear infinite}
+</style>
+<rect width="1200" height="400" fill="#0a0a0f"/>
+<!-- Brain outline center -->
+<g transform="translate(600,185)" filter="url(#glow)" class="float" opacity="0.6">
+  <path d="M-5 -70 Q-45 -72 -60 -45 Q-75 -18 -60 5 Q-70 15 -65 35 Q-60 60 -35 65 Q-20 68 -5 55 L-5 -70" stroke="#00d4ff" stroke-width="2" fill="none"/>
+  <path d="M5 -70 Q45 -72 60 -45 Q75 -18 60 5 Q70 15 65 35 Q60 60 35 65 Q20 68 5 55 L5 -70" stroke="#ff00e5" stroke-width="2" fill="none"/>
+  <line x1="-5" y1="-70" x2="-5" y2="55" stroke="url(#g1)" stroke-width="0.8" opacity="0.3"/>
+  <line x1="5" y1="-70" x2="5" y2="55" stroke="url(#g1)" stroke-width="0.8" opacity="0.3"/>
+  <!-- Brain folds left -->
+  <path d="M-55 -30 Q-35 -25 -20 -35" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.4"/>
+  <path d="M-60 0 Q-40 5 -15 -5" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.35"/>
+  <path d="M-55 30 Q-35 35 -15 25" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.3"/>
+  <!-- Brain folds right -->
+  <path d="M55 -30 Q35 -25 20 -35" stroke="#ff00e5" stroke-width="1" fill="none" opacity="0.4"/>
+  <path d="M60 0 Q40 5 15 -5" stroke="#ff00e5" stroke-width="1" fill="none" opacity="0.35"/>
+  <path d="M55 30 Q35 35 15 25" stroke="#ff00e5" stroke-width="1" fill="none" opacity="0.3"/>
+</g>
+<!-- Writing tool lines left -->
+<g transform="translate(230,170)" opacity="0.45" filter="url(#glow)">
+  <!-- Pencil shape -->
+  <line x1="0" y1="0" x2="60" y2="-60" stroke="#00d4ff" stroke-width="2"/>
+  <path d="M55 -55 L65 -65 L70 -60 L60 -50" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+  <path d="M0 0 L-3 8 L5 5 Z" stroke="#00d4ff" stroke-width="1" fill="#00d4ff" fill-opacity="0.3"/>
+  <!-- Text lines -->
+  <line x1="-20" y1="30" x2="70" y2="30" stroke="#00d4ff" stroke-width="1.5" opacity="0.4" stroke-dasharray="200" class="draw"/>
+  <line x1="-20" y1="45" x2="55" y2="45" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="200" class="draw" style="animation-delay:0.5s"/>
+  <line x1="-20" y1="60" x2="45" y2="60" stroke="#00d4ff" stroke-width="1" opacity="0.25" stroke-dasharray="200" class="draw" style="animation-delay:1s"/>
+</g>
+<!-- Notification bell right -->
+<g transform="translate(950,160)" opacity="0.45" filter="url(#glow)">
+  <path d="M0 -50 Q-30 -45 -35 -15 L-38 15 L-45 25 L45 25 L38 15 L35 -15 Q30 -45 0 -50" stroke="#ff00e5" stroke-width="2" fill="none"/>
+  <line x1="0" y1="-55" x2="0" y2="-50" stroke="#ff00e5" stroke-width="2" opacity="0.6"/>
+  <circle cy="-57" r="3" fill="#ff00e5" opacity="0.5"/>
+  <path d="M-12 25 Q-12 40 0 40 Q12 40 12 25" stroke="#ff00e5" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Notification dot -->
+  <circle cx="25" cy="-40" r="8" stroke="#00d4ff" stroke-width="1.5" fill="#00d4ff" fill-opacity="0.15" class="pulse"/>
+</g>
+<!-- Clean minimalist geometric shapes -->
+<g opacity="0.12">
+  <rect x="100" y="60" width="80" height="80" rx="2" stroke="#00d4ff" stroke-width="0.8" fill="none"/>
+  <circle cx="1100" cy="100" r="40" stroke="#ff00e5" stroke-width="0.8" fill="none"/>
+  <polygon points="450,340 475,300 500,340" stroke="url(#g1)" stroke-width="0.8" fill="none"/>
+  <rect x="780" y="310" width="60" height="60" rx="2" stroke="#ff00e5" stroke-width="0.8" fill="none" transform="rotate(45 810 340)"/>
+</g>
+<!-- Subtle connection dots -->
+<g opacity="0.2" class="pulse">
+  <circle cx="400" cy="180" r="2.5" fill="#00d4ff"/>
+  <circle cx="800" cy="185" r="2.5" fill="#ff00e5"/>
+  <line x1="400" y1="180" x2="530" y2="185" stroke="#00d4ff" stroke-width="0.6" stroke-dasharray="3 3"/>
+  <line x1="670" y1="185" x2="800" y2="185" stroke="#ff00e5" stroke-width="0.6" stroke-dasharray="3 3"/>
+</g>
+<!-- Decorative background circles -->
+<circle cx="150" cy="330" r="25" stroke="#00d4ff" stroke-width="0.8" fill="none" opacity="0.1"/>
+<circle cx="1050" cy="320" r="30" stroke="#ff00e5" stroke-width="0.8" fill="none" opacity="0.1"/>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+<defs>
+  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00d4ff"/>
+    <stop offset="100%" stop-color="#ff00e5"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:0.8}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes launch{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes circuit{0%{stroke-dashoffset:40}100%{stroke-dashoffset:0}}
+  .pulse{animation:pulse 3s ease-in-out infinite}
+  .float{animation:float 3.5s ease-in-out infinite}
+  .launch{animation:launch 2.5s ease-in-out infinite}
+  .circuit{animation:circuit 3s linear infinite}
+</style>
+<rect width="1200" height="400" fill="#0a0a0f"/>
+<!-- Rocket left -->
+<g transform="translate(250,180)" filter="url(#glow)" class="launch" opacity="0.55">
+  <path d="M0 -80 Q-5 -70 -15 -30 L-15 30 L-30 55 L-15 45 L-15 55 L0 45 L15 55 L15 45 L30 55 L15 30 L15 -30 Q5 -70 0 -80 Z" stroke="url(#g1)" stroke-width="2" fill="none"/>
+  <circle cy="-40" r="8" stroke="#00d4ff" stroke-width="1.5" fill="#00d4ff" fill-opacity="0.1" opacity="0.6"/>
+  <rect x="-8" y="-15" width="16" height="18" rx="3" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- Exhaust flames -->
+  <path d="M-8 55 Q-5 75 0 65 Q5 75 8 55" stroke="#ff00e5" stroke-width="1.5" fill="none" opacity="0.5" class="pulse"/>
+  <path d="M-4 60 Q0 80 4 60" stroke="#ff00e5" stroke-width="1" fill="none" opacity="0.3" class="pulse"/>
+</g>
+<!-- Timeline arrow center -->
+<g transform="translate(400,310)" opacity="0.4" filter="url(#glow)">
+  <line x1="0" y1="0" x2="400" y2="0" stroke="url(#g1)" stroke-width="2"/>
+  <path d="M395 -8 L410 0 L395 8" stroke="url(#g1)" stroke-width="2" fill="none"/>
+  <!-- Timeline dots -->
+  <circle cx="80" r="5" stroke="#00d4ff" stroke-width="1.5" fill="#00d4ff" fill-opacity="0.15"/>
+  <circle cx="180" r="6" stroke="url(#g1)" stroke-width="1.5" fill="url(#g1)" fill-opacity="0.1"/>
+  <circle cx="290" r="7" stroke="#ff00e5" stroke-width="1.5" fill="#ff00e5" fill-opacity="0.1" class="pulse"/>
+  <line x1="80" y1="-5" x2="80" y2="-20" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+  <line x1="180" y1="-6" x2="180" y2="-25" stroke="url(#g1)" stroke-width="1" opacity="0.4"/>
+  <line x1="290" y1="-7" x2="290" y2="-30" stroke="#ff00e5" stroke-width="1" opacity="0.4"/>
+</g>
+<!-- Holographic phone center-right -->
+<g transform="translate(750,170)" filter="url(#glow)" class="float" opacity="0.55">
+  <rect x="-30" y="-70" width="60" height="120" rx="8" stroke="url(#g1)" stroke-width="2" fill="none"/>
+  <rect x="-22" y="-58" width="44" height="90" rx="3" stroke="#00d4ff" stroke-width="0.8" fill="none" opacity="0.25"/>
+  <!-- Holographic projection above -->
+  <path d="M-22 -58 L-45 -110 L45 -110 L22 -58" stroke="#00d4ff" stroke-width="1" fill="#00d4ff" fill-opacity="0.03" opacity="0.4"/>
+  <path d="M-35 -90 L35 -90" stroke="#00d4ff" stroke-width="0.8" fill="none" opacity="0.3"/>
+  <path d="M-40 -100 L40 -100" stroke="#ff00e5" stroke-width="0.8" fill="none" opacity="0.25"/>
+  <!-- Hologram diamond shape -->
+  <path d="M0 -85 L12 -100 L0 -115 L-12 -100 Z" stroke="#ff00e5" stroke-width="1.5" fill="#ff00e5" fill-opacity="0.08" opacity="0.5" class="pulse"/>
+  <!-- Screen lines -->
+  <line x1="-15" y1="-40" x2="15" y2="-40" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
+  <line x1="-15" y1="-30" x2="10" y2="-30" stroke="#00d4ff" stroke-width="0.8" opacity="0.25"/>
+  <line x1="-15" y1="-20" x2="12" y2="-20" stroke="#ff00e5" stroke-width="0.8" opacity="0.2"/>
+</g>
+<!-- Futuristic circuit patterns right -->
+<g transform="translate(980,120)" opacity="0.3">
+  <path d="M0 0 L40 0 L40 30 L70 30 L70 0 L110 0" stroke="#ff00e5" stroke-width="1.5" stroke-dasharray="40" fill="none" class="circuit"/>
+  <path d="M0 50 L30 50 L30 20 L60 20" stroke="#ff00e5" stroke-width="1" stroke-dasharray="40" fill="none" class="circuit" style="animation-delay:1s"/>
+  <path d="M20 80 L50 80 L50 60 L90 60 L90 80 L120 80" stroke="#ff00e5" stroke-width="1" stroke-dasharray="40" fill="none" class="circuit" style="animation-delay:2s"/>
+  <!-- Junction dots -->
+  <circle cx="40" cy="0" r="2.5" fill="#ff00e5" opacity="0.5"/>
+  <circle cx="70" cy="30" r="2.5" fill="#ff00e5" opacity="0.5"/>
+  <circle cx="30" cy="50" r="2" fill="#ff00e5" opacity="0.4"/>
+  <circle cx="50" cy="80" r="2" fill="#ff00e5" opacity="0.4"/>
+  <circle cx="90" cy="60" r="2" fill="#ff00e5" opacity="0.4"/>
+</g>
+<!-- Circuit patterns left background -->
+<g transform="translate(80,80)" opacity="0.2">
+  <path d="M0 0 L30 0 L30 25 L60 25" stroke="#00d4ff" stroke-width="1" stroke-dasharray="40" fill="none" class="circuit"/>
+  <path d="M10 40 L40 40 L40 60 L70 60" stroke="#00d4ff" stroke-width="1" stroke-dasharray="40" fill="none" class="circuit" style="animation-delay:1.5s"/>
+  <circle cx="30" cy="0" r="2" fill="#00d4ff" opacity="0.4"/>
+  <circle cx="40" cy="40" r="2" fill="#00d4ff" opacity="0.4"/>
+</g>
+<!-- Scattered futuristic dots -->
+<g opacity="0.2" class="pulse">
+  <circle cx="450" cy="100" r="2" fill="#00d4ff"/>
+  <circle cx="550" cy="80" r="1.5" fill="#ff00e5"/>
+  <circle cx="880" cy="300" r="2" fill="#ff00e5"/>
+  <circle cx="350" cy="350" r="1.5" fill="#00d4ff"/>
+</g>
+<!-- Decorative background circles -->
+<circle cx="150" cy="330" r="28" stroke="#00d4ff" stroke-width="0.8" fill="none" opacity="0.1"/>
+<circle cx="1080" cy="320" r="32" stroke="#ff00e5" stroke-width="0.8" fill="none" opacity="0.1"/>
+</svg>
