@@ -163,170 +163,127 @@
       </div>
     </section>
 
-    <!-- ========== MAIN CONTENT GRID ========== -->
-    <div class="hp-grid">
+    <!-- ========== CONTENT FEED (single column, mixed) ========== -->
+    <div style="max-width:800px;margin:0 auto;padding:0.5rem 1rem 2rem;">
 
-      <!-- LEFT COLUMN (main, wider) -->
-      <div class="hp-main">
-
-        <!-- Ultimele Articole -->
-        <div class="hp-section">
-          <div class="hp-section-header">
-            <h2>Ultimele Articole</h2>
-            <a href="blog.html">Vezi toate →</a>
+      <!-- 2 Featured (side by side) -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
+        <a href="blog/limite-gratuite-ai-2026.html" class="hp-featured" style="margin:0;">
+          <img src="img/blog/ai-robots.jpg" alt="Limite AI 2026" loading="lazy" style="height:130px;">
+          <div class="hp-featured-content" style="padding:0.5rem 0.75rem;">
+            <span class="hp-tag">Blog</span>
+            <h3 style="font-size:0.85rem;">Cât AI poți folosi gratuit în 2026?</h3>
           </div>
-
-          <!-- Featured articles (2 side by side on desktop) -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;">
-            <a href="blog/limite-gratuite-ai-2026.html" class="hp-featured" style="margin-bottom:0;">
-              <img src="img/blog/ai-robots.jpg" alt="Limite AI 2026" loading="lazy" style="height:140px;">
-              <div class="hp-featured-content" style="padding:0.5rem 0.75rem;">
-                <span class="hp-tag">Aplicații</span>
-                <h3 style="font-size:0.9rem;">Cât AI poți folosi gratuit în 2026?</h3>
-              </div>
-            </a>
-            <a href="blog/cele-mai-bune-vpn-telefon.html" class="hp-featured" style="margin-bottom:0;">
-              <img src="img/blog/vpn-security.jpg" alt="VPN telefon" loading="lazy" style="height:140px;">
-              <div class="hp-featured-content" style="padding:0.5rem 0.75rem;">
-                <span class="hp-tag">Securitate</span>
-                <h3 style="font-size:0.9rem;">Cele mai bune VPN-uri pentru telefon</h3>
-              </div>
-            </a>
+        </a>
+        <a href="recenzii/chatgpt.html" class="hp-featured" style="margin:0;">
+          <img src="img/blog/ai-chatbot-phone.jpg" alt="ChatGPT recenzie" loading="lazy" style="height:130px;">
+          <div class="hp-featured-content" style="padding:0.5rem 0.75rem;">
+            <span class="hp-tag" style="color:var(--neon-magenta);">Recenzie</span>
+            <h3 style="font-size:0.85rem;">ChatGPT — Cel mai popular AI ★4.5</h3>
           </div>
-
-          <!-- Article list (compact, no images, just titles) -->
-          <div class="hp-article-list">
-            <a href="blog/cele-mai-bune-vpn-telefon.html" class="hp-article-item">
-              <span class="hp-tag-sm">Securitate</span>
-              <span class="hp-article-title">Cele mai bune VPN-uri pentru telefon în 2026</span>
-              <span class="hp-date-sm">21 Mar</span>
-            </a>
-            <a href="blog/google-gemini-android.html" class="hp-article-item">
-              <span class="hp-tag-sm">Android</span>
-              <span class="hp-article-title">Ce este Google Gemini și cum îl folosești pe Android?</span>
-              <span class="hp-date-sm">15 Mar</span>
-            </a>
-            <a href="blog/galaxy-ai-functii.html" class="hp-article-item">
-              <span class="hp-tag-sm">Samsung</span>
-              <span class="hp-article-title">5 funcții Galaxy AI pe care trebuie să le încerci</span>
-              <span class="hp-date-sm">12 Mar</span>
-            </a>
-            <a href="blog/apple-intelligence-ghid.html" class="hp-article-item">
-              <span class="hp-tag-sm">iOS</span>
-              <span class="hp-article-title">Apple Intelligence: Ghid complet pentru începători</span>
-              <span class="hp-date-sm">10 Mar</span>
-            </a>
-            <a href="blog/confidentialitate-ai-telefon.html" class="hp-article-item">
-              <span class="hp-tag-sm">Securitate</span>
-              <span class="hp-article-title">Cum protejezi confidențialitatea când folosești AI pe telefon</span>
-              <span class="hp-date-sm">8 Mar</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Tutoriale Populare -->
-        <div class="hp-section">
-          <div class="hp-section-header">
-            <h2>Tutoriale Populare</h2>
-            <a href="tutoriale.html">Vezi toate →</a>
-          </div>
-          <div class="hp-tut-grid">
-            <a href="tutoriale/planifica-vacanta-cu-ai.html" class="hp-tut-card">
-              <img src="img/tutorials/travel-planning.jpg" alt="" loading="lazy">
-              <div class="hp-tut-info">
-                <h4>Planifică o vacanță cu AI</h4>
-                <span>10 min · Începător</span>
-              </div>
-            </a>
-            <a href="tutoriale/editeaza-poze-cu-ai.html" class="hp-tut-card">
-              <img src="img/tutorials/photo-editing.jpg" alt="" loading="lazy">
-              <div class="hp-tut-info">
-                <h4>Editează fotografii cu AI</h4>
-                <span>8 min · Începător</span>
-              </div>
-            </a>
-            <a href="tutoriale/creeaza-imagini-cu-ai.html" class="hp-tut-card">
-              <img src="img/tutorials/creative-art.jpg" alt="" loading="lazy">
-              <div class="hp-tut-info">
-                <h4>Creează imagini cu AI</h4>
-                <span>12 min · Intermediar</span>
-              </div>
-            </a>
-            <a href="tutoriale/traduceri-instantanee-cu-ai.html" class="hp-tut-card">
-              <img src="img/tutorials/globe-translation.jpg" alt="" loading="lazy">
-              <div class="hp-tut-info">
-                <h4>Traduceri instantanee cu AI</h4>
-                <span>7 min · Intermediar</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
+        </a>
       </div>
 
-      <!-- RIGHT SIDEBAR -->
-      <div class="hp-sidebar">
-
-        <!-- Recenzii -->
-        <div class="hp-section">
-          <div class="hp-section-header">
-            <h2>Ultimele Recenzii</h2>
-            <a href="recenzii.html">Toate →</a>
-          </div>
-          <div class="hp-review-list">
-            <a href="recenzii/chatgpt.html" class="hp-review-item">
-              <span class="hp-review-icon" style="background:linear-gradient(135deg,#10a37f,#0d8c6d);">C</span>
-              <div>
-                <span class="hp-review-name">ChatGPT</span>
-                <span class="hp-review-stars">★★★★½</span>
-              </div>
-            </a>
-            <a href="recenzii/google-gemini.html" class="hp-review-item">
-              <span class="hp-review-icon" style="background:linear-gradient(135deg,#4285f4,#34a853);">G</span>
-              <div>
-                <span class="hp-review-name">Google Gemini</span>
-                <span class="hp-review-stars">★★★★½</span>
-              </div>
-            </a>
-            <a href="recenzii/copilot.html" class="hp-review-item">
-              <span class="hp-review-icon" style="background:linear-gradient(135deg,#0078d4,#005a9e);">M</span>
-              <div>
-                <span class="hp-review-name">Microsoft Copilot</span>
-                <span class="hp-review-stars">★★★★</span>
-              </div>
-            </a>
-            <a href="recenzii/galaxy-ai.html" class="hp-review-item">
-              <span class="hp-review-icon" style="background:linear-gradient(135deg,#1428a0,#0d47a1);">S</span>
-              <div>
-                <span class="hp-review-name">Galaxy AI</span>
-                <span class="hp-review-stars">★★★★</span>
-              </div>
-            </a>
-            <a href="recenzii/siri.html" class="hp-review-item">
-              <span class="hp-review-icon" style="background:linear-gradient(135deg,#555,#333);">A</span>
-              <div>
-                <span class="hp-review-name">Siri & Apple Intelligence</span>
-                <span class="hp-review-stars">★★★½</span>
-              </div>
-            </a>
-          </div>
+      <!-- Unified feed: articole + recenzii amestecate cronologic -->
+      <div class="hp-section">
+        <div class="hp-section-header">
+          <h2>Nou pe AIphone.ro</h2>
+          <a href="blog.html">Tot conținutul →</a>
         </div>
-
-        <!-- Newsletter compact -->
-        <div class="hp-section">
-          <div class="hp-newsletter">
-            <strong>📬 Newsletter</strong>
-            <p>Tutoriale AI săptămânal, gratuit.</p>
-            <form id="newsletterForm" style="display:flex;gap:0.4rem;">
-              <input type="email" id="newsletterEmail" placeholder="email@..." required style="flex:1;padding:0.4rem 0.6rem;border-radius:6px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:0.8rem;outline:none;">
-              <button type="submit" style="padding:0.4rem 0.8rem;border-radius:6px;background:linear-gradient(135deg,var(--neon-blue),var(--neon-magenta));color:#0a0a0f;font-weight:700;font-size:0.75rem;border:none;cursor:pointer;white-space:nowrap;">Abonează-te</button>
-            </form>
-            <div id="newsletterSuccess" hidden style="font-size:0.8rem;color:#34d399;margin-top:0.3rem;">✅ Verifică emailul!</div>
-            <p style="font-size:0.65rem;color:var(--text-muted);margin-top:0.3rem;"><a href="confidentialitate.html" style="color:var(--text-muted);">Politica de confidențialitate</a></p>
-          </div>
+        <div class="hp-article-list">
+          <a href="blog/cele-mai-bune-vpn-telefon.html" class="hp-article-item">
+            <span class="hp-tag-sm">Blog</span>
+            <span class="hp-article-title">Cele mai bune VPN-uri pentru telefon în 2026</span>
+            <span class="hp-date-sm">21 Mar</span>
+          </a>
+          <a href="recenzii/google-gemini.html" class="hp-article-item">
+            <span class="hp-tag-sm" style="color:#4285f4;">Recenzie</span>
+            <span class="hp-article-title">Google Gemini — recenzie completă ★4.5</span>
+            <span class="hp-date-sm">20 Mar</span>
+          </a>
+          <a href="blog/google-gemini-android.html" class="hp-article-item">
+            <span class="hp-tag-sm">Blog</span>
+            <span class="hp-article-title">Ce este Google Gemini și cum îl folosești pe Android?</span>
+            <span class="hp-date-sm">15 Mar</span>
+          </a>
+          <a href="recenzii/copilot.html" class="hp-article-item">
+            <span class="hp-tag-sm" style="color:#0078d4;">Recenzie</span>
+            <span class="hp-article-title">Microsoft Copilot — cel mai generos AI gratuit ★4.0</span>
+            <span class="hp-date-sm">14 Mar</span>
+          </a>
+          <a href="blog/galaxy-ai-functii.html" class="hp-article-item">
+            <span class="hp-tag-sm">Blog</span>
+            <span class="hp-article-title">5 funcții Galaxy AI pe care trebuie să le încerci</span>
+            <span class="hp-date-sm">12 Mar</span>
+          </a>
+          <a href="blog/apple-intelligence-ghid.html" class="hp-article-item">
+            <span class="hp-tag-sm">Blog</span>
+            <span class="hp-article-title">Apple Intelligence: Ghid complet pentru începători</span>
+            <span class="hp-date-sm">10 Mar</span>
+          </a>
+          <a href="recenzii/galaxy-ai.html" class="hp-article-item">
+            <span class="hp-tag-sm" style="color:#1428a0;">Recenzie</span>
+            <span class="hp-article-title">Galaxy AI — suita Samsung integrată nativ ★4.0</span>
+            <span class="hp-date-sm">9 Mar</span>
+          </a>
+          <a href="blog/confidentialitate-ai-telefon.html" class="hp-article-item">
+            <span class="hp-tag-sm">Blog</span>
+            <span class="hp-article-title">Cum protejezi confidențialitatea când folosești AI</span>
+            <span class="hp-date-sm">8 Mar</span>
+          </a>
         </div>
-
       </div>
+
+      <!-- Tutoriale (horizontal scroll pe mobil) -->
+      <div class="hp-section">
+        <div class="hp-section-header">
+          <h2>Tutoriale Populare</h2>
+          <a href="tutoriale.html">Toate →</a>
+        </div>
+        <div class="hp-tut-grid">
+          <a href="tutoriale/planifica-vacanta-cu-ai.html" class="hp-tut-card">
+            <img src="img/tutorials/travel-planning.jpg" alt="" loading="lazy">
+            <div class="hp-tut-info">
+              <h4>Planifică vacanța cu AI</h4>
+              <span>10 min</span>
+            </div>
+          </a>
+          <a href="tutoriale/editeaza-poze-cu-ai.html" class="hp-tut-card">
+            <img src="img/tutorials/photo-editing.jpg" alt="" loading="lazy">
+            <div class="hp-tut-info">
+              <h4>Editare foto cu AI</h4>
+              <span>8 min</span>
+            </div>
+          </a>
+          <a href="tutoriale/creeaza-imagini-cu-ai.html" class="hp-tut-card">
+            <img src="img/tutorials/creative-art.jpg" alt="" loading="lazy">
+            <div class="hp-tut-info">
+              <h4>Creează imagini cu AI</h4>
+              <span>12 min</span>
+            </div>
+          </a>
+          <a href="tutoriale/traduceri-instantanee-cu-ai.html" class="hp-tut-card">
+            <img src="img/tutorials/globe-translation.jpg" alt="" loading="lazy">
+            <div class="hp-tut-info">
+              <h4>Traduceri cu AI</h4>
+              <span>7 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter inline -->
+      <div class="hp-newsletter" style="margin-top:0.5rem;">
+        <strong>📬 Newsletter</strong>
+        <p>Tutoriale AI săptămânal, gratuit.</p>
+        <form id="newsletterForm" style="display:flex;gap:0.4rem;">
+          <input type="email" id="newsletterEmail" placeholder="email@..." required style="flex:1;padding:0.4rem 0.6rem;border-radius:6px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:0.8rem;outline:none;">
+          <button type="submit" style="padding:0.4rem 0.8rem;border-radius:6px;background:linear-gradient(135deg,var(--neon-blue),var(--neon-magenta));color:#0a0a0f;font-weight:700;font-size:0.75rem;border:none;cursor:pointer;white-space:nowrap;">Abonează-te</button>
+        </form>
+        <div id="newsletterSuccess" hidden style="font-size:0.8rem;color:#34d399;margin-top:0.3rem;">✅ Verifică emailul!</div>
+        <p style="font-size:0.65rem;color:var(--text-muted);margin-top:0.3rem;"><a href="confidentialitate.html" style="color:var(--text-muted);">Politica de confidențialitate</a></p>
+      </div>
+
     </div>
 
   </main>
