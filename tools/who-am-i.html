@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Află totul despre telefonul tău: model, sistem de operare, browser, ecran, hardware, rețea, baterie și funcții AI disponibile. 100% client-side.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Who Am I? - Detectare Dispozitiv | AIphone.ro">
+  <meta property="og:description" content="Află instant toate detaliile despre telefonul și browser-ul tău. Fără server, totul rulează local.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../img/og-image.png">
+  <title>Who Am I? - Detectare Dispozitiv | AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <style>
+    /* ===== Who Am I - Device Detection Tool ===== */
+
+    .wai-hero {
+      padding: 4rem 1rem 1rem;
+      text-align: center;
+    }
+    .wai-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      color: #a5b4fc;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .wai-hero-title {
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 0.25rem;
+      line-height: 1.1;
+    }
+    .wai-hero-title .gradient-text {
+      background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .wai-subtitle {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Result card */
+    .wai-results {
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .result-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      animation: fadeInUp 0.4s ease-out;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .rc-header {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .rc-device-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .rc-section-title {
+      padding: 0.5rem 1rem 0.15rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .rc-row {
+      padding: 0.35rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      align-items: center;
+    }
+    .rc-row:last-child { border-bottom: none; }
+
+    .rc-item {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
+    }
+    .rc-item strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .rc-item .rc-label {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .rc-item-full {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      width: 100%;
+      white-space: normal;
+      word-break: break-all;
+    }
+    .rc-item-full strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* AI features badge */
+    .ai-feature-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      color: #a5b4fc;
+      margin: 0.15rem 0.15rem 0.15rem 0;
+    }
+
+    .ai-link {
+      font-size: 0.72rem;
+      color: #a5b4fc;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .ai-link:hover { color: #c4b5fd; }
+
+    /* Web support badges */
+    .web-badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin: 0.1rem;
+    }
+    .web-badge.yes { background: rgba(16,185,129,0.12); color: #34d399; }
+    .web-badge.no { background: rgba(239,68,68,0.1); color: #f87171; }
+
+    /* Actions */
+    .rc-actions {
+      padding: 0.5rem 1rem;
+      display: flex;
+      gap: 0.4rem;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .rc-act {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .rc-act:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+    .rc-act-primary {
+      border-color: rgba(99,102,241,0.3);
+      background: rgba(99,102,241,0.1);
+      color: #a5b4fc;
+    }
+    .rc-act-primary:hover {
+      background: rgba(99,102,241,0.2);
+      color: #c4b5fd;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(16,185,129,0.95);
+      color: #fff;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Battery bar */
+    .battery-bar {
+      display: inline-block;
+      width: 40px;
+      height: 12px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 2px;
+      position: relative;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+    .battery-bar::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 2px;
+      width: 2px;
+      height: 6px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 0 1px 1px 0;
+    }
+    .battery-fill {
+      height: 100%;
+      border-radius: 1px;
+      transition: width 0.3s;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .rc-header { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+      .rc-actions { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principala">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasa</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../tools.html" class="active" style="color: #a5b4fc;">Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="searchToggle" aria-label="Cauta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-btn" id="themeToggle" aria-label="Schimba tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="wai-hero">
+      <div class="wai-hero-badge">Device Detection &#8226; 100% Client-Side &#8226; Zero tracking</div>
+      <h1 class="wai-hero-title">Who Am <span class="gradient-text">I?</span></h1>
+      <p class="wai-subtitle">Afl&#259; totul despre dispozitivul t&#259;u</p>
+    </section>
+
+    <!-- Results -->
+    <div class="wai-results">
+      <div class="result-card" id="resultCard">
+        <div class="rc-header">
+          <span class="rc-device-name" id="headerDevice">&#128241; Se detecteaz&#259;...</span>
+        </div>
+        <div id="resultBody"></div>
+        <div class="rc-actions">
+          <button class="rc-act rc-act-primary" onclick="refreshDetect()">&#8635; Redetecteaz&#259;</button>
+          <button class="rc-act" onclick="copyAllInfo()">&#128203; Copiaz&#259; tot</button>
+          <button class="rc-act" onclick="shareInfo()">&#128279; Share</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro &mdash; Hub educational pentru Inteligenta Artificiala pe smartphone.
+      </p>
+      <p class="footer-text" style="margin-top:0.5rem;">
+        <a href="../confidentialitate.html">Confiden&#539;ialitate</a> &middot; <a href="../termeni.html">Termeni</a> &middot; <a href="../cookies.html">Cookies</a>
+      </p>
+      <p class="footer-disclaimer">
+        AIphone.ro este un proiect editorial independent. Nu suntem afilia&#539;i, sponsoriza&#539;i sau asocia&#539;i cu Apple Inc., Samsung Electronics, Google LLC, OpenAI, Microsoft Corporation sau orice alt produc&#259;tor men&#539;ionat pe acest site. Toate numele de produse, logo-urile &#537;i m&#259;rcile apar&#539;in de&#539;in&#259;torilor respectivi. Con&#539;inutul este oferit exclusiv &#238;n scop educa&#539;ional &#537;i informativ. Informa&#539;iile despre dispozitiv sunt detectate local &#238;n browser-ul t&#259;u &#537;i nu sunt transmise c&#259;tre niciun server.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Inapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consim&#539;&#259;m&#226;nt cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>&#127850; Acest site folose&#537;te cookie-uri</strong>
+        <p>Folosim cookie-uri esen&#539;iale pentru func&#539;ionarea site-ului &#537;i cookie-uri analitice pentru a &#238;n&#539;elege cum este utilizat. Po&#539;i alege ce cookie-uri accep&#539;i.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Set&#259;ri</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz op&#539;ionale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esen&#539;iale</strong>
+          <span>Necesare pentru func&#539;ionarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajut&#259; s&#259; &#238;mbun&#259;t&#259;&#539;im experien&#539;a</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salveaz&#259; preferin&#539;ele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+
+  <script>
+  /* ============================================
+     Who Am I? - Device Detection (all client-side)
+     ============================================ */
+
+  var detectedInfo = {};
+
+  function detectAll() {
+    var ua = navigator.userAgent || '';
+    var uaLower = ua.toLowerCase();
+
+    // --- 1. Device ---
+    var brand = 'Necunoscut';
+    var model = '';
+    var deviceType = 'Desktop';
+
+    // Detect device type
+    if (/iPad|tablet/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua))) {
+      deviceType = 'Tablet';
+    } else if (/Mobile|Android.*Mobile|iPhone|iPod/i.test(ua)) {
+      deviceType = 'Smartphone';
+    }
+
+    // Detect brand and model
+    if (/iPhone/i.test(ua)) {
+      brand = 'Apple';
+      model = 'iPhone';
+      // Try to get specific model from screen size
+      var w = screen.width, h = screen.height;
+      var s = Math.min(w, h) + 'x' + Math.max(w, h);
+      var dpr = window.devicePixelRatio || 1;
+      if (s === '430x932') model = 'iPhone 15 Pro Max / 16 Pro Max';
+      else if (s === '393x852' && dpr === 3) model = 'iPhone 15 Pro / 16 Pro / 15 / 16';
+      else if (s === '414x896' && dpr === 3) model = 'iPhone 11 Pro Max / XS Max';
+      else if (s === '414x896' && dpr === 2) model = 'iPhone 11 / XR';
+      else if (s === '390x844') model = 'iPhone 13 / 14 / 12';
+      else if (s === '375x812') model = 'iPhone X / XS / 11 Pro / 12 Mini / 13 Mini';
+      else if (s === '375x667') model = 'iPhone 6/7/8/SE (2nd/3rd)';
+      else if (s === '320x568') model = 'iPhone 5/5s/SE (1st)';
+      else model = 'iPhone (model necunoscut)';
+    } else if (/iPad/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua))) {
+      brand = 'Apple';
+      model = 'iPad';
+    } else if (/Samsung/i.test(ua) || /SM-[A-Z]/i.test(ua)) {
+      brand = 'Samsung';
+      var smMatch = ua.match(/SM-[A-Z]\d{3}[A-Z]?/i);
+      if (smMatch) model = smMatch[0];
+      var samModel = ua.match(/Samsung\s*(Galaxy\s*\S+[\s\S]*?)(?:\s*Build|[;\)])/i);
+      if (samModel) model = samModel[1].trim();
+      if (!model) {
+        samModel = ua.match(/SM-\S+/i);
+        if (samModel) model = samModel[0];
+      }
+    } else if (/Huawei|HUAWEI/i.test(ua)) {
+      brand = 'Huawei';
+      var hwModel = ua.match(/(?:HUAWEI|Huawei)\s+(\S+)/i);
+      model = hwModel ? hwModel[1] : '';
+    } else if (/Xiaomi|Redmi|POCO|Mi\s/i.test(ua)) {
+      brand = 'Xiaomi';
+      var xiModel = ua.match(/(Redmi\s*\S+|POCO\s*\S+|Mi\s*\d+\S*)/i);
+      model = xiModel ? xiModel[1] : '';
+      if (!model) {
+        var xiGen = ua.match(/;\s*([^;)]+?)\s*Build/i);
+        if (xiGen) model = xiGen[1];
+      }
+    } else if (/OPPO/i.test(ua)) {
+      brand = 'OPPO';
+      var opModel = ua.match(/OPPO\s*(\S+)/i);
+      model = opModel ? opModel[1] : '';
+    } else if (/vivo/i.test(ua)) {
+      brand = 'Vivo';
+      var viModel = ua.match(/vivo\s*(\S+)/i);
+      model = viModel ? viModel[1] : '';
+    } else if (/OnePlus/i.test(ua)) {
+      brand = 'OnePlus';
+      var oplusModel = ua.match(/OnePlus\s*(\S+)/i);
+      model = oplusModel ? oplusModel[1] : '';
+    } else if (/Pixel/i.test(ua)) {
+      brand = 'Google';
+      var pixModel = ua.match(/Pixel\s*\d*\s*\w*/i);
+      model = pixModel ? pixModel[0] : 'Pixel';
+    } else if (/Nokia/i.test(ua)) {
+      brand = 'Nokia';
+      var nokModel = ua.match(/Nokia\s*(\S+)/i);
+      model = nokModel ? nokModel[1] : '';
+    } else if (/Motorola|moto/i.test(ua)) {
+      brand = 'Motorola';
+      var motModel = ua.match(/moto\s*(\S+)/i);
+      model = motModel ? motModel[1] : '';
+    } else if (/Android/i.test(ua)) {
+      brand = 'Android';
+      var genModel = ua.match(/;\s*([^;)]+?)\s*Build/i);
+      model = genModel ? genModel[1] : 'Dispozitiv Android';
+    } else if (/Macintosh/i.test(ua)) {
+      brand = 'Apple';
+      model = 'Mac';
+      deviceType = 'Desktop';
+    } else if (/Windows/i.test(ua)) {
+      brand = 'Microsoft';
+      model = 'Windows PC';
+      deviceType = 'Desktop';
+    } else if (/Linux/i.test(ua)) {
+      brand = 'Linux';
+      model = 'PC';
+      deviceType = 'Desktop';
+    }
+
+    // Also try navigator.userAgentData
+    var uaData = null;
+    if (navigator.userAgentData) {
+      uaData = navigator.userAgentData;
+      if (uaData.platform === 'Android' && brand === 'Necunoscut') brand = 'Android';
+    }
+
+    // --- 2. OS ---
+    var osName = 'Necunoscut';
+    var osVersion = '';
+
+    if (/iPhone|iPad|iPod/i.test(ua)) {
+      osName = 'iOS';
+      var iosV = ua.match(/OS (\d+[_\.]\d+[_\.]?\d*)/i);
+      osVersion = iosV ? iosV[1].replace(/_/g, '.') : '';
+      if (/iPad/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua))) osName = 'iPadOS';
+    } else if (/Android/i.test(ua)) {
+      osName = 'Android';
+      var andV = ua.match(/Android (\d+[\.\d]*)/i);
+      osVersion = andV ? andV[1] : '';
+    } else if (/Windows NT/i.test(ua)) {
+      osName = 'Windows';
+      var winV = ua.match(/Windows NT (\d+\.\d+)/);
+      if (winV) {
+        var ntMap = {'10.0': '10/11', '6.3': '8.1', '6.2': '8', '6.1': '7', '6.0': 'Vista'};
+        osVersion = ntMap[winV[1]] || winV[1];
+      }
+    } else if (/Mac OS X/i.test(ua)) {
+      osName = 'macOS';
+      var macV = ua.match(/Mac OS X (\d+[_\.]\d+[_\.]?\d*)/i);
+      osVersion = macV ? macV[1].replace(/_/g, '.') : '';
+    } else if (/CrOS/i.test(ua)) {
+      osName = 'Chrome OS';
+    } else if (/Linux/i.test(ua)) {
+      osName = 'Linux';
+    }
+
+    // --- 3. Browser ---
+    var browserName = 'Necunoscut';
+    var browserVersion = '';
+
+    if (/OPR|Opera/i.test(ua)) {
+      browserName = 'Opera';
+      var opV = ua.match(/(?:OPR|Opera)[\/ ]([\d.]+)/i);
+      browserVersion = opV ? opV[1] : '';
+    } else if (/Edg\//i.test(ua)) {
+      browserName = 'Microsoft Edge';
+      var edgV = ua.match(/Edg\/([\d.]+)/i);
+      browserVersion = edgV ? edgV[1] : '';
+    } else if (/SamsungBrowser/i.test(ua)) {
+      browserName = 'Samsung Internet';
+      var sbV = ua.match(/SamsungBrowser\/([\d.]+)/i);
+      browserVersion = sbV ? sbV[1] : '';
+    } else if (/Firefox|FxiOS/i.test(ua)) {
+      browserName = 'Firefox';
+      var ffV = ua.match(/(?:Firefox|FxiOS)\/([\d.]+)/i);
+      browserVersion = ffV ? ffV[1] : '';
+    } else if (/CriOS/i.test(ua)) {
+      browserName = 'Chrome (iOS)';
+      var criV = ua.match(/CriOS\/([\d.]+)/i);
+      browserVersion = criV ? criV[1] : '';
+    } else if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) {
+      browserName = 'Chrome';
+      var chrV = ua.match(/Chrome\/([\d.]+)/i);
+      browserVersion = chrV ? chrV[1] : '';
+    } else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) {
+      browserName = 'Safari';
+      var safV = ua.match(/Version\/([\d.]+)/i);
+      browserVersion = safV ? safV[1] : '';
+    }
+
+    // Major version only for display
+    var browserMajor = browserVersion.split('.')[0];
+
+    // --- 4. Screen ---
+    var screenW = screen.width;
+    var screenH = screen.height;
+    var dpr = window.devicePixelRatio || 1;
+    var viewW = window.innerWidth;
+    var viewH = window.innerHeight;
+    var orientation = 'N/A';
+    if (screen.orientation && screen.orientation.type) {
+      orientation = screen.orientation.type.includes('portrait') ? 'Portrait' : 'Landscape';
+    } else if (window.matchMedia) {
+      orientation = window.matchMedia('(orientation: portrait)').matches ? 'Portrait' : 'Landscape';
+    }
+    var colorDepth = screen.colorDepth || 'N/A';
+
+    // --- 5. Hardware ---
+    var cpuCores = navigator.hardwareConcurrency || 'N/A';
+    var ram = navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'N/A';
+
+    // GPU
+    var gpu = 'N/A';
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (gl) {
+        var ext = gl.getExtension('WEBGL_debug_renderer_info');
+        if (ext) {
+          gpu = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);
+        } else {
+          gpu = gl.getParameter(gl.RENDERER);
+        }
+      }
+    } catch(e) {}
+
+    // --- 6. Network ---
+    var connType = 'N/A';
+    var downlink = 'N/A';
+    var isOnline = navigator.onLine ? 'Online' : 'Offline';
+    if (navigator.connection) {
+      connType = navigator.connection.effectiveType || 'N/A';
+      downlink = navigator.connection.downlink ? navigator.connection.downlink + ' Mbps' : 'N/A';
+    }
+
+    // Store for copy/share
+    detectedInfo = {
+      brand: brand,
+      model: model,
+      deviceType: deviceType,
+      osName: osName,
+      osVersion: osVersion,
+      browserName: browserName,
+      browserVersion: browserVersion,
+      browserMajor: browserMajor,
+      screenW: screenW,
+      screenH: screenH,
+      dpr: dpr,
+      viewW: viewW,
+      viewH: viewH,
+      orientation: orientation,
+      colorDepth: colorDepth,
+      cpuCores: cpuCores,
+      ram: ram,
+      gpu: gpu,
+      connType: connType,
+      downlink: downlink,
+      isOnline: isOnline,
+      ua: ua
+    };
+
+    renderResults();
+    detectBattery();
+  }
+
+  function detectBattery() {
+    if (navigator.getBattery) {
+      navigator.getBattery().then(function(battery) {
+        var level = Math.round(battery.level * 100);
+        var charging = battery.charging;
+        detectedInfo.batteryLevel = level;
+        detectedInfo.batteryCharging = charging;
+
+        var el = document.getElementById('batteryInfo');
+        if (el) {
+          var color = level > 50 ? '#34d399' : (level > 20 ? '#fbbf24' : '#f87171');
+          el.innerHTML =
+            '<span class="rc-item"><span class="rc-label">Nivel:</span> <strong>' + level + '%</strong>' +
+            '<span class="battery-bar"><span class="battery-fill" style="width:' + level + '%;background:' + color + ';"></span></span></span>' +
+            '<span class="rc-item"><span class="rc-label">&#206;nc&#259;rcare:</span> <strong>' + (charging ? 'Da &#9889;' : 'Nu') + '</strong></span>';
+        }
+      }).catch(function() {});
+    }
+  }
+
+  function renderResults() {
+    var d = detectedInfo;
+    var displayName = d.brand;
+    if (d.model) displayName += ' ' + d.model;
+
+    document.getElementById('headerDevice').innerHTML = '&#128241; ' + displayName;
+
+    var html = '';
+
+    // --- Section: Dispozitiv ---
+    html += '<div class="rc-section-title">&#128241; Dispozitiv</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item"><span class="rc-label">Brand:</span> <strong>' + d.brand + '</strong></span>';
+    if (d.model) html += '<span class="rc-item"><span class="rc-label">Model:</span> <strong>' + d.model + '</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">Tip:</span> <strong>' + d.deviceType + '</strong></span>';
+    html += '</div>';
+
+    // --- Section: Sistem de Operare ---
+    html += '<div class="rc-section-title">&#9881; Sistem de Operare</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item"><span class="rc-label">OS:</span> <strong>' + d.osName + (d.osVersion ? ' ' + d.osVersion : '') + '</strong></span>';
+    html += '</div>';
+
+    // --- Section: Browser ---
+    html += '<div class="rc-section-title">&#127760; Browser</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item"><span class="rc-label">Browser:</span> <strong>' + d.browserName + (d.browserMajor ? ' ' + d.browserMajor : '') + '</strong></span>';
+    if (d.browserVersion) html += '<span class="rc-item"><span class="rc-label">Versiune:</span> <strong>' + d.browserVersion + '</strong></span>';
+    html += '</div>';
+
+    // --- Section: Ecran ---
+    html += '<div class="rc-section-title">&#128187; Ecran</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item"><span class="rc-label">Rezolu&#539;ie:</span> <strong>' + d.screenW + ' x ' + d.screenH + ' px</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">DPR:</span> <strong>' + d.dpr + 'x</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">Viewport:</span> <strong>' + d.viewW + ' x ' + d.viewH + '</strong></span>';
+    html += '</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item"><span class="rc-label">Orientare:</span> <strong>' + d.orientation + '</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">Culori:</span> <strong>' + d.colorDepth + '-bit</strong></span>';
+    html += '</div>';
+
+    // --- Section: Hardware ---
+    html += '<div class="rc-section-title">&#9889; Hardware</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item"><span class="rc-label">CPU Cores:</span> <strong>' + d.cpuCores + '</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">RAM:</span> <strong>' + d.ram + '</strong></span>';
+    html += '</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item-full"><span class="rc-label">GPU:</span> <strong>' + d.gpu + '</strong></span>';
+    html += '</div>';
+
+    // --- Section: Retea ---
+    html += '<div class="rc-section-title">&#128225; Re&#539;ea</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item"><span class="rc-label">Conexiune:</span> <strong>' + d.connType.toUpperCase() + '</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">Vitez&#259;:</span> <strong>' + d.downlink + '</strong></span>';
+    html += '<span class="rc-item"><span class="rc-label">Status:</span> <strong>' + d.isOnline + '</strong></span>';
+    html += '</div>';
+
+    // --- Section: Baterie ---
+    html += '<div class="rc-section-title">&#128267; Baterie</div>';
+    html += '<div class="rc-row" id="batteryInfo">';
+    html += '<span class="rc-item" style="color:rgba(255,255,255,0.35);">Se detecteaz&#259;...</span>';
+    html += '</div>';
+
+    // --- Section: AI Features ---
+    html += '<div class="rc-section-title">&#129302; Func&#539;ii AI disponibile</div>';
+    html += '<div class="rc-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">';
+    html += getAIFeatures(d);
+    html += '</div>';
+
+    // --- Section: Suport Web ---
+    html += '<div class="rc-section-title">&#128296; Suport Web</div>';
+    html += '<div class="rc-row">';
+
+    var webgl = false;
+    try { webgl = !!document.createElement('canvas').getContext('webgl'); } catch(e) {}
+    var sw = 'serviceWorker' in navigator;
+    var wasm = typeof WebAssembly === 'object';
+    var touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    var notif = 'Notification' in window;
+
+    html += '<span class="web-badge ' + (webgl ? 'yes' : 'no') + '">WebGL ' + (webgl ? '&#10004;' : '&#10008;') + '</span>';
+    html += '<span class="web-badge ' + (sw ? 'yes' : 'no') + '">Service Worker ' + (sw ? '&#10004;' : '&#10008;') + '</span>';
+    html += '<span class="web-badge ' + (wasm ? 'yes' : 'no') + '">WebAssembly ' + (wasm ? '&#10004;' : '&#10008;') + '</span>';
+    html += '<span class="web-badge ' + (touch ? 'yes' : 'no') + '">Touch ' + (touch ? '&#10004;' : '&#10008;') + '</span>';
+    html += '<span class="web-badge ' + (notif ? 'yes' : 'no') + '">Notifications ' + (notif ? '&#10004;' : '&#10008;') + '</span>';
+    html += '</div>';
+
+    // --- User-Agent raw ---
+    html += '<div class="rc-section-title">&#128270; User-Agent</div>';
+    html += '<div class="rc-row">';
+    html += '<span class="rc-item-full" style="font-family:\'JetBrains Mono\',monospace;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.5;">' + escapeHTML(d.ua) + '</span>';
+    html += '</div>';
+
+    document.getElementById('resultBody').innerHTML = html;
+  }
+
+  function getAIFeatures(d) {
+    var html = '';
+    var brandLower = d.brand.toLowerCase();
+    var modelLower = (d.model || '').toLowerCase();
+    var hasSamsung = brandLower === 'samsung';
+    var hasApple = brandLower === 'apple' && modelLower.includes('iphone');
+    var hasAndroid = d.osName === 'Android';
+
+    if (hasSamsung) {
+      html += '<div>';
+      html += '<span class="ai-feature-badge">&#10024; Galaxy AI</span>';
+      html += '<span class="rc-item" style="display:block;margin-top:0.2rem;">Live Translate, Photo Assist, Note Assist, Chat Assist, Generative Edit</span>';
+      html += '<a href="../recenzii/galaxy-ai.html" class="ai-link" style="display:inline-block;margin-top:0.25rem;">Citeste recenzia Galaxy AI &rarr;</a>';
+      html += '</div>';
+    }
+
+    if (hasApple) {
+      // Check for Pro models (15 Pro+)
+      var isProModel = /pro|15|16/i.test(modelLower);
+      if (isProModel) {
+        html += '<div>';
+        html += '<span class="ai-feature-badge">&#127823; Apple Intelligence</span>';
+        html += '<span class="rc-item" style="display:block;margin-top:0.2rem;">Writing Tools, Genmoji, Image Playground, Smart Reply, Visual Intelligence</span>';
+        html += '<a href="../blog/apple-intelligence-ghid.html" class="ai-link" style="display:inline-block;margin-top:0.25rem;">Ghid Apple Intelligence &rarr;</a>';
+        html += '</div>';
+      } else {
+        html += '<div>';
+        html += '<span class="ai-feature-badge" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">&#9888; Apple Intelligence limitat</span>';
+        html += '<span class="rc-item" style="display:block;margin-top:0.2rem;">Modelul t&#259;u poate avea suport limitat pentru Apple Intelligence. iPhone 15 Pro sau mai nou recomandat.</span>';
+        html += '</div>';
+      }
+    }
+
+    if (hasAndroid && !hasSamsung) {
+      html += '<div>';
+      html += '<span class="ai-feature-badge">&#10024; Google Gemini</span>';
+      html += '<span class="rc-item" style="display:block;margin-top:0.2rem;">Gemini este disponibil pe telefonul t&#259;u Android. &#206;nlocuie&#537;te Google Assistant pentru chat, &#238;ntreb&#259;ri &#537;i creativitate.</span>';
+      html += '<a href="../blog/google-gemini-android.html" class="ai-link" style="display:inline-block;margin-top:0.25rem;">Ghid Google Gemini pe Android &rarr;</a>';
+      html += '</div>';
+    }
+
+    if (!hasSamsung && !hasApple && !hasAndroid) {
+      html += '<div>';
+      html += '<span class="rc-item">Dispozitivul t&#259;u nu are func&#539;ii AI native detectate. Po&#539;i folosi <a href="../recenzii/chatgpt.html" class="ai-link">ChatGPT</a>, <a href="../recenzii/google-gemini.html" class="ai-link">Gemini</a> sau <a href="../recenzii/copilot.html" class="ai-link">Copilot</a> din browser.</span>';
+      html += '</div>';
+    }
+
+    return html;
+  }
+
+  function escapeHTML(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  // --- Actions ---
+  function refreshDetect() {
+    detectAll();
+    showToast('Informa&#539;ii redetectate!');
+  }
+
+  function copyAllInfo() {
+    var d = detectedInfo;
+    var text = '=== Who Am I? - AIphone.ro ===\n\n';
+    text += 'DISPOZITIV\n';
+    text += 'Brand: ' + d.brand + '\n';
+    if (d.model) text += 'Model: ' + d.model + '\n';
+    text += 'Tip: ' + d.deviceType + '\n\n';
+    text += 'SISTEM DE OPERARE\n';
+    text += 'OS: ' + d.osName + (d.osVersion ? ' ' + d.osVersion : '') + '\n\n';
+    text += 'BROWSER\n';
+    text += 'Browser: ' + d.browserName + ' ' + d.browserVersion + '\n\n';
+    text += 'ECRAN\n';
+    text += 'Rezolutie: ' + d.screenW + ' x ' + d.screenH + ' px\n';
+    text += 'DPR: ' + d.dpr + 'x\n';
+    text += 'Viewport: ' + d.viewW + ' x ' + d.viewH + '\n';
+    text += 'Orientare: ' + d.orientation + '\n';
+    text += 'Culori: ' + d.colorDepth + '-bit\n\n';
+    text += 'HARDWARE\n';
+    text += 'CPU Cores: ' + d.cpuCores + '\n';
+    text += 'RAM: ' + d.ram + '\n';
+    text += 'GPU: ' + d.gpu + '\n\n';
+    text += 'RETEA\n';
+    text += 'Conexiune: ' + d.connType + '\n';
+    text += 'Viteza: ' + d.downlink + '\n';
+    text += 'Status: ' + d.isOnline + '\n\n';
+    if (d.batteryLevel !== undefined) {
+      text += 'BATERIE\n';
+      text += 'Nivel: ' + d.batteryLevel + '%\n';
+      text += 'Incarcare: ' + (d.batteryCharging ? 'Da' : 'Nu') + '\n\n';
+    }
+    text += 'USER-AGENT\n' + d.ua + '\n\n';
+    text += 'Generat pe aiphone.ro/tools/who-am-i.html';
+
+    copyText(text, 'Toate informatiile au fost copiate!');
+  }
+
+  function shareInfo() {
+    var d = detectedInfo;
+    var text = d.brand + ' ' + (d.model || d.deviceType) + ' | ' + d.osName + ' ' + d.osVersion + ' | ' + d.browserName + ' ' + d.browserMajor;
+    if (navigator.share) {
+      navigator.share({
+        title: 'Who Am I? - AIphone.ro',
+        text: text,
+        url: window.location.href
+      }).catch(function() {});
+    } else {
+      copyText(window.location.href, 'Link copiat!');
+    }
+  }
+
+  function copyText(text, msg) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast(msg || 'Copiat!');
+    }).catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast(msg || 'Copiat!');
+    });
+  }
+
+  function showToast(msg) {
+    var toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2500);
+  }
+
+  // Run detection on load
+  detectAll();
+  </script>
+
+</body>
+</html>

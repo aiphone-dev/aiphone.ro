@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instrumente gratuite AIphone.ro — verificare IMEI, identificare telefon, comparare specificații și altele.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Tools — AIphone.ro">
+  <meta property="og:description" content="Instrumente gratuite pentru telefonul tău — verificări, informații, analize.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <title>Tools — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    .tool-hub-card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--bg-card, rgba(22,22,42,0.6));
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .tool-hub-card:hover {
+      border-color: var(--neon-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    .tool-hub-card--coming {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .tool-hub-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .tool-hub-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .tool-hub-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .tool-hub-arrow {
+      font-size: 1.2rem;
+      color: var(--neon-blue);
+      margin-top: 0.75rem;
+      font-weight: 700;
+    }
+    .tool-hub-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: rgba(251,191,36,0.1);
+      border: 1px solid rgba(251,191,36,0.2);
+      color: #fbbf24;
+    }
+    @media (max-width: 600px) {
+      .tool-hub-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html#android">Android</a></li>
+      <li><a href="index.html#ios">iOS</a></li>
+      <li><a href="tutoriale.html">Tutoriale</a></li>
+      <li><a href="recenzii.html">Recenzii</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="despre.html">Despre</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="tools.html" class="active">Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Search Toggle -->
+      <button class="nav-btn" id="searchToggle" aria-label="Caută">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+
+      <!-- Theme Toggle -->
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <!-- Mobile Nav Toggle -->
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Caută tutoriale, funcții AI..." autocomplete="off">
+        <kbd class="search-kbd">ESC</kbd>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="search-hint">Încearcă: <span class="search-tag">Gemini</span> <span class="search-tag">Galaxy AI</span> <span class="search-tag">Apple Intelligence</span> <span class="search-tag">Siri</span> <span class="search-tag">vacanță</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section style="padding:5rem 1.5rem 2rem;text-align:center;">
+      <h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:900;color:var(--text-primary);margin-bottom:0.5rem;">Instrumente <span class="gradient-text">Gratuite</span></h1>
+      <p style="color:var(--text-secondary);font-size:0.95rem;max-width:500px;margin:0 auto 2rem;">Unelte utile pentru telefonul tău — verificări, informații, analize.</p>
+    </section>
+
+    <div style="max-width:800px;margin:0 auto;padding:0 1.5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+
+      <!-- IMEI Check -->
+      <a href="imei/index.html" class="tool-hub-card">
+        <div class="tool-hub-icon" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">🔍</div>
+        <h2>Verificare IMEI</h2>
+        <p>Verifică telefonul înainte să-l cumperi second-hand. Identificare model, Trust Score, checklist cumpărător.</p>
+        <span class="tool-hub-arrow">→</span>
+      </a>
+
+      <!-- Who Am I -->
+      <a href="tools/who-am-i.html" class="tool-hub-card">
+        <div class="tool-hub-icon" style="background:linear-gradient(135deg,#00d4ff,#0090cc);">📱</div>
+        <h2>Who Am I?</h2>
+        <p>Află ce telefon ai, ce sistem de operare, browser, rezoluție ecran și ce funcții AI sunt disponibile pentru tine.</p>
+        <span class="tool-hub-arrow">→</span>
+      </a>
+
+      <!-- More tools coming -->
+      <div class="tool-hub-card tool-hub-card--coming">
+        <div class="tool-hub-icon" style="background:rgba(255,255,255,0.1);">📊</div>
+        <h2>Comparare Telefoane</h2>
+        <p>Compară specificațiile a două telefoane side-by-side. În curând.</p>
+        <span class="tool-hub-badge">În curând</span>
+      </div>
+
+      <div class="tool-hub-card tool-hub-card--coming">
+        <div class="tool-hub-icon" style="background:rgba(255,255,255,0.1);">💰</div>
+        <h2>Estimare Valoare SH</h2>
+        <p>Estimează valoarea de revânzare a telefonului tău. În curând.</p>
+        <span class="tool-hub-badge">În curând</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+      <p class="footer-text" style="margin-top:0.5rem;">
+        <a href="confidentialitate.html">Confidențialitate</a> · <a href="termeni.html">Termeni</a> · <a href="cookies.html">Cookies</a>
+      </p>
+      <p class="footer-disclaimer">
+        AIphone.ro este un proiect editorial independent. Nu suntem afiliați, sponsorizați sau asociați cu Apple Inc., Samsung Electronics, Google LLC, OpenAI, Microsoft Corporation sau orice alt producător menționat pe acest site. Toate numele de produse, logo-urile și mărcile aparțin deținătorilor respectivi. Conținutul este oferit exclusiv în scop educațional și informativ.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>🍪 Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <!-- Cookie Settings Panel -->
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
