@@ -589,24 +589,7 @@
       if (andV) { osMajor = parseInt(andV[1]); }
       var andVFull = ua.match(/Android ([\d.]+)/i);
       if (andVFull) osVersion = andVFull[1];
-      // Chrome UA Reduction fix: Chrome 110+ reports "Android 10" regardless of real version
-      // Use navigator.userAgentData for real version when available
-      if (osMajor <= 10 && navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
-        // Will be resolved async, score recalculates
-        navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function(vals) {
-          if (vals.platformVersion) {
-            var realMajor = parseInt(vals.platformVersion.split('.')[0]);
-            if (realMajor > 0) {
-              // Android maps platformVersion differently: major version = platformVersion major + offset
-              // platformVersion "14.0.0" = Android 14, "15.0.0" = Android 15
-              osRealVersion = vals.platformVersion;
-              osRealMajor = realMajor;
-              // Recalculate score with correct OS version
-              recalculateWithRealOS(realMajor, vals.platformVersion);
-            }
-          }
-        }).catch(function(){});
-      }
+      // Note: real Android version is obtained in calculateScore() via userAgentData
     } else if (/Windows NT/i.test(ua)) {
       osName = 'Windows';
       var winV = ua.match(/Windows NT (\d+\.\d+)/);
@@ -660,22 +643,32 @@
   var lastScoreData = null;
 
   function calculateScore() {
-    var ua = navigator.userAgent || '';
     var device = detectDevice();
     var os = getOS();
+
+    // If Android, try to get REAL version first before scoring
+    if (os.name === 'Android' && navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+      navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function(vals) {
+        if (vals.platformVersion) {
+          var realMajor = parseInt(vals.platformVersion.split('.')[0]);
+          if (realMajor > 0) {
+            os.major = realMajor;
+            os.version = vals.platformVersion;
+          }
+        }
+        doCalculateScore(device, os);
+      }).catch(function() {
+        doCalculateScore(device, os);
+      });
+    } else {
+      doCalculateScore(device, os);
+    }
+  }
+
+  function doCalculateScore(device, os) {
+    var ua = navigator.userAgent || '';
     var score = 0;
     var categories = [];
-
-    // All categories scored on 0-10 scale for consistency
-    // Total = sum of all 7 categories, scaled to 0-100
-
-    // Try to get real Android version via userAgentData
-    var realOsMajor = os.major;
-    if (os.name === 'Android' && navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
-      try {
-        // Synchronous check not possible, handle async below
-      } catch(e) {}
-    }
 
     // ========== 1. OS Freshness (0-10) ==========
     var osPoints = 3;
