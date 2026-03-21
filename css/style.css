@@ -2520,3 +2520,15 @@ main {
   .hp-grid { grid-template-columns: 1fr; }
   .hp-tut-grid { grid-template-columns: 1fr; }
 }
+.hp-review-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+}
