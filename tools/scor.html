@@ -589,6 +589,24 @@
       if (andV) { osMajor = parseInt(andV[1]); }
       var andVFull = ua.match(/Android ([\d.]+)/i);
       if (andVFull) osVersion = andVFull[1];
+      // Chrome UA Reduction fix: Chrome 110+ reports "Android 10" regardless of real version
+      // Use navigator.userAgentData for real version when available
+      if (osMajor <= 10 && navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+        // Will be resolved async, score recalculates
+        navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function(vals) {
+          if (vals.platformVersion) {
+            var realMajor = parseInt(vals.platformVersion.split('.')[0]);
+            if (realMajor > 0) {
+              // Android maps platformVersion differently: major version = platformVersion major + offset
+              // platformVersion "14.0.0" = Android 14, "15.0.0" = Android 15
+              osRealVersion = vals.platformVersion;
+              osRealMajor = realMajor;
+              // Recalculate score with correct OS version
+              recalculateWithRealOS(realMajor, vals.platformVersion);
+            }
+          }
+        }).catch(function(){});
+      }
     } else if (/Windows NT/i.test(ua)) {
       osName = 'Windows';
       var winV = ua.match(/Windows NT (\d+\.\d+)/);
@@ -605,6 +623,40 @@
 
     return { name: osName, version: osVersion, major: osMajor };
   }
+
+  var osRealVersion = null;
+  var osRealMajor = null;
+
+  function recalculateWithRealOS(realMajor, realVersion) {
+    // Update the displayed score with correct OS info
+    var scoreEl = document.getElementById('scoreNumber');
+    if (!scoreEl) return;
+    // Recalculate everything
+    var prev = lastScoreData;
+    if (!prev) return;
+    // Fix OS points
+    var oldOsPoints = prev.categories[0].points;
+    var newOsPoints = 5;
+    if (realMajor >= 15) newOsPoints = 20;
+    else if (realMajor === 14) newOsPoints = 15;
+    else if (realMajor === 13) newOsPoints = 10;
+    var diff = newOsPoints - oldOsPoints;
+    if (diff === 0) return;
+    prev.categories[0].points = newOsPoints;
+    prev.score += diff;
+    prev.osVersion = realVersion;
+    // Update grade
+    if (prev.score >= 90) { prev.grade = 'A+'; prev.gradeLabel = 'Excelent'; }
+    else if (prev.score >= 80) { prev.grade = 'A'; prev.gradeLabel = 'Foarte bun'; }
+    else if (prev.score >= 70) { prev.grade = 'B+'; prev.gradeLabel = 'Bun'; }
+    else if (prev.score >= 60) { prev.grade = 'B'; prev.gradeLabel = 'Decent'; }
+    else if (prev.score >= 50) { prev.grade = 'C'; prev.gradeLabel = 'Mediu'; }
+    else { prev.grade = 'D'; prev.gradeLabel = 'Necesită upgrade'; }
+    // Re-render
+    renderScore(prev);
+  }
+
+  var lastScoreData = null;
 
   function calculateScore() {
     var ua = navigator.userAgent || '';
@@ -762,6 +814,12 @@
       osVersion: os.version
     };
 
+    lastScoreData = scoreData;
+    renderScore(scoreData);
+  }
+
+  function renderScore(data) {
+    scoreData = data;
     renderGauge();
     renderBreakdown();
     renderDeviceInfo();

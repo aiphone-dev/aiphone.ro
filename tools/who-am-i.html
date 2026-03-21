@@ -529,6 +529,20 @@
       osName = 'Android';
       var andV = ua.match(/Android (\d+[\.\d]*)/i);
       osVersion = andV ? andV[1] : '';
+      // Chrome UA Reduction fix: Chrome 110+ freezes Android version at "10"
+      if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+        navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function(vals) {
+          if (vals.platformVersion) {
+            var realV = vals.platformVersion;
+            var realMajor = parseInt(realV.split('.')[0]);
+            if (realMajor > 0 && realMajor > parseInt(osVersion)) {
+              // Update displayed OS version
+              var osEl = document.querySelector('[data-field="os-version"]');
+              if (osEl) osEl.innerHTML = '<strong>Android ' + realV + '</strong>';
+            }
+          }
+        }).catch(function(){});
+      }
     } else if (/Windows NT/i.test(ua)) {
       osName = 'Windows';
       var winV = ua.match(/Windows NT (\d+\.\d+)/);
@@ -695,7 +709,7 @@
     // --- Section: Sistem de Operare ---
     html += '<div class="rc-section-title">&#9881; Sistem de Operare</div>';
     html += '<div class="rc-row">';
-    html += '<span class="rc-item"><span class="rc-label">OS:</span> <strong>' + d.osName + (d.osVersion ? ' ' + d.osVersion : '') + '</strong></span>';
+    html += '<span class="rc-item" data-field="os-version"><span class="rc-label">OS:</span> <strong>' + d.osName + (d.osVersion ? ' ' + d.osVersion : '') + '</strong></span>';
     html += '</div>';
 
     // --- Section: Browser ---
