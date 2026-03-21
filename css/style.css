@@ -2553,6 +2553,9 @@ main {
   .hp-review-item { padding: 0.4rem 0; }
   .hp-newsletter { padding: 0.75rem; }
   .hp-tool-card { padding: 0.75rem; }
+  .hp-tut-info {
+    min-width: 0;
+  }
 }
 .hp-review-icon {
   display: flex;
