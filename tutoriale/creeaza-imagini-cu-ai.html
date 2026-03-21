@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ghid complet pentru crearea de imagini cu AI de pe telefon: DALL-E 3, Microsoft Copilot, Gemini, Image Playground și Adobe Firefly. Prompturi testate și sfaturi practice.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Creează imagini unice cu AI de pe telefon — AIphone.ro">
+  <meta property="og:description" content="Tutorial pas cu pas: generează imagini spectaculoase cu AI folosind aplicații gratuite pe Android și iOS.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aiphone.ro/tutoriale/creeaza-imagini-cu-ai.html">
+  <meta property="og:image" content="https://aiphone.ro/img/og-image.png">
+  <title>Creează imagini unice cu AI de pe telefon — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!-- Article Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Creează imagini unice cu AI de pe telefon",
+    "description": "Ghid complet pentru generarea de imagini cu inteligență artificială pe Android și iOS, cu prompturi testate și comparații între aplicații.",
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "datePublished": "2026-03-21",
+    "dateModified": "2026-03-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage"
+    },
+    "articleSection": "Tutoriale",
+    "keywords": ["AI", "imagini", "DALL-E", "Copilot", "Gemini", "Image Playground", "Adobe Firefly", "Android", "iOS"]
+  }
+  </script>
+
+  <style>
+    /* Article Layout */
+    .article-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: #ff00e5;
+    }
+    .breadcrumb .sep {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+    .article-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 60%, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .meta-badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(255,0,229,0.12);
+      color: #ff00e5;
+      border: 1px solid rgba(255,0,229,0.2);
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #00d4ff;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      margin-bottom: 0.4rem;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter) ". ";
+      color: #ff00e5;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .toc a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: #00d4ff;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,212,255,0.15);
+    }
+    .article-content h2 .step-num {
+      color: #00d4ff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #fff;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .article-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .article-content em {
+      color: #00d4ff;
+      font-style: normal;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      background: rgba(0,212,255,0.08);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    /* Tip / Info boxes */
+    .tip-box {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .tip-box.tip-magenta {
+      background: rgba(255,0,229,0.06);
+      border-left-color: #ff00e5;
+    }
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Example prompt block */
+    .prompt-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      position: relative;
+    }
+    .prompt-block::before {
+      content: 'Exemplu prompt';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: #0a0a0f;
+      padding: 0 0.5rem;
+      font-size: 0.7rem;
+      color: #ff00e5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .prompt-copy {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255,0,229,0.15);
+      border: 1px solid rgba(255,0,229,0.3);
+      color: #ff00e5;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .prompt-copy:hover {
+      background: rgba(255,0,229,0.3);
+    }
+
+    /* Share Buttons */
+    .share-section {
+      margin: 3rem 0 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .share-section h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+    }
+
+    /* Next Tutorial */
+    .next-tutorial {
+      display: block;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,0,229,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .next-tutorial:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.12);
+    }
+    .next-tutorial span.label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff00e5;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+    .next-tutorial span.title {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrapper {
+        padding: 1.25rem 1rem 3rem;
+      }
+      .article-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasă</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../imei/index.html">IMEI Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-wrapper">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Acasă</a>
+        <span class="sep">/</span>
+        <a href="../tutoriale.html">Tutoriale</a>
+        <span class="sep">/</span>
+        <span>Creează imagini cu AI</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <h1>&#127912; Creează imagini unice cu AI de pe telefon</h1>
+        <div class="article-meta">
+          <span>&#128337; 12 min citire</span>
+          <span><span class="meta-badge">Intermediar</span></span>
+          <span>&#128241; Android &amp; iOS</span>
+          <span>&#128197; 21 martie 2026</span>
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Cuprins">
+        <h2>Cuprins</h2>
+        <ol>
+          <li><a href="#pas1">Ce poți crea cu AI pe telefon (și ce nu)</a></li>
+          <li><a href="#pas2">DALL-E 3 prin ChatGPT (gratuit, limitat)</a></li>
+          <li><a href="#pas3">Microsoft Copilot / Designer (gratuit, DALL-E 3)</a></li>
+          <li><a href="#pas4">Google Gemini / Imagen (Android)</a></li>
+          <li><a href="#pas5">Image Playground pe iOS</a></li>
+          <li><a href="#pas6">Adobe Firefly (gratuit)</a></li>
+          <li><a href="#pas7">Secretele unui prompt bun pentru imagini</a></li>
+        </ol>
+      </nav>
+
+      <!-- Article Content -->
+      <div class="article-content">
+        <p>
+          Okay, asta e probabil cel mai distractiv lucru pe care-l poți face cu AI pe telefon. Fără glumă. Scrii câteva cuvinte, apeși un buton, și primești o imagine care nu a mai existat niciodată înainte. O pisică pe un tron medieval? Gata. Un peisaj extraterestru în stil Van Gogh? Done. O poză de profil care te face să arăți ca un personaj din anime? Imediat.
+        </p>
+        <p>
+          În acest tutorial îți arăt exact ce aplicații poți folosi, care sunt gratuite, care merită și — poate cel mai important — cum să scrii prompturi care chiar produc rezultate bune, nu ceva ce arată ca un coșmar generat de un calculator din 2005.
+        </p>
+
+        <div class="tip-box">
+          <strong>Ce ai nevoie</strong>
+          Un telefon Android sau iOS cu conexiune la internet. Majoritatea aplicațiilor din acest ghid sunt gratuite sau au un plan gratuit generos.
+        </div>
+
+        <!-- Step 1 -->
+        <h2 id="pas1"><span class="step-num">Pasul 1.</span> Ce poți crea cu AI pe telefon (și ce nu)</h2>
+        <p>
+          Înainte să ne aruncăm în aplicații, hai să fim sinceri despre ce poate și ce <strong>nu</strong> poate face generarea de imagini cu AI în 2026. Pentru că da, e spectaculos, dar nu e magie.
+        </p>
+        <h3>La ce e genial</h3>
+        <ul>
+          <li><strong>Poze de profil unice</strong> — Avatar-uri stilizate, portrete în diverse stiluri artistice</li>
+          <li><strong>Conținut pentru social media</strong> — Postări Instagram, thumbnails YouTube, story-uri</li>
+          <li><strong>Invitații și felicitări</strong> — Zilele de naștere, petreceri, evenimente</li>
+          <li><strong>Meme-uri personalizate</strong> — Da, poți să-ți faci pisica să arate ca un astronaut. Nu judecăm.</li>
+          <li><strong>Ilustrații pentru prezentări</strong> — Slides-uri la birou sau la școală</li>
+          <li><strong>Brainstorming vizual</strong> — Vrei să vezi cum ar arăta o idee? AI-ul o vizualizează instant</li>
+        </ul>
+        <h3>La ce NU e grozav (încă)</h3>
+        <ul>
+          <li><strong>Fotografii print-quality</strong> — Rezoluția e decentă, dar nu pentru un poster de 2 metri</li>
+          <li><strong>Design profesional de brand</strong> — Logo-urile generate de AI arată aproape întotdeauna... ciudat</li>
+          <li><strong>Text în imagini</strong> — AI-ul încă se luptă cu literele. Uneori scrie corect, alteori inventează un alfabet nou</li>
+          <li><strong>Proiecte comerciale importante</strong> — Pentru lansarea unui produs, angajează un designer. Serios.</li>
+          <li><strong>Consistență între imagini</strong> — E greu să obții exact același personaj în mai multe poze</li>
+        </ul>
+
+        <div class="tip-box tip-magenta">
+          <strong>Pe scurt</strong>
+          Nu te aștepta la Mona Lisa, dar pentru social media, proiecte personale și creativitate de zi cu zi, e absolut perfect. Și e gratis. Deci... hai să începem.
+        </div>
+
+        <!-- Step 2 -->
+        <h2 id="pas2"><span class="step-num">Pasul 2.</span> DALL-E 3 prin ChatGPT (gratuit, limitat)</h2>
+        <p>
+          Dacă ai folosit deja ChatGPT pe telefon (și sunt șanse mari că da), atunci ai deja acces la unul dintre cele mai bune generatoare de imagini din lume: <strong>DALL-E 3</strong>. Și da, funcționează direct din conversație.
+        </p>
+        <h3>Cum funcționează</h3>
+        <ul>
+          <li>Deschide aplicația <strong>ChatGPT</strong> (App Store / Play Store)</li>
+          <li>Scrie pur și simplu ce imagine vrei. Nu trebuie să selectezi nimic special — ChatGPT detectează automat că vrei o imagine</li>
+          <li>Exemplu: scrii <em>"Desenează o pisică portocalie pe un tron medieval"</em> și primești imaginea în câteva secunde</li>
+          <li>Poți cere modificări: <em>"Fă fundalul mai întunecat"</em>, <em>"Adaugă o coroană"</em>, <em>"Schimbă stilul în watercolor"</em></li>
+        </ul>
+        <h3>Ce primești gratuit</h3>
+        <p>
+          Pe planul gratuit, ai aproximativ <strong>2 imagini pe zi</strong>. Da, e puțin. Dar calitatea e excelentă — probabil cea mai bună disponibilă în momentul de față. Dacă vrei nelimitat, ai nevoie de ChatGPT Plus (circa 20$/lună).
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "O pisică portocalie stând pe un tron medieval într-o sală de castel, stil pictură în ulei renascentistă, lumină dramatică de torțe, detalii elaborate pe tron"
+        </div>
+
+        <div class="tip-box">
+          <strong>Sfat important</strong>
+          Fii SPECIFIC. Diferența între "o pisică" și "o pisică portocalie stând pe un tron medieval, stil pictură în ulei" este diferența între o imagine meh și una care-ți taie respirația. Cu cât dai mai multe detalii, cu atât rezultatul e mai bun.
+        </div>
+
+        <!-- Step 3 -->
+        <h2 id="pas3"><span class="step-num">Pasul 3.</span> Microsoft Copilot / Designer (gratuit, DALL-E 3)</h2>
+        <p>
+          Okay, asta e <strong>cheat code-ul</strong> pe care mulți nu-l știu. Microsoft Copilot (fostul Bing Chat) folosește <strong>același DALL-E 3</strong> ca și ChatGPT, dar cu o diferență masivă: e mult mai generos cu planul gratuit.
+        </p>
+        <h3>De ce e cea mai bună opțiune gratuită</h3>
+        <ul>
+          <li><strong>Aceeași calitate</strong> ca DALL-E 3 din ChatGPT — pentru că literalmente e același motor</li>
+          <li><strong>Mult mai multe generări gratuite</strong> — primești "boosts" zilnice, semnificativ mai multe decât 2/zi</li>
+          <li><strong>Microsoft Designer</strong> (aplicație separată) — și mai multe opțiuni de editare și template-uri</li>
+          <li>Funcționează pe <strong>Android și iOS</strong></li>
+        </ul>
+        <h3>Cum să-l folosești</h3>
+        <ul>
+          <li>Descarcă <strong>Microsoft Copilot</strong> din App Store sau Play Store</li>
+          <li>Conectează-te cu un cont Microsoft (e gratuit, poți face unul cu orice email)</li>
+          <li>Scrie promptul de imagine direct în chat, exact ca la ChatGPT</li>
+          <li>Alternativ, instalează <strong>Microsoft Designer</strong> pentru un editor vizual mai complet</li>
+        </ul>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Un peisaj de munte la apus de soare, cu un lac cristalin în prim plan care reflectă cerul portocaliu, stil fotografie profesională cu lentilă wide-angle, lumină caldă de golden hour"
+        </div>
+
+        <div class="tip-box tip-magenta">
+          <strong>Recomandarea noastră</strong>
+          Dacă vrei calitate DALL-E 3 fără să plătești, Microsoft Copilot e alegerea clară. Sincer, e aproape suspect cât de generos e planul gratuit. Profită cât mai e așa.
+        </div>
+
+        <!-- Step 4 -->
+        <h2 id="pas4"><span class="step-num">Pasul 4.</span> Google Gemini / Imagen (Android)</h2>
+        <p>
+          Google nu stă nici el degeaba. <strong>Gemini</strong> vine acum cu generare de imagini prin modelul <strong>Imagen</strong>, și rezultatele sunt... interesante. Uneori surprinzător de bune, alteori frustrant de conservatoare.
+        </p>
+        <h3>Cum funcționează</h3>
+        <ul>
+          <li>Deschide aplicația <strong>Google Gemini</strong> pe Android (vine preinstalată pe multe telefoane noi)</li>
+          <li>Pe iOS, poți accesa Gemini prin aplicația Google sau prin browser la <em>gemini.google.com</em></li>
+          <li>Scrie ce imagine vrei — Gemini va genera automat folosind Imagen</li>
+          <li>Primești de obicei 4 variante din care poți alege</li>
+        </ul>
+        <h3>Ce trebuie să știi</h3>
+        <p>
+          Gemini are o politică de conținut mai... strictă decât altele. Uneori refuză cereri care par perfect inofensive. Vrei o imagine cu o persoană reală? Nope. Ceva care ar putea fi interpretat ca violent? Nici atât. Chiar și cereri creative pot fi refuzate dacă algoritmul consideră că "nu e sigur."
+        </p>
+        <p>
+          Când funcționează însă, calitatea e foarte bună, mai ales pentru imagini foto-realiste. Și e complet gratuit.
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "O cafea latte art cu un design de frunză, pe o masă de lemn rustic, lângă o carte deschisă și o fereastră cu lumina dimineții, stil fotografie lifestyle"
+        </div>
+
+        <div class="tip-box">
+          <strong>Sfat pentru Gemini</strong>
+          Dacă Gemini refuză un prompt, încearcă să-l reformulezi. În loc de "un războinic cu sabie", scrie "un personaj de fantasy ținând un obiect strălucitor." Uneori trebuie să fii creativ cu formularea ca să treci de filtre.
+        </div>
+
+        <!-- Step 5 -->
+        <h2 id="pas5"><span class="step-num">Pasul 5.</span> Image Playground pe iOS</h2>
+        <p>
+          Dacă ai un iPhone cu Apple Intelligence (iPhone 15 Pro sau mai nou), ai acces la <strong>Image Playground</strong> — generatorul de imagini al Apple. Și e o experiență... diferită.
+        </p>
+        <h3>Cele trei stiluri</h3>
+        <ul>
+          <li><strong>Animation</strong> — Stil Pixar/Disney, personaje 3D colorate și simpatice</li>
+          <li><strong>Illustration</strong> — Ilustrații 2D, ideale pentru postări sau avataruri</li>
+          <li><strong>Sketch</strong> — Stil desen în creion, minimalist și elegant</li>
+        </ul>
+        <h3>Ce e cool</h3>
+        <ul>
+          <li><strong>Genmoji</strong> — Poți crea emoji-uri personalizate! Descrie ce vrei și Apple creează un emoji custom pe care-l poți trimite în mesaje</li>
+          <li><strong>Integrare cu Messages</strong> — Generezi imagini direct din conversațiile iMessage</li>
+          <li><strong>Procesare locală</strong> — Totul se întâmplă pe telefon, fără cloud. Deci funcționează și offline (mai lent, dar funcționează)</li>
+          <li><strong>Bazat pe fețe</strong> — Poți folosi pozele contactelor tale ca referință pentru personaje</li>
+        </ul>
+        <h3>Părerea sinceră</h3>
+        <p>
+          Image Playground e distractiv. E rapid. E integrat frumos în iOS. Dar... nu e DALL-E 3. Stilistic, ești limitat la cele 3 opțiuni. Nu poți genera imagini foto-realiste. Și nu poți scrie prompturi complexe — interfața e mai mult bazată pe sugestii și taguri decât pe text liber.
+        </p>
+        <p>
+          Pentru Genmoji și pentru a trimite imagini amuzante prietenilor în Messages, e fantastic. Pentru orice altceva mai serios, folosește DALL-E 3 sau Copilot.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Genmoji fun fact</strong>
+          Poți combina concepte absurde: "un T-Rex care face yoga" sau "o broască cu pălărie de cowboy." Genmoji-urile astea devin rapid cele mai trimise stickere din conversațiile tale. Garantat.
+        </div>
+
+        <!-- Step 6 -->
+        <h2 id="pas6"><span class="step-num">Pasul 6.</span> Adobe Firefly (gratuit)</h2>
+        <p>
+          Adobe Firefly e opțiunea "serioasă" din această listă. Și prin serioasă nu vreau să zic plictisitoare — vreau să zic că e singurul generator de imagini AI pe care poți să-l folosești <strong>comercial fără griji</strong>.
+        </p>
+        <h3>De ce contează</h3>
+        <ul>
+          <li><strong>Antrenat pe imagini licențiate</strong> — Adobe a antrenat Firefly exclusiv pe Adobe Stock, conținut cu licență deschisă și conținut din domeniul public. Asta înseamnă zero probleme legale</li>
+          <li><strong>Content Credentials</strong> — Fiecare imagine generată vine cu metadate care dovedesc că e creată de AI. Transparență totală</li>
+          <li><strong>Calitate profesională</strong> — Culorile, compoziția și stilul sunt orientate spre design profesional</li>
+          <li><strong>Plan gratuit generos</strong> — Primești credite lunare suficiente pentru uz personal</li>
+        </ul>
+        <h3>Cum să-l folosești pe telefon</h3>
+        <ul>
+          <li>Accesează <em>firefly.adobe.com</em> în browserul telefonului (funcționează excelent pe mobil)</li>
+          <li>Conectează-te cu un cont Adobe gratuit</li>
+          <li>Scrie promptul în engleză (funcționează și în română, dar rezultatele sunt mai bune în engleză)</li>
+          <li>Ajustează stilul, raportul de aspect și alte setări din panoul lateral</li>
+        </ul>
+        <h3>Cel mai bun pentru</h3>
+        <p>
+          Dacă faci conținut pentru un blog, un mic business, un canal de YouTube sau orice altceva unde ai nevoie de imagini pe care le poți folosi <strong>comercial</strong>, Firefly e alegerea sigură. Nu e neapărat "cel mai wow" vizual (DALL-E 3 câștigă acolo), dar e singurul la care nu trebuie să-ți faci griji despre drepturi de autor.
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Minimalist flat design illustration of a smartphone with colorful AI sparkles coming out of the screen, soft gradient background, modern tech aesthetic, clean lines"
+        </div>
+
+        <div class="tip-box">
+          <strong>Sfat pentru Firefly</strong>
+          Scrie prompturile în engleză pentru rezultate semnificativ mai bune. Adobe a optimizat modelul preponderent pe prompturi în engleză, și diferența de calitate se simte.
+        </div>
+
+        <!-- Step 7 -->
+        <h2 id="pas7"><span class="step-num">Pasul 7.</span> Secretele unui prompt bun pentru imagini</h2>
+        <p>
+          Asta e secțiunea care face diferența între "meh, AI-ul nu e chiar wow" și "DOAMNE, cum a făcut asta?!" Secretul nu e aplicația. E cum îi spui ce vrei.
+        </p>
+        <h3>Formula magică: Subiect + Stil + Atmosferă + Detalii</h3>
+        <p>
+          Orice prompt bun are patru ingrediente. Gândește-te la ele ca la o rețetă:
+        </p>
+        <ul>
+          <li><strong>Subiect</strong> — CE vrei să vezi (o pisică, un peisaj, un portret)</li>
+          <li><strong>Stil</strong> — CUM să arate (pictură în ulei, fotografie, watercolor, pixel art, anime)</li>
+          <li><strong>Atmosferă / Mood</strong> — Ce SENTIMENT transmite (dramatic, vesel, misterios, nostalgic)</li>
+          <li><strong>Detalii tehnice</strong> — Iluminare, unghi de cameră, culori dominante, compoziție</li>
+        </ul>
+
+        <h3>Exemplu slab vs. exemplu bun</h3>
+        <p><strong>Slab:</strong> <em>"un câine"</em> — Vei primi un câine generic pe un fundal generic. Wow. Fascinant.</p>
+        <p><strong>Bun:</strong></p>
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Un golden retriever zâmbitor stând într-un câmp de lavandă la apus de soare, stil fotografie profesională cu bokeh, lumină caldă de golden hour, unghi de la nivelul ochilor câinelui, culori pastelate violet și auriu"
+        </div>
+
+        <h3>Trucuri care fac diferența</h3>
+        <ul>
+          <li><strong>Menționează iluminarea:</strong> <em>"lumină naturală soft"</em>, <em>"neon lights"</em>, <em>"dramatic chiaroscuro"</em>, <em>"golden hour"</em></li>
+          <li><strong>Specifică unghiul camerei:</strong> <em>"bird's eye view"</em>, <em>"close-up macro"</em>, <em>"wide-angle"</em>, <em>"low angle heroic shot"</em></li>
+          <li><strong>Referințează un stil artistic:</strong> <em>"în stilul lui Monet"</em>, <em>"Studio Ghibli style"</em>, <em>"cyberpunk aesthetic"</em></li>
+          <li><strong>Adaugă textură și material:</strong> <em>"sculptură din marmură"</em>, <em>"ilustrație watercolor pe hârtie texturată"</em></li>
+        </ul>
+
+        <h3>Încă două prompturi testate și gata de folosit</h3>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Interior cozy de cafenea în stil scandinav, plante verzi pe rafturi de lemn, lumină caldă de dimineață prin ferestre mari, o ceașcă de cappuccino pe masă, stil fotografie editorial, tonuri calde de bej și verde"
+        </div>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Un astronaut stând pe marginea unui crater pe Lună, privind Pământul pe cerul negru, stil cinematic sci-fi, lumina albastră a Pământului reflectându-se pe casca astronautului, compoziție epică wide-angle"
+        </div>
+
+        <div class="tip-box tip-magenta">
+          <strong>Regula de aur</strong>
+          Dacă poți descrie imaginea în mai puțin de 5 cuvinte, promptul tău e prea scurt. Țintește minim 15-25 de cuvinte. Detaliile fac diferența între "eh" și "extraordinar."
+        </div>
+
+        <h2>Concluzie</h2>
+        <p>
+          Generarea de imagini cu AI pe telefon a devenit ceva ce oricine poate face, gratuit, în câteva secunde. Nu ai nevoie de experiență în design, nu ai nevoie de Photoshop, nu ai nevoie de talent artistic. Ai nevoie doar de idei și de cuvintele potrivite.
+        </p>
+        <p>
+          Recomandarea mea? Începe cu <strong>Microsoft Copilot</strong> pentru generări gratuite nelimitate cu calitate DALL-E 3. Dacă ai iPhone, joacă-te cu <strong>Image Playground</strong> pentru Genmoji — e stupid de distractiv. Iar dacă ai nevoie de imagini pentru un proiect comercial, <strong>Adobe Firefly</strong> e singura alegere responsabilă.
+        </p>
+        <p>
+          Acum du-te și creează ceva. Poate un portret epic al pisicii tale. Poate o invitație de ziua ta. Poate un meme pe care prietenii tăi nu-l vor uita niciodată. Posibilitățile sunt literalmente nelimitate — singura limită e imaginația ta (și poate limita de generări zilnice pe planul gratuit, dar na, nu putem avea totul).
+        </p>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-section">
+        <h3>Distribuie acest tutorial</h3>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="share-btn" href="https://wa.me/?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copiat!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiază link
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Tutorial -->
+      <a href="planifica-vacanta-cu-ai.html" class="next-tutorial">
+        <span class="label">Tutorial următor &rarr;</span>
+        <span class="title">Cum să planifici o vacanță completă în 10 minute cu AI</span>
+      </a>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+      <p class="footer-text" style="margin-top:0.5rem;">
+        <a href="../confidentialitate.html">Confidențialitate</a> · <a href="../termeni.html">Termeni</a> · <a href="../cookies.html">Cookies</a>
+      </p>
+      <p class="footer-disclaimer">
+        AIphone.ro este un proiect editorial independent. Nu suntem afiliați, sponsorizați sau asociați cu Apple Inc., Samsung Electronics, Google LLC, OpenAI, Microsoft Corporation, Adobe Inc. sau orice alt producător menționat pe acest site. Toate numele de produse, logo-urile și mărcile aparțin deținătorilor respectivi. Conținutul este oferit exclusiv în scop educațional și informativ.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+<script>
+function copyPrompt(btn) {
+  const block = btn.parentElement;
+  const text = block.textContent.replace('Copiază','').replace('Copiat!','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copiat!';
+    setTimeout(() => btn.textContent = 'Copiază', 2000);
+  });
+}
+</script>
+</body>
+</html>

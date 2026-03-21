@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Învață cum să rezumi documente lungi, PDF-uri și emailuri cu un singur tap folosind AI pe telefon. Ghid pas cu pas pentru Android și iOS.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Rezumă documente lungi cu un singur tap — AIphone.ro">
+  <meta property="og:description" content="Ghid complet: rezumă PDF-uri, emailuri și articole lungi instant cu Gemini, Apple Intelligence și ChatGPT pe telefonul tău.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aiphone.ro/tutoriale/rezuma-documente-cu-ai.html">
+  <meta property="og:image" content="https://aiphone.ro/img/og-image.png">
+  <title>Rezumă documente lungi cu un singur tap — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!-- Article Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Rezumă documente lungi cu un singur tap",
+    "description": "Ghid complet pas cu pas pentru a rezuma documente, PDF-uri și emailuri folosind AI pe telefonul tău Android sau iOS.",
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "datePublished": "2026-03-21",
+    "dateModified": "2026-03-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage"
+    },
+    "articleSection": "Tutoriale",
+    "keywords": ["AI", "rezumare", "documente", "PDF", "Gemini", "Apple Intelligence", "ChatGPT", "Android", "iOS"]
+  }
+  </script>
+
+  <style>
+    /* Article Layout */
+    .article-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: #ff00e5;
+    }
+    .breadcrumb .sep {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+    .article-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 60%, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .meta-badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(0,212,255,0.12);
+      color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.2);
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #00d4ff;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      margin-bottom: 0.4rem;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter) ". ";
+      color: #ff00e5;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .toc a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: #00d4ff;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,212,255,0.15);
+    }
+    .article-content h2 .step-num {
+      color: #00d4ff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #fff;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .article-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .article-content em {
+      color: #00d4ff;
+      font-style: normal;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      background: rgba(0,212,255,0.08);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    /* Tip / Info boxes */
+    .tip-box {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .tip-box.tip-magenta {
+      background: rgba(255,0,229,0.06);
+      border-left-color: #ff00e5;
+    }
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Example prompt block */
+    .prompt-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      position: relative;
+    }
+    .prompt-block::before {
+      content: 'Exemplu prompt';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: #0a0a0f;
+      padding: 0 0.5rem;
+      font-size: 0.7rem;
+      color: #ff00e5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .prompt-copy {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255,0,229,0.15);
+      border: 1px solid rgba(255,0,229,0.3);
+      color: #ff00e5;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .prompt-copy:hover {
+      background: rgba(255,0,229,0.3);
+    }
+
+    /* Share Buttons */
+    .share-section {
+      margin: 3rem 0 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .share-section h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+    }
+
+    /* Next Tutorial */
+    .next-tutorial {
+      display: block;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,0,229,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .next-tutorial:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.12);
+    }
+    .next-tutorial span.label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff00e5;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+    .next-tutorial span.title {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrapper {
+        padding: 1.25rem 1rem 3rem;
+      }
+      .article-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasă</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../imei/index.html">IMEI Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-wrapper">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Acasă</a>
+        <span class="sep">/</span>
+        <a href="../tutoriale.html">Tutoriale</a>
+        <span class="sep">/</span>
+        <span>Rezumă documente cu AI</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <h1>&#128196; Rezumă documente lungi cu un singur tap</h1>
+        <div class="article-meta">
+          <span>&#128337; 6 min citire</span>
+          <span><span class="meta-badge">Începător</span></span>
+          <span>&#128241; Android &amp; iOS</span>
+          <span>&#128197; 21 martie 2026</span>
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Cuprins">
+        <h2>Cuprins</h2>
+        <ol>
+          <li><a href="#pas1">De ce ai nevoie de rezumare cu AI</a></li>
+          <li><a href="#pas2">Rezumare pe Android cu Gemini</a></li>
+          <li><a href="#pas3">Rezumare pe iOS cu Apple Intelligence</a></li>
+          <li><a href="#pas4">Rezumare PDF-uri și documente complexe</a></li>
+          <li><a href="#pas5">Trucuri avansate pentru rezumare perfectă</a></li>
+          <li><a href="#pas6">Când să NU te bazezi pe rezumare AI</a></li>
+        </ol>
+      </nav>
+
+      <!-- Article Content -->
+      <div class="article-content">
+        <p>
+          Știi momentul ăla când primești un PDF de 40 de pagini și trebuie să-l citești până mâine? Sau când șeful trimite un email-roman de 3 pagini și tu ai 5 minute între ședințe? Sau — și ăsta e preferatul meu — când dai să instalezi o aplicație și ți se cere să accepți Termenii și Condițiile, un document de 47 de pagini pe care absolut nimeni din istoria omenirii nu l-a citit integral.
+        </p>
+        <p>
+          Ei bine, acum poți. Sau mai degrabă, AI-ul poate să le citească pentru tine și să-ți spună ce contează. În câteva secunde. De pe telefon. Sună prea bine ca să fie adevărat? Hai să-ți arăt.
+        </p>
+
+        <div class="tip-box">
+          <strong>Ce ai nevoie</strong>
+          Un telefon Android cu Google Gemini sau un iPhone cu Apple Intelligence (iPhone 15 Pro sau mai nou). Pentru PDF-uri complexe, poți folosi și aplicația ChatGPT sau Microsoft Copilot (disponibile pe ambele platforme).
+        </div>
+
+        <!-- Step 1 -->
+        <h2 id="pas1"><span class="step-num">Pasul 1.</span> De ce ai nevoie de rezumare cu AI</h2>
+        <p>
+          Să fim sinceri: trăim într-o lume în care primim mai mult text decât putem procesa fizic. Emailuri, rapoarte, contracte, articole, documentații tehnice. La un moment dat, creierul pur și simplu zice „pas".
+        </p>
+        <p>Iată câteva situații în care rezumarea cu AI îți salvează ziua (și nervii):</p>
+        <ul>
+          <li><strong>Emailul-epopeea de la șef</strong> — trei pagini de context când tu ai nevoie doar de concluzie și ce trebuie să faci</li>
+          <li><strong>Contractul de închiriere</strong> — 12 pagini de legalese, dar tu vrei doar să știi dacă poți avea animal de companie și cât e penalizarea la reziliere</li>
+          <li><strong>Termenii și Condițiile</strong> — nimeni nu le citește, dar poate ar trebui, mai ales că uneori ascund chestii dubioase</li>
+          <li><strong>Articolele lungi de cercetare</strong> — vrei esența, nu 25 de pagini de metodologie</li>
+          <li><strong>Rapoartele de la muncă</strong> — colegul care scrie 10 pagini pentru ceva ce se putea spune în 3 paragrafe</li>
+        </ul>
+        <p>
+          AI-ul nu doar rezumă — poate extrage exact informația pe care o cauți, poate transforma un document într-o listă de acțiuni și poate compara mai multe documente între ele. Și face toate astea în secunde, nu în ore.
+        </p>
+
+        <!-- Step 2 -->
+        <h2 id="pas2"><span class="step-num">Pasul 2.</span> Rezumare pe Android cu Gemini</h2>
+        <p>
+          Dacă ai un telefon Android, Gemini e prietenul tău cel mai bun pentru rezumare. E integrat peste tot în ecosistemul Google și e surprinzător de bun la asta.
+        </p>
+
+        <h3>Varianta rapidă: copiază și lipește</h3>
+        <p>
+          Cea mai simplă metodă: selectezi textul, îl copiezi, deschizi Gemini și-i zici ce vrei. Simplu, dar eficient.
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Rezumă textul următor în 5 bullet points, concentrându-te pe concluziile principale și acțiunile necesare: [lipește textul aici]"
+        </div>
+
+        <p>Dar uite și alte variante de prompt-uri, în funcție de ce ai nevoie:</p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Rezumă în maxim 2 propoziții: [textul]"
+        </div>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Citește textul de mai jos și spune-mi doar ce trebuie SĂ FAC eu concret: [textul]"
+        </div>
+
+        <h3>Gemini în Gmail — rezumarea thread-urilor de email</h3>
+        <p>
+          Asta e funcția care, sincer, mi-a schimbat viața la birou. Deschizi un thread lung de email în Gmail, apeși pe butonul <strong>Summarize this email</strong> (sau „Rezumă") din partea de sus, și Gemini îți face un rezumat în câteva secunde. Gata. Nu mai trebuie să te chinui prin 47 de reply-uri ca să înțelegi despre ce e vorba.
+        </p>
+
+        <h3>Gemini în Google Docs</h3>
+        <p>
+          Ai un document lung deschis în Google Docs? Apasă pe iconița Gemini din bara laterală și cere-i: <em>"Rezumă acest document"</em>. Funcționează și cu documente partajate de colegi — excelent pentru când intri într-un proiect la jumătatea lui și trebuie să te pui la curent rapid.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Sfat pro</strong>
+          Diferența dintre un rezumat bun și unul generic e în prompt. „Rezumă în 5 bullet points" dă rezultate complet diferite față de „Rezumă în 2 propoziții". Gândește-te mereu: câtă informație am nevoie de fapt? Dacă vrei doar esența — 2 propoziții. Dacă vrei să înțelegi detalii — bullet points. Dacă vrei să acționezi — cere-i lista de acțiuni.
+        </div>
+
+        <!-- Step 3 -->
+        <h2 id="pas3"><span class="step-num">Pasul 3.</span> Rezumare pe iOS cu Apple Intelligence</h2>
+        <p>
+          Apple a integrat rezumarea direct în sistem, ceea ce înseamnă că funcționează în aproape orice aplicație fără să instalezi nimic extra. Și — lucru important — procesarea se face pe dispozitiv, deci textele tale nu pleacă pe nicăieri. Pentru cine ține la confidențialitate, asta contează enorm.
+        </p>
+
+        <h3>Writing Tools — rezumare în orice aplicație</h3>
+        <p>
+          Selectează orice text, apasă pe <strong>Writing Tools</strong> în meniul contextual, apoi alege <strong>Summary</strong>. Funcționează în Notes, Mail, Safari, Pages, și practic orice aplicație care afișează text. E ca și cum ai un asistent personal care stă lângă tine și zice: „lasă, îți zic eu despre ce e vorba".
+        </p>
+
+        <h3>Safari — rezumate de articole</h3>
+        <p>
+          Când deschizi un articol lung în Safari, vei vedea opțiunea de rezumare în bara de adresă. Un tap și primești esența articolului. Perfect pentru momentele în care cineva îți trimite un link cu mesajul „citește asta, e important" și tu ai 30 de secunde libere.
+        </p>
+
+        <h3>Mail — rezumate de emailuri</h3>
+        <p>
+          Apple Intelligence afișează automat preview-uri rezumate ale emailurilor direct în inbox. Nu mai vezi doar prima propoziție — vezi un rezumat care chiar te ajută să decizi dacă emailul e urgent sau poate să aștepte. Emailurile lungi au și ele un buton de rezumare în partea de sus.
+        </p>
+
+        <div class="tip-box">
+          <strong>Confidențialitate</strong>
+          Rezumarea prin Apple Intelligence se face ON-DEVICE — textul tău nu părăsește telefonul. Asta înseamnă că poți rezuma liniștit și documente confidențiale, fără grija că ajung pe serverele cuiva.
+        </div>
+
+        <!-- Step 4 -->
+        <h2 id="pas4"><span class="step-num">Pasul 4.</span> Rezumare PDF-uri și documente complexe</h2>
+        <p>
+          OK, deci textele simple le-am rezolvat. Dar ce faci cu un PDF de 50 de pagini? Sau un contract scanat? Sau un raport financiar cu tabele și grafice? Aici intră în scenă aplicațiile dedicate.
+        </p>
+
+        <h3>Încarcă PDF-ul într-un chatbot AI</h3>
+        <p>
+          Atât ChatGPT, cât și Gemini și Microsoft Copilot acceptă PDF-uri direct în conversație. Deschizi aplicația, apeși pe butonul de atașare (sau iconița de „+"), selectezi PDF-ul și întrebi ce vrei. Simplu.
+        </p>
+        <p>
+          Dar trucul nu e doar să zici „rezumă". Trucul e să pui <strong>întrebări specifice</strong> despre document. Diferența e uriașă:
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Care sunt termenii de plată din acest contract? Ce penalizări există pentru întârziere?"
+        </div>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Extrage toate datele limită și termenele menționate în acest document și prezintă-le într-un tabel cronologic."
+        </div>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Rezumă acest raport în 3 secțiuni: 1) Concluzii principale, 2) Cifre cheie, 3) Recomandări."
+        </div>
+
+        <p>
+          Vezi diferența? În loc să primești un rezumat generic de 5 rânduri, primești exact informația care te interesează. E ca diferența dintre a întreba pe cineva „despre ce e cartea asta?" și „care e scena cu bătălia din capitolul 7?".
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Funcționează și cu documente scanate</strong>
+          Dacă ai un document pe hârtie, fă-i o poză cu telefonul și trimite-o în ChatGPT sau Gemini. AI-ul recunoaște textul din imagine (OCR) și poate lucra cu el ca și cum ar fi text normal. Am testat cu facturi vechi, rețete medicale și chiar notițe scrise de mână — funcționează surprinzător de bine.
+        </div>
+
+        <!-- Step 5 -->
+        <h2 id="pas5"><span class="step-num">Pasul 5.</span> Trucuri avansate pentru rezumare perfectă</h2>
+        <p>
+          Acum că știi bazele, hai să trecem la nivel avansat. Câteva tehnici care transformă rezumarea dintr-un instrument ok într-un superpower:
+        </p>
+
+        <h3>Cere formatul care ți se potrivește</h3>
+        <p>Nu te mulțumi cu un bloc de text. Spune-i AI-ului exact cum vrei informația:</p>
+        <ul>
+          <li><strong>Bullet points</strong> — pentru scanare rapidă</li>
+          <li><strong>Tabel</strong> — pentru comparații și date structurate</li>
+          <li><strong>Pro/contra</strong> — pentru decizii</li>
+          <li><strong>Cronologic</strong> — pentru evenimente și termene</li>
+          <li><strong>FAQ</strong> — pentru documente tehnice (întrebări și răspunsuri despre document)</li>
+        </ul>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Rezumă acest contract sub formă de tabel cu coloanele: Clauză | Ce înseamnă pe limba mea | Ce trebuie să fac"
+        </div>
+
+        <h3>Prompt-uri în lanț — Chain prompting</h3>
+        <p>
+          Nu trebuie să obții tot dintr-un singur prompt. Poți „discuta" cu AI-ul despre document, pas cu pas. Asta dă rezultate mult mai bune decât un singur prompt lung:
+        </p>
+        <ol>
+          <li>Mai întâi: <em>"Rezumă documentul ăsta în 5 bullet points"</em></li>
+          <li>Apoi: <em>"Acum extrage toate datele și termenele importante"</em></li>
+          <li>Apoi: <em>"Ce obligații am eu conform documentului?"</em></li>
+          <li>Și la final: <em>"E ceva în document care ar putea fi problematic sau dezavantajos pentru mine?"</em></li>
+        </ol>
+
+        <h3>Verifică completitudinea</h3>
+        <p>
+          Un truc pe care puțini îl folosesc: după ce primești rezumatul, întreabă AI-ul: <em>"Ce informații importante din document NU ai inclus în rezumat?"</em>. De multe ori, AI-ul recunoaște că a omis detalii și le completează. E ca un safety net pentru rezumatele tale.
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Revizuiește rezumatul de mai sus. Ce informații importante din documentul original ai omis? Completează cu ce lipsește."
+        </div>
+
+        <!-- Step 6 -->
+        <h2 id="pas6"><span class="step-num">Pasul 6.</span> Când să NU te bazezi pe rezumare AI</h2>
+        <p>
+          OK, am fost entuziast până acum, dar trebuie să fiu și sincer. Sunt situații în care rezumarea AI nu e suficientă și poate chiar fi periculoasă dacă te bazezi exclusiv pe ea. Trebuie spus.
+        </p>
+
+        <h3>Documente juridice pe care le semnezi</h3>
+        <p>
+          Folosește AI-ul ca să înțelegi mai repede un contract, absolut. Dar <strong>nu semna niciodată un contract bazându-te doar pe rezumatul AI</strong>. AI-ul poate rata clauze ascunse, poate interpreta greșit formulări juridice ambigue și nu înțelege contextul legal specific țării tale. Rezumatul e punctul de plecare — nu înlocuiește citirea atentă (sau un avocat).
+        </p>
+
+        <h3>Informații medicale</h3>
+        <p>
+          Dacă rezumi un rezultat medical sau o documentație despre un tratament, AI-ul poate omite detalii critice — contraindicații, interacțiuni medicamentoase, excepții. Folosește rezumatul ca să înțelegi termenii, dar discută întotdeauna cu medicul.
+        </p>
+
+        <h3>Decizii financiare importante</h3>
+        <p>
+          Rezumatul unui prospect de investiție sau al unui contract de credit poate suna perfect rezonabil și totuși să omită exact clauza care te costă mii de euro. Numerele mici, notele de subsol, excepțiile — AI-ul tinde să le considere „mai puțin importante". Dar uneori, tocmai alea contează cel mai mult.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Regula de aur</strong>
+          Folosește rezumarea AI ca pe un <strong>prim pas</strong>, nu ca pe singurul pas. E perfectă ca să te orientezi rapid într-un document lung, să înțelegi despre ce e vorba și să identifici părțile care necesită atenție. Dar când miza e mare — semnătură, bani, sănătate — citește tu însuți părțile relevante.
+        </div>
+
+        <h2>Concluzie</h2>
+        <p>
+          Rezumarea cu AI e una din acele funcții care, odată ce o descoperi, te întrebi cum ai trăit fără ea. Emailuri, contracte, articole, rapoarte — totul devine gestionabil. Nu mai pierzi ore citind documente lungi ca să extragi 3 informații relevante.
+        </p>
+        <p>
+          Pe Android, Gemini e integrat elegant în Gmail și Google Docs. Pe iOS, Apple Intelligence funcționează nativ peste tot și procesează totul pe dispozitiv. Și pentru documentele complexe, ChatGPT, Gemini și Copilot acceptă PDF-uri și răspund la întrebări specifice.
+        </p>
+        <p>
+          Singura regulă: nu-l trata ca pe adevărul absolut. E un instrument genial, dar rămâne un instrument. Folosește-l inteligent, verifică când contează, și vei câștiga ore întregi în fiecare săptămână. Serios, ore.
+        </p>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-section">
+        <h3>Distribuie acest tutorial</h3>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="share-btn" href="https://wa.me/?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copiat!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiază link
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Tutorial -->
+      <a href="creeaza-imagini-cu-ai.html" class="next-tutorial">
+        <span class="label">Tutorial următor &rarr;</span>
+        <span class="title">Creează imagini cu AI direct de pe telefon</span>
+      </a>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+      <p class="footer-text" style="margin-top:0.5rem;">
+        <a href="../confidentialitate.html">Confidențialitate</a> · <a href="../termeni.html">Termeni</a> · <a href="../cookies.html">Cookies</a>
+      </p>
+      <p class="footer-disclaimer">
+        AIphone.ro este un proiect editorial independent. Nu suntem afiliați, sponsorizați sau asociați cu Apple Inc., Samsung Electronics, Google LLC, OpenAI, Microsoft Corporation sau orice alt producător menționat pe acest site. Toate numele de produse, logo-urile și mărcile aparțin deținătorilor respectivi. Conținutul este oferit exclusiv în scop educațional și informativ.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+<script>
+function copyPrompt(btn) {
+  const block = btn.parentElement;
+  const text = block.textContent.replace('Copiază','').replace('Copiat!','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copiat!';
+    setTimeout(() => btn.textContent = 'Copiază', 2000);
+  });
+}
+</script>
+</body>
+</html>
