@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZX8ZER188"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZX8ZER188');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Învață cum să folosești traducerile instantanee cu AI pe telefonul tău — în apeluri, conversații față în față, text, imagini și meniuri.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="Traduceri instantanee în conversații cu AI — AIphone.ro">
+  <meta property="og:description" content="Ghid complet: traduceri în timp real în apeluri, conversații, text și imagini folosind inteligența artificială pe Android și iOS.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aiphone.ro/tutoriale/traduceri-instantanee-cu-ai.html">
+  <meta property="og:image" content="https://aiphone.ro/img/og-image.png">
+  <title>Traduceri instantanee în conversații cu AI — AIphone.ro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicon -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+  <link rel="apple-touch-icon" href="../img/icon-192.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!-- Article Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Traduceri instantanee în conversații cu AI",
+    "description": "Ghid complet pas cu pas pentru a folosi traducerile instantanee cu AI pe telefonul tău Android sau iOS.",
+    "author": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIphone.ro"
+    },
+    "datePublished": "2026-03-21",
+    "dateModified": "2026-03-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage"
+    },
+    "articleSection": "Tutoriale",
+    "keywords": ["AI", "traducere", "Live Translate", "Galaxy AI", "Apple Intelligence", "Google Gemini", "Android", "iOS"]
+  }
+  </script>
+
+  <style>
+    /* Article Layout */
+    .article-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: #ff00e5;
+    }
+    .breadcrumb .sep {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+    .article-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 60%, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .meta-badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(0,212,255,0.12);
+      color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.2);
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #00d4ff;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      margin-bottom: 0.4rem;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter) ". ";
+      color: #ff00e5;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .toc a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: #00d4ff;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,212,255,0.15);
+    }
+    .article-content h2 .step-num {
+      color: #00d4ff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+      color: #fff;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .article-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .article-content em {
+      color: #00d4ff;
+      font-style: normal;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      background: rgba(0,212,255,0.08);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    /* Tip / Info boxes */
+    .tip-box {
+      background: rgba(0,212,255,0.06);
+      border-left: 3px solid #00d4ff;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .tip-box.tip-magenta {
+      background: rgba(255,0,229,0.06);
+      border-left-color: #ff00e5;
+    }
+    .tip-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Example prompt block */
+    .prompt-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      position: relative;
+    }
+    .prompt-block::before {
+      content: 'Exemplu prompt';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: #0a0a0f;
+      padding: 0 0.5rem;
+      font-size: 0.7rem;
+      color: #ff00e5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .prompt-copy {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255,0,229,0.15);
+      border: 1px solid rgba(255,0,229,0.3);
+      color: #ff00e5;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .prompt-copy:hover {
+      background: rgba(255,0,229,0.3);
+    }
+
+    /* Share Buttons */
+    .share-section {
+      margin: 3rem 0 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .share-section h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,212,255,0.15);
+    }
+
+    /* Next Tutorial */
+    .next-tutorial {
+      display: block;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,0,229,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .next-tutorial:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.12);
+    }
+    .next-tutorial span.label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff00e5;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+    .next-tutorial span.title {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .article-wrapper {
+        padding: 1.25rem 1rem 3rem;
+      }
+      .article-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Background Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigare principală">
+    <a href="../index.html" class="nav-brand">
+      <span class="ai">AI</span><span class="phone">phone</span><span class="dot">.</span><span class="ro">ro</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Acasă</a></li>
+      <li><a href="../tutoriale.html">Tutoriale</a></li>
+      <li><a href="../recenzii.html">Recenzii</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../despre.html">Despre</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../imei/index.html">IMEI Tools</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-btn" id="themeToggle" aria-label="Schimbă tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+
+      <button class="nav-toggle" aria-label="Meniu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-wrapper">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Acasă</a>
+        <span class="sep">/</span>
+        <a href="../tutoriale.html">Tutoriale</a>
+        <span class="sep">/</span>
+        <span>Traduceri instantanee cu AI</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <h1>&#127757; Traduceri instantanee în conversații cu AI</h1>
+        <div class="article-meta">
+          <span>&#128337; 7 min citire</span>
+          <span><span class="meta-badge">Intermediar</span></span>
+          <span>&#128241; Android &amp; iOS</span>
+          <span>&#128197; 21 martie 2026</span>
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Cuprins">
+        <h2>Cuprins</h2>
+        <ol>
+          <li><a href="#pas1">Cum funcționează traducerea AI pe telefon</a></li>
+          <li><a href="#pas2">Traducere în timp real în apeluri telefonice</a></li>
+          <li><a href="#pas3">Traducere conversații față în față</a></li>
+          <li><a href="#pas4">Traducere text și mesaje cu AI</a></li>
+          <li><a href="#pas5">Traducere imagini și meniuri cu camera</a></li>
+          <li><a href="#pas6">Sfaturi practice pentru traduceri precise</a></li>
+        </ol>
+      </nav>
+
+      <!-- Article Content -->
+      <div class="article-content">
+        <p>
+          Fie că ești în vacanță într-o țară străină, ai o conversație telefonică cu un partener de afaceri internațional sau pur și simplu vrei să înțelegi un meniu într-o limbă necunoscută, telefonul tău poate deveni acum un <strong>traducător personal în timp real</strong>. Inteligența artificială a transformat radical modul în care comunicăm peste barierele lingvistice, iar în acest tutorial îți arătăm exact cum să profiți de toate aceste funcții.
+        </p>
+
+        <div class="tip-box">
+          <strong>Ce ai nevoie</strong>
+          Un telefon Android (Samsung Galaxy cu One UI 6.1+, Google Pixel sau alt model cu Google Gemini) sau un iPhone cu iOS 18+. Pentru funcțiile avansate de traducere, o conexiune la internet activă. Unele funcții funcționează și offline, după descărcarea pachetelor de limbi.
+        </div>
+
+        <!-- Step 1 -->
+        <h2 id="pas1"><span class="step-num">Pasul 1.</span> Cum funcționează traducerea AI pe telefon</h2>
+        <p>
+          Nu cu mult timp în urmă, traducerea pe telefon însemna să deschizi o aplicație separată (precum Google Translate), să tastezi sau să lipești textul, să aștepți traducerea și să o copiezi înapoi. Procesul era fragmentat, lent și adesea imprecis — mai ales pentru fraze complexe sau expresii idiomatice. Traducerile erau realizate cuvânt cu cuvânt, fără a înțelege contextul sau nuanțele limbajului natural.
+        </p>
+        <p>
+          Noua generație de traduceri bazate pe AI funcționează fundamental diferit. Modelele de limbaj de pe telefon (precum Galaxy AI, Apple Intelligence sau Google Gemini) înțeleg <strong>contextul complet</strong> al conversației, nu doar cuvintele individuale. Aceasta înseamnă că pot traduce expresii idiomatice, pot adapta registrul (formal vs. informal) și pot menține coerența pe parcursul unei conversații întregi. Rezultatul este o traducere care sună natural, ca și cum ar fi scrisă de un vorbitor nativ.
+        </p>
+        <p>
+          O altă diferență majoră este modul de procesare. Multe funcții de traducere AI rulează direct pe telefon (<strong>on-device processing</strong>), ceea ce înseamnă viteză mai mare, funcționare offline și confidențialitate sporită — datele tale nu părăsesc dispozitivul. Pentru limbi sau sarcini mai complexe, telefonul folosește procesarea în cloud, trimițând datele criptat către servere specializate. Majoritatea telefoanelor moderne combină cele două abordări pentru cel mai bun rezultat.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Știai că?</strong>
+          Galaxy AI poate traduce în peste 16 limbi direct pe dispozitiv, fără conexiune la internet, iar Google Gemini suportă peste 100 de limbi prin procesare în cloud.
+        </div>
+
+        <!-- Step 2 -->
+        <h2 id="pas2"><span class="step-num">Pasul 2.</span> Traducere în timp real în apeluri telefonice</h2>
+        <p>
+          Una dintre cele mai impresionante funcții AI de pe telefoanele moderne este <strong>traducerea live în timpul apelurilor telefonice</strong>. Imaginează-ți că suni la un hotel în Japonia și poți vorbi în română, iar interlocutorul aude ce spui în japoneză — și invers. Funcția Live Translate de la Samsung, disponibilă pe seria Galaxy S24 și mai noi, face exact acest lucru. Apple Intelligence oferă funcționalitate similară pe iPhone-urile compatibile, iar Google integrează traducerea în aplicația sa Phone pe dispozitivele Pixel.
+        </p>
+        <p>
+          Pentru a activa traducerea live pe un telefon Samsung, deschide aplicația <strong>Telefon</strong> și inițiază apelul normal. În timpul apelului, apasă pe butonul <strong>AI</strong> (sau <em>Live Translate</em>) din bara de opțiuni. Selectează limba ta și limba interlocutorului din meniurile derulante. De îndată ce funcția este activată, tot ce spui este tradus automat și redat vocal în limba celeilalte persoane — și tot ce spune cealaltă persoană este tradus și afișat ca text pe ecranul tău (și opțional redat vocal în limba ta).
+        </p>
+        <p>
+          Experiența este surprinzător de fluidă: AI-ul detectează automat când vorbești tu și când vorbește interlocutorul, inserând traducerea în pauzele naturale ale conversației. Poți alege între o voce masculină sau feminină pentru traducere, iar pe ecran vezi în timp real atât transcrierea originală, cât și traducerea. La sfârșitul apelului, poți salva întregul transcript al conversației — extrem de util pentru apeluri de afaceri sau pentru a reține detalii importante.
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Traduce-mi următorul mesaj vocal din engleză în română, păstrând tonul formal: «We would like to confirm your reservation for March 25th. Please bring a valid ID upon check-in.»"
+        </div>
+
+        <div class="tip-box">
+          <strong>Sfat important</strong>
+          Vorbește clar, la o viteză moderată și în propoziții scurte. Fă o pauză după fiecare frază pentru a permite AI-ului să traducă complet înainte de a continua.
+        </div>
+
+        <!-- Step 3 -->
+        <h2 id="pas3"><span class="step-num">Pasul 3.</span> Traducere conversații față în față</h2>
+        <p>
+          Pe lângă apelurile telefonice, telefonul tău poate servi ca <strong>interpret personal</strong> în conversațiile față în față. Această funcție este ideală când ești într-un restaurant în străinătate, la recepția unui hotel sau pur și simplu vorbești cu cineva care nu înțelege limba ta. Modul Interpreter (Samsung) sau modul Conversație (Google Translate) împarte ecranul în două zone — una pentru fiecare vorbitor — astfel încât ambele persoane pot citi traducerea în timp real.
+        </p>
+        <p>
+          Pe Samsung, deschide aplicația <strong>Interpreter</strong> (o găsești în Quick Settings sau în folderul Samsung). Selectează cele două limbi de conversație. Așază telefonul pe masă între tine și interlocutor, cu ecranul vizibil pentru amândoi. Când vorbești tu, traducerea apare în jumătatea de ecran orientată spre cealaltă persoană, și invers. Pe Google Translate, deschide aplicația, apasă pe <strong>Conversație</strong>, selectează limbile și începe să vorbești — aplicația detectează automat cine vorbește și traduce în timp real.
+        </p>
+        <p>
+          Funcția de interpretare față în față este surprinzător de precisă pentru conversații cotidiene: comenzi la restaurant, indicații de orientare, negocieri simple la piață sau discuții la hotel. Pentru cele mai bune rezultate, ține telefonul pe o suprafață plană între cei doi vorbitori, asigură-te că nu există zgomot de fundal excesiv și vorbește pe rând (nu simultan). Dacă folosești un Samsung Galaxy cu Galaxy AI, poți beneficia și de afișarea pe ecranul exterior al telefonului pliabil, ceea ce face experiența și mai naturală.
+        </p>
+
+        <div class="tip-box tip-magenta">
+          <strong>Sfat pro</strong>
+          Dacă ai un Samsung Galaxy Flip sau Fold, poți folosi Flex Mode pentru a așeza telefonul în unghi pe masă, cu traducerea vizibilă pe ambele jumătăți de ecran — perfect pentru restaurante.
+        </div>
+
+        <!-- Step 4 -->
+        <h2 id="pas4"><span class="step-num">Pasul 4.</span> Traducere text și mesaje cu AI</h2>
+        <p>
+          Traducerea nu se limitează la conversațiile vocale. Telefonul tău cu AI poate traduce <strong>orice text de pe ecran</strong> — mesaje WhatsApp, email-uri, pagini web, documente sau notificări. Pe Samsung, funcția se numește <strong>Smart Select</strong> și este integrată în meniul Edge Panel: selectează orice text, apasă pe <em>Traducere</em> și primești instantaneu traducerea într-un pop-up. Pe iPhone cu Apple Intelligence, selectează textul, apasă pe <strong>Writing Tools</strong> (Instrumente de scriere) și alege opțiunea de traducere.
+        </p>
+        <p>
+          Google Gemini duce lucrurile mai departe: poți selecta text în orice aplicație și cere traducerea prin meniul contextual, sau poți copia textul și îl lipești direct în conversația cu Gemini, cerându-i nu doar o traducere, ci și <strong>adaptarea tonului, rezumarea sau explicarea</strong> conținutului. De exemplu, primești un email lung în engleză — poți cere AI-ului să-l traducă în română, să păstreze tonul formal și să evidențieze punctele cheie. Aceasta este o funcție pe care traducătoarele clasice nu o oferă.
+        </p>
+        <p>
+          Pentru textul din imagini — de exemplu, o captură de ecran cu un mesaj în altă limbă — poți folosi <strong>Google Lens</strong>. Deschide Google Lens (din Google Photos, din camera sau din Google Assistant), îndreptă-l spre imagine sau selectează captura de ecran, iar textul va fi recunoscut automat (OCR) și tradus. Această funcție este excelentă pentru traducerea capturilor de ecran din jocuri, aplicații netraduse sau conversații din aplicații de mesagerie.
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Traduce-mi acest email din engleză în română, păstrând tonul formal și structura paragrafelor. Evidențiază acțiunile cerute cu bold."
+        </div>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Traduce următorul mesaj WhatsApp din spaniolă în română și explică-mi pe scurt dacă tonul este prietenos sau formal: «Hola, me gustaría saber si todavía tienen disponibilidad para el fin de semana. Gracias por su atención.»"
+        </div>
+
+        <!-- Step 5 -->
+        <h2 id="pas5"><span class="step-num">Pasul 5.</span> Traducere imagini și meniuri cu camera</h2>
+        <p>
+          Una dintre cele mai utile funcții AI pentru călători este <strong>traducerea în timp real prin camera telefonului</strong>. Îndreaptă camera spre un semn stradale, un meniu de restaurant, un prospect sau un document, iar traducerea apare suprapusă direct pe imagine, păstrând formatarea originală. Nu trebuie să fotografiezi, să decupezi sau să tastezi nimic — totul se întâmplă live, în timp real.
+        </p>
+        <p>
+          <strong>Google Lens</strong> este cel mai versatil instrument pentru această funcție și este disponibil pe toate telefoanele Android și pe iPhone (prin aplicația Google). Deschide Google Lens, alege modul <em>Traducere</em>, selectează limba sursă și limba țintă, apoi îndreptă camera spre text. Traducerea apare instantaneu, suprapusă peste textul original, cu un fundal care imită culorile și fontul original — astfel încât un meniu tradus arată aproape ca versiunea nativă. Pe Samsung, Camera are integrat un buton de traducere rapidă care funcționează similar.
+        </p>
+        <p>
+          Această funcție este indispensabilă în călătorii: poți traduce <strong>meniuri de restaurant</strong> (inclusiv descrierea preparatelor), <strong>indicatoare stradale</strong>, <strong>orare de transport public</strong>, <strong>etichete de produse</strong> în supermarket, <strong>instrucțiuni de utilizare</strong> ale dispozitivelor din camera de hotel sau <strong>formulare oficiale</strong> pe care trebuie să le completezi. Apple Visual Look Up pe iPhone oferă funcționalitate similară, recunoscând și traducând text din imagini salvate în galerie. Rezultatele sunt surprinzător de precise pentru limbile majore și se îmbunătățesc constant.
+        </p>
+
+        <div class="tip-box">
+          <strong>Sfat pentru călătorii</strong>
+          Înainte de a pleca în vacanță, descarcă pachetul de limbă pentru țara de destinație în Google Translate. Astfel vei putea folosi traducerea prin cameră și offline, fără a consuma date mobile.
+        </div>
+
+        <!-- Step 6 -->
+        <h2 id="pas6"><span class="step-num">Pasul 6.</span> Sfaturi practice pentru traduceri precise</h2>
+        <p>
+          Deși traducerile AI au făcut progrese enorme, calitatea rezultatelor depinde în mare măsură de modul în care le folosești. Pentru <strong>traducerile vocale</strong>, vorbește clar și la o viteză moderată. Evită propozițiile foarte lungi și complexe — în schimb, împarte ideile în fraze scurte și concise. Fă o pauză naturală după fiecare propoziție pentru a permite AI-ului să proceseze complet traducerea înainte de a continua. Evită argoul, abrevierile și expresiile foarte regionale, deoarece AI-ul le poate interpreta greșit.
+        </p>
+        <p>
+          Pentru <strong>traducerile de text</strong>, oferă context atunci când ceri o traducere prin AI. De exemplu, specifică dacă textul este un email formal, o conversație informală sau un document juridic — AI-ul va adapta vocabularul și stilul în consecință. Când traduci documente importante (contracte, documente medicale, acte oficiale), folosește traducerea AI ca <strong>primă referință</strong>, dar verifică întotdeauna cu un traducător profesionist înainte de a lua decizii bazate pe traducere. AI-ul poate face greșeli subtile care schimbă sensul, mai ales în texte specializate.
+        </p>
+        <p>
+          Nu uita să <strong>descarci pachetele de limbi offline</strong> înainte de a călători. Atât Google Translate, cât și Samsung Translator permit descărcarea limbilor pentru utilizare fără internet — esențial când ești în roaming sau în zone cu semnal slab. Fii conștient de <strong>nuanțele culturale</strong> pe care AI-ul le poate rata: un salut formal în japoneză are mai multe niveluri de politețe pe care o traducere automată le poate simplifica. În conversații de afaceri sau situații delicate, menționează explicit în prompt nivelul de formalitate dorit.
+        </p>
+
+        <div class="prompt-block">
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiază</button>
+          "Traduce următorul text din română în franceză, folosind un registru formal potrivit pentru o scrisoare de afaceri. Adaptează formulele de politețe conform convențiilor franceze: «Stimate domn, vă scriem în legătură cu oferta dumneavoastră din data de 15 martie. Am dori să discutăm câteva detalii înainte de a lua o decizie finală.»"
+        </div>
+
+        <div class="tip-box tip-magenta">
+          <strong>Atenție</strong>
+          Nu te baza exclusiv pe traducerile AI pentru documente juridice, medicale sau financiare. Folosește-le ca punct de plecare, dar consultă întotdeauna un specialist pentru traduceri care au implicații legale sau de sănătate.
+        </div>
+
+        <h2>Concluzie</h2>
+        <p>
+          Traducerile AI de pe telefonul tău au evoluat de la simple dicționare digitale la adevărați interpreți personali. Fie că vorbești la telefon cu cineva din altă țară, citești un meniu într-o limbă necunoscută sau traduci un email important, AI-ul este acum capabil să te ajute în <strong>timp real, cu precizie remarcabilă</strong> și cu înțelegerea contextului.
+        </p>
+        <p>
+          Explorează funcțiile prezentate în acest tutorial, experimentează cu diferite limbi și situații, și vei descoperi că barierele lingvistice nu mai sunt un obstacol real. Totuși, tratează AI-ul ca pe un <strong>instrument complementar</strong> — excelent pentru comunicare cotidiană și călătorii, dar care necesită verificare umană pentru traduceri cu miză mare.
+        </p>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-section">
+        <h3>Distribuie acest tutorial</h3>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="share-btn" href="https://wa.me/?text=" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copiat!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiază link
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Tutorial -->
+      <a href="rezuma-documente-cu-ai.html" class="next-tutorial">
+        <span class="label">Tutorial următor &rarr;</span>
+        <span class="title">Rezumă documente lungi cu AI pe telefon</span>
+      </a>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="ai">AI</span>phone.ro
+      </div>
+      <p class="footer-text">
+        &copy; 2026 AIphone.ro — Hub educațional pentru Inteligența Artificială pe smartphone.
+      </p>
+      <p class="footer-text" style="margin-top:0.5rem;">
+        <a href="../confidentialitate.html">Confidențialitate</a> · <a href="../termeni.html">Termeni</a> · <a href="../cookies.html">Cookies</a>
+      </p>
+      <p class="footer-disclaimer">
+        AIphone.ro este un proiect editorial independent. Nu suntem afiliați, sponsorizați sau asociați cu Apple Inc., Samsung Electronics, Google LLC, OpenAI, Microsoft Corporation sau orice alt producător menționat pe acest site. Toate numele de produse, logo-urile și mărcile aparțin deținătorilor respectivi. Conținutul este oferit exclusiv în scop educațional și informativ.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consimțământ cookie-uri">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>Acest site folosește cookie-uri</strong>
+        <p>Folosim cookie-uri esențiale pentru funcționarea site-ului și cookie-uri analitice pentru a înțelege cum este utilizat. Poți alege ce cookie-uri accepți.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn--settings" id="cookieSettings">Setări</button>
+        <button class="cookie-btn cookie-btn--decline" id="cookieDecline">Refuz opționale</button>
+        <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accept toate</button>
+      </div>
+    </div>
+    <div class="cookie-settings-panel" id="cookieSettingsPanel" hidden>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Esențiale</strong>
+          <span>Necesare pentru funcționarea site-ului</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-setting">
+        <div class="cookie-setting-info">
+          <strong>Analitice</strong>
+          <span>Ne ajută să îmbunătățim experiența</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookieAnalytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="cookie-btn cookie-btn--accept" id="cookieSaveSettings" style="margin-top: 0.75rem; width: 100%;">Salvează preferințele</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+<script>
+function copyPrompt(btn) {
+  const block = btn.parentElement;
+  const text = block.textContent.replace('Copiază','').replace('Copiat!','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copiat!';
+    setTimeout(() => btn.textContent = 'Copiază', 2000);
+  });
+}
+</script>
+</body>
+</html>
