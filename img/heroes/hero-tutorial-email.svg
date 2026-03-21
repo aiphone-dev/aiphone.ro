@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+<defs>
+  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00d4ff"/>
+    <stop offset="100%" stop-color="#ff00e5"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  @keyframes blink{0%,100%{opacity:0.8}50%{opacity:0.1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .cursor{animation:blink 1s step-end infinite}
+  .float{animation:float 3.5s ease-in-out infinite}
+</style>
+<rect width="1200" height="400" fill="#0a0a0f"/>
+<!-- Background dots -->
+<g opacity="0.08">
+  <circle cx="50" cy="50" r="1.5" fill="#00d4ff"/><circle cx="150" cy="50" r="1.5" fill="#00d4ff"/>
+  <circle cx="50" cy="150" r="1.5" fill="#00d4ff"/><circle cx="150" cy="150" r="1.5" fill="#00d4ff"/>
+  <circle cx="1050" cy="50" r="1.5" fill="#ff00e5"/><circle cx="1150" cy="50" r="1.5" fill="#ff00e5"/>
+  <circle cx="1050" cy="350" r="1.5" fill="#ff00e5"/><circle cx="1150" cy="350" r="1.5" fill="#ff00e5"/>
+</g>
+<!-- Envelope shape center -->
+<g transform="translate(500,100)" filter="url(#glow)" class="float">
+  <rect x="0" y="0" width="200" height="140" rx="10" stroke="url(#g1)" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M0 0 L100 70 L200 0" stroke="url(#g1)" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M0 140 L70 85" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M200 140 L130 85" stroke="#ff00e5" stroke-width="1" fill="none" opacity="0.3"/>
+</g>
+<!-- Text lines being generated (left side) -->
+<g opacity="0.4">
+  <rect x="120" y="160" width="180" height="3" rx="1.5" fill="#00d4ff"/>
+  <rect x="120" y="175" width="150" height="3" rx="1.5" fill="#00d4ff" opacity="0.7"/>
+  <rect x="120" y="190" width="160" height="3" rx="1.5" fill="#00d4ff" opacity="0.5"/>
+  <rect x="120" y="205" width="130" height="3" rx="1.5" fill="#00d4ff" opacity="0.3"/>
+  <rect x="120" y="220" width="100" height="3" rx="1.5" fill="#00d4ff" opacity="0.2"/>
+</g>
+<!-- Text lines right side -->
+<g opacity="0.4">
+  <rect x="880" y="160" width="180" height="3" rx="1.5" fill="#ff00e5"/>
+  <rect x="880" y="175" width="160" height="3" rx="1.5" fill="#ff00e5" opacity="0.7"/>
+  <rect x="880" y="190" width="140" height="3" rx="1.5" fill="#ff00e5" opacity="0.5"/>
+  <rect x="880" y="205" width="170" height="3" rx="1.5" fill="#ff00e5" opacity="0.3"/>
+</g>
+<!-- Typing cursor -->
+<rect x="705" y="250" width="2" height="18" fill="#00d4ff" class="cursor"/>
+<!-- Message bubbles -->
+<g opacity="0.3">
+  <rect x="200" y="280" width="140" height="50" rx="20" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+  <rect x="210" y="295" width="80" height="3" rx="1.5" fill="#00d4ff" opacity="0.5"/>
+  <rect x="210" y="305" width="60" height="3" rx="1.5" fill="#00d4ff" opacity="0.4"/>
+</g>
+<g opacity="0.3">
+  <rect x="860" y="270" width="160" height="55" rx="20" stroke="#ff00e5" stroke-width="1.5" fill="none"/>
+  <rect x="875" y="287" width="90" height="3" rx="1.5" fill="#ff00e5" opacity="0.5"/>
+  <rect x="875" y="298" width="70" height="3" rx="1.5" fill="#ff00e5" opacity="0.4"/>
+  <rect x="875" y="309" width="100" height="3" rx="1.5" fill="#ff00e5" opacity="0.3"/>
+</g>
+<!-- AI sparkle near envelope -->
+<g filter="url(#glow)" opacity="0.6">
+  <path d="M720 110 L723 118 L730 120 L723 122 L720 130 L717 122 L710 120 L717 118 Z" fill="#ff00e5"/>
+  <path d="M480 90 L482 96 L488 98 L482 100 L480 106 L478 100 L472 98 L478 96 Z" fill="#00d4ff"/>
+</g>
+<!-- Connection lines -->
+<path d="M340 305 L500 200" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4 4" opacity="0.15"/>
+<path d="M860 298 L700 200" stroke="#ff00e5" stroke-width="1" stroke-dasharray="4 4" opacity="0.15"/>
+</svg>

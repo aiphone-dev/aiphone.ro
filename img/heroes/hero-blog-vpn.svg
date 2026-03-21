@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+<defs>
+  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00d4ff"/>
+    <stop offset="100%" stop-color="#ff00e5"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:0.8}}
+  @keyframes dataflow{0%{stroke-dashoffset:20}100%{stroke-dashoffset:0}}
+  .pulse{animation:pulse 3s ease-in-out infinite}
+  .flow{animation:dataflow 2s linear infinite}
+</style>
+<rect width="1200" height="400" fill="#0a0a0f"/>
+<!-- Shield shape center -->
+<g transform="translate(600,180)" filter="url(#glow)">
+  <path d="M0 -100 L80 -60 L80 30 Q80 90 0 120 Q-80 90 -80 30 L-80 -60 Z" stroke="url(#g1)" stroke-width="2.5" fill="none" opacity="0.6"/>
+  <path d="M0 -70 L55 -40 L55 20 Q55 65 0 85 Q-55 65 -55 20 L-55 -40 Z" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.25"/>
+  <!-- Lock inside shield -->
+  <rect x="-18" y="-15" width="36" height="30" rx="5" stroke="#00d4ff" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M-10 -15 L-10 -30 Q-10 -45 0 -45 Q10 -45 10 -30 L10 -15" stroke="#00d4ff" stroke-width="2" fill="none" opacity="0.7"/>
+  <circle cy="2" r="4" fill="#00d4ff" opacity="0.6"/>
+  <rect x="-1" y="4" width="2" height="8" fill="#00d4ff" opacity="0.5"/>
+</g>
+<!-- Encrypted tunnel lines left -->
+<g opacity="0.4" class="flow">
+  <path d="M100 150 Q300 100 520 130" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+  <path d="M100 200 Q300 160 520 180" stroke="#00d4ff" stroke-width="1" stroke-dasharray="3 5" fill="none" opacity="0.6"/>
+  <path d="M100 250 Q300 210 520 230" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+</g>
+<!-- Encrypted tunnel lines right -->
+<g opacity="0.4" class="flow">
+  <path d="M680 130 Q900 100 1100 150" stroke="#ff00e5" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+  <path d="M680 180 Q900 160 1100 200" stroke="#ff00e5" stroke-width="1" stroke-dasharray="3 5" fill="none" opacity="0.6"/>
+  <path d="M680 230 Q900 210 1100 250" stroke="#ff00e5" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+</g>
+<!-- Data stream dots left -->
+<g class="pulse">
+  <circle cx="150" cy="165" r="3" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="250" cy="145" r="2" fill="#00d4ff" opacity="0.5"/>
+  <circle cx="350" cy="130" r="2.5" fill="#00d4ff" opacity="0.5"/>
+  <circle cx="450" cy="140" r="2" fill="#00d4ff" opacity="0.4"/>
+</g>
+<!-- Data stream dots right -->
+<g class="pulse">
+  <circle cx="750" cy="145" r="2.5" fill="#ff00e5" opacity="0.5"/>
+  <circle cx="850" cy="130" r="2" fill="#ff00e5" opacity="0.5"/>
+  <circle cx="950" cy="140" r="3" fill="#ff00e5" opacity="0.6"/>
+  <circle cx="1050" cy="165" r="2" fill="#ff00e5" opacity="0.4"/>
+</g>
+<!-- Server nodes -->
+<g opacity="0.4">
+  <rect x="60" y="160" width="50" height="80" rx="6" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+  <circle cx="85" cy="180" r="4" fill="#00d4ff" opacity="0.5"/>
+  <rect x="72" y="195" width="26" height="2" rx="1" fill="#00d4ff" opacity="0.4"/>
+  <rect x="72" y="205" width="26" height="2" rx="1" fill="#00d4ff" opacity="0.3"/>
+  <rect x="72" y="215" width="26" height="2" rx="1" fill="#00d4ff" opacity="0.3"/>
+</g>
+<g opacity="0.4">
+  <rect x="1090" y="160" width="50" height="80" rx="6" stroke="#ff00e5" stroke-width="1.5" fill="none"/>
+  <circle cx="1115" cy="180" r="4" fill="#ff00e5" opacity="0.5"/>
+  <rect x="1102" y="195" width="26" height="2" rx="1" fill="#ff00e5" opacity="0.4"/>
+  <rect x="1102" y="205" width="26" height="2" rx="1" fill="#ff00e5" opacity="0.3"/>
+  <rect x="1102" y="215" width="26" height="2" rx="1" fill="#ff00e5" opacity="0.3"/>
+</g>
+<!-- Decorative background circles -->
+<circle cx="300" cy="330" r="30" stroke="#00d4ff" stroke-width="0.8" fill="none" opacity="0.1"/>
+<circle cx="900" cy="340" r="35" stroke="#ff00e5" stroke-width="0.8" fill="none" opacity="0.1"/>
+<circle cx="600" cy="370" r="20" stroke="url(#g1)" stroke-width="0.8" fill="none" opacity="0.1"/>
+</svg>

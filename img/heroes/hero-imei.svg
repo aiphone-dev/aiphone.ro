@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+<defs>
+  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00d4ff"/>
+    <stop offset="100%" stop-color="#ff00e5"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:0.8}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .pulse{animation:pulse 3s ease-in-out infinite}
+  .float{animation:float 3.5s ease-in-out infinite}
+</style>
+<rect width="1200" height="400" fill="#0a0a0f"/>
+<!-- Phone outline center -->
+<g transform="translate(530,60)" filter="url(#glow)" opacity="0.6">
+  <rect x="0" y="0" width="140" height="260" rx="18" stroke="url(#g1)" stroke-width="2" fill="none"/>
+  <rect x="12" y="30" width="116" height="190" rx="5" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.3"/>
+  <circle cx="70" cy="245" r="6" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.3"/>
+  <!-- Screen content lines -->
+  <rect x="25" y="55" width="90" height="2.5" rx="1" fill="#00d4ff" opacity="0.3"/>
+  <rect x="25" y="68" width="70" height="2.5" rx="1" fill="#00d4ff" opacity="0.25"/>
+  <rect x="25" y="81" width="80" height="2.5" rx="1" fill="#00d4ff" opacity="0.2"/>
+  <rect x="25" y="100" width="90" height="2.5" rx="1" fill="#ff00e5" opacity="0.25"/>
+  <rect x="25" y="113" width="60" height="2.5" rx="1" fill="#ff00e5" opacity="0.2"/>
+</g>
+<!-- Magnifying glass -->
+<g transform="translate(720,140)" filter="url(#glow)" class="float">
+  <circle r="45" stroke="#00d4ff" stroke-width="2.5" fill="none" opacity="0.6"/>
+  <circle r="35" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.25"/>
+  <line x1="32" y1="32" x2="65" y2="65" stroke="#00d4ff" stroke-width="3" opacity="0.6"/>
+  <rect x="58" y="58" width="18" height="6" rx="3" transform="rotate(45,65,65)" fill="#00d4ff" opacity="0.4"/>
+</g>
+<!-- Checkmark / verification badge -->
+<g transform="translate(850,250)" filter="url(#glow)" class="pulse">
+  <circle r="35" stroke="#ff00e5" stroke-width="2" fill="none" opacity="0.5"/>
+  <circle r="28" stroke="#ff00e5" stroke-width="1" fill="none" opacity="0.2"/>
+  <path d="M-14 2 L-4 12 L16 -10" stroke="#ff00e5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <!-- Badge points -->
+  <g opacity="0.3">
+    <circle cx="0" cy="-40" r="3" fill="#ff00e5"/>
+    <circle cx="28" cy="-28" r="3" fill="#ff00e5"/>
+    <circle cx="40" cy="0" r="3" fill="#ff00e5"/>
+    <circle cx="28" cy="28" r="3" fill="#ff00e5"/>
+    <circle cx="0" cy="40" r="3" fill="#ff00e5"/>
+    <circle cx="-28" cy="28" r="3" fill="#ff00e5"/>
+    <circle cx="-40" cy="0" r="3" fill="#ff00e5"/>
+    <circle cx="-28" cy="-28" r="3" fill="#ff00e5"/>
+  </g>
+</g>
+<!-- Barcode lines left -->
+<g transform="translate(200,130)" opacity="0.4">
+  <rect x="0" y="0" width="3" height="80" fill="#00d4ff"/><rect x="8" y="0" width="2" height="80" fill="#00d4ff"/>
+  <rect x="14" y="0" width="4" height="80" fill="#00d4ff"/><rect x="22" y="0" width="2" height="80" fill="#00d4ff"/>
+  <rect x="28" y="0" width="3" height="80" fill="#00d4ff"/><rect x="36" y="0" width="5" height="80" fill="#00d4ff"/>
+  <rect x="45" y="0" width="2" height="80" fill="#00d4ff"/><rect x="50" y="0" width="3" height="80" fill="#00d4ff"/>
+  <rect x="58" y="0" width="2" height="80" fill="#00d4ff"/><rect x="64" y="0" width="4" height="80" fill="#00d4ff"/>
+  <rect x="72" y="0" width="2" height="80" fill="#00d4ff"/><rect x="78" y="0" width="3" height="80" fill="#00d4ff"/>
+  <rect x="86" y="0" width="2" height="80" fill="#00d4ff"/><rect x="92" y="0" width="5" height="80" fill="#00d4ff"/>
+  <rect x="100" y="0" width="2" height="80" fill="#00d4ff"/><rect x="106" y="0" width="3" height="80" fill="#00d4ff"/>
+</g>
+<!-- Connection lines -->
+<path d="M310 170 L530 170" stroke="url(#g1)" stroke-width="1" stroke-dasharray="5 4" fill="none" opacity="0.2"/>
+<path d="M670 190 L720 180" stroke="url(#g1)" stroke-width="1" stroke-dasharray="5 4" fill="none" opacity="0.25"/>
+<path d="M770 200 L830 240" stroke="url(#g1)" stroke-width="1" stroke-dasharray="5 4" fill="none" opacity="0.2"/>
+<!-- Background decorative -->
+<circle cx="400" cy="330" r="25" stroke="#00d4ff" stroke-width="0.8" fill="none" opacity="0.1"/>
+<circle cx="1000" cy="100" r="30" stroke="#ff00e5" stroke-width="0.8" fill="none" opacity="0.08"/>
+</svg>

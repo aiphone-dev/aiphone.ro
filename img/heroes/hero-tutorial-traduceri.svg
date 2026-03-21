@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+<defs>
+  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00d4ff"/>
+    <stop offset="100%" stop-color="#ff00e5"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:0.75}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .pulse{animation:pulse 3s ease-in-out infinite}
+  .float{animation:float 4s ease-in-out infinite}
+</style>
+<rect width="1200" height="400" fill="#0a0a0f"/>
+<!-- Globe outline center -->
+<g transform="translate(600,200)" filter="url(#glow)" opacity="0.35">
+  <circle r="100" stroke="url(#g1)" stroke-width="1.5" fill="none"/>
+  <ellipse rx="100" ry="40" stroke="url(#g1)" stroke-width="1" fill="none"/>
+  <ellipse rx="60" ry="100" stroke="url(#g1)" stroke-width="1" fill="none"/>
+  <line x1="-100" y1="0" x2="100" y2="0" stroke="url(#g1)" stroke-width="0.8"/>
+  <line x1="0" y1="-100" x2="0" y2="100" stroke="url(#g1)" stroke-width="0.8"/>
+</g>
+<!-- Speech bubble left (source language) -->
+<g class="float" filter="url(#glow)">
+  <rect x="120" y="100" width="180" height="100" rx="18" stroke="#00d4ff" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M200 200 L190 225 L220 200" stroke="#00d4ff" stroke-width="2" fill="none" opacity="0.6"/>
+  <rect x="145" y="125" width="100" height="3" rx="1.5" fill="#00d4ff" opacity="0.5"/>
+  <rect x="145" y="138" width="80" height="3" rx="1.5" fill="#00d4ff" opacity="0.4"/>
+  <rect x="145" y="151" width="120" height="3" rx="1.5" fill="#00d4ff" opacity="0.35"/>
+  <rect x="145" y="164" width="70" height="3" rx="1.5" fill="#00d4ff" opacity="0.3"/>
+</g>
+<!-- Speech bubble right (target language) -->
+<g filter="url(#glow)">
+  <rect x="900" y="110" width="180" height="100" rx="18" stroke="#ff00e5" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M1000 210 L1010 235 L980 210" stroke="#ff00e5" stroke-width="2" fill="none" opacity="0.6"/>
+  <rect x="925" y="135" width="110" height="3" rx="1.5" fill="#ff00e5" opacity="0.5"/>
+  <rect x="925" y="148" width="90" height="3" rx="1.5" fill="#ff00e5" opacity="0.4"/>
+  <rect x="925" y="161" width="130" height="3" rx="1.5" fill="#ff00e5" opacity="0.35"/>
+  <rect x="925" y="174" width="75" height="3" rx="1.5" fill="#ff00e5" opacity="0.3"/>
+</g>
+<!-- Smaller speech bubbles -->
+<rect x="160" y="270" width="100" height="55" rx="14" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.25"/>
+<rect x="940" y="260" width="110" height="55" rx="14" stroke="#ff00e5" stroke-width="1" fill="none" opacity="0.25"/>
+<!-- Connected lines between languages -->
+<g class="pulse">
+  <path d="M300 150 Q450 120 500 160" stroke="url(#g1)" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.5"/>
+  <path d="M700 160 Q780 120 900 155" stroke="url(#g1)" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.5"/>
+  <circle cx="500" cy="160" r="4" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="700" cy="160" r="4" fill="#ff00e5" opacity="0.6"/>
+  <path d="M504 160 L696 160" stroke="url(#g1)" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.3"/>
+</g>
+<!-- Transformation arrows center -->
+<g transform="translate(600,200)" opacity="0.4">
+  <path d="M-20 -15 L20 -15" stroke="#00d4ff" stroke-width="2"/><polygon points="20,-20 30,-15 20,-10" fill="#00d4ff"/>
+  <path d="M20 15 L-20 15" stroke="#ff00e5" stroke-width="2"/><polygon points="-20,10 -30,15 -20,20" fill="#ff00e5"/>
+</g>
+<!-- Decorative dots -->
+<circle cx="450" cy="320" r="3" fill="#00d4ff" opacity="0.2"/>
+<circle cx="750" cy="330" r="3" fill="#ff00e5" opacity="0.2"/>
+<circle cx="400" cy="80" r="2" fill="#00d4ff" opacity="0.15"/>
+<circle cx="800" cy="70" r="2" fill="#ff00e5" opacity="0.15"/>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+<defs>
+  <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00d4ff"/>
+    <stop offset="100%" stop-color="#ff00e5"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  @keyframes pulse{0%,100%{opacity:0.4}50%{opacity:0.75}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .pulse{animation:pulse 3s ease-in-out infinite}
+  .float{animation:float 3.5s ease-in-out infinite}
+</style>
+<rect width="1200" height="400" fill="#0a0a0f"/>
+<!-- Star ratings center -->
+<g transform="translate(440,100)" filter="url(#glow)" class="float">
+  <path d="M0 -22 L6 -7 L22 -7 L10 4 L14 20 L0 11 L-14 20 L-10 4 L-22 -7 L-6 -7 Z" fill="#00d4ff" opacity="0.6"/>
+  <path d="M55 -22 L61 -7 L77 -7 L65 4 L69 20 L55 11 L41 20 L45 4 L33 -7 L49 -7 Z" fill="#00d4ff" opacity="0.6"/>
+  <path d="M110 -22 L116 -7 L132 -7 L120 4 L124 20 L110 11 L96 20 L100 4 L88 -7 L104 -7 Z" fill="#00d4ff" opacity="0.6"/>
+  <path d="M165 -22 L171 -7 L187 -7 L175 4 L179 20 L165 11 L151 20 L155 4 L143 -7 L159 -7 Z" fill="url(#g1)" opacity="0.5"/>
+  <path d="M220 -22 L226 -7 L242 -7 L230 4 L234 20 L220 11 L206 20 L210 4 L198 -7 L214 -7 Z" stroke="#ff00e5" stroke-width="1.5" fill="none" opacity="0.35"/>
+</g>
+<!-- App icon grid left -->
+<g opacity="0.35">
+  <rect x="120" y="160" width="45" height="45" rx="10" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+  <rect x="175" y="160" width="45" height="45" rx="10" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+  <rect x="230" y="160" width="45" height="45" rx="10" stroke="#ff00e5" stroke-width="1.5" fill="none"/>
+  <rect x="120" y="215" width="45" height="45" rx="10" stroke="#ff00e5" stroke-width="1.5" fill="none"/>
+  <rect x="175" y="215" width="45" height="45" rx="10" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+  <rect x="230" y="215" width="45" height="45" rx="10" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+  <!-- Inner dots for app icons -->
+  <circle cx="142" cy="182" r="8" fill="#00d4ff" opacity="0.2"/>
+  <circle cx="197" cy="182" r="8" fill="#00d4ff" opacity="0.15"/>
+  <circle cx="252" cy="182" r="8" fill="#ff00e5" opacity="0.15"/>
+  <circle cx="142" cy="237" r="8" fill="#ff00e5" opacity="0.15"/>
+  <circle cx="197" cy="237" r="8" fill="#00d4ff" opacity="0.2"/>
+  <circle cx="252" cy="237" r="8" fill="#00d4ff" opacity="0.15"/>
+</g>
+<!-- Thumbs up -->
+<g transform="translate(850,140)" filter="url(#glow)" opacity="0.55">
+  <path d="M0 0 L0 -25 Q0 -35 8 -40 L12 -55 Q15 -62 22 -58 L22 -38 L40 -38 Q48 -38 48 -30 L45 -5 Q44 2 37 2 L10 2 Q0 2 0 0 Z" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+</g>
+<!-- Thumbs down -->
+<g transform="translate(920,230)" filter="url(#glow)" opacity="0.4">
+  <path d="M0 0 L0 25 Q0 35 8 40 L12 55 Q15 62 22 58 L22 38 L40 38 Q48 38 48 30 L45 5 Q44 -2 37 -2 L10 -2 Q0 -2 0 0 Z" stroke="#ff00e5" stroke-width="1.5" fill="none"/>
+</g>
+<!-- Comparison indicators (horizontal bars) -->
+<g transform="translate(500,200)" opacity="0.4">
+  <rect x="0" y="0" width="250" height="8" rx="4" stroke="#00d4ff" stroke-width="1" fill="none"/>
+  <rect x="0" y="0" width="200" height="8" rx="4" fill="#00d4ff" opacity="0.25"/>
+  <rect x="0" y="25" width="250" height="8" rx="4" stroke="#ff00e5" stroke-width="1" fill="none"/>
+  <rect x="0" y="25" width="180" height="8" rx="4" fill="#ff00e5" opacity="0.2"/>
+  <rect x="0" y="50" width="250" height="8" rx="4" stroke="#00d4ff" stroke-width="1" fill="none"/>
+  <rect x="0" y="50" width="220" height="8" rx="4" fill="#00d4ff" opacity="0.22"/>
+  <rect x="0" y="75" width="250" height="8" rx="4" stroke="#ff00e5" stroke-width="1" fill="none"/>
+  <rect x="0" y="75" width="160" height="8" rx="4" fill="#ff00e5" opacity="0.18"/>
+</g>
+<!-- Smaller stars scattered -->
+<g class="pulse" opacity="0.3">
+  <path d="M350 320 L353 328 L361 328 L355 333 L357 341 L350 336 L343 341 L345 333 L339 328 L347 328 Z" fill="#00d4ff"/>
+  <path d="M800 340 L803 348 L811 348 L805 353 L807 361 L800 356 L793 361 L795 353 L789 348 L797 348 Z" fill="#ff00e5"/>
+  <path d="M1000 100 L1002 106 L1008 106 L1004 109 L1005 115 L1000 112 L995 115 L996 109 L992 106 L998 106 Z" fill="#00d4ff"/>
+</g>
+<!-- Decorative arcs -->
+<circle cx="600" cy="380" r="60" stroke="url(#g1)" stroke-width="1" fill="none" opacity="0.1"/>
+<circle cx="100" cy="80" r="30" stroke="#00d4ff" stroke-width="0.8" fill="none" opacity="0.08"/>
+</svg>
