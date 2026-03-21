@@ -703,13 +703,19 @@
     var dpr = window.devicePixelRatio || 1;
     var screenW = screen.width || 0;
     var screenH = screen.height || 0;
+    // Calculate real physical pixels
+    var realW = Math.round(screenW * dpr);
+    var realH = Math.round(screenH * dpr);
+    var totalPixels = realW * realH;
     var screenPoints = 2;
-    if (dpr >= 3.5) screenPoints = 10;
-    else if (dpr >= 3) screenPoints = 9;
-    else if (dpr >= 2.5) screenPoints = 7;
-    else if (dpr >= 2) screenPoints = 6;
-    else if (dpr >= 1.5) screenPoints = 4;
-    var screenDetail = screenW + '×' + screenH + ' px, ' + dpr + 'x DPR, ' + (screen.colorDepth || '?') + '-bit';
+    // Score based on total real pixels (Full HD = ~2M, QHD = ~3.7M, 4K = ~8.3M)
+    if (totalPixels >= 4000000) screenPoints = 10;     // QHD+ and above
+    else if (totalPixels >= 2500000) screenPoints = 9;  // ~FHD+ high DPR
+    else if (totalPixels >= 2000000) screenPoints = 8;  // Full HD
+    else if (totalPixels >= 1500000) screenPoints = 6;
+    else if (totalPixels >= 1000000) screenPoints = 5;
+    else screenPoints = 3;
+    var screenDetail = realW + '×' + realH + ' px (fizici) · DPR ' + dpr + ' · ' + (screen.colorDepth || '?') + '-bit';
     categories.push({ name: 'Calitate Ecran', points: screenPoints, max: 10, detail: screenDetail });
 
     // ========== 3. CPU Power (0-10) ==========
@@ -734,69 +740,90 @@
     // ========== 4. RAM (0-10) ==========
     var ram = navigator.deviceMemory;
     var ramPoints = 5;
-    var ramDetail = 'Nedisponibil';
+    var ramDetail = 'Nedisponibil (browser nu raportează)';
     if (ram !== undefined) {
-      if (ram >= 8) ramPoints = 10;
-      else if (ram >= 6) ramPoints = 8;
-      else if (ram >= 4) ramPoints = 6;
-      else if (ram >= 2) ramPoints = 4;
-      else ramPoints = 2;
-      ramDetail = ram + ' GB';
+      // Chrome caps deviceMemory at 8GB - phones with 12/16GB still report 8
+      if (ram >= 8) { ramPoints = 10; ramDetail = ram + '+ GB (browser raportează max 8)'; }
+      else if (ram >= 6) { ramPoints = 8; ramDetail = ram + ' GB'; }
+      else if (ram >= 4) { ramPoints = 6; ramDetail = ram + ' GB'; }
+      else if (ram >= 2) { ramPoints = 4; ramDetail = ram + ' GB'; }
+      else { ramPoints = 2; ramDetail = ram + ' GB'; }
     }
     categories.push({ name: 'Memorie RAM', points: ramPoints, max: 10, detail: ramDetail });
 
     // ========== 5. AI Features (0-10) ==========
-    var aiPoints = 4;
+    // Logic: AI capability depends on OS version + brand, not just brand
+    // Any modern Android (14+) or iOS (17+) phone can run ChatGPT, Gemini, Copilot, Claude etc.
+    // Brand-specific features (Galaxy AI, Apple Intelligence) are bonuses
+    var aiPoints = 3;
     var aiFeatures = '';
     var aiLink = '';
     var brandLower = device.brand.toLowerCase();
     var modelLower = (device.model || '').toLowerCase();
     var aiDetail = '';
+    var osMajorForAI = os.major;
 
-    if (brandLower === 'samsung') {
-      if (/s2[3-9]|s24|s25|galaxy\s*s\s*2[3-9]/i.test(device.model)) {
-        aiPoints = 10;
-        aiFeatures = 'Galaxy AI - Live Translate, Photo Assist, Note Assist, Chat Assist';
-        aiDetail = 'Galaxy AI complet';
-        aiLink = '../recenzii/galaxy-ai.html';
-      } else {
+    // Base score from OS version (can install all AI apps)
+    if (os.name === 'Android') {
+      if (osMajorForAI >= 14) {
+        aiPoints = 8; // Modern Android = all AI apps available
+        aiFeatures = 'ChatGPT, Gemini, Copilot, Claude, Perplexity';
+        aiDetail = 'Toate aplicațiile AI disponibile';
+        aiLink = '../blog/limite-gratuite-ai-2026.html';
+      } else if (osMajorForAI >= 12) {
         aiPoints = 6;
-        aiFeatures = 'Galaxy AI (limitat) - Chat Assist, Note Assist';
-        aiDetail = 'Galaxy AI parțial';
-        aiLink = '../recenzii/galaxy-ai.html';
-      }
-    } else if (brandLower === 'apple' && modelLower.includes('iphone')) {
-      if (/15 pro|16|17/i.test(device.model)) {
-        aiPoints = 10;
-        aiFeatures = 'Apple Intelligence - Writing Tools, Genmoji, Image Playground';
-        aiDetail = 'Apple Intelligence complet';
-        aiLink = '../blog/apple-intelligence-ghid.html';
+        aiFeatures = 'ChatGPT, Gemini, Copilot';
+        aiDetail = 'Majoritatea aplicațiilor AI';
+        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
       } else {
-        aiPoints = 4;
-        aiFeatures = 'Siri (clasic)';
-        aiDetail = 'Fără Apple Intelligence';
-        aiLink = '../blog/apple-intelligence-ghid.html';
+        aiPoints = 3;
+        aiFeatures = 'Aplicații AI limitate';
+        aiDetail = 'OS vechi - unele apps nu sunt compatibile';
+        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
       }
-    } else if (brandLower === 'google' && /pixel\s*(8|9|pro)/i.test(device.model)) {
-      aiPoints = 9;
-      aiFeatures = 'Gemini Nano, Magic Eraser, Call Screen';
-      aiDetail = 'Google AI on-device';
-      aiLink = '../blog/google-gemini-android.html';
-    } else if (brandLower === 'motorola') {
-      aiPoints = 7;
-      aiFeatures = 'Google Gemini, Moto AI';
-      aiDetail = 'Gemini + Moto AI features';
-      aiLink = '../blog/google-gemini-android.html';
-    } else if (os.name === 'Android') {
-      aiPoints = 5;
-      aiFeatures = 'Google Gemini (din aplicație)';
-      aiDetail = 'Gemini din app';
-      aiLink = '../blog/google-gemini-android.html';
+
+      // Brand bonuses (on-device AI = extra points)
+      if (brandLower === 'samsung' && /s2[3-9]|s24|s25|z\s*f(lip|old)/i.test(device.model)) {
+        aiPoints = 10;
+        aiFeatures += ' + Galaxy AI (Live Translate, Photo Assist, Note Assist)';
+        aiDetail = 'Galaxy AI nativ + toate aplicațiile AI';
+        aiLink = '../recenzii/galaxy-ai.html';
+      } else if (brandLower === 'google' && /pixel\s*(8|9|pro)/i.test(device.model)) {
+        aiPoints = 10;
+        aiFeatures += ' + Gemini Nano on-device';
+        aiDetail = 'Google AI nativ + toate aplicațiile AI';
+        aiLink = '../blog/google-gemini-android.html';
+      } else if (brandLower === 'motorola' && osMajorForAI >= 14) {
+        aiPoints = 9;
+        aiFeatures += ' + Moto AI';
+        aiDetail = 'Moto AI + toate aplicațiile AI';
+        aiLink = '../blog/google-gemini-android.html';
+      } else if (osMajorForAI >= 14) {
+        aiPoints = 8; // Any modern Android flagship
+      }
+
+    } else if (os.name === 'iOS') {
+      if (/15 pro|16|17/i.test(device.model) && os.major >= 18) {
+        aiPoints = 10;
+        aiFeatures = 'Apple Intelligence + ChatGPT, Gemini, Copilot, Claude';
+        aiDetail = 'Apple Intelligence nativ + toate aplicațiile AI';
+        aiLink = '../blog/apple-intelligence-ghid.html';
+      } else if (os.major >= 17) {
+        aiPoints = 8;
+        aiFeatures = 'ChatGPT, Gemini, Copilot, Claude';
+        aiDetail = 'Toate aplicațiile AI (fără Apple Intelligence)';
+        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
+      } else {
+        aiPoints = 5;
+        aiFeatures = 'Aplicații AI limitate';
+        aiDetail = 'Actualizează iOS pentru suport complet';
+        aiLink = '../blog/top-10-aplicatii-ai-gratuite.html';
+      }
     } else {
-      aiPoints = 3;
-      aiFeatures = 'AI disponibil din browser';
-      aiDetail = 'Doar din browser';
-      aiLink = '';
+      aiPoints = 4;
+      aiFeatures = 'AI disponibil din browser (ChatGPT, Gemini, Copilot)';
+      aiDetail = 'Acces prin browser';
+      aiLink = '../blog/limite-gratuite-ai-2026.html';
     }
     categories.push({ name: 'Funcții AI', points: aiPoints, max: 10, detail: aiDetail });
 
