@@ -152,77 +152,55 @@
 
     /* Tutorial Card */
     .tut-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
+      background: var(--bg-card, rgba(22,22,42,0.6));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
       overflow: hidden;
-      transition: all var(--transition);
-      position: relative;
+      transition: all 0.3s;
       display: flex;
       flex-direction: column;
     }
 
-    .tut-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius-lg);
-      padding: 1px;
-      background: var(--gradient-main);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity var(--transition);
-      pointer-events: none;
-    }
-
-    .tut-card:hover::before {
-      opacity: 1;
-    }
-
     .tut-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      transform: translateY(-3px);
+      border-color: rgba(0,212,255,0.2);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
     }
 
-    .tut-card-header {
-      background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(255, 0, 229, 0.06));
-      padding: 2rem 1.5rem 1.5rem;
-      text-align: center;
+    .tut-card-img {
       position: relative;
+      height: 160px;
+      overflow: hidden;
     }
 
-    .tut-card-emoji {
-      font-size: 2.8rem;
-      display: block;
-      margin-bottom: 0.75rem;
+    .tut-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .tut-card-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 600;
+    .tut-card-level-badge {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
     }
 
-    .tut-card-badge--incepator {
-      background: rgba(0, 212, 255, 0.12);
-      border: 1px solid rgba(0, 212, 255, 0.25);
-      color: var(--neon-blue);
+    .tut-card-level-badge.badge-incepator {
+      background: rgba(0,212,255,0.15);
+      border: 1px solid rgba(0,212,255,0.3);
+      color: #00d4ff;
     }
 
-    .tut-card-badge--intermediar {
-      background: rgba(255, 0, 229, 0.12);
-      border: 1px solid rgba(255, 0, 229, 0.25);
-      color: var(--neon-magenta);
+    .tut-card-level-badge.badge-intermediar {
+      background: rgba(255,0,229,0.15);
+      border: 1px solid rgba(255,0,229,0.3);
+      color: #ff00e5;
     }
 
     .tut-card-title {
@@ -262,10 +240,6 @@
       gap: 0.3rem;
       font-size: 0.78rem;
       color: var(--text-muted);
-    }
-
-    .tut-card-meta .meta-icon {
-      font-size: 0.85rem;
     }
 
     .tut-card-link {
@@ -441,17 +415,16 @@
 
         <!-- Card 1 -->
         <article class="tut-card" data-level="incepator" data-platform="android ios">
-          <div class="tut-card-header">
-            <span class="tut-card-emoji">🏖️</span>
-            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
-            <h3 class="tut-card-title">Cum să planifici o vacanță completă în 10 minute cu AI</h3>
+          <div class="tut-card-img">
+            <img src="img/tutorials/travel-planning.jpg" alt="Cum să planifici o vacanță completă în 10 minute cu AI" loading="lazy">
+            <span class="tut-card-level-badge badge-incepator">Începător</span>
           </div>
           <div class="tut-card-body">
+            <h3 class="tut-card-title">Cum să planifici o vacanță completă în 10 minute cu AI</h3>
             <p class="tut-card-description">Folosește asistentul AI de pe telefon pentru a planifica o vacanță de la A la Z: destinație, cazare, traseu zilnic și buget estimat.</p>
             <div class="tut-card-meta">
-              <span class="meta-item"><span class="meta-icon">⏱️</span> 10 min</span>
-              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
-              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+              <span class="meta-item">⏱️ 10 min</span>
+              <span class="meta-item">📱 Android & iOS</span>
             </div>
             <a href="tutoriale/planifica-vacanta-cu-ai.html" class="tut-card-link">
               Citește
@@ -462,17 +435,16 @@
 
         <!-- Card 2 -->
         <article class="tut-card" data-level="incepator" data-platform="android ios">
-          <div class="tut-card-header">
-            <span class="tut-card-emoji">📸</span>
-            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
-            <h3 class="tut-card-title">Editează fotografii ca un profesionist cu AI</h3>
+          <div class="tut-card-img">
+            <img src="img/tutorials/photo-editing.jpg" alt="Editează fotografii ca un profesionist cu AI" loading="lazy">
+            <span class="tut-card-level-badge badge-incepator">Începător</span>
           </div>
           <div class="tut-card-body">
+            <h3 class="tut-card-title">Editează fotografii ca un profesionist cu AI</h3>
             <p class="tut-card-description">Descoperă cum poți îmbunătăți, retușa și transforma fotografiile tale folosind funcțiile AI integrate în telefon.</p>
             <div class="tut-card-meta">
-              <span class="meta-item"><span class="meta-icon">⏱️</span> 8 min</span>
-              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
-              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+              <span class="meta-item">⏱️ 8 min</span>
+              <span class="meta-item">📱 Android & iOS</span>
             </div>
             <a href="tutoriale/editeaza-poze-cu-ai.html" class="tut-card-link">
               Citește
@@ -483,17 +455,16 @@
 
         <!-- Card 3 -->
         <article class="tut-card" data-level="incepator" data-platform="android ios">
-          <div class="tut-card-header">
-            <span class="tut-card-emoji">✉️</span>
-            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
-            <h3 class="tut-card-title">Scrie emailuri perfecte în 30 de secunde cu AI</h3>
+          <div class="tut-card-img">
+            <img src="img/tutorials/email-phone.jpg" alt="Scrie emailuri perfecte în 30 de secunde cu AI" loading="lazy">
+            <span class="tut-card-level-badge badge-incepator">Începător</span>
           </div>
           <div class="tut-card-body">
+            <h3 class="tut-card-title">Scrie emailuri perfecte în 30 de secunde cu AI</h3>
             <p class="tut-card-description">Învață să compui emailuri profesionale, prietenoase sau formale cu ajutorul AI, în doar câteva secunde.</p>
             <div class="tut-card-meta">
-              <span class="meta-item"><span class="meta-icon">⏱️</span> 5 min</span>
-              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
-              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+              <span class="meta-item">⏱️ 5 min</span>
+              <span class="meta-item">📱 Android & iOS</span>
             </div>
             <a href="tutoriale/scrie-emailuri-cu-ai.html" class="tut-card-link">
               Citește
@@ -504,17 +475,16 @@
 
         <!-- Card 4 -->
         <article class="tut-card" data-level="intermediar" data-platform="android ios">
-          <div class="tut-card-header">
-            <span class="tut-card-emoji">🌍</span>
-            <div><span class="tut-card-badge tut-card-badge--intermediar">Intermediar</span></div>
-            <h3 class="tut-card-title">Traduceri instantanee în conversații cu AI</h3>
+          <div class="tut-card-img">
+            <img src="img/tutorials/globe-translation.jpg" alt="Traduceri instantanee în conversații cu AI" loading="lazy">
+            <span class="tut-card-level-badge badge-intermediar">Intermediar</span>
           </div>
           <div class="tut-card-body">
+            <h3 class="tut-card-title">Traduceri instantanee în conversații cu AI</h3>
             <p class="tut-card-description">Comunică fluent în orice limbă folosind funcțiile de traducere AI în timp real, direct din conversațiile tale.</p>
             <div class="tut-card-meta">
-              <span class="meta-item"><span class="meta-icon">⏱️</span> 7 min</span>
-              <span class="meta-item"><span class="meta-icon">📊</span> Intermediar</span>
-              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+              <span class="meta-item">⏱️ 7 min</span>
+              <span class="meta-item">📱 Android & iOS</span>
             </div>
             <a href="tutoriale/traduceri-instantanee-cu-ai.html" class="tut-card-link">
               Citește
@@ -525,17 +495,16 @@
 
         <!-- Card 5 -->
         <article class="tut-card" data-level="incepator" data-platform="android ios">
-          <div class="tut-card-header">
-            <span class="tut-card-emoji">📄</span>
-            <div><span class="tut-card-badge tut-card-badge--incepator">Începător</span></div>
-            <h3 class="tut-card-title">Rezumă documente lungi cu un singur tap</h3>
+          <div class="tut-card-img">
+            <img src="img/tutorials/document-reading.jpg" alt="Rezumă documente lungi cu un singur tap" loading="lazy">
+            <span class="tut-card-level-badge badge-incepator">Începător</span>
           </div>
           <div class="tut-card-body">
+            <h3 class="tut-card-title">Rezumă documente lungi cu un singur tap</h3>
             <p class="tut-card-description">Economisește timp transformând documente, articole sau PDF-uri lungi în rezumate concise cu ajutorul AI.</p>
             <div class="tut-card-meta">
-              <span class="meta-item"><span class="meta-icon">⏱️</span> 6 min</span>
-              <span class="meta-item"><span class="meta-icon">📊</span> Începător</span>
-              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+              <span class="meta-item">⏱️ 6 min</span>
+              <span class="meta-item">📱 Android & iOS</span>
             </div>
             <a href="tutoriale/rezuma-documente-cu-ai.html" class="tut-card-link">
               Citește
@@ -546,17 +515,16 @@
 
         <!-- Card 6 -->
         <article class="tut-card" data-level="intermediar" data-platform="android ios">
-          <div class="tut-card-header">
-            <span class="tut-card-emoji">🎨</span>
-            <div><span class="tut-card-badge tut-card-badge--intermediar">Intermediar</span></div>
-            <h3 class="tut-card-title">Creează imagini unice cu AI de pe telefon</h3>
+          <div class="tut-card-img">
+            <img src="img/tutorials/creative-art.jpg" alt="Creează imagini unice cu AI de pe telefon" loading="lazy">
+            <span class="tut-card-level-badge badge-intermediar">Intermediar</span>
           </div>
           <div class="tut-card-body">
+            <h3 class="tut-card-title">Creează imagini unice cu AI de pe telefon</h3>
             <p class="tut-card-description">Generează imagini originale, ilustrații și artă digitală folosind aplicații AI disponibile pe smartphone-ul tău.</p>
             <div class="tut-card-meta">
-              <span class="meta-item"><span class="meta-icon">⏱️</span> 12 min</span>
-              <span class="meta-item"><span class="meta-icon">📊</span> Intermediar</span>
-              <span class="meta-item"><span class="meta-icon">📱</span> Android & iOS</span>
+              <span class="meta-item">⏱️ 12 min</span>
+              <span class="meta-item">📱 Android & iOS</span>
             </div>
             <a href="tutoriale/creeaza-imagini-cu-ai.html" class="tut-card-link">
               Citește

@@ -152,7 +152,6 @@
     <!-- ========== HERO (compact) ========== -->
     <section class="hero" id="hero" style="min-height:auto;padding:4.5rem 1.5rem 1rem;">
       <div class="hero-content" style="max-width:700px;">
-        <div id="deviceBanner" style="display:none;margin-bottom:0.75rem;padding:0.4rem 1rem;border-radius:100px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);font-size:0.8rem;color:var(--neon-blue);display:inline-flex;align-items:center;gap:0.4rem;"></div>
         <h1 class="hero-title" style="font-size:clamp(1.8rem,4.5vw,3rem);margin-bottom:0.5rem;">
           <span class="line">Deblochează <span class="gradient-text">Geniul</span></span>
           <span class="line">din Telefonul Tău</span>
@@ -306,6 +305,11 @@
               </div>
             </a>
           </div>
+        </div>
+
+        <!-- Device Detection -->
+        <div class="hp-section">
+          <div id="deviceBanner" class="hp-device-banner" style="display:none;"></div>
         </div>
 
         <!-- IMEI Tool Shortcut -->
@@ -503,8 +507,12 @@
     if (device && platform) {
       const emoji = platform === 'ios' ? '🍎' : '🤖';
       const aiName = platform === 'ios' ? 'Apple Intelligence' : 'Google Gemini';
-      banner.style.display = 'inline-flex';
-      banner.innerHTML = emoji + ' Detectat: <strong>' + device + '</strong> · <a href="' + link + '" style="color:var(--neon-magenta);font-weight:600;">Descoperă ' + aiName + ' →</a>';
+      banner.style.display = 'block';
+      banner.innerHTML = '<div style="padding:0.75rem;border-radius:10px;border:1px solid rgba(0,212,255,0.2);background:rgba(0,212,255,0.05);">' +
+        '<div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.3rem;">Telefonul tău</div>' +
+        '<div style="font-size:0.95rem;font-weight:700;color:var(--text-primary);margin-bottom:0.4rem;">' + emoji + ' ' + device + '</div>' +
+        '<a href="' + link + '" style="font-size:0.8rem;color:var(--neon-blue);font-weight:600;">Descoperă ' + aiName + ' →</a>' +
+        '</div>';
     }
   })();
   </script>
