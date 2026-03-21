@@ -649,11 +649,11 @@ main {
    HERO SECTION - Larger, more impactful
    ============================================ */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 2rem 4rem;
+  padding: 5rem 2rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -2334,4 +2334,189 @@ main {
   .scroll-progress {
     transition: none;
   }
+}
+
+/* ============================================
+   HOMEPAGE GRID - GSMArena style dense layout
+   ============================================ */
+.hp-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+}
+.hp-section {
+  margin-bottom: 1.5rem;
+}
+.hp-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--neon-blue);
+}
+.hp-section-header h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+.hp-section-header a {
+  font-size: 0.8rem;
+  color: var(--neon-blue);
+  font-weight: 600;
+}
+
+/* Featured article */
+.hp-featured {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+}
+.hp-featured:hover { border-color: var(--neon-blue); transform: translateY(-2px); }
+.hp-featured img { width: 100%; height: 200px; object-fit: cover; }
+.hp-featured-content {
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+}
+.hp-featured-content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0.25rem 0;
+  line-height: 1.3;
+}
+
+/* Tags */
+.hp-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--neon-blue);
+}
+.hp-tag-sm {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--neon-magenta);
+  min-width: 65px;
+  display: inline-block;
+}
+.hp-date { font-size: 0.75rem; color: var(--text-muted); }
+.hp-date-sm { font-size: 0.7rem; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
+
+/* Article list */
+.hp-article-list { display: flex; flex-direction: column; }
+.hp-article-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.hp-article-item:hover { background: rgba(255,255,255,0.03); }
+.hp-article-item:last-child { border-bottom: none; }
+.hp-article-title {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.hp-article-item:hover .hp-article-title { color: var(--neon-blue); }
+
+/* Tutorial grid */
+.hp-tut-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.hp-tut-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg-card);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.hp-tut-card:hover { border-color: var(--neon-blue); }
+.hp-tut-card img { width: 80px; height: 50px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.hp-tut-info h4 { font-size: 0.8rem; font-weight: 600; color: var(--text-primary); margin: 0 0 0.15rem; line-height: 1.2; }
+.hp-tut-info span { font-size: 0.7rem; color: var(--text-muted); }
+
+/* Sidebar reviews */
+.hp-review-list { display: flex; flex-direction: column; }
+.hp-review-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.hp-review-item:hover { background: rgba(255,255,255,0.03); }
+.hp-review-item:last-child { border-bottom: none; }
+.hp-review-emoji { font-size: 1.5rem; }
+.hp-review-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); display: block; }
+.hp-review-stars { font-size: 0.75rem; color: #FFD700; }
+
+/* IMEI tool card */
+.hp-tool-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,212,255,0.2);
+  background: rgba(0,212,255,0.05);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.hp-tool-card:hover { background: rgba(0,212,255,0.1); border-color: var(--neon-blue); }
+.hp-tool-icon { font-size: 1.5rem; }
+.hp-tool-card strong { display: block; font-size: 0.9rem; color: var(--text-primary); }
+.hp-tool-card span { font-size: 0.75rem; color: var(--text-secondary); }
+
+/* Sidebar FAQ */
+.hp-faq { border-bottom: 1px solid rgba(255,255,255,0.05); }
+.hp-faq summary {
+  padding: 0.5rem 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  list-style: none;
+}
+.hp-faq summary::-webkit-details-marker { display: none; }
+.hp-faq p { font-size: 0.78rem; color: var(--text-secondary); padding: 0 0 0.5rem; line-height: 1.5; }
+
+/* Newsletter compact */
+.hp-newsletter {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--bg-card);
+}
+.hp-newsletter strong { font-size: 0.9rem; color: var(--text-primary); display: block; margin-bottom: 0.3rem; }
+.hp-newsletter p { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hp-grid { grid-template-columns: 1fr; }
+  .hp-tut-grid { grid-template-columns: 1fr; }
 }
