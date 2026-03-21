@@ -628,31 +628,32 @@
   var osRealMajor = null;
 
   function recalculateWithRealOS(realMajor, realVersion) {
-    // Update the displayed score with correct OS info
-    var scoreEl = document.getElementById('scoreNumber');
-    if (!scoreEl) return;
-    // Recalculate everything
     var prev = lastScoreData;
     if (!prev) return;
-    // Fix OS points
+    // Fix OS points (scala /10)
     var oldOsPoints = prev.categories[0].points;
-    var newOsPoints = 5;
-    if (realMajor >= 15) newOsPoints = 20;
-    else if (realMajor === 14) newOsPoints = 15;
-    else if (realMajor === 13) newOsPoints = 10;
-    var diff = newOsPoints - oldOsPoints;
-    if (diff === 0) return;
+    var newOsPoints = 3;
+    if (realMajor >= 15) newOsPoints = 10;
+    else if (realMajor >= 14) newOsPoints = 8;
+    else if (realMajor >= 13) newOsPoints = 6;
+    else if (realMajor >= 12) newOsPoints = 4;
+    if (newOsPoints === oldOsPoints) return;
     prev.categories[0].points = newOsPoints;
-    prev.score += diff;
+    prev.categories[0].detail = 'Android ' + realVersion;
     prev.osVersion = realVersion;
-    // Update grade
-    if (prev.score >= 90) { prev.grade = 'A+'; prev.gradeLabel = 'Excelent'; }
-    else if (prev.score >= 80) { prev.grade = 'A'; prev.gradeLabel = 'Foarte bun'; }
-    else if (prev.score >= 70) { prev.grade = 'B+'; prev.gradeLabel = 'Bun'; }
-    else if (prev.score >= 60) { prev.grade = 'B'; prev.gradeLabel = 'Decent'; }
-    else if (prev.score >= 50) { prev.grade = 'C'; prev.gradeLabel = 'Mediu'; }
+    // Recalculate total
+    var rawScore = 0;
+    for (var i = 0; i < prev.categories.length; i++) rawScore += prev.categories[i].points;
+    prev.total = Math.round((rawScore / 70) * 100);
+    if (prev.total > 100) prev.total = 100;
+    // Recalculate grade
+    var s = prev.total;
+    if (s >= 90) { prev.grade = 'A+'; prev.gradeLabel = 'Excelent'; }
+    else if (s >= 80) { prev.grade = 'A'; prev.gradeLabel = 'Foarte bun'; }
+    else if (s >= 70) { prev.grade = 'B+'; prev.gradeLabel = 'Bun'; }
+    else if (s >= 60) { prev.grade = 'B'; prev.gradeLabel = 'Decent'; }
+    else if (s >= 50) { prev.grade = 'C'; prev.gradeLabel = 'Mediu'; }
     else { prev.grade = 'D'; prev.gradeLabel = 'Necesită upgrade'; }
-    // Re-render
     renderScore(prev);
   }
 
@@ -665,131 +666,186 @@
     var score = 0;
     var categories = [];
 
-    // ========== 1. OS Freshness (0-20) ==========
-    var osPoints = 5;
+    // All categories scored on 0-10 scale for consistency
+    // Total = sum of all 7 categories, scaled to 0-100
+
+    // Try to get real Android version via userAgentData
+    var realOsMajor = os.major;
+    if (os.name === 'Android' && navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+      try {
+        // Synchronous check not possible, handle async below
+      } catch(e) {}
+    }
+
+    // ========== 1. OS Freshness (0-10) ==========
+    var osPoints = 3;
+    var osDetail = os.name + ' ' + (os.version || '?');
     if (os.name === 'Android') {
-      if (os.major >= 15) osPoints = 20;
-      else if (os.major === 14) osPoints = 15;
-      else if (os.major === 13) osPoints = 10;
-      else osPoints = 5;
+      if (os.major >= 15) osPoints = 10;
+      else if (os.major >= 14) osPoints = 8;
+      else if (os.major >= 13) osPoints = 6;
+      else if (os.major >= 12) osPoints = 4;
+      else osPoints = 2;
+      osDetail = 'Android ' + (os.version || os.major);
     } else if (os.name === 'iOS') {
-      if (os.major >= 18) osPoints = 20;
-      else if (os.major === 17) osPoints = 15;
-      else if (os.major === 16) osPoints = 10;
-      else osPoints = 5;
-    } else if (os.name === 'Windows' || os.name === 'macOS' || os.name === 'Linux') {
-      osPoints = 15;
+      if (os.major >= 18) osPoints = 10;
+      else if (os.major >= 17) osPoints = 8;
+      else if (os.major >= 16) osPoints = 6;
+      else osPoints = 3;
+      osDetail = 'iOS ' + (os.version || os.major);
+    } else if (os.name === 'Windows' || os.name === 'macOS') {
+      osPoints = 8;
+      osDetail = os.name + ' ' + (os.version || '');
     }
-    categories.push({ name: 'OS Freshness', points: osPoints, max: 20 });
-    score += osPoints;
+    categories.push({ name: 'Sistem Operare', points: osPoints, max: 10, detail: osDetail });
 
-    // ========== 2. Screen Quality (0-15) ==========
+    // ========== 2. Screen Quality (0-10) ==========
     var dpr = window.devicePixelRatio || 1;
-    var screenPoints = 3;
-    if (dpr >= 3) screenPoints = 15;
-    else if (dpr >= 2) screenPoints = 10;
-    else if (dpr >= 1.5) screenPoints = 5;
-    categories.push({ name: 'Ecran', points: screenPoints, max: 15 });
-    score += screenPoints;
+    var screenW = screen.width || 0;
+    var screenH = screen.height || 0;
+    var screenPoints = 2;
+    if (dpr >= 3.5) screenPoints = 10;
+    else if (dpr >= 3) screenPoints = 9;
+    else if (dpr >= 2.5) screenPoints = 7;
+    else if (dpr >= 2) screenPoints = 6;
+    else if (dpr >= 1.5) screenPoints = 4;
+    var screenDetail = screenW + '×' + screenH + ' px, ' + dpr + 'x DPR, ' + (screen.colorDepth || '?') + '-bit';
+    categories.push({ name: 'Calitate Ecran', points: screenPoints, max: 10, detail: screenDetail });
 
-    // ========== 3. CPU Power (0-15) ==========
+    // ========== 3. CPU Power (0-10) ==========
     var cores = navigator.hardwareConcurrency || 2;
-    var cpuPoints = 3;
-    if (cores >= 8) cpuPoints = 15;
-    else if (cores >= 6) cpuPoints = 10;
-    else if (cores >= 4) cpuPoints = 7;
+    var cpuPoints = 2;
+    if (cores >= 8) cpuPoints = 10;
+    else if (cores >= 6) cpuPoints = 7;
+    else if (cores >= 4) cpuPoints = 5;
     else cpuPoints = 3;
-    categories.push({ name: 'CPU', points: cpuPoints, max: 15 });
-    score += cpuPoints;
+    var cpuDetail = cores + ' nuclee';
+    // Try GPU info
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (gl) {
+        var ext = gl.getExtension('WEBGL_debug_renderer_info');
+        if (ext) cpuDetail += ' · GPU: ' + gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);
+      }
+    } catch(e) {}
+    categories.push({ name: 'Procesor', points: cpuPoints, max: 10, detail: cpuDetail });
 
-    // ========== 4. RAM (0-15) ==========
-    var ram = navigator.deviceMemory; // Chrome only, in GB
-    var ramPoints = 8; // default unknown
+    // ========== 4. RAM (0-10) ==========
+    var ram = navigator.deviceMemory;
+    var ramPoints = 5;
+    var ramDetail = 'Nedisponibil';
     if (ram !== undefined) {
-      if (ram >= 8) ramPoints = 15;
-      else if (ram >= 6) ramPoints = 12;
-      else if (ram >= 4) ramPoints = 8;
-      else ramPoints = 4;
+      if (ram >= 8) ramPoints = 10;
+      else if (ram >= 6) ramPoints = 8;
+      else if (ram >= 4) ramPoints = 6;
+      else if (ram >= 2) ramPoints = 4;
+      else ramPoints = 2;
+      ramDetail = ram + ' GB';
     }
-    categories.push({ name: 'RAM', points: ramPoints, max: 15 });
-    score += ramPoints;
+    categories.push({ name: 'Memorie RAM', points: ramPoints, max: 10, detail: ramDetail });
 
-    // ========== 5. AI Features (0-20) ==========
-    var aiPoints = 8;
+    // ========== 5. AI Features (0-10) ==========
+    var aiPoints = 4;
     var aiFeatures = '';
     var aiLink = '';
     var brandLower = device.brand.toLowerCase();
     var modelLower = (device.model || '').toLowerCase();
+    var aiDetail = '';
 
     if (brandLower === 'samsung') {
-      // Check for flagship (S24, S25, S23, etc.)
       if (/s2[3-9]|s24|s25|galaxy\s*s\s*2[3-9]/i.test(device.model)) {
-        aiPoints = 20;
+        aiPoints = 10;
         aiFeatures = 'Galaxy AI - Live Translate, Photo Assist, Note Assist, Chat Assist';
+        aiDetail = 'Galaxy AI complet';
         aiLink = '../recenzii/galaxy-ai.html';
       } else {
-        aiPoints = 12;
+        aiPoints = 6;
         aiFeatures = 'Galaxy AI (limitat) - Chat Assist, Note Assist';
+        aiDetail = 'Galaxy AI parțial';
         aiLink = '../recenzii/galaxy-ai.html';
       }
     } else if (brandLower === 'apple' && modelLower.includes('iphone')) {
-      if (/15 pro|16 pro|16|15 pro max|16 pro max/i.test(device.model)) {
-        aiPoints = 20;
-        aiFeatures = 'Apple Intelligence - Writing Tools, Genmoji, Image Playground, Visual Intelligence';
-        aiLink = '../blog/apple-intelligence-ghid.html';
-      } else if (/15|14/i.test(device.model)) {
-        aiPoints = 12;
-        aiFeatures = 'Apple Intelligence (limitat) - Writing Tools, Smart Reply';
+      if (/15 pro|16|17/i.test(device.model)) {
+        aiPoints = 10;
+        aiFeatures = 'Apple Intelligence - Writing Tools, Genmoji, Image Playground';
+        aiDetail = 'Apple Intelligence complet';
         aiLink = '../blog/apple-intelligence-ghid.html';
       } else {
-        aiPoints = 8;
-        aiFeatures = 'Siri (clasic) - fara Apple Intelligence';
+        aiPoints = 4;
+        aiFeatures = 'Siri (clasic)';
+        aiDetail = 'Fără Apple Intelligence';
         aiLink = '../blog/apple-intelligence-ghid.html';
       }
     } else if (brandLower === 'google' && /pixel\s*(8|9|pro)/i.test(device.model)) {
-      aiPoints = 18;
-      aiFeatures = 'Google AI - Gemini Nano, Magic Eraser, Call Screen, Live Translate';
+      aiPoints = 9;
+      aiFeatures = 'Gemini Nano, Magic Eraser, Call Screen';
+      aiDetail = 'Google AI on-device';
+      aiLink = '../blog/google-gemini-android.html';
+    } else if (brandLower === 'motorola') {
+      aiPoints = 7;
+      aiFeatures = 'Google Gemini, Moto AI';
+      aiDetail = 'Gemini + Moto AI features';
       aiLink = '../blog/google-gemini-android.html';
     } else if (os.name === 'Android') {
-      aiPoints = 8;
-      aiFeatures = 'Google Gemini (din aplicatie)';
+      aiPoints = 5;
+      aiFeatures = 'Google Gemini (din aplicație)';
+      aiDetail = 'Gemini din app';
       aiLink = '../blog/google-gemini-android.html';
     } else {
-      aiPoints = 5;
-      aiFeatures = 'AI disponibil din browser (ChatGPT, Gemini, Copilot)';
+      aiPoints = 3;
+      aiFeatures = 'AI disponibil din browser';
+      aiDetail = 'Doar din browser';
       aiLink = '';
     }
-    categories.push({ name: 'AI Features', points: aiPoints, max: 20 });
-    score += aiPoints;
+    categories.push({ name: 'Funcții AI', points: aiPoints, max: 10, detail: aiDetail });
 
     // ========== 6. Browser Modernity (0-10) ==========
     var webgl = false;
     try { webgl = !!document.createElement('canvas').getContext('webgl'); } catch(e) {}
     var sw = 'serviceWorker' in navigator;
     var wasm = typeof WebAssembly === 'object';
-    var modernCount = (webgl ? 1 : 0) + (sw ? 1 : 0) + (wasm ? 1 : 0);
-    var browserPoints = 4;
-    if (modernCount === 3) browserPoints = 10;
-    else if (modernCount === 2) browserPoints = 7;
-    else browserPoints = 4;
-    categories.push({ name: 'Browser', points: browserPoints, max: 10 });
-    score += browserPoints;
+    var touch = 'ontouchstart' in window;
+    var modernCount = (webgl ? 1 : 0) + (sw ? 1 : 0) + (wasm ? 1 : 0) + (touch ? 1 : 0);
+    var browserPoints = 3;
+    if (modernCount >= 4) browserPoints = 10;
+    else if (modernCount === 3) browserPoints = 8;
+    else if (modernCount === 2) browserPoints = 5;
+    var browserName = 'Necunoscut';
+    var browserV = '';
+    if (/Chrome\/(\d+)/i.test(ua) && !/Edg/i.test(ua)) { browserName = 'Chrome'; browserV = ua.match(/Chrome\/(\d+)/)[1]; }
+    else if (/Edg\/(\d+)/i.test(ua)) { browserName = 'Edge'; browserV = ua.match(/Edg\/(\d+)/)[1]; }
+    else if (/Firefox\/(\d+)/i.test(ua)) { browserName = 'Firefox'; browserV = ua.match(/Firefox\/(\d+)/)[1]; }
+    else if (/Safari\/(\d+)/i.test(ua) && /Version\/(\d+)/i.test(ua)) { browserName = 'Safari'; browserV = ua.match(/Version\/(\d+)/)[1]; }
+    var browserDetail = browserName + (browserV ? ' ' + browserV : '') + ' · WebGL: ' + (webgl?'✓':'✗') + ' · WASM: ' + (wasm?'✓':'✗');
+    categories.push({ name: 'Browser', points: browserPoints, max: 10, detail: browserDetail });
 
-    // ========== 7. Network (0-5) ==========
-    var netPoints = 3;
+    // ========== 7. Network (0-10) ==========
+    var netPoints = 5;
+    var netDetail = 'Necunoscut';
     if (navigator.connection) {
       var etype = navigator.connection.effectiveType || '';
-      if (etype === '4g') netPoints = 5;
-      else if (etype === '3g') netPoints = 3;
-      else if (etype === '2g') netPoints = 1;
-      else netPoints = 4;
+      var downlink = navigator.connection.downlink;
+      if (etype === '4g') netPoints = 10;
+      else if (etype === '3g') netPoints = 5;
+      else if (etype === '2g') netPoints = 2;
+      else netPoints = 7;
+      netDetail = etype.toUpperCase() + (downlink ? ' · ' + downlink + ' Mbps' : '');
     }
-    categories.push({ name: 'Retea', points: netPoints, max: 5 });
-    score += netPoints;
+    if (!navigator.onLine) { netPoints = 0; netDetail = 'Offline'; }
+    categories.push({ name: 'Rețea', points: netPoints, max: 10, detail: netDetail });
+
+    // ========== Calculate total (0-70 raw → 0-100 scaled) ==========
+    for (var i = 0; i < categories.length; i++) {
+      score += categories[i].points;
+    }
+    // Scale from 0-70 to 0-100
+    score = Math.round((score / 70) * 100);
+    if (score > 100) score = 100;
 
     // ========== Grade ==========
     var grade = 'D';
-    var gradeLabel = 'Necesita upgrade';
+    var gradeLabel = 'Necesită upgrade';
     if (score >= 90) { grade = 'A+'; gradeLabel = 'Excelent'; }
     else if (score >= 80) { grade = 'A'; gradeLabel = 'Foarte bun'; }
     else if (score >= 70) { grade = 'B+'; gradeLabel = 'Bun'; }
@@ -893,26 +949,21 @@
 
   function renderBreakdown() {
     var html = '';
-    var catLabels = {
-      'OS Freshness': 'Sistem Operare',
-      'Ecran': 'Calitate Ecran',
-      'CPU': 'Putere CPU',
-      'RAM': 'Memorie RAM',
-      'AI Features': 'Func\u021Bii AI',
-      'Browser': 'Browser Modern',
-      'Retea': 'Re\u021Bea'
-    };
 
     for (var i = 0; i < scoreData.categories.length; i++) {
       var cat = scoreData.categories[i];
       var pct = (cat.points / cat.max) * 100;
       var color = getScoreColor(pct);
-      var label = catLabels[cat.name] || cat.name;
 
       html += '<div class="breakdown-row">';
-      html += '<span class="breakdown-label">' + label + '</span>';
+      html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">';
+      html += '<span class="breakdown-label">' + cat.name + '</span>';
+      html += '<span class="breakdown-value" style="font-weight:800;color:' + color + ';">' + cat.points + '/10</span>';
+      html += '</div>';
       html += '<div class="breakdown-bar"><div class="breakdown-bar-fill" style="width:' + pct + '%;background:' + color + ';"></div></div>';
-      html += '<span class="breakdown-value">' + cat.points + '/' + cat.max + '</span>';
+      if (cat.detail) {
+        html += '<div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:0.15rem;">' + escapeHTML(cat.detail) + '</div>';
+      }
       html += '</div>';
     }
 
