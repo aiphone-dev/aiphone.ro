@@ -624,26 +624,39 @@
 
   // ========== BENCHMARK ENGINE ==========
 
+  // Run each test 3x, take median for consistency
+  function median3(fn) {
+    var results = [fn(), fn(), fn()];
+    results.sort(function(a,b) { return a-b; });
+    return results[1];
+  }
+
   function runMathBench() {
     var start = performance.now();
     var x = 0;
-    for (var i = 0; i < 1000000; i++) {
-      x += Math.sin(i * 0.001) + Math.cos(i * 0.002) + Math.sqrt(i);
+    // 5M iterations - heavy math
+    for (var i = 0; i < 5000000; i++) {
+      x += Math.sin(i * 0.001) * Math.cos(i * 0.002) + Math.sqrt(i) + Math.log(i + 1);
+      x += Math.atan2(Math.sin(i), Math.cos(i));
     }
     var end = performance.now();
-    // Prevent dead code elimination
-    if (x === -999) console.log(x);
+    if (x === -Infinity) console.log(x);
     return Math.round(end - start);
   }
 
   function runArrayBench() {
-    var arr = new Array(100000);
-    for (var i = 0; i < 100000; i++) {
-      arr[i] = Math.random();
+    // Create and sort 500K objects (not just numbers)
+    var arr = [];
+    for (var i = 0; i < 500000; i++) {
+      arr.push({ v: Math.random(), k: String.fromCharCode(65 + (i % 26)) + i });
     }
     var start = performance.now();
-    arr.sort(function(a, b) { return a - b; });
+    arr.sort(function(a, b) { return a.v - b.v; });
+    // Force access to prevent optimization
+    var sum = 0;
+    for (var j = 0; j < arr.length; j += 1000) sum += arr[j].v;
     var end = performance.now();
+    if (sum === -1) console.log(sum);
     return Math.round(end - start);
   }
 
@@ -655,31 +668,57 @@
     document.body.appendChild(container);
 
     var start = performance.now();
-    for (var i = 0; i < 1000; i++) {
+    // Create 3000 elements with nested structure
+    for (var i = 0; i < 3000; i++) {
       var el = document.createElement('div');
-      el.className = 'bench-temp-' + i;
-      el.textContent = 'test ' + i;
+      el.className = 'bench-temp';
+      el.style.padding = '2px';
+      var span = document.createElement('span');
+      span.textContent = 'item-' + i;
+      el.appendChild(span);
       container.appendChild(el);
+      // Force layout every 100 elements
+      if (i % 100 === 0) { var h = container.offsetHeight; }
     }
-    // Force layout
-    var h = container.offsetHeight;
+    var finalH = container.offsetHeight;
     // Remove all
-    while (container.firstChild) {
-      container.removeChild(container.firstChild);
-    }
+    container.innerHTML = '';
     var end = performance.now();
     document.body.removeChild(container);
-    if (h === -1) console.log(h);
+    if (finalH === -1) console.log(finalH);
     return Math.round(end - start);
   }
 
-  function calculateBenchScore(mathMs, arrayMs, domMs) {
-    var mathScore = Math.max(0, Math.round(5000 / mathMs * 1000));
-    var arrayScore = Math.max(0, Math.round(3000 / arrayMs * 1000));
-    var domScore = Math.max(0, Math.round(2000 / domMs * 1000));
-    var totalScore = Math.round((mathScore + arrayScore + domScore) / 3);
-    // Cap at a reasonable max
-    if (totalScore > 15000) totalScore = 15000;
+  function runMemoryBench() {
+    // Allocate and manipulate large typed arrays
+    var start = performance.now();
+    var size = 5000000;
+    var arr = new Float64Array(size);
+    for (var i = 0; i < size; i++) {
+      arr[i] = Math.random() * 1000;
+    }
+    // Process: running average
+    for (var j = 1; j < size; j++) {
+      arr[j] = (arr[j] + arr[j-1]) * 0.5;
+    }
+    var end = performance.now();
+    if (arr[0] === -1) console.log(arr[0]);
+    return Math.round(end - start);
+  }
+
+  function calculateBenchScore(mathMs, arrayMs, domMs, memMs) {
+    // Calibrated so that:
+    // Budget phone (old): ~1500-3000
+    // Mid-range: ~3000-5000
+    // Flagship: ~5000-7500
+    // Top flagship/desktop: ~7500-10000
+    // Score is inverse of time - faster = higher
+    var mathScore = Math.round(2000 / Math.max(mathMs, 1) * 1000);
+    var arrayScore = Math.round(1500 / Math.max(arrayMs, 1) * 1000);
+    var domScore = Math.round(800 / Math.max(domMs, 1) * 1000);
+    var memScore = Math.round(1200 / Math.max(memMs, 1) * 1000);
+    var totalScore = Math.round((mathScore + arrayScore + domScore + memScore) / 4);
+    if (totalScore > 10000) totalScore = 10000;
     return totalScore;
   }
 
@@ -843,8 +882,8 @@
     return div.innerHTML;
   }
 
-  function renderResults(score, mathMs, arrayMs, domMs) {
-    benchResult = { score: score, mathMs: mathMs, arrayMs: arrayMs, domMs: domMs };
+  function renderResults(score, mathMs, arrayMs, domMs, memMs) {
+    benchResult = { score: score, mathMs: mathMs, arrayMs: arrayMs, domMs: domMs, memMs: memMs };
 
     // Score number with animation
     var scoreEl = document.getElementById('scoreNumber');
@@ -873,6 +912,7 @@
     timesEl.innerHTML =
       '<div class="bench-time-item"><div class="bench-time-name">Math</div><div class="bench-time-value">' + mathMs + 'ms</div></div>' +
       '<div class="bench-time-item"><div class="bench-time-name">Array</div><div class="bench-time-value">' + arrayMs + 'ms</div></div>' +
+      '<div class="bench-time-item"><div class="bench-time-name">Memorie</div><div class="bench-time-value">' + memMs + 'ms</div></div>' +
       '<div class="bench-time-item"><div class="bench-time-name">DOM</div><div class="bench-time-value">' + domMs + 'ms</div></div>';
 
     // Device info - start with basics, update with high entropy
@@ -1043,47 +1083,50 @@
     runningArea.classList.add('active');
     progressFill.style.width = '0%';
 
-    // Step 1: Math test
-    runningTest.textContent = '\u{1f9ee} Test matematic...';
-    progressFill.style.width = '10%';
+    // Step 1: Math test (heavy)
+    runningTest.textContent = '\u{1f9ee} Test matematic (5M iterații)...';
+    progressFill.style.width = '5%';
 
     setTimeout(function() {
       var mathMs = runMathBench();
+      progressFill.style.width = '25%';
 
       // Step 2: Array test
-      runningTest.textContent = '\u{1f4ca} Test sortare array...';
-      progressFill.style.width = '40%';
+      runningTest.textContent = '\u{1f4ca} Test sortare (500K obiecte)...';
 
       setTimeout(function() {
         var arrayMs = runArrayBench();
+        progressFill.style.width = '50%';
 
-        // Step 3: DOM test
-        runningTest.textContent = '\u{1f3d7}\ufe0f Test DOM...';
-        progressFill.style.width = '70%';
+        // Step 3: Memory test
+        runningTest.textContent = '\u{1f4be} Test memorie (5M Float64)...';
 
         setTimeout(function() {
-          var domMs = runDomBench();
+          var memMs = runMemoryBench();
+          progressFill.style.width = '75%';
 
-          progressFill.style.width = '100%';
-          runningTest.textContent = '\u2705 Complet!';
-
-          // Calculate score
-          var score = calculateBenchScore(mathMs, arrayMs, domMs);
+          // Step 4: DOM test
+          runningTest.textContent = '\u{1f3d7}\ufe0f Test DOM (3000 elemente)...';
 
           setTimeout(function() {
-            runningArea.classList.remove('active');
-            resultsArea.classList.add('active');
-            startBtn.disabled = false;
+            var domMs = runDomBench();
+            progressFill.style.width = '100%';
+            runningTest.textContent = '\u2705 Complet!';
 
-            renderResults(score, mathMs, arrayMs, domMs);
+            var score = calculateBenchScore(mathMs, arrayMs, domMs, memMs);
 
-            // Scroll to results
-            resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 500);
+            setTimeout(function() {
+              runningArea.classList.remove('active');
+              resultsArea.classList.add('active');
+              startBtn.disabled = false;
+              renderResults(score, mathMs, arrayMs, domMs, memMs);
+              resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 400);
 
-        }, 50);
-      }, 50);
-    }, 100);
+          }, 30);
+        }, 30);
+      }, 30);
+    }, 80);
   }
 
   // ========== SHARE ==========
